@@ -1,0 +1,6327 @@
+{
+  "components": [
+    {
+      "name": "_cache",
+      "kind": "module",
+      "cls": "OrderedDict",
+      "file": "_memoize.py",
+      "line": 31,
+      "state": "",
+      "evidence": [
+        "_memoize.py#L31"
+      ]
+    },
+    {
+      "name": "_hash",
+      "kind": "module",
+      "cls": "hash",
+      "file": "_memoize.py",
+      "line": 155,
+      "state": "",
+      "evidence": [
+        "_memoize.py#L155"
+      ]
+    },
+    {
+      "name": "expanded_scopes",
+      "kind": "module",
+      "cls": "identify_scopes",
+      "file": "auth.py",
+      "line": 38,
+      "state": "",
+      "evidence": [
+        "auth.py#L38"
+      ]
+    },
+    {
+      "name": "parsed_scopes",
+      "kind": "module",
+      "cls": "parse_scopes",
+      "file": "auth.py",
+      "line": 39,
+      "state": "",
+      "evidence": [
+        "auth.py#L39"
+      ]
+    },
+    {
+      "name": "_jupyterhub_user",
+      "kind": "injected",
+      "cls": "requester",
+      "file": "users.py",
+      "line": 473,
+      "state": "",
+      "evidence": [
+        "users.py#L473"
+      ]
+    },
+    {
+      "name": "_finish_future",
+      "kind": "module",
+      "cls": "Future",
+      "file": "users.py",
+      "line": 987,
+      "state": "",
+      "evidence": [
+        "users.py#L987"
+      ]
+    },
+    {
+      "name": "hub_prefix",
+      "kind": "module",
+      "cls": "_hub_prefix_default",
+      "file": "app.py",
+      "line": 1205,
+      "state": "",
+      "evidence": [
+        "app.py#L1205"
+      ]
+    },
+    {
+      "name": "handlers",
+      "kind": "module",
+      "cls": "add_url_prefix",
+      "file": "app.py",
+      "line": 1830,
+      "state": "",
+      "evidence": [
+        "app.py#L1830"
+      ]
+    },
+    {
+      "name": "cookie_secret",
+      "kind": "injected",
+      "cls": "secret",
+      "file": "app.py",
+      "line": 1923,
+      "state": "",
+      "evidence": [
+        "app.py#L1923"
+      ]
+    },
+    {
+      "name": "hub",
+      "kind": "module",
+      "cls": "Hub",
+      "file": "app.py",
+      "line": 2121,
+      "state": "",
+      "evidence": [
+        "app.py#L2121"
+      ]
+    },
+    {
+      "name": "oauth_provider",
+      "kind": "module",
+      "cls": "make_provider",
+      "file": "app.py",
+      "line": 3195,
+      "state": "",
+      "evidence": [
+        "app.py#L3195"
+      ]
+    },
+    {
+      "name": "proxy",
+      "kind": "module",
+      "cls": "proxy_class",
+      "file": "app.py",
+      "line": 3230,
+      "state": "",
+      "evidence": [
+        "app.py#L3230"
+      ]
+    },
+    {
+      "name": "tornado_settings",
+      "kind": "injected",
+      "cls": "settings",
+      "file": "app.py",
+      "line": 3360,
+      "state": "",
+      "evidence": [
+        "app.py#L3360"
+      ]
+    },
+    {
+      "name": "tornado_application",
+      "kind": "module",
+      "cls": "Application",
+      "file": "app.py",
+      "line": 3367,
+      "state": "",
+      "evidence": [
+        "app.py#L3367"
+      ]
+    },
+    {
+      "name": "eventlog",
+      "kind": "module",
+      "cls": "EventLogger",
+      "file": "app.py",
+      "line": 3385,
+      "state": "",
+      "evidence": [
+        "app.py#L3385"
+      ]
+    },
+    {
+      "name": "_start_future",
+      "kind": "module",
+      "cls": "Future",
+      "file": "app.py",
+      "line": 3480,
+      "state": "",
+      "evidence": [
+        "app.py#L3480"
+      ]
+    },
+    {
+      "name": "io_loop",
+      "kind": "module",
+      "cls": "current",
+      "file": "app.py",
+      "line": 3834,
+      "state": "",
+      "evidence": [
+        "app.py#L3834"
+      ]
+    },
+    {
+      "name": "http_server",
+      "kind": "module",
+      "cls": "HTTPServer",
+      "file": "app.py",
+      "line": 3887,
+      "state": "",
+      "evidence": [
+        "app.py#L3887"
+      ]
+    },
+    {
+      "name": "internal_trust_bundles",
+      "kind": "module",
+      "cls": "trust_from_graph",
+      "file": "app.py",
+      "line": 1960,
+      "state": "",
+      "evidence": [
+        "app.py#L1960"
+      ]
+    },
+    {
+      "name": "session_factory",
+      "kind": "module",
+      "cls": "new_session_factory",
+      "file": "app.py",
+      "line": 2053,
+      "state": "",
+      "evidence": [
+        "app.py#L2053"
+      ]
+    },
+    {
+      "name": "db",
+      "kind": "module",
+      "cls": "session_factory",
+      "file": "app.py",
+      "line": 2056,
+      "state": "",
+      "evidence": [
+        "app.py#L2056"
+      ]
+    },
+    {
+      "name": "hub_bind_url",
+      "kind": "module",
+      "cls": "urlunparse",
+      "file": "app.py",
+      "line": 2113,
+      "state": "",
+      "evidence": [
+        "app.py#L2113"
+      ]
+    },
+    {
+      "name": "hub_connect_url",
+      "kind": "module",
+      "cls": "urlunparse",
+      "file": "app.py",
+      "line": 2145,
+      "state": "",
+      "evidence": [
+        "app.py#L2145"
+      ]
+    },
+    {
+      "name": "username_regex",
+      "kind": "module",
+      "cls": "compile",
+      "file": "auth.py",
+      "line": 423,
+      "state": "",
+      "evidence": [
+        "auth.py#L423"
+      ]
+    },
+    {
+      "name": "fernet",
+      "kind": "module",
+      "cls": "_fernet_default",
+      "file": "crypto.py",
+      "line": 127,
+      "state": "",
+      "evidence": [
+        "crypto.py#L127"
+      ]
+    },
+    {
+      "name": "expanded_scopes",
+      "kind": "module",
+      "cls": "set",
+      "file": "base.py",
+      "line": 102,
+      "state": "",
+      "evidence": [
+        "base.py#L102"
+      ]
+    },
+    {
+      "name": "_jupyterhub_user",
+      "kind": "injected",
+      "cls": "user",
+      "file": "base.py",
+      "line": 771,
+      "state": "",
+      "evidence": [
+        "base.py#L771"
+      ]
+    },
+    {
+      "name": "_refreshed_users",
+      "kind": "module",
+      "cls": "set",
+      "file": "base.py",
+      "line": 412,
+      "state": "",
+      "evidence": [
+        "base.py#L412"
+      ]
+    },
+    {
+      "name": "expanded_scopes",
+      "kind": "module",
+      "cls": "get_scopes_for",
+      "file": "base.py",
+      "line": 545,
+      "state": "",
+      "evidence": [
+        "base.py#L545"
+      ]
+    },
+    {
+      "name": "_loop",
+      "kind": "module",
+      "cls": "get_running_loop",
+      "file": "httpclient.py",
+      "line": 111,
+      "state": "",
+      "evidence": [
+        "httpclient.py#L111"
+      ]
+    },
+    {
+      "name": "_factory",
+      "kind": "module",
+      "cls": "partial",
+      "file": "httpclient.py",
+      "line": 36,
+      "state": "",
+      "evidence": [
+        "httpclient.py#L36"
+      ]
+    },
+    {
+      "name": "hashed",
+      "kind": "module",
+      "cls": "hash_token",
+      "file": "orm.py",
+      "line": 626,
+      "state": "",
+      "evidence": [
+        "orm.py#L626"
+      ]
+    },
+    {
+      "name": "last_exchanged_at",
+      "kind": "module",
+      "cls": "now",
+      "file": "orm.py",
+      "line": 1012,
+      "state": "",
+      "evidence": [
+        "orm.py#L1012"
+      ]
+    },
+    {
+      "name": "scopes",
+      "kind": "injected",
+      "cls": "new_scopes",
+      "file": "orm.py",
+      "line": 1250,
+      "state": "",
+      "evidence": [
+        "orm.py#L1250"
+      ]
+    },
+    {
+      "name": "semaphore",
+      "kind": "module",
+      "cls": "BoundedSemaphore",
+      "file": "proxy.py",
+      "line": 525,
+      "state": "",
+      "evidence": [
+        "proxy.py#L525"
+      ]
+    },
+    {
+      "name": "_check_running_callback",
+      "kind": "injected",
+      "cls": "pc",
+      "file": "proxy.py",
+      "line": 872,
+      "state": "",
+      "evidence": [
+        "proxy.py#L872"
+      ]
+    },
+    {
+      "name": "proxy_process",
+      "kind": "module",
+      "cls": "Popen",
+      "file": "proxy.py",
+      "line": 790,
+      "state": "",
+      "evidence": [
+        "proxy.py#L790"
+      ]
+    },
+    {
+      "name": "_last_purge",
+      "kind": "module",
+      "cls": "monotonic",
+      "file": "auth.py",
+      "line": 130,
+      "state": "",
+      "evidence": [
+        "auth.py#L130"
+      ]
+    },
+    {
+      "name": "_thread_loop",
+      "kind": "module",
+      "cls": "new_event_loop",
+      "file": "auth.py",
+      "line": 534,
+      "state": "",
+      "evidence": [
+        "auth.py#L534"
+      ]
+    },
+    {
+      "name": "_hub_auth",
+      "kind": "injected",
+      "cls": "auth",
+      "file": "auth.py",
+      "line": 1417,
+      "state": "",
+      "evidence": [
+        "auth.py#L1417"
+      ]
+    },
+    {
+      "name": "_hub_login_url",
+      "kind": "injected",
+      "cls": "login_url",
+      "file": "auth.py",
+      "line": 1459,
+      "state": "",
+      "evidence": [
+        "auth.py#L1459"
+      ]
+    },
+    {
+      "name": "_hub_auth",
+      "kind": "module",
+      "cls": "instance",
+      "file": "auth.py",
+      "line": 1412,
+      "state": "",
+      "evidence": [
+        "auth.py#L1412"
+      ]
+    },
+    {
+      "name": "_hub_auth_user_cache",
+      "kind": "module",
+      "cls": "check_hub_user",
+      "file": "auth.py",
+      "line": 1551,
+      "state": "",
+      "evidence": [
+        "auth.py#L1551"
+      ]
+    },
+    {
+      "name": "redirect",
+      "kind": "injected",
+      "cls": "raise_on_redirect",
+      "file": "auth.py",
+      "line": 1565,
+      "state": "",
+      "evidence": [
+        "auth.py#L1565"
+      ]
+    },
+    {
+      "name": "spawner",
+      "kind": "module",
+      "cls": "_ServiceSpawner",
+      "file": "service.py",
+      "line": 460,
+      "state": "",
+      "evidence": [
+        "service.py#L460"
+      ]
+    },
+    {
+      "name": "proc",
+      "kind": "module",
+      "cls": "Popen",
+      "file": "service.py",
+      "line": 140,
+      "state": "",
+      "evidence": [
+        "service.py#L140"
+      ]
+    },
+    {
+      "name": "_last_activity_sent",
+      "kind": "injected",
+      "cls": "last_activity",
+      "file": "extension.py",
+      "line": 486,
+      "state": "",
+      "evidence": [
+        "extension.py#L486"
+      ]
+    },
+    {
+      "name": "_activity_task",
+      "kind": "module",
+      "cls": "ensure_future",
+      "file": "extension.py",
+      "line": 690,
+      "state": "",
+      "evidence": [
+        "extension.py#L690"
+      ]
+    },
+    {
+      "name": "hub_auth",
+      "kind": "module",
+      "cls": "HubOAuth",
+      "file": "mixins.py",
+      "line": 655,
+      "state": "",
+      "evidence": [
+        "mixins.py#L655"
+      ]
+    },
+    {
+      "name": "io_loop",
+      "kind": "module",
+      "cls": "IOLoop",
+      "file": "mixins.py",
+      "line": 620,
+      "state": "",
+      "evidence": [
+        "mixins.py#L620"
+      ]
+    },
+    {
+      "name": "_server",
+      "kind": "injected",
+      "cls": "server",
+      "file": "spawner.py",
+      "line": 322,
+      "state": "",
+      "evidence": [
+        "spawner.py#L322"
+      ]
+    },
+    {
+      "name": "_poll_callback",
+      "kind": "module",
+      "cls": "PeriodicCallback",
+      "file": "spawner.py",
+      "line": 1777,
+      "state": "",
+      "evidence": [
+        "spawner.py#L1777"
+      ]
+    },
+    {
+      "name": "_server",
+      "kind": "module",
+      "cls": "Server",
+      "file": "spawner.py",
+      "line": 267,
+      "state": "",
+      "evidence": [
+        "spawner.py#L267"
+      ]
+    },
+    {
+      "name": "port",
+      "kind": "module",
+      "cls": "random_port",
+      "file": "spawner.py",
+      "line": 2121,
+      "state": "",
+      "evidence": [
+        "spawner.py#L2121"
+      ]
+    },
+    {
+      "name": "gr_name",
+      "kind": "injected",
+      "cls": "name",
+      "file": "mocking.py",
+      "line": 229,
+      "state": "",
+      "evidence": [
+        "mocking.py#L229"
+      ]
+    },
+    {
+      "name": "gr_mem",
+      "kind": "injected",
+      "cls": "members",
+      "file": "mocking.py",
+      "line": 230,
+      "state": "",
+      "evidence": [
+        "mocking.py#L230"
+      ]
+    },
+    {
+      "name": "gr_gid",
+      "kind": "injected",
+      "cls": "gid",
+      "file": "mocking.py",
+      "line": 231,
+      "state": "",
+      "evidence": [
+        "mocking.py#L231"
+      ]
+    },
+    {
+      "name": "pw_name",
+      "kind": "injected",
+      "cls": "name",
+      "file": "mocking.py",
+      "line": 238,
+      "state": "",
+      "evidence": [
+        "mocking.py#L238"
+      ]
+    },
+    {
+      "name": "pw_gid",
+      "kind": "injected",
+      "cls": "gid",
+      "file": "mocking.py",
+      "line": 239,
+      "state": "",
+      "evidence": [
+        "mocking.py#L239"
+      ]
+    },
+    {
+      "name": "socket",
+      "kind": "module",
+      "cls": "get",
+      "file": "mocking.py",
+      "line": 288,
+      "state": "",
+      "evidence": [
+        "mocking.py#L288"
+      ]
+    },
+    {
+      "name": "db_file",
+      "kind": "module",
+      "cls": "NamedTemporaryFile",
+      "file": "mocking.py",
+      "line": 392,
+      "state": "",
+      "evidence": [
+        "mocking.py#L392"
+      ]
+    },
+    {
+      "name": "stdout",
+      "kind": "module",
+      "cls": "DummyFile",
+      "file": "test_auth.py",
+      "line": 317,
+      "state": "",
+      "evidence": [
+        "test_auth.py#L317"
+      ]
+    },
+    {
+      "name": "request",
+      "kind": "module",
+      "cls": "Mock",
+      "file": "test_scopes.py",
+      "line": 90,
+      "state": "",
+      "evidence": [
+        "test_scopes.py#L90"
+      ]
+    },
+    {
+      "name": "executor",
+      "kind": "module",
+      "cls": "ThreadPoolExecutor",
+      "file": "test_utils.py",
+      "line": 79,
+      "state": "",
+      "evidence": [
+        "test_utils.py#L79"
+      ]
+    },
+    {
+      "name": "_original_help",
+      "kind": "injected",
+      "cls": "value",
+      "file": "traitlets.py",
+      "line": 133,
+      "state": "",
+      "evidence": [
+        "traitlets.py#L133"
+      ]
+    },
+    {
+      "name": "allow_named_servers",
+      "kind": "module",
+      "cls": "get",
+      "file": "user.py",
+      "line": 233,
+      "state": "",
+      "evidence": [
+        "user.py#L233"
+      ]
+    },
+    {
+      "name": "spawners",
+      "kind": "module",
+      "cls": "_SpawnerDict",
+      "file": "user.py",
+      "line": 240,
+      "state": "",
+      "evidence": [
+        "user.py#L240"
+      ]
+    },
+    {
+      "name": "last_activity",
+      "kind": "module",
+      "cls": "utcnow",
+      "file": "user.py",
+      "line": 962,
+      "state": "",
+      "evidence": [
+        "user.py#L962"
+      ]
+    }
+  ],
+  "losses": [],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [
+    "BaseShareRequest"
+  ],
+  "artifacts": [
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.shares == []",
+      "lang": "",
+      "file": "shares.py",
+      "line": 453
+    },
+    {
+      "kind": "test_fixture",
+      "text": "examples = '\\n        $> jupyterhub token kaylee\\n        ab01cd23ef45\\n    '",
+      "lang": "",
+      "file": "app.py",
+      "line": 183
+    },
+    {
+      "kind": "test_fixture",
+      "text": "examples = '\\n\\n    generate default config file:\\n\\n        jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub_config.py\\n\\n    spawn the server on 10.0.1.2:443 with https:\\n\\n        jupyterhub --ip 10.0.1.2 --port 443 --ssl-key m",
+      "lang": "",
+      "file": "app.py",
+      "line": 259
+    },
+    {
+      "kind": "test_fixture",
+      "text": "examples = ''",
+      "lang": "",
+      "file": "mixins.py",
+      "line": 185
+    },
+    {
+      "kind": "docstring",
+      "text": "An exception to raise when a policy failure prevents a spawn.\nThis is meant to help logging and metrics distinguish spawns that\nshould have been rejected due to policy failures, e.g. invalid launch parameters,\nfrom spawns that error due to unexpected system errors that indicate possible\nJupyterHub s",
+      "lang": "",
+      "file": "spawner.py",
+      "line": 78
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_error_message = 'Invalid username or password'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 164
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert mock_otp_auth.call_args.args[1] == (username, 'otp!')",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 215
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_heading = 'Server not running'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 249
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_button_name = 'Launch Server'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 253
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_btns_name = ['Stop My Server', 'My Server']",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 348
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_display_name = '< 🐧 >Å=Ⅷ'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 369
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_encoded_display_name = '%3C%20%F0%9F%90%A7%20%3E%C3%85%3D%E2%85%A7'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 370
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_server_name = 'a-viii'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 371
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_btn_name = 'Start My Server'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 489
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_btns_names = ['Stop My Server', 'My Server']",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 503
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_btn_name = 'Request new API token'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 633
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_panel_token_heading = 'Your new API Token'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 653
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_table_name = 'API Tokens'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 666
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(user.api_tokens) == 1",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 722
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert last_used_text == 'Never'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 748
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_link_bar_url = ['/hub/', '/hub/home', '/hub/token', '/hub/logout']",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 951
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_link_bar_name = ['', 'Home', 'Token', 'Logout']",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 952
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cookie['name'] == '_xsrf'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1504
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert new_cookie['name'] == '_xsrf'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1519
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert await otp_label.count() == 0",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 189
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert await otp_input.count() == 0",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 190
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_messages = ['Server requested', 'Spawning server...', f'Server ready at {user.server_url()}']",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 287
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(user.api_tokens) == 2",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 901
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_status = 'error'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1632
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_status = 403",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1634
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_status = 200",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1641
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert result == 'ok'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1711
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_note = 'Requested via token page'",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 730
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(cookies) == 1",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1485
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(cookies) == 2",
+      "lang": "",
+      "file": "test_browser.py",
+      "line": 1496
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r2.status_code == 200",
+      "lang": "",
+      "file": "mocking.py",
+      "line": 454
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(s.cookies.keys()) == ['_xsrf', 'jupyterhub-hub-login', 'jupyterhub-session-id']",
+      "lang": "",
+      "file": "mocking.py",
+      "line": 455
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert url.scheme == 'https'",
+      "lang": "",
+      "file": "mocksu.py",
+      "line": 56
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 404",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 50
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 200",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 58
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 403",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 66
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 400",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 118
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert users == [fill_user({'name': 'admin', 'admin': True, 'roles': ['admin', 'user'], 'auth_state': None, 'user_info': None}), fill_user(user_model)]",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 266
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert response_users == ['q', 'qr', 'qrs', 'qrst']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 519
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert response_users == ['qr', 'qrs', 'qrst']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 524
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert response_users == ['qrs', 'qrst']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 529
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert response_users == ['qrst']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 534
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert page_1['_pagination']['total'] == 4",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 591
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(users) == 2",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 593
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json()['kind'] == 'user'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 625
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service_info['kind'] == 'service'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 667
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 201",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 677
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json()['message'] == 'Invalid usernames: andrew, tara'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 755
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 409",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 784
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r_names == ['ab']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 795
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 204",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 890
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(argv) == 1",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1073
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert status == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1091
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert tokens == []",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1098
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert app.users.count_active_users()['pending'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1099
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert env['HANDLER_ARGS'] == 'foo=bar'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1176
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 202",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1191
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert app.users.count_active_users()['pending'] == 1",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1195
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert app.users.count_active_users()['active'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1229
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 500",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1259
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 418",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1290
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 418, 'message': 'Teapot alert!'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1292
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 410",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1297
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 410, 'message': 'Your fault'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1300
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 411",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1305
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 411, 'message': 'Your fault 2'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1309
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 500, 'message': 'Internal Server Error'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1315
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.headers['content-type'] == 'text/event-stream'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1366
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt == {'progress': 0, 'message': 'Server requested'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1371
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt == {'progress': 50, 'message': 'Spawning server...'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1373
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt == {'progress': 100, 'message': f'Server ready at {url}', 'html_message': f'Server ready at <a href=\"{url}\">{url}</a>', 'url': url, 'ready': True}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1376
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt['progress'] == 100",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1424
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt == {'progress': 100, 'failed': True, 'message': \"Spawn failed: I don't work!\"}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1529
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt['progress'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1550
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt['progress'] == 50",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1552
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert evt == {'progress': 1, 'message': 'Stage 1'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1590
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert app.users.count_active_users()['pending'] == 2",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1608
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 429",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1615
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['active'] == 2",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1658
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['ready'] == 2",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1659
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['pending'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1660
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['active'] == 1",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1675
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['ready'] == 1",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1676
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['active'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1696
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert counts['ready'] == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1697
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.pending == 'spawn'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1708
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert m.call_count == 0",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1714
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.pending == 'stop'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1720
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(reply.keys()) == [app.hub.routespec]",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1746
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply['user'] == 'admin'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1845
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(reply) == ['api_tokens']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2031
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply == []",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2054
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply == [{'kind': 'group', 'name': 'alphaflight', 'users': [], 'roles': [], 'properties': {}}, {'kind': 'group', 'name': 'betaflight', 'users': [], 'roles': [], 'properties': {}}]",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2066
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply == [{'kind': 'group', 'name': 'betaflight', 'users': [], 'roles': [], 'properties': {}}]",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2088
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply == [{'kind': 'group', 'name': 'alphaflight', 'users': [], 'roles': [], 'properties': {}}]",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2108
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply == {'kind': 'group', 'name': 'alphaflight', 'users': ['sasquatch'], 'roles': [], 'properties': {}}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2168
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group.properties == {}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2312
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert services == {mockservice.name: {'kind': 'service', 'name': mockservice.name, 'admin': True, 'roles': ['admin'], 'command': mockservice.command, 'pid': mockservice.proc.pid, 'prefix': mockservice.server.base_url, 'url': mockservice.ur",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2366
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service == {'kind': 'service', 'name': mockservice.name, 'admin': True, 'roles': ['admin'], 'command': mockservice.command, 'pid': mockservice.proc.pid, 'prefix': mockservice.server.base_url, 'url': mockservice.url, 'info': {}, 'disp",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2393
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 405",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2667
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected = {'version': jupyterhub.__version__}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2678
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(data) == ['authenticator', 'python', 'spawner', 'sys_executable', 'version']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2687
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert data['authenticator'] == {'class': 'jupyterhub.tests.mocking.MockPAMAuthenticator', 'version': jupyterhub.__version__}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2696
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert data['spawner'] == {'class': 'jupyterhub.tests.mocking.MockSpawner', 'version': jupyterhub.__version__}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2700
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.display_name == 'New Name!'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2898
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.orm_spawner.user_options == {'key': 'value'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2899
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.user_options == {'key': 'value'}",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2900
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply['note'] == 'Requested via api'",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 1855
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert [g.name for g in user.groups] == ['alphaflight']",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2239
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.groups == []",
+      "lang": "",
+      "file": "test_api.py",
+      "line": 2253
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert config['JupyterHub']['log_level'] == 10",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 55
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert returncode == 1",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 88
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cfg_text == 'c.A = 5'",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 106
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert blue.properties == {}",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 268
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert deprecated_list.properties == {}",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 275
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(user.spawners) == ['', 'stopped']",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 330
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(db.query(orm.Server)) == []",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 365
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted([s.name for s in user._orm_spawners]) == ['', 'stopped']",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 367
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted((role.name for role in user.roles)) == ['admin', 'user']",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 641
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert [g.name for g in user.groups] == [groupname]",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 642
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.roles == []",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 662
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.groups == []",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 663
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.spawners == {}",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 672
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_warn = [expected_warn]",
+      "lang": "",
+      "file": "test_app.py",
+      "line": 564
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'match'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 26
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'allowedmatch'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 45
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'notallowedmatch'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 50
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'group_admin'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 101
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'also_group_admin'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 115
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'override_admin'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 129
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'non_admin'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 142
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'kaylee'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 154
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'wash'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 206
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert record['cmd'] == ['echo', '/home/lioness4321', 'lioness4321']",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 346
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert logout == '/base/url/logout'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 364
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert login == '/base/url/login'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 365
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert handlers[0][0] == '/login'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 371
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'zoe'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 466
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'glenn'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 471
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'hexi'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 476
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'test'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 481
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'alpha'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 490
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'inara'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 495
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['testkey'] == 'testvalue'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 521
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['user_info']['testkey'] == 'testvalue'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 535
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert caplog.record_tuples == [(log.name, logging.WARNING, 'Authenticator.whitelist is deprecated in JupyterHub 1.2, use Authenticator.allowed_users instead')]",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 548
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert [role.name for role in user.roles] == ['user', role.name]",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 953
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert [role.name for role in user.roles] == ['user']",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 965
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert count_roles() == 0",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 981
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert count_roles() == 1",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 1024
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert str(exc.value) == 'Failed to create system user lioness4321: dummy error'",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 325
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert [role.name for role in user.roles] == []",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 958
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_not_allowed = []",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 1269
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(logs) == 1",
+      "lang": "",
+      "file": "test_auth.py",
+      "line": 945
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 302",
+      "lang": "",
+      "file": "test_auth_expiry.py",
+      "line": 98
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(sqlite_files) == 1",
+      "lang": "",
+      "file": "test_db.py",
+      "line": 85
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(sqlite_files) == 2",
+      "lang": "",
+      "file": "test_db.py",
+      "line": 94
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'test_user'",
+      "lang": "",
+      "file": "test_dummyauth.py",
+      "line": 14
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'some_other_user'",
+      "lang": "",
+      "file": "test_dummyauth.py",
+      "line": 47
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cache['b'] == 2",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 12
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cache['a'] == 1",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 15
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(cache._cache) == 2",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 21
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert out1 == [2, 1]",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 40
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert is_even(0) == True",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 60
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert is_even(1) == False",
+      "lang": "",
+      "file": "test_memoize.py",
+      "line": 69
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner_names[:2] == [('', None), ('', None)]",
+      "lang": "",
+      "file": "test_migrations.py",
+      "line": 84
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_server_names = ['a-b-c', 'a-b-c-3d9e03d4', 'a', 'p-c-a-ch-rs', 'abc', 'running €']",
+      "lang": "",
+      "file": "test_migrations.py",
+      "line": 40
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_display_names = [None, 'a-b-c🐧', '\\\\ a 🐧 -', '$p~c|a! ch@rs', None, None]",
+      "lang": "",
+      "file": "test_migrations.py",
+      "line": 50
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.text == ''",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 67
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert exc.value.response.json() == {'status': 400, 'message': f\"Invalid server_name: '{servername}'\"}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 252
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_log_servername = \"'<!\\\\n>'\"",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 267
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert exc.value.response.json() == {'status': 400, 'message': f'Starting invalid server_name {expected_log_servername} is disabled, contact your administrator'}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 274
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 400, 'message': 'User foo already has the maximum of 2 named servers.  One must be deleted before a new server can be created'}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 372
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.user_options == {'energy': '938MeV', 'bounds': [-10, 10], 'notspecified': 5}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 486
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.json() == {'status': 400, 'message': f'User {username} already has the maximum of 2 named servers.  One must be deleted before a new server can be created'}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 447
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert path == 'redirect-to-terminal'",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 594
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(servers) == 2",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 757
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user_model['servers'] == {}",
+      "lang": "",
+      "file": "test_named_servers.py",
+      "line": 764
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert server.ip == ''",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 29
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert server.base_url == '/'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 30
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert server.proto == 'http'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 31
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert server.port == 80",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 52
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert check_connect_url.connect_url == 'http://127.0.0.1:80/'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 55
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.name == 'kaylee'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 67
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.orm_spawners[''].state == {'pid': 4234}",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 68
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.name == 'company\\\\user@company.com,\"quoted\"'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 81
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.escaped_name == 'company%5Cuser@company.com%2C%22quoted%22'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 82
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.json_escaped_name == 'company\\\\\\\\user@company.com,\\\\\"quoted\\\\\"'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 83
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert rounds == '1'",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 100
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(user.api_tokens) == 3",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 109
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(service.api_tokens) == 2",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 158
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group.users == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 248
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group.users == [user]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 253
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.groups == [group]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 254
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.orm_spawners == {}",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 344
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.api_tokens == [oauth_token]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 410
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.api_tokens == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 423
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.oauth_codes == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 424
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user1.shares == [share]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 516
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.shares == [share]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 517
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user1.shared_with_me == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 518
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.shared_with_me == [share]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 519
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user1.shares == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 522
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.shared_with_me == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 525
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group2.shared_with_me == [share]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 553
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.all_shared_with_me == [share]",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 554
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group2.shared_with_me == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 561
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user2.all_shared_with_me == []",
+      "lang": "",
+      "file": "test_orm.py",
+      "line": 562
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert path == '/foo/bar'",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 69
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 424",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 188
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert env['HANDLER_ARGS'] == 'arg=value'",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 212
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert parse_qs(url.query).get('next') == [next_url]",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 536
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_auth = {'username': auth_user, 'password': form_password}",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 782
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert called_with == [expected_auth]",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 801
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(s.cookies.keys()) == ['_xsrf']",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 993
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert mock_add_user.mock_calls == [mock.call(user)]",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1070
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.headers['content-type'] == 'image/png'",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1079
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.headers['content-type'] == 'text/css'",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1085
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert home_resp.status_code == 200",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1191
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.headers['content-type'] == 'application/json'",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1301
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status_code == 503",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1311
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert u.spawner.user_options == {'energy': '510keV', 'notspecified': 5}",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 359
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert u.spawner.user_options == {'energy': '511keV', 'bounds': [-1, 1], 'notspecified': 5}",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 406
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.spawner.user_options == {'energy': '938MeV', 'bounds': [-3, 3], 'notspecified': 5}",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 471
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert u.spawner.user_options == {'energy': '511keV', 'bounds': [-1, 1], 'notspecified': 5, 'hello': {'filename': 'hello.txt', 'body': b'hello world\\n', 'content_type': 'application/unknown'}}",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 503
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert admin_resp.status_code == 200",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1198
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert admin_resp.status_code == 403",
+      "lang": "",
+      "file": "test_pages.py",
+      "line": 1201
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(routes.keys()) == [app.hub.routespec]",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 87
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(routes.keys()) == [app.hub.routespec, user_spec]",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 105
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(routes.keys()) == []",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 115
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(proxy.extra_routes) == [expected]",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 262
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert list(proxy.extra_routes.values()) == [expected]",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 286
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert route == {'target': target, 'routespec': routespec, 'data': route.get('data')}",
+      "lang": "",
+      "file": "test_proxy.py",
+      "line": 326
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user_role.users == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 46
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user_role.services == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 47
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user_role.groups == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 48
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service_role.users == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 49
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service_role.services == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 50
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service_role.groups == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 51
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.roles == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 52
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service.roles == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 53
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group.roles == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 54
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user_role.users == [user]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 60
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.roles == [user_role]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 61
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service_role.services == [service]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 62
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert service.roles == [service_role]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 63
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group_role.groups == [group]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 64
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group.roles == [group_role]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 65
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group_role.groups == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 89
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert culler_service.roles == [culler_role]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 556
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert admin_service.roles == [admin_role]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 559
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert group1.roles == []",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 618
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.api_tokens == [orm_server_token]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 860
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert app_service['name'] == 'oas1'",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 920
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply['name'] == 'jack'",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 967
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(reply['roles']) == 1",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 968
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(reply) == 1",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 978
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply[0]['name'] == 'A'",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 979
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(user.roles) == 1",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 1367
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(user.roles) == 0",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 1375
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(managed_roles) == 1",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 1388
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(managed_roles) == 0",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 1400
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply['roles'] == ['token']",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 729
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reply['roles'] == [rolename]",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 731
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert caplog.text == ''",
+      "lang": "",
+      "file": "test_roles.py",
+      "line": 353
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(recwarn) == 1",
+      "lang": "",
+      "file": "test_scopes.py",
+      "line": 900
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(recwarn) == 0",
+      "lang": "",
+      "file": "test_scopes.py",
+      "line": 902
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cache['key'] == 'cached value'",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 33
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sub_reply == {'name': u.name, 'admin': False}",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 87
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(r.history) == 0",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 329
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sub_reply == {'name': user.name, 'kind': 'user'}",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 332
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(r.cookies) == 0",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 367
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sub_reply == {'name': name, 'kind': 'user'}",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 422
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert state_cookies == [state_cookie_name]",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 509
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(state_cookies) == 2",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 527
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert state_cookies == []",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 556
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert auth_tokens() == []",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 597
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(auth_tokens()) == 1",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 620
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert sorted(set(s.cookies.keys())) == ['_xsrf', service_cookie_name]",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 630
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cache.get('key', 'default') == 'default'",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 55
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cache.get('key', 'default') == 'cached value'",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 62
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert parse_qs(query).get('error') == ['invalid_scope']",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 298
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert query.get('error') == ['invalid_request']",
+      "lang": "",
+      "file": "test_services_auth.py",
+      "line": 713
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['name'] == 'admin'",
+      "lang": "",
+      "file": "test_shared_password.py",
+      "line": 79
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['groups'] == ['group-a', 'group-b']",
+      "lang": "",
+      "file": "test_shared_password.py",
+      "line": 147
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['groups'] == ['group-c']",
+      "lang": "",
+      "file": "test_shared_password.py",
+      "line": 154
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert authorized['groups'] == []",
+      "lang": "",
+      "file": "test_shared_password.py",
+      "line": 161
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert orm_code.exchange_count == 0",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 364
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert orm_code.exchange_count == 1",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 368
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_shares = []",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 904
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert accept_query == {'code': [share_model['code']]}",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 1211
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert share_with.shared_with_me == []",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 292
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(share_list['items']) == 2",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 689
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(share_list['items']) == 0",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 691
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(share_user.shared_with_me) == 1",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 1410
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert owner.shares == []",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 298
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert share_model == {}",
+      "lang": "",
+      "file": "test_shares.py",
+      "line": 635
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert ip == '127.0.0.1'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 67
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.server.ip == '127.0.0.1'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 123
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.notebook_dir == 'user/{username}/'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 230
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.default_url == '/base/{username}'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 231
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert mock_proc.kwargs['shell'] == True",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 249
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert mock_proc.args[0][:1] == ['jupyterhub-singleuser']",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 250
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert env['TESTVAR'] == 'foo'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 275
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert user.api_tokens == [found]",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 312
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert other_user.api_tokens == []",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 364
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(other_user.api_tokens) == 1",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 369
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert env['JUPYTERHUB_API_URL'] == 'https://example.com/api'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 504
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert result == {'key': 'value', 'default': 'added'}",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 545
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.notebook_dir == '/tmp'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 625
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.term_timeout == 1",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 626
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.environment == {'key': 'value'}",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 627
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert spawner.server.ip == '1.2.3.4'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 682
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.start_timeout == 120",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 704
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.start_timeout == 60",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 711
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.start_timeout == 300",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 739
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.environment['AM_I_ADMIN'] == 'yes'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 764
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert s.environment['AM_I_USER'] == 'yes'",
+      "lang": "",
+      "file": "test_spawner.py",
+      "line": 765
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.url == '/a/b/c/'",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 13
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.url == '/a/b/'",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 15
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.url == '/a/b/c/d/'",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 17
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.cmd == ['default command']",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 26
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.cmd2 == ['default_cmd']",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 27
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.cmd == ['foo bar']",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 29
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert c.mem == 1024",
+      "lang": "",
+      "file": "test_traitlets.py",
+      "line": 40
+    },
+    {
+      "kind": "test_fixture",
+      "text": "expected_args = ['configurable-http-proxy', '--socket', proxy_sock, '--api-socket', api_sock]",
+      "lang": "",
+      "file": "test_unix_socket.py",
+      "line": 50
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert r.status == 200",
+      "lang": "",
+      "file": "test_unix_socket.py",
+      "line": 67
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert await t.on_executor() == 'executor'",
+      "lang": "",
+      "file": "test_utils.py",
+      "line": 95
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert await t.tornado_coroutine() == 'gen.coroutine'",
+      "lang": "",
+      "file": "test_utils.py",
+      "line": 96
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(caplog.records) == 1",
+      "lang": "",
+      "file": "test_version.py",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "Our community is distributed across the world in various timezones, so please be patient if you do not get a response immediately!",
+      "lang": "{note}",
+      "file": "community.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": "You will need Python and Git installed. Installation details are avaiable at {ref}`contributing:setup`.",
+      "lang": "{note}",
+      "file": "docs.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": "nox -s docs -- live",
+      "lang": "bash",
+      "file": "docs.md",
+      "line": 28
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 -m pip install --editable .\npython3 -m pip install -r docs/requirements.txt",
+      "lang": "bash",
+      "file": "docs.md",
+      "line": 38
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 -m pip",
+      "lang": "bash",
+      "file": "docs.md",
+      "line": 60
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\ncommunity\nsetup\ndocs\ntests\nroadmap\nsecurity",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 14
+    },
+    {
+      "kind": "readme_block",
+      "text": "Some users have reported that JupyterHub runs successfully on [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/). We have no plans to support Windows outside of the WSL.",
+      "lang": "{admonition} What about Windows?",
+      "file": "setup.md",
+      "line": 23
+    },
+    {
+      "kind": "readme_block",
+      "text": "Using any form of virtualization (for example, [VirtualBox](https://www.virtualbox.org/), [Docker](https://www.docker.com/), [Podman](https://podman.io/), [WSL](https://learn.microsoft.com/en-us/windows/wsl/)) is a good way to get up and running quickly, though properly configuring the networking settings can be a bit tricky.",
+      "lang": "{admonition} What about virtualization?",
+      "file": "setup.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "python -V",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 77
+    },
+    {
+      "kind": "readme_block",
+      "text": "node -v",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 83
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 -m pip install --editable \".[test]\"",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 116
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub -f testing/jupyterhub_config.py",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 122
+    },
+    {
+      "kind": "readme_block",
+      "text": "cd jsx\nnpm install\nnpm run build:watch",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 183
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 setup.py js    # fetch updated client-side js\npython3 setup.py css   # recompile CSS from LESS sources\npython3 setup.py jsx   # build React admin app",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 221
+    },
+    {
+      "kind": "readme_block",
+      "text": "lsof -P -i TCP:<port> -sTCP:LISTEN",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 234
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo lsof -P -i TCP:<port> -sTCP:LISTEN",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 241
+    },
+    {
+      "kind": "readme_block",
+      "text": "lsof -P -i TCP:8081 -sTCP:LISTEN",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 254
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo lsof -P -i TCP:8081 -sTCP:LISTEN",
+      "lang": "bash",
+      "file": "setup.md",
+      "line": 260
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.hub_port = 9081 # Or any other free port",
+      "lang": "python",
+      "file": "setup.md",
+      "line": 266
+    },
+    {
+      "kind": "readme_block",
+      "text": "Before run any test, make sure you have completed {ref}`contributing:setup`.\nOnce you are done, you would be able to run `jupyterhub` from the command line and access it from your web browser.\nThis ensures that the development environment is properly set up for tests to run.",
+      "lang": "{note}",
+      "file": "tests.md",
+      "line": 12
+    },
+    {
+      "kind": "readme_block",
+      "text": "For details of `pytest`, refer to the [`pytest` usage documentation](https://docs.pytest.org/en/latest/usage.html).",
+      "lang": "{note}",
+      "file": "tests.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": "pytest -v jupyterhub/tests",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 26
+    },
+    {
+      "kind": "readme_block",
+      "text": "pytest -v --cov=jupyterhub jupyterhub/tests",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 35
+    },
+    {
+      "kind": "readme_block",
+      "text": "pytest -v jupyterhub/tests/<test-file-name>",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 43
+    },
+    {
+      "kind": "readme_block",
+      "text": "pytest -v jupyterhub/tests/<test-file-name>::<test-name>",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 51
+    },
+    {
+      "kind": "readme_block",
+      "text": "pytest -v jupyterhub/tests/test_api.py::test_shutdown",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 62
+    },
+    {
+      "kind": "readme_block",
+      "text": "With the introduction of [top-level awaits](https://piccolo-orm.com/blog/top-level-await-in-python/), the use of the `io_loop` fixture of the [pytest-tornado plugin](https://www.tornadoweb.org/en/stable/ioloop.html) is no longer necessary. It was initially used to call coroutines. With the upgrades made to `pytest-asyncio`, this usage is now deprecated. It is now, only utilized within the JupyterH",
+      "lang": "{note}",
+      "file": "tests.md",
+      "line": 119
+    },
+    {
+      "kind": "readme_block",
+      "text": "# check for changes to code not yet committed\npre-commit run\n\n# check for changes also in already committed code\npre-commit run --all-files",
+      "lang": "bash",
+      "file": "tests.md",
+      "line": 156
+    },
+    {
+      "kind": "readme_block",
+      "text": "JupyterHub component resource usage for mybinder.org.",
+      "lang": "{figure} /images/mybinder-hub-components-cpu-memory.png",
+      "file": "capacity-planning.md",
+      "line": 45
+    },
+    {
+      "kind": "readme_block",
+      "text": "mybinder.org node CPU usage is low with 50-150 users sharing just 8 cores",
+      "lang": "{figure} /images/mybinder-load5.png",
+      "file": "capacity-planning.md",
+      "line": 204
+    },
+    {
+      "kind": "readme_block",
+      "text": "request:\n  cpu: 0.5\n  mem: 2G\nlimit:\n  cpu: 1\n  mem: 2G",
+      "lang": "yaml",
+      "file": "capacity-planning.md",
+      "line": 246
+    },
+    {
+      "kind": "readme_block",
+      "text": "This page could be missing cross-links to other parts of\nthe documentation. You can help by adding them!",
+      "lang": "{warning}",
+      "file": "concepts.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.db_url = \"postgresql+psycopg2://my-postgres-server:5432/my-db-name\"",
+      "lang": "python",
+      "file": "database.md",
+      "line": 155
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.db_url = \"mysql+mysqldb://myuser:mypassword@my-sql-server:3306/my-db-name\"",
+      "lang": "python",
+      "file": "database.md",
+      "line": 184
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\nconcepts\ncapacity-planning\ndatabase\nwebsecurity\noauth\nsingleuser\n../rbac/index",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 7
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = 'github'",
+      "lang": "python",
+      "file": "oauth.md",
+      "line": 155
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.oauth_require_pkce = True",
+      "lang": "python",
+      "file": "oauth.md",
+      "line": 401
+    },
+    {
+      "kind": "readme_block",
+      "text": "https://datatracker.ietf.org/doc/html/rfc7636#section-4",
+      "lang": "{seealso}",
+      "file": "oauth.md",
+      "line": 408
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.environment.update(\n    {\n        \"JUPYTERHUB_SINGLEUSER_EXTENSION\": \"0\",\n    }\n)",
+      "lang": "python",
+      "file": "singleuser.md",
+      "line": 74
+    },
+    {
+      "kind": "readme_block",
+      "text": "JUPYTERHUB_SINGLEUSER_APP=notebook",
+      "lang": "",
+      "file": "singleuser.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.subdomain_host = \"https://jupyter.example.org\"",
+      "lang": "python",
+      "file": "websecurity.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "A        jupyter.example.org  192.168.1.123\nCNAME  *.jupyter.example.org  jupyter.example.org",
+      "lang": "",
+      "file": "websecurity.md",
+      "line": 93
+    },
+    {
+      "kind": "readme_block",
+      "text": "frame-ancestors: 'none'",
+      "lang": "",
+      "file": "websecurity.md",
+      "line": 198
+    },
+    {
+      "kind": "readme_block",
+      "text": "frame-ancestors: 'none'; sandbox allow-same-origin allow-scripts",
+      "lang": "",
+      "file": "websecurity.md",
+      "line": 206
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.cookie_host_prefix_enabled = True",
+      "lang": "python",
+      "file": "websecurity.md",
+      "line": 232
+    },
+    {
+      "kind": "readme_block",
+      "text": "Setting environment variable `JUPYTERHUB_ALLOW_TOKEN_IN_URL=0` in the single-user environment can opt out of accepting token auth in URL parameters.",
+      "lang": "{versionadded} 4.1",
+      "file": "websecurity.md",
+      "line": 248
+    },
+    {
+      "kind": "readme_block",
+      "text": "Accepting tokens in URLs is disabled by default, and `JUPYTERHUB_ALLOW_TOKEN_IN_URL=1` environment variable must be set to _allow_ token auth in URL parameters.",
+      "lang": "{versionadded} 5.0",
+      "file": "websecurity.md",
+      "line": 252
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nfaq\ninstitutional-faq\ntroubleshooting",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo MY_ENV=abc123 \\\n  /home/foo/venv/bin/python3 \\\n  /srv/jupyterhub/jupyterhub",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 82
+    },
+    {
+      "kind": "readme_block",
+      "text": "200 GET /hub/api/authorizations/cookie/jupyterhub-token-name/[secret] (@10.0.1.4) 6.10ms",
+      "lang": "",
+      "file": "troubleshooting.md",
+      "line": 112
+    },
+    {
+      "kind": "readme_block",
+      "text": "403 GET /hub/api/authorizations/cookie/jupyterhub-token-name/[secret] (@10.0.1.4) 4.14ms",
+      "lang": "",
+      "file": "troubleshooting.md",
+      "line": 122
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.hub_ip = '10.0.0.1'",
+      "lang": "python",
+      "file": "troubleshooting.md",
+      "line": 140
+    },
+    {
+      "kind": "readme_block",
+      "text": "JUPYTERHUB_API_TOKEN env is required to run jupyterhub-singleuser.\n    Did you launch it manually?",
+      "lang": "",
+      "file": "troubleshooting.md",
+      "line": 182
+    },
+    {
+      "kind": "readme_block",
+      "text": "proxy_set_header X-Real-IP $remote_addr;\nproxy_set_header Host $http_host;\nproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;",
+      "lang": "nginx",
+      "file": "troubleshooting.md",
+      "line": 325
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_XSRF_ANONYMOUS_IP_CIDRS=\"10.0.0.0/8;172.16.0.0/12;192.168.0.0/16\"",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 335
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_XSRF_ANONYMOUS_IP_CIDRS=\"0.0.0.0/0\"",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 343
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_XSRF_ANONYMOUS_ID_HEADERS=\"My-Custom-Header;User-Agent\"",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 349
+    },
+    {
+      "kind": "readme_block",
+      "text": "/var/log/jupyterhub.log {\n  copytruncate\n  daily\n}",
+      "lang": "",
+      "file": "troubleshooting.md",
+      "line": 362
+    },
+    {
+      "kind": "readme_block",
+      "text": "logrotate /path/to/above-config",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 371
+    },
+    {
+      "kind": "readme_block",
+      "text": "16/11/29 16:24:20 WARN ScriptBasedMapping: Exception running /etc/hadoop/conf/topology_script.py some.ip.address\nExitCodeException exitCode=1:   File \"/etc/hadoop/conf/topology_script.py\", line 63\n    print rack\n             ^\nSyntaxError: Missing parentheses in call to 'print'\n\n    at `org.apache.hadoop.util.Shell.runCommand(Shell.java:576)`",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 383
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyter troubleshoot",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 433
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyter kernelspec list",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 439
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --debug",
+      "lang": "bash",
+      "file": "troubleshooting.md",
+      "line": 445
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Proxy.extra_routes = {\n    \"/\": \"http://custom-404-entpoint/\",\n}",
+      "lang": "python",
+      "file": "api-only.md",
+      "line": 103
+    },
+    {
+      "kind": "readme_block",
+      "text": "# jupyterhub_config.py file\nc = get_config()\n\nimport os\npjoin = os.path.join\n\nruntime_dir = os.path.join('/srv/jupyterhub')\nssl_dir = pjoin(runtime_dir, 'ssl')\nif not os.path.exists(ssl_dir):\n    os.makedirs(ssl_dir)\n\n# Allows multiple single-server per user\nc.JupyterHub.allow_named_servers = True\n\n# https on :443\nc.JupyterHub.port = 443\nc.JupyterHub.ssl_key = pjoin(ssl_dir, 'ssl.key')\nc.JupyterHu",
+      "lang": "python",
+      "file": "config-ghoauth.md",
+      "line": 22
+    },
+    {
+      "kind": "readme_block",
+      "text": "export GITHUB_CLIENT_ID=github_id\nexport GITHUB_CLIENT_SECRET=github_secret\nexport OAUTH_CALLBACK_URL=https://example.com/hub/oauth_callback\nexport CONFIGPROXY_AUTH_TOKEN=super-secret\n# append log output to log file /var/log/jupyterhub.log\njupyterhub -f /etc/jupyterhub/jupyterhub_config.py &>> /var/log/jupyterhub.log",
+      "lang": "bash",
+      "file": "config-ghoauth.md",
+      "line": 76
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Force the proxy to only listen to connections to 127.0.0.1 (on port 8000)\nc.JupyterHub.bind_url = 'http://127.0.0.1:8000'",
+      "lang": "python",
+      "file": "config-proxy.md",
+      "line": 21
+    },
+    {
+      "kind": "readme_block",
+      "text": "openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 31
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Top-level HTTP config for WebSocket headers\n# If Upgrade is defined, Connection = upgrade\n# If Upgrade is empty, Connection = close\nmap $http_upgrade $connection_upgrade {\n    default upgrade;\n    ''      close;\n}\n\n# HTTP server to redirect all 80 traffic to SSL/HTTPS\nserver {\n    listen 80;\n    server_name HUB.DOMAIN.TLD;\n\n    # Redirect the request to HTTPS\n    return 302 https://$host$request",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 42
+    },
+    {
+      "kind": "readme_block",
+      "text": "server {\n    listen 80;\n    server_name NO_HUB.DOMAIN.TLD;\n\n    # Redirect the request to HTTPS\n    return 302 https://$host$request_uri;\n}\n\nserver {\n    listen 443;\n    ssl on;\n\n    # INSERT OTHER SSL PARAMETERS HERE AS ABOVE\n    # SSL cert may differ\n\n    # Set the appropriate root directory\n    root /var/www/html\n\n    # Set URI handling\n    location / {\n        try_files $uri $uri/ =404;\n    }\n",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 112
+    },
+    {
+      "kind": "readme_block",
+      "text": "semanage port -a -t http_port_t -p tcp 8000\nsetsebool -P httpd_can_network_relay 1\nsetsebool -P httpd_can_network_connect 1",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 156
+    },
+    {
+      "kind": "readme_block",
+      "text": "a2enmod ssl rewrite proxy headers proxy_http proxy_wstunnel",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 169
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Redirect HTTP to HTTPS\nListen 80\n<VirtualHost HUB.DOMAIN.TLD:80>\n  ServerName HUB.DOMAIN.TLD\n  Redirect / https://HUB.DOMAIN.TLD/\n</VirtualHost>\n\nListen 443\n<VirtualHost HUB.DOMAIN.TLD:443>\n\n  ServerName HUB.DOMAIN.TLD\n\n  # Enable HTTP/2, if available\n  Protocols h2 http/1.1\n\n  # HTTP Strict Transport Security (mod_headers is required) (63072000 seconds)\n  Header always set Strict-Transport-Secu",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 180
+    },
+    {
+      "kind": "readme_block",
+      "text": "RewriteRule /jhub/(.*) ws://127.0.0.1:8000/jhub/$1 [P,L]\n RewriteRule /jhub/(.*) http://127.0.0.1:8000/jhub/$1 [P,L]\n\n ProxyPass /jhub/ http://127.0.0.1:8000/jhub/\n ProxyPassReverse /jhub/  http://127.0.0.1:8000/jhub/",
+      "lang": "bash",
+      "file": "config-proxy.md",
+      "line": 235
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The public facing URL of the whole JupyterHub application.\n# This is the address on which the proxy will bind. Sets protocol, IP, base_url\nc.JupyterHub.bind_url = 'http://127.0.0.1:8000/jhub/'",
+      "lang": "python",
+      "file": "config-proxy.md",
+      "line": 245
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo useradd rhea",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo python3 -m pip install sudospawner",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 41
+    },
+    {
+      "kind": "readme_block",
+      "text": "# comma-separated list of users that can spawn single-user servers\n# this should include all of your Hub users\nRunas_Alias JUPYTER_USERS = rhea, zoe, wash\n\n# the command(s) the Hub can run on behalf of the above users without needing a password\n# the exact path may differ, depending on how sudospawner was installed\nCmnd_Alias JUPYTER_CMD = /usr/local/bin/sudospawner\n\n# actually give the Hub user p",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 60
+    },
+    {
+      "kind": "readme_block",
+      "text": "rhea ALL=(%jupyterhub) NOPASSWD:JUPYTER_CMD",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 80
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ adduser -G jupyterhub newuser",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 87
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo -u rhea sudo -n -u $USER /usr/local/bin/sudospawner --help\nUsage: /usr/local/bin/sudospawner [OPTIONS]\n\nOptions:\n\n--help          show this help information\n...",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 100
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo -u rhea sudo -n -u $USER echo 'fail'\nsudo: a password is required",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 112
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ ls -l /etc/shadow\n-rw-r-----  1 root shadow   2197 Jul 21 13:41 shadow",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 130
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ ls -l /etc/shadow\n    -rw-------  1 root wheel   2197 Jul 21 13:41 shadow",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 137
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo groupadd shadow\n$ sudo chgrp shadow /etc/shadow\n$ sudo chmod g+r /etc/shadow",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 144
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo usermod -a -G shadow rhea",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 152
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo setcap 'cap_net_bind_service=+ep' /usr/bin/node",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 159
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ ls -l /etc/spwd.db /etc/master.passwd\n-rw-------  1 root  wheel   2516 Aug 22 13:35 /etc/master.passwd\n-rw-------  1 root  wheel  40960 Aug 22 13:35 /etc/spwd.db",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 176
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo pw group add shadow\n$ sudo chgrp shadow /etc/spwd.db\n$ sudo chmod g+r /etc/spwd.db\n$ sudo chgrp shadow /etc/master.passwd\n$ sudo chmod g+r /etc/master.passwd",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 184
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo pw user mod rhea -G shadow",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 195
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo -u rhea python3 -c \"import pamela, getpass; print(pamela.authenticate('$USER', getpass.getpass()))\"\nPassword: [enter your unix password]",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 203
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ sudo mkdir /etc/jupyterhub\n$ sudo chown rhea /etc/jupyterhub",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 214
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ cd /etc/jupyterhub\n$ sudo -u rhea jupyterhub --JupyterHub.spawner_class=sudospawner.SudoSpawner",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 223
+    },
+    {
+      "kind": "readme_block",
+      "text": "module sudo_exec_selinux 1.1;\n\nrequire {\n        type unconfined_t;\n        type sudo_exec_t;\n        class file { read entrypoint };\n}\n\n#============= unconfined_t ==============\nallow unconfined_t sudo_exec_t:file entrypoint;",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 236
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ checkmodule -M -m -o sudo_exec_selinux.mod sudo_exec_selinux.te\n$ semodule_package -o sudo_exec_selinux.pp -m sudo_exec_selinux.mod\n$ semodule -i sudo_exec_selinux.pp",
+      "lang": "bash",
+      "file": "config-sudo.md",
+      "line": 251
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo python3 -m pip install numpy",
+      "lang": "bash",
+      "file": "config-user-env.md",
+      "line": 35
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.environment.update(\n    {\n        \"JUPYTER_PREFER_ENV_PATH\": \"0\",\n    }\n)",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 70
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.InteractiveShellApp.extensions.append(\"cython\")",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "# shutdown the server after no activity for an hour\nc.ServerApp.shutdown_no_activity_timeout = 60 * 60\n# shutdown kernels after no activity for 20 minutes\nc.MappingKernelManager.cull_idle_timeout = 20 * 60\n# check for idle kernels every two minutes\nc.MappingKernelManager.cull_interval = 2 * 60",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 104
+    },
+    {
+      "kind": "readme_block",
+      "text": "/path/to/python3 -m ipykernel install --prefix=/usr/local\n/path/to/python2 -m ipykernel install --prefix=/usr/local",
+      "lang": "bash",
+      "file": "config-user-env.md",
+      "line": 132
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.allow_named_servers = True",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 169
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.named_server_limit_per_user = 5",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 187
+    },
+    {
+      "kind": "readme_block",
+      "text": "def named_server_limit_per_user_fn(handler):\n    user = handler.current_user\n    if user and user.admin:\n        return 0\n    return 5\n\nc.JupyterHub.named_server_limit_per_user = named_server_limit_per_user_fn",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 193
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_SINGLEUSER_APP='notebook.notebookapp.NotebookApp'",
+      "lang": "bash",
+      "file": "config-user-env.md",
+      "line": 220
+    },
+    {
+      "kind": "readme_block",
+      "text": "JUPYTERHUB_SINGLEUSER_APP='notebook.notebookapp.NotebookApp'",
+      "lang": "",
+      "file": "config-user-env.md",
+      "line": 226
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.default_url = '/tree/'",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 236
+    },
+    {
+      "kind": "readme_block",
+      "text": "# jupyterhub_config.py\nc.Spawner.cmd = [\"jupyter-labhub\"]",
+      "lang": "python",
+      "file": "config-user-env.md",
+      "line": 253
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_SINGLEUSER_APP='jupyter_server.serverapp.ServerApp'",
+      "lang": "bash",
+      "file": "config-user-env.md",
+      "line": 261
+    },
+    {
+      "kind": "readme_block",
+      "text": "admin:users # creating users\nservers # start/stop servers",
+      "lang": "",
+      "file": "forced-login.md",
+      "line": 29
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.hub_routespec = \"/hub/api/\"\nc.Proxy.additional_routes = {\"/hub/login\": \"http://hub:8080\"}",
+      "lang": "python",
+      "file": "forced-login.md",
+      "line": 113
+    },
+    {
+      "kind": "readme_block",
+      "text": ":language: python\n:start-at: class ForcedLoginAuthenticator\n:end-before: c = get_config()",
+      "lang": "{literalinclude} ../../../examples/forced-login/jupyterhub_config.py",
+      "file": "forced-login.md",
+      "line": 118
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\napi-only\nproxy\nrest\nseparate-proxy\ntemplates\nupgrading\nlog-messages\nforced-login",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 7
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\nconfiguration/config-user-env\nconfiguration/config-ghoauth\nconfiguration/config-proxy\nconfiguration/config-sudo",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "[W 2022-03-10 17:25:19.774 JupyterHub base:1349] Failing suspected API request to not-running server: /hub/user/<user-name>/api/metrics/v1",
+      "lang": "",
+      "file": "log-messages.md",
+      "line": 15
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub version 1.5.0 != jupyterhub-singleuser version 1.3.0. This could cause failure to authenticate and result in redirect loops!",
+      "lang": "",
+      "file": "log-messages.md",
+      "line": 45
+    },
+    {
+      "kind": "readme_block",
+      "text": "from jupyterhub.proxy import Proxy\n\nclass MyProxy(Proxy):\n    \"\"\"My Proxy implementation\"\"\"\n    ...",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyProxy(Proxy):\n    ...\n    async def start(self):\n        \"\"\"Start the proxy\"\"\"\n\n    async def stop(self):\n        \"\"\"Stop the proxy\"\"\"",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 52
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyProxy(Proxy):\n    should_start = False",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 86
+    },
+    {
+      "kind": "readme_block",
+      "text": "async def add_route(self, routespec, target, data):\n    \"\"\"Proxy `routespec` to `target`.\n\n    Store `data` associated with the routespec\n    for retrieval later.\n    \"\"\"",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 116
+    },
+    {
+      "kind": "readme_block",
+      "text": "await proxy.add_route('/user/pgeorgiou/', 'http://127.0.0.1:1227',\n                {'user': 'pgeorgiou'})",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 127
+    },
+    {
+      "kind": "readme_block",
+      "text": "async def delete_route(self, routespec):\n    \"\"\"Delete the route\"\"\"",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 137
+    },
+    {
+      "kind": "readme_block",
+      "text": "async def get_all_routes(self):\n    \"\"\"Return all routes, keyed by routespec\"\"\"",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 149
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  '/proxy/path/': {\n    'routespec': '/proxy/path/',\n    'target': 'http://...',\n    'data': {},\n  },\n}",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  '/user/pgeorgiou/': {\n    'routespec': '/user/pgeorgiou/',\n    'target': 'http://127.0.0.1:1227',\n    'data': {\n      'user': 'pgeourgiou',\n      'last_activity': '2017-10-03T10:33:49.570Z',\n    },\n  },\n}",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 174
+    },
+    {
+      "kind": "readme_block",
+      "text": "setup(\n  ...\n  entry_points={\n    'jupyterhub.proxies': [\n        'mything = mypackage:MyProxy',\n    ],\n  },\n)",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 200
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.proxy_class = 'mything'",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 214
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.proxy_class = 'mypackage:MyProxy'",
+      "lang": "python",
+      "file": "proxy.md",
+      "line": 220
+    },
+    {
+      "kind": "readme_block",
+      "text": "openssl rand -hex 32",
+      "lang": "bash",
+      "file": "rest.md",
+      "line": 64
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        \"name\": \"my-service\",\n        \"api_token\": the_secret_value,\n    },\n]",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 72
+    },
+    {
+      "kind": "readme_block",
+      "text": "You can also load additional tokens for users via the `JupyterHub.api_tokens` configuration.\n\nHowever, this option has been deprecated since the introduction of services.",
+      "lang": "{note}",
+      "file": "rest.md",
+      "line": 83
+    },
+    {
+      "kind": "readme_block",
+      "text": "import json\nfrom urllib.parse import quote\n\nimport requests\n\ndef request_token(\n    username, *, api_token, scopes=None, expires_in=0, hub_url=\"http://127.0.0.1:8081\"\n):\n    \"\"\"Request a new token for a user\"\"\"\n    request_body = {}\n    if expires_in:\n        request_body[\"expires_in\"] = expires_in\n    if scopes:\n        request_body[\"scopes\"] = scopes\n    url = hub_url.rstrip(\"/\") + f\"/hub/api/us",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 110
+    },
+    {
+      "kind": "readme_block",
+      "text": "The `api_tokens` configuration has been softly deprecated since the introduction of services.\nWe have no plans to remove it,\nbut deployments are encouraged to use service configuration instead.",
+      "lang": "{note}",
+      "file": "rest.md",
+      "line": 144
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.admin_users = {\"service-admin\"}\nc.JupyterHub.api_tokens = {\n    \"secret-token\": \"service-admin\",\n}",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        # give the token a name\n        \"name\": \"service-admin\",\n        \"api_token\": \"secret-token\",\n        # \"admin\": True, # if using JupyterHub 1.x\n    },\n]\n\n# roles were introduced in JupyterHub 2.0\n# prior to 2.0, only \"admin\": True or False was available\n\nc.JupyterHub.load_roles = [\n    {\n        \"name\": \"service-role\",\n        \"scopes\": [\n            # spec",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 163
+    },
+    {
+      "kind": "readme_block",
+      "text": "import requests\n\napi_url = 'http://127.0.0.1:8081/hub/api'\n\nr = requests.get(api_url + '/users',\n    headers={\n        'Authorization': f'token {token}',\n    }\n)\n\nr.raise_for_status()\nusers = r.json()",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 208
+    },
+    {
+      "kind": "readme_block",
+      "text": "import requests\n\napi_url = 'http://127.0.0.1:8081/hub/api'\n\ndata = {'name': 'mygroup', 'users': ['user1', 'user2']}\n\nr = requests.post(api_url + '/groups/formgrade-data301/users',\n    headers={\n        'Authorization': f'token {token}',\n    },\n    json=data,\n)\nr.raise_for_status()\nr.json()",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 226
+    },
+    {
+      "kind": "readme_block",
+      "text": "import os\nimport requests\n\napi_url = 'http://127.0.0.1:8081/hub/api'\n\nr = requests.get(\n    api_url + '/users?offset=0&limit=20',\n    headers={\n        \"Accept\": \"application/jupyterhub-pagination+json\",\n        \"Authorization\": f\"token {token}\",\n    },\n)\nr.raise_for_status()\nr.json()",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 260
+    },
+    {
+      "kind": "readme_block",
+      "text": "Accept: application/jupyterhub-pagination+json",
+      "lang": "",
+      "file": "rest.md",
+      "line": 284
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"items\": [\n    {\n      \"name\": \"username\",\n      \"kind\": \"user\",\n      ...\n    },\n  ],\n  \"_pagination\": {\n    \"offset\": 0,\n    \"limit\": 20,\n    \"total\": 50,\n    \"next\": {\n      \"offset\": 20,\n      \"limit\": 20,\n      \"url\": \"http://127.0.0.1:8081/hub/api/users?limit=20&offset=20\"\n    }\n  }\n}",
+      "lang": "python",
+      "file": "rest.md",
+      "line": 290
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -X POST -H \"Authorization: token <token>\" \"http://127.0.0.1:8081/hub/api/users/<user>/server\"",
+      "lang": "bash",
+      "file": "rest.md",
+      "line": 332
+    },
+    {
+      "kind": "readme_block",
+      "text": "hub:\n  extraConfig: |\n    c.JupyterHub.allow_named_servers = True",
+      "lang": "bash",
+      "file": "rest.md",
+      "line": 348
+    },
+    {
+      "kind": "readme_block",
+      "text": "[POST /api/users/:username/servers/:servername](rest-api-post-user-server-name)",
+      "lang": "{parsed-literal}",
+      "file": "rest.md",
+      "line": 356
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -X POST -H \"Authorization: token <token>\" \"http://127.0.0.1:8081/hub/api/users/<user>/servers/<serverA>\"\ncurl -X POST -H \"Authorization: token <token>\" \"http://127.0.0.1:8081/hub/api/users/<user>/servers/<serverB>\"",
+      "lang": "bash",
+      "file": "rest.md",
+      "line": 362
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ configurable-http-proxy --ip=127.0.0.1 --port=8000 --api-ip=127.0.0.1 --api-port=8001 --default-target=http://localhost:8081 --error-target=http://localhost:8081/hub/error",
+      "lang": "bash",
+      "file": "separate-proxy.md",
+      "line": 46
+    },
+    {
+      "kind": "readme_block",
+      "text": "{% extends \"page.html\" %}",
+      "lang": "html",
+      "file": "templates.md",
+      "line": 33
+    },
+    {
+      "kind": "readme_block",
+      "text": "{% extends \"templates/page.html\" %}",
+      "lang": "html",
+      "file": "templates.md",
+      "line": 42
+    },
+    {
+      "kind": "readme_block",
+      "text": "{% extends \"templates/spawn_pending.html\" %} {% block message %} {{ super() }}\n<p>Patience is a virtue.</p>\n{% endblock %}",
+      "lang": "html",
+      "file": "templates.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "{% extends \"templates/login.html\" %} {% set announcement = 'some message' %}",
+      "lang": "html",
+      "file": "templates.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.subdomain_host = \"https://myjupyterhub.example.org\"",
+      "lang": "python",
+      "file": "upgrading-v5.md",
+      "line": 28
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.subdomain_hook = \"idna\"",
+      "lang": "python",
+      "file": "upgrading-v5.md",
+      "line": 42
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.subdomain_hook = \"legacy\"",
+      "lang": "python",
+      "file": "upgrading-v5.md",
+      "line": 48
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.environment.update({\"JUPYTERHUB_ALLOW_TOKEN_IN_URL\": \"1\"})",
+      "lang": "python",
+      "file": "upgrading-v5.md",
+      "line": 78
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.allow_all = True",
+      "lang": "python",
+      "file": "upgrading-v5.md",
+      "line": 104
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.allow_existing_invalid_named_servers = \"autorename\"",
+      "lang": "python",
+      "file": "upgrading-v6.md",
+      "line": 62
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.allow_existing_invalid_named_servers = \"allow-start\"",
+      "lang": "python",
+      "file": "upgrading-v6.md",
+      "line": 75
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.allow_existing_invalid_named_servers = \"allow-delete\"",
+      "lang": "python",
+      "file": "upgrading-v6.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "// POST /api/users/chee/servers/xlzl\n{\n  \"display_name\": \"XL-ZL\",\n  \"user_options\": {\n    \"quibble\": true\n  }\n}",
+      "lang": "json",
+      "file": "upgrading-v6.md",
+      "line": 120
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /hub/api/users/:name/servers/:name",
+      "lang": "",
+      "file": "upgrading-v6.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "PUT /hub/api/users/:name/servers/:name",
+      "lang": "",
+      "file": "upgrading-v6.md",
+      "line": 161
+    },
+    {
+      "kind": "readme_block",
+      "text": "PATCH /hub/api/users/:name/servers/:name",
+      "lang": "",
+      "file": "upgrading-v6.md",
+      "line": 167
+    },
+    {
+      "kind": "readme_block",
+      "text": "http+unix://{socket_path}",
+      "lang": "",
+      "file": "upgrading-v6.md",
+      "line": 181
+    },
+    {
+      "kind": "readme_block",
+      "text": "# CHP api socket must be accessible to Hub (/srv/juptyerhub/proxy-api.sock)\nc.ConfigurableHTTPProxy.api_url = \"http+unix://%2Fsrv%2Fjupyterhub%2Fproxy-api.sock\"\n# CHP public URL must be accessible to reverse proxy (nginx, traefik, etc.): /srv/jupyterhub/chp-public.sock\nc.JupyterHub.bind_url = \"http+unix://%2Fsrv%2Fjupyterhub%2Fproxy-public.sock\"\n# Hub API socket must be accessible to all users, pr",
+      "lang": "python",
+      "file": "upgrading-v6.md",
+      "line": 189
+    },
+    {
+      "kind": "readme_block",
+      "text": "[](#spawn-errors)",
+      "lang": "{seealso}",
+      "file": "upgrading-v6.md",
+      "line": 238
+    },
+    {
+      "kind": "readme_block",
+      "text": "try:\n    from jupyterhub.spawner import SpawnException\nexcept ImportError:\n    from tornado.web import HTTPError\n    class SpawnException(HTTPError):\n        def __init__(\n            self, message, *, reason, log_message=\"\", message_html=\"\", status_code=400\n        ):\n            self.jupyterhub_message = message\n            if message_html:\n                self.jupyterhub_html_message = message_",
+      "lang": "python",
+      "file": "upgrading-v6.md",
+      "line": 247
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\n./upgrading-v6\n./upgrading-v5",
+      "lang": "{toctree}",
+      "file": "upgrading.md",
+      "line": 19
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 -m pip install --upgrade jupyterhub==<version>",
+      "lang": "bash",
+      "file": "upgrading.md",
+      "line": 81
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub upgrade-db",
+      "lang": "bash",
+      "file": "upgrading.md",
+      "line": 104
+    },
+    {
+      "kind": "readme_block",
+      "text": "It is important to evaluate these distributions before you can continue with the\nconfiguration of JupyterHub.",
+      "lang": "{note}",
+      "file": "index.md",
+      "line": 22
+    },
+    {
+      "kind": "readme_block",
+      "text": ":align: center\n:alt: JupyterHub subsystems\n:width: 80%",
+      "lang": "{image} images/jhub-fluxogram.jpeg",
+      "file": "index.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\ntutorial/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 67
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nhowto/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 77
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nexplanation/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 87
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nreference/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 97
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nfaq/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 107
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\ncontributing/index",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 117
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nroles\nscopes\nuse-cases\ntech-implementation\nupgrade",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 36
+    },
+    {
+      "kind": "readme_block",
+      "text": "- `user` role provides a {ref}`default user scope <default-user-scope-target>` `self` that grants access to the user's own resources.\n- `admin` role contains all available scopes and grants full rights to all actions. This role **cannot be edited**.\n- `token` role provides a {ref}`default token scope <default-token-scope-target>` `inherit` that resolves to the same permissions as the owner of the ",
+      "lang": "{admonition} **Default roles**",
+      "file": "roles.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": "# in jupyterhub_config.py\n\nc.JupyterHub.load_roles = [\n {\n   'name': 'server-rights',\n   'description': 'Allows parties to start and stop user servers',\n   'scopes': ['servers'],\n   'users': ['alice', 'bob'],\n   'services': ['idle-culler'],\n   'groups': ['admin-group'],\n }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 52
+    },
+    {
+      "kind": "readme_block",
+      "text": "Tokens cannot be assigned roles through role definition but may be assigned specific roles when requested via API (see {ref}`requesting-api-token-target`).",
+      "lang": "{attention}",
+      "file": "roles.md",
+      "line": 73
+    },
+    {
+      "kind": "readme_block",
+      "text": "# in jupyterhub_config.py\n\nc.JupyterHub.load_roles = [\n {\n   'description': 'Read-only user models',\n   'name': 'reader',\n   'scopes': ['read:users'],\n   'services': ['external'],\n   'users': ['maria', 'joe']\n }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 79
+    },
+    {
+      "kind": "readme_block",
+      "text": ":class: warning\nIn a role definition, the `name` field is required, while all other fields are optional.\\\n**Role names must:**\n- be 3 - 255 characters\n- use ascii lowercase, numbers, 'unreserved' URL punctuation `-_.~`\n- start with a letter\n- end with letter or number.\n\n`users`, `services`, and `groups` only accept objects that already exist in the database or are defined previously in the file.\nI",
+      "lang": "{admonition} Requirements",
+      "file": "roles.md",
+      "line": 95
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.server_token_scopes = {\"inherit\"}",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 126
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.server_token_scopes = {\"self\"}",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 137
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n  {\n    \"name\": \"user\",\n    \"scopes\": [\n      \"self\",\n    ],\n  }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 144
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n  {\n    \"name\": \"user\",\n    \"scopes\": [\n      \"access:servers!user\",\n      \"users:activity!user\",\n    ],\n  }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 157
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.extra_user_scopes = {\"access:services\"}",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 177
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n  {\n    \"name\": \"user\",\n    \"scopes\": [\n      \"self\",\n      \"access:services\",\n    ],\n  }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 184
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.extra_user_scopes = {\"access:services\"}\nc.JupyterHub.load_roles = [\n  {\n    \"name\": \"user\",\n    \"scopes\": [\n      \"self\",\n      \"access:servers!group=shared\",\n    ],\n  }\n]",
+      "lang": "python",
+      "file": "roles.md",
+      "line": 202
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n  {\n    \"name\": \"instructor-data8\",\n    \"scopes\": [\n      # access to the admin page\n      \"admin-ui\",\n      # list users in the class group\n      \"list:users!group=students-data8\",\n      # start/stop servers for users in the class\n      \"admin:servers!group=students-data8\",\n      # access servers for users in the class\n      \"access:servers!group=students-data8\",\n    ]",
+      "lang": "python",
+      "file": "scopes.md",
+      "line": 149
+    },
+    {
+      "kind": "readme_block",
+      "text": "Note that only the {ref}`horizontal filtering <horizontal-filtering-target>` can be added to scopes to customize them. \\\nMetascopes `self` and `all`, `<resource>`, `<resource>:<subresource>`, `read:<resource>`, `admin:<resource>`, and `access:<resource>` scopes are predefined and cannot be changed otherwise.",
+      "lang": "{Caution}",
+      "file": "scopes.md",
+      "line": 176
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.custom_scopes = {\n    \"custom:myservice:read\": {\n        \"description\": \"read-only access to myservice\",\n    },\n    \"custom:myservice:write\": {\n        \"description\": \"write access to myservice\",\n        # write permission implies read permission\n        \"subscopes\": [\n            \"custom:myservice:read\",\n        ],\n    },\n}\n\nc.JupyterHub.load_roles = [\n    # graders have read-only ac",
+      "lang": "python",
+      "file": "scopes.md",
+      "line": 280
+    },
+    {
+      "kind": "readme_block",
+      "text": "def require_scope(scope):\n    \"\"\"decorator to require a scope to perform an action\"\"\"\n    def wrapper(func):\n        @functools.wraps(func)\n        def wrapped_func(request):\n            user = fetch_hub_api_user(request.token)\n            if scope not in user[\"scopes\"]:\n                raise HTTP403(f\"Requires scope {scope}\")\n            else:\n                return func()\n    return wrapper\n\n@re",
+      "lang": "python",
+      "file": "scopes.md",
+      "line": 332
+    },
+    {
+      "kind": "readme_block",
+      "text": "from tornado import web\nfrom jupyterhub.services.auth import HubOAuthenticated\n\nclass MyHandler(HubOAuthenticated, BaseHandler):\n    hub_scopes = [\"custom:myservice:read\"]\n\n    @web.authenticated\n    def get(self):\n        ...",
+      "lang": "python",
+      "file": "scopes.md",
+      "line": 363
+    },
+    {
+      "kind": "readme_block",
+      "text": ":class: tip\n- _scopes_ \\\n  List of scopes that may contain abbreviations (used in role definitions). E.g., `[\"users:activity!user\", \"self\"]`.\n- _expanded scopes_ \\\n  Set of fully expanded scopes without abbreviations (i.e., resolved metascopes, filters, and subscopes). E.g., `{\"users:activity!user=charlie\", \"read:users:activity!user=charlie\"}`.\n- _parsed scopes_ \\\n  Dictionary representation of ex",
+      "lang": "{admonition} **Scope variable nomenclature**",
+      "file": "tech-implementation.md",
+      "line": 7
+    },
+    {
+      "kind": "readme_block",
+      "text": ":align: center\n:name: token-request-chart\n\nFigure 1. Resolving roles and scopes during API token request",
+      "lang": "{figure} /images/rbac-token-request-chart.png",
+      "file": "tech-implementation.md",
+      "line": 68
+    },
+    {
+      "kind": "readme_block",
+      "text": ":align: center\n:name: api-request-chart\n\nFigure 2. Resolving roles and scopes when an API request is made",
+      "lang": "{figure} /images/rbac-api-request-chart.png",
+      "file": "tech-implementation.md",
+      "line": 93
+    },
+    {
+      "kind": "readme_block",
+      "text": "We advise against defining any new roles in the `jupyterhub.config.py` file right after the upgrade is completed and JupyterHub restarted for the first time. This preserves the 'current' state of the Hub. You can define and assign new roles on any other following startup.",
+      "lang": "{attention}",
+      "file": "upgrade.md",
+      "line": 15
+    },
+    {
+      "kind": "readme_block",
+      "text": "Stripping entities of their roles is currently available only via `jupyterhub_config.py` (see {ref}`removing-roles-target`).",
+      "lang": "{note}",
+      "file": "upgrade.md",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "# in jupyterhub_config.py\n\n   c.JupyterHub.services = [\n       {\n           \"name\": \"idle-culler\",\n           \"command\": [\n               sys.executable, \"-m\",\n               \"jupyterhub_idle_culler\",\n               \"--timeout=3600\"\n           ],\n       }\n   ]\n\n   c.JupyterHub.load_roles = [\n       {\n           \"name\": \"idle-culler\",\n           \"description\": \"Culls idle servers\",\n           \"scop",
+      "lang": "python",
+      "file": "use-cases.md",
+      "line": 23
+    },
+    {
+      "kind": "readme_block",
+      "text": "Note that in the RBAC system the `admin` field in the `idle-culler` service definition is omitted. Instead, the `idle-culler` role provides the service with only the permissions it needs.\n\n   If the optional actions of deleting the idle servers and/or removing inactive users are desired, **change the following scopes** in the `idle-culler` role definition:\n   - `servers` to `admin:servers` for del",
+      "lang": "{important}",
+      "file": "use-cases.md",
+      "line": 47
+    },
+    {
+      "kind": "readme_block",
+      "text": "# in jupyterhub_config.py\n\nc.JupyterHub.load_roles = [\n    {\n        \"name\": \"api-launcher\",\n        \"description\": \"Manages servers\",\n        \"scopes\": [\"admin:users\", \"admin:servers\"],\n        \"services\": [<service_name>]\n    }\n]",
+      "lang": "python",
+      "file": "use-cases.md",
+      "line": 73
+    },
+    {
+      "kind": "readme_block",
+      "text": "# in jupyterhub_config.py\n\nc.JupyterHub.load_groups = {\n    'class-A': ['johan', 'student1', 'student2'],\n    'class-B': ['student3', 'student4']\n}\n\nc.JupyterHub.load_roles = [\n    {\n        'name': 'class-A-student',\n        'description': 'Grants access to information about the group',\n        'scopes': ['read:groups!group=class-A'],\n        'groups': ['class-A']\n    },\n    {\n        'name': 'cl",
+      "lang": "python",
+      "file": "use-cases.md",
+      "line": 96
+    },
+    {
+      "kind": "readme_block",
+      "text": "The scope filters (`!group=`) limit the privileges only to the particular groups. `johan` can access the servers and information of `class-B` group members only.",
+      "lang": "{note}",
+      "file": "use-cases.md",
+      "line": 128
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.app",
+      "lang": "{eval-rst}",
+      "file": "app.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: JupyterHub",
+      "lang": "{eval-rst}",
+      "file": "app.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. module:: jupyterhub.auth",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 3
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: Authenticator\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 9
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: LocalAuthenticator\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 16
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: PAMAuthenticator",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 23
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: DummyAuthenticator",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 29
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. module:: jupyterhub.authenticators.shared",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 33
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: SharedPasswordAuthenticator\n   :no-inherited-members:",
+      "lang": "{eval-rst}",
+      "file": "auth.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. module:: jupyterhub.httpclient",
+      "lang": "{eval-rst}",
+      "file": "httpclient.md",
+      "line": 9
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: JupyterHubHTTPClient",
+      "lang": "{eval-rst}",
+      "file": "httpclient.md",
+      "line": 15
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\n../rest-api\napp\nauth\nspawner\nproxy\nuser\nservice\nservices.auth\nhttpclient",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 23
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.proxy",
+      "lang": "{eval-rst}",
+      "file": "proxy.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: Proxy\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "proxy.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: ConfigurableHTTPProxy\n   :members: debug, auth_token, check_running_interval, api_url, command",
+      "lang": "{eval-rst}",
+      "file": "proxy.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.services.service",
+      "lang": "{eval-rst}",
+      "file": "service.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: Service\n   :members: name, admin, url, api_token, managed, kind, command, cwd, environment, user, oauth_client_id, server, prefix, proxy_spec",
+      "lang": "{eval-rst}",
+      "file": "service.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.services.auth",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: HubAuth\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: HubOAuth\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: HubAuthenticated\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 25
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: HubOAuthenticated",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 32
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: HubOAuthCallbackHandler",
+      "lang": "{eval-rst}",
+      "file": "services.auth.md",
+      "line": 38
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.spawner",
+      "lang": "{eval-rst}",
+      "file": "spawner.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: SpawnException",
+      "lang": "{eval-rst}",
+      "file": "spawner.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: Spawner\n   :members: options_from_form, user_options, poll, start, stop, get_args, get_env, get_state, template_namespace, format_string, create_certs, move_certs",
+      "lang": "{eval-rst}",
+      "file": "spawner.md",
+      "line": 17
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoconfigurable:: LocalProcessSpawner",
+      "lang": "{eval-rst}",
+      "file": "spawner.md",
+      "line": 24
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. automodule:: jupyterhub.user",
+      "lang": "{eval-rst}",
+      "file": "user.md",
+      "line": 5
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: UserDict\n   :members:",
+      "lang": "{eval-rst}",
+      "file": "user.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. autoclass:: User\n   :members: escaped_name\n\n   .. attribute:: name\n\n      The user's name\n\n   .. attribute:: server\n\n      The user's Server data object if running, None otherwise.\n      Has ``ip``, ``port`` attributes.\n\n   .. attribute:: spawner\n\n      The user's :class:`~.Spawner` instance.",
+      "lang": "{eval-rst}",
+      "file": "user.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = \"dummy\"\n# always a good idea to limit to localhost when testing with an insecure config\nc.JupyterHub.ip = \"127.0.0.1\"",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 41
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = \"dummy\"",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 51
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = \"shared-password\"\nc.SharedPasswordAuthenticator.user_password = \"my-workshop-2042\"",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 77
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.admin_users = {\"danger\", \"eggs\"}\nc.SharedPasswordAuthenticator.admin_password = \"extra-super-secret-secure-password\"",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "from secrets import compare_digest\nfrom traitlets import Dict\nfrom jupyterhub.auth import Authenticator\n\nclass DictionaryAuthenticator(Authenticator):\n\n    passwords = Dict(config=True,\n        help=\"\"\"dict of username:password for authentication\"\"\"\n    )\n\n    async def authenticate(self, handler, data):\n        username = data[\"username\"]\n        password = data[\"password\"]\n        check_password",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 129
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.username_map  = {\n  'service-name': 'localname'\n}",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 161
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.username_pattern = r'w.*'",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 188
+    },
+    {
+      "kind": "readme_block",
+      "text": "setup(\n  ...\n  entry_points={\n    'jupyterhub.authenticators': [\n        'myservice = mypackage:MyAuthenticator',\n    ],\n  },\n)",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 210
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = 'myservice'",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 224
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = 'mypackage:MyAuthenticator'",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 230
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyAuthenticator(Authenticator):\n\n    # backport allow_all from JupyterHub 5\n    allow_all = Bool(False, config=True)\n\n    def check_allowed(self, username, authentication):\n        if self.allow_all:\n            # replaces previous \"if no auth config\"\n            return True\n        ...",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 296
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyAuthenticator(Authenticator):\n    # backport allow_all for compatibility with JupyterHub < 5\n    allow_all = Bool(False, config=True)\n    require_something = List(config=True)\n    allowed_something = Set()\n\n    def authenticate(self, data, handler):\n        ...\n        if success:\n            return {\"username\": username, \"auth_state\": {...}}\n        else:\n            return None\n\n    def ",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 326
+    },
+    {
+      "kind": "readme_block",
+      "text": "from tornado import web\n\nraise web.HTTPError(403, \"informative message\")",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 391
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  'name': username,\n  'auth_state': {\n    'key': 'value',\n  }\n}",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 407
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.enable_auth_state = True",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 424
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_CRYPT_KEY=$(openssl rand -hex 32)",
+      "lang": "bash",
+      "file": "authenticators.md",
+      "line": 430
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyAuthenticator(Authenticator):\n    async def authenticate(self, handler, data=None):\n        username = await identify_user(handler, data)\n        upstream_token = await token_for_user(username)\n        return {\n            'name': username,\n            'auth_state': {\n                'upstream_token': upstream_token,\n            },\n        }\n\n    async def pre_spawn_start(self, user, spawn",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 445
+    },
+    {
+      "kind": "readme_block",
+      "text": "def auth_state_hook(spawner, auth_state):\n    spawner.volumes = auth_state['user_volumes']\n    spawner.mounts = auth_state['user_mounts']\n\nc.Spawner.auth_state_hook = auth_state_hook",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 475
+    },
+    {
+      "kind": "readme_block",
+      "text": "def my_hook(authenticator, handler, auth_model):\n    if auth_model['user_info'] is None:\n        auth_model['user_info'] = {}\n\n    # Example fields provided by an authenticator\n    auth_model['user_info']['name'] = ...\n    auth_model['user_info']['display_name'] = ...\n    auth_model['user_info']['initials'] = ...\n    auth_model['user_info']['avatar_url'] = ...\n    auth_model['user_info']['color'] ",
+      "lang": "",
+      "file": "authenticators.md",
+      "line": 499
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.manage_groups = True",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 541
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.manage_roles = True",
+      "lang": "python",
+      "file": "authenticators.md",
+      "line": 585
+    },
+    {
+      "kind": "readme_block",
+      "text": "5.4.5 is a security release, fixing a moderate-severity CSRF vulnerability in JupyterHub ([CVE-2026-40864]).",
+      "lang": "{important}",
+      "file": "changelog.md",
+      "line": 234
+    },
+    {
+      "kind": "readme_block",
+      "text": "5.4.4 is a security release, fixing an open redirect vulnerability in JupyterHub ([CVE-2026-33709]).",
+      "lang": "{important}",
+      "file": "changelog.md",
+      "line": 265
+    },
+    {
+      "kind": "readme_block",
+      "text": "- {meth}`.Authenticator.refresh_user`\n  - {meth}`.Spawner.create_certs`\n  - {meth}`.Spawner.move_certs`",
+      "lang": "{seealso}",
+      "file": "changelog.md",
+      "line": 2539
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.authenticator_class = 'github'\n  c.JupyterHub.spawner_class = 'docker'\n  c.JupyterHub.proxy_class = 'traefik_etcd'",
+      "lang": "python",
+      "file": "changelog.md",
+      "line": 2550
+    },
+    {
+      "kind": "readme_block",
+      "text": "# For testing purposes only. Should not be used in production.\n  c.JupyterHub.authenticator_class = 'dummy'\n  c.JupyterHub.spawner_class = 'simple'",
+      "lang": "python",
+      "file": "changelog.md",
+      "line": 2560
+    },
+    {
+      "kind": "readme_block",
+      "text": "def check_whitelist(self, username, authentication=None):\n      ...",
+      "lang": "python",
+      "file": "changelog.md",
+      "line": 2612
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"message\": \"some-state-message\",\n    \"progress\": 50,\n  }",
+      "lang": "python",
+      "file": "changelog.md",
+      "line": 2760
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n      'username': 'name',\n      'state': {}\n  }",
+      "lang": "python",
+      "file": "changelog.md",
+      "line": 2878
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. jupyterhub-generate-config::",
+      "lang": "{eval-rst}",
+      "file": "config-reference.md",
+      "line": 25
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. jupyterhub-help-all::",
+      "lang": "{eval-rst}",
+      "file": "config-reference.md",
+      "line": 33
+    },
+    {
+      "kind": "readme_block",
+      "text": "import logging\n\nc.EventLogger.handlers = [\n    logging.FileHandler('event.log'),\n]",
+      "lang": "python",
+      "file": "event-logging.md",
+      "line": 15
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\nserver-actions",
+      "lang": "{toctree}",
+      "file": "event-logging.md",
+      "line": 29
+    },
+    {
+      "kind": "readme_block",
+      "text": "* I started a big Amazon machine;\n* I installed Docker and built a custom image containing my software of\n  interest;\n* I ran multiple containers, one connected to port 8000, one on 8001,\n  etc. and gave each student a different port;\n* students could connect in and use the Terminal program in Jupyter to\n  execute commands, and could upload/download files via the Jupyter\n  console interface;\n* in ",
+      "lang": "",
+      "file": "gallery-jhub-deployments.md",
+      "line": 37
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\ntechnical-overview\nauthenticators\nspawners\nconfig-reference\nservices\nurls\nevent-logging\nmonitoring\nsharing\ngallery-jhub-deployments\nchangelog\nrest-api\napi/index.md",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 13
+    },
+    {
+      "kind": "readme_block",
+      "text": "`jupyterhub_server_spawn_duration_seconds` adds a `reason` label\nand splits the previous `status=failure` into `status=error` for unhandled errors and `status=failure` for rejected spawns, such as those which raise {class}`.SpawnException`.",
+      "lang": "{versionchanged} 6.0",
+      "file": "metrics.md",
+      "line": 3
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 2\n\n/reference/metrics",
+      "lang": "{toctree}",
+      "file": "monitoring.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_METRICS_PREFIX=jupyterhub_prod",
+      "lang": "bash",
+      "file": "monitoring.md",
+      "line": 32
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_SERVER_SPAWN_DURATION_SECONDS_BUCKETS=\"1,2,4,6,12,30,60,120,inf\"",
+      "lang": "bash",
+      "file": "monitoring.md",
+      "line": 51
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. currentmodule:: jupyterhub.metrics\n\n.. autoconfigurable:: PeriodicMetricsCollector",
+      "lang": "{eval-rst}",
+      "file": "monitoring.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "you cat [GET /api/users](rest-api-get-users)",
+      "lang": "markdown",
+      "file": "rest-api.md",
+      "line": 19
+    },
+    {
+      "kind": "readme_block",
+      "text": ".. jsonschema:: ../../../jupyterhub/event-schemas/server-actions/v1.yaml",
+      "lang": "{eval-rst}",
+      "file": "server-actions.md",
+      "line": 1
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n    {\n        \"name\": \"idle-culler\",\n        \"scopes\": [\n            \"read:users:activity\", # read user last_activity\n            \"servers\", # start and stop servers\n            # 'admin:users' # needed if culling idle users as well\n        ]\n    }\n]\n\nc.JupyterHub.services = [\n    {\n        'name': 'idle-culler',\n        'command': [sys.executable, '-m', 'jupyterhub_idl",
+      "lang": "python",
+      "file": "services.md",
+      "line": 96
+    },
+    {
+      "kind": "readme_block",
+      "text": "JUPYTERHUB_SERVICE_NAME:   The name of the service\nJUPYTERHUB_API_TOKEN:      API token assigned to the service\nJUPYTERHUB_API_URL:        URL for the JupyterHub API (default, http://127.0.0.1:8080/hub/api)\nJUPYTERHUB_BASE_URL:       Base URL of the Hub (https://mydomain[:port]/)\nJUPYTERHUB_SERVICE_PREFIX: URL path prefix of this service (/services/:service-name/)\nJUPYTERHUB_SERVICE_URL:    Local ",
+      "lang": "bash",
+      "file": "services.md",
+      "line": 129
+    },
+    {
+      "kind": "readme_block",
+      "text": "JUPYTERHUB_SERVICE_NAME: 'idle-culler'\nJUPYTERHUB_API_TOKEN: API token assigned to the service\nJUPYTERHUB_API_URL: http://127.0.0.1:8080/hub/api\nJUPYTERHUB_BASE_URL: https://mydomain[:port]\nJUPYTERHUB_SERVICE_PREFIX: /services/idle-culler/",
+      "lang": "bash",
+      "file": "services.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        'name': 'my-web-service',\n        'url': 'https://10.0.1.1:1984',\n        # any secret >8 characters, you'll use api_token to\n        # authenticate api requests to the hub from your service\n        'api_token': 'super-secret',\n    }\n]",
+      "lang": "python",
+      "file": "services.md",
+      "line": 177
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        \"name\": \"user-lister\",\n        \"command\": [\"python3\", \"/path/to/user-lister\"],\n    }\n]\n\nc.JupyterHub.load_roles = [\n    {\n        \"name\": \"list-users\",\n        \"scopes\": [\"list:users\", \"read:users\"],\n        \"services\": [\"user-lister\"]\n    }\n]",
+      "lang": "python",
+      "file": "services.md",
+      "line": 199
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        \"name\": \"grader-dashboard\",\n        \"command\": [\"python3\", \"/path/to/grader-dashboard\"],\n        \"url\": \"http://127.0.0.1:12345\",\n        \"oauth_client_allowed_scopes\": [\n            \"list:users\",\n            \"read:users\",\n        ]\n    }\n]\n\nc.JupyterHub.load_roles = [\n    {\n        \"name\": \"grader\",\n        \"scopes\": [\n            \"list:users!group=class-a\"",
+      "lang": "python",
+      "file": "services.md",
+      "line": 251
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /hub/api/services/:servicename",
+      "lang": "",
+      "file": "services.md",
+      "line": 302
+    },
+    {
+      "kind": "readme_block",
+      "text": "DELETE /hub/api/services/:servicename",
+      "lang": "",
+      "file": "services.md",
+      "line": 320
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"name\": \"username\",\n    \"groups\": [\"list\", \"of\", \"groups\"],\n    \"scopes\": [\n        \"access:servers!server=username/\",\n    ],\n  }",
+      "lang": "python",
+      "file": "services.md",
+      "line": 414
+    },
+    {
+      "kind": "readme_block",
+      "text": ":language: python",
+      "lang": "{literalinclude} ../../../../jupyterhub/examples/service-whoami-flask/whoami-flask.py",
+      "file": "services.md",
+      "line": 451
+    },
+    {
+      "kind": "readme_block",
+      "text": "class MyHandler(HubOAuthenticated, web.RequestHandler):\n\n    def initialize(self, hub_auth):\n        self.hub_auth = hub_auth\n\n    @web.authenticated\n    def get(self):\n        ...",
+      "lang": "python",
+      "file": "services.md",
+      "line": 467
+    },
+    {
+      "kind": "readme_block",
+      "text": "r = requests.get(\n       \"http://127.0.0.1:8081/hub/api/user\",\n       headers = {\n           'Authorization' : f'token {api_token}',\n       },\n   )\n   r.raise_for_status()\n   user = r.json()",
+      "lang": "python",
+      "file": "services.md",
+      "line": 526
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n     \"name\": \"inara\",\n     # groups may be omitted, depending on permissions\n     \"groups\": [\"serenity\", \"guild\"],\n     # scopes is new in JupyterHub 2.0\n     \"scopes\": [\n       \"access:services\",\n       \"read:users:name\",\n       \"read:users!user=inara\",\n       \"...\"\n     ]\n   }",
+      "lang": "python",
+      "file": "services.md",
+      "line": 539
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n    {\n        \"name\": \"user\",\n        \"scopes\": [\"self\", \"shares!user\"],\n    },\n]",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n    {\n        \"name\": \"user\",\n        \"scopes\": [\"self\", \"shares!user\", \"read:users:name\", \"read:groups:name\"],\n    },\n]",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 54
+    },
+    {
+      "kind": "readme_block",
+      "text": "[POST /api/shares/:username/:servername](rest-api-post-shares-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 79
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"scopes\": [],\n    \"user\": \"username\", # or:\n    \"group\": \"groupname\",\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "[PATCH /api/shares/:username/:servername](rest-api-patch-shares-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 107
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /api/shares/:username/:servername\n{\n    \"scopes\": [],\n    \"user\": \"username\", # or:\n    \"group\": \"groupname\",\n}",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 113
+    },
+    {
+      "kind": "readme_block",
+      "text": "[DELETE /api/shares/:username/:servername](rest-api-delete-shares-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 128
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /api/shares/:username/:servername](rest-api-get-shares-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 136
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"items\": [\n    {\n      \"server\": {...},\n      \"scopes\": [\"access:servers!server=sharer/\"],\n      \"user\": {\n        \"name\": \"shared-with\",\n      },\n      \"group\": None, # or {\"name\": \"groupname\"},\n      ...\n    },\n    ...\n  ],\n  \"_pagination\": {\n    \"total\": 5,\n    \"limit\": 50,\n    \"offset\": 0,\n    \"next\": None,\n  },\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 142
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /api/users/:username/shared](rest-api-get-user-shared)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 171
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /api/groups/:groupname/shared](rest-api-get-group-shared)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 177
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /api/users/:username/shared/:ownername/:servername](rest-api-get-user-shared-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 185
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /api/groups/:groupname/shared/:ownername/:servername](rest-api-get-group-shared-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 191
+    },
+    {
+      "kind": "readme_block",
+      "text": "[DELETE /api/users/:username/shared/:ownername/:servername](rest-api-delete-user-shared-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 204
+    },
+    {
+      "kind": "readme_block",
+      "text": "[DELETE /api/groups/:groupname/shared/:ownername/:servername](rest-api-delete-group-shared-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 210
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"server\": {\n        \"name\": \"servername\",\n        \"user\": {\n          \"name\": \"ownername\"\n        },\n        \"url\": \"/users/ownername/servername/\",\n        \"ready\": True,\n\n    },\n    \"scopes\": [\"access:servers!server=username/servername\"],\n    \"user\": { # or None\n        \"name\": \"username\",\n    },\n    \"group\": None, # or {\"name\": \"groupname\"},\n    \"created_at\": \"2023-10-02T13:27Z\",\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 222
+    },
+    {
+      "kind": "readme_block",
+      "text": "[POST /api/share-codes/:username/:servername](rest-api-post-share-code)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 266
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"scopes\": [\"access:servers!server=:user/:server\"],\n  \"expires_in\": 86400, # seconds, default: 1 day\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 273
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"code\": \"abc1234....\",\n  \"accept_url\": \"/hub/accept-share?code=abc1234\",\n  \"full_accept_url\": \"https://hub.example.org/hub/accept-share?code=abc1234\",\n  \"id\": \"sc_1234\",\n  \"scopes\": [...],\n  ...\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 285
+    },
+    {
+      "kind": "readme_block",
+      "text": "/hub/accept-share/?code=:share-code",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 302
+    },
+    {
+      "kind": "readme_block",
+      "text": "[GET /hub/api/share-codes/:username/:servername](rest-api-get-share-codes-server)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 316
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"items\": [\n    {\n      \"id\": \"sc_1234\",\n      \"exchange_count\": 0,\n      \"last_exchanged_at\": None,\n      \"scopes\": [\"access:servers!server=username/servername\"],\n      \"server\": {\n        \"name\": \"\",\n        \"user\": {\n          \"name\": \"username\",\n        },\n      },\n      ...\n    }\n  ],\n  \"_pagination\": {\n    \"total\": 5,\n    \"limit\": 50,\n    \"offset\": 0,\n    \"next\": None,\n  }\n}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 322
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n\n  # common share fields\n  \"server\": {\n    \"user\": {\n      \"name\": \"sharer\"\n    },\n    \"name\": \"\",\n    \"url\": \"/user/sharer/\",\n    \"ready\": True,\n  },\n  \"scopes\": [\n    \"access:servers!server=sharer/\"\n  ],\n  # share-code-specific fields\n  \"id\": \"sc_1\",\n  \"created_at\": \"2024-01-23T11:46:32.154416Z\",\n  \"expires_at\": \"2024-01-24T11:46:32.153582Z\",\n  \"exchange_count\": 1,\n  \"last_exchanged_at\": \"2024",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 357
+    },
+    {
+      "kind": "readme_block",
+      "text": "[DELETE /hub/api/share-codes/:username/:servername](rest-api-delete-share-code)",
+      "lang": "{parsed-literal}",
+      "file": "sharing.md",
+      "line": 387
+    },
+    {
+      "kind": "readme_block",
+      "text": "DELETE /hub/api/share-codes/:username/:servername?code=:thecode",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 393
+    },
+    {
+      "kind": "readme_block",
+      "text": "DELETE /hub/api/share-codes/:username/:servername?id=sc_123",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 399
+    },
+    {
+      "kind": "readme_block",
+      "text": "async def start(self):\n    self.ip = '127.0.0.1'\n    self.port = random_port()\n    # get environment variables,\n    # several of which are required for configuring the single-user server\n    env = self.get_env()\n    cmd = []\n    # get jupyterhub command to run,\n    # typically ['jupyterhub-singleuser']\n    cmd.extend(self.cmd)\n    cmd.extend(self.get_args())\n\n    await self._actually_start_server_",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 49
+    },
+    {
+      "kind": "readme_block",
+      "text": "from traitlets import default\nfrom jupyterhub.spawner import Spawner\n\nclass MySpawner(Spawner):\n    @default(\"ip\")\n    def _default_ip(self):\n        return '0.0.0.0'\n\n    @default(\"port\")\n    def _default_port(self):\n        return 8888\n\n    async def start(self):\n        env = self.get_env()\n        cmd = []\n        # get jupyterhub command to run,\n        # typically ['jupyterhub-singleuser']\n ",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 89
+    },
+    {
+      "kind": "readme_block",
+      "text": "SpawnException is new in JupyterHub 6.0.\nYou can get most of the same behavior prior to 6.0 by raising an {py:class}`~tornado.web.HTTPError`\nexplicitly, rather than arbitrary unhandled errors.",
+      "lang": "{versionadded} 6.0",
+      "file": "spawners.md",
+      "line": 119
+    },
+    {
+      "kind": "readme_block",
+      "text": "from tornado.web import HTTPError\ne = web.HTTPError(400, \"log message\")\ne.jupyterhub_message = \"user message\"\ne.jupyterhub_html_message = \"<b>user message!</b>\"\nraise e",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 146
+    },
+    {
+      "kind": "readme_block",
+      "text": "from jupyterhub.spawner import SpawnException\nraise SpawnException(\"user message\", reason=\"event\", message_html=\"<b>user message!</b>\", log_message=\"log_message\", status_code=400)",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 156
+    },
+    {
+      "kind": "readme_block",
+      "text": "def get_state(self):\n    \"\"\"get the current state\"\"\"\n    state = super().get_state()\n    if self.pid:\n        state['pid'] = self.pid\n    return state\n\ndef load_state(self, state):\n    \"\"\"load state from the database\"\"\"\n    super().load_state(state)\n    if 'pid' in state:\n        self.pid = state['pid']\n\ndef clear_state(self):\n    \"\"\"clear any state (called after shutdown)\"\"\"\n    super().clear_sta",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 185
+    },
+    {
+      "kind": "readme_block",
+      "text": "formdata = {\n  'integer': ['5'],\n  'checkbox': ['on'],\n  'text': ['some text'],\n  'select': ['a', 'b'],\n}",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 228
+    },
+    {
+      "kind": "readme_block",
+      "text": "spawner.user_options = spawner.options_from_form(formdata, spawner=spawner)",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 239
+    },
+    {
+      "kind": "readme_block",
+      "text": "def options_from_form(formdata, spawner=None):\n    options = {}\n    options['integer'] = int(formdata['integer'][0]) # single integer value\n    options['checkbox'] = formdata['checkbox'] == ['on']\n    options['text'] = formdata['text'][0] # single string value\n    options['select'] = formdata['select'] # list already correct\n    options['notinform'] = 'extra info' # not in the form at all\n    retu",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 249
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  'integer': 5,\n  'checkbox': True,\n  'text': 'some text',\n  'select': ['a', 'b'],\n  'notinform': 'extra info',\n}",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 264
+    },
+    {
+      "kind": "readme_block",
+      "text": "def apply_user_options(spawner, user_options):\n    if \"image\" in user_options and isinstance(user_options[\"image\"], str):\n        spawner.image = user_options[\"image\"]\n\nc.Spawner.apply_user_options = apply_user_options",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 283
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.options_form = \"\"\"\n<input name=\"image_input\" type=\"text\" value=\"quay.io/jupyterhub/singleuser:5.2\"/>\n<input name=\"debug_checkbox\" type=\"checkbox\" />\n\"\"\"\nc.Spawner.options_from_form = \"simple\"\nc.Spawner.apply_user_options = {\"image_input\": \"image\", \"debug_checkbox\": \"debug\"}",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 307
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"image_input\": [\"my_image\"],\n  \"debug_checkbox\": [\"on\"],\n}",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 322
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"image_input\": \"my_image\",\n  \"debug_checkbox\": True\n}",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 331
+    },
+    {
+      "kind": "readme_block",
+      "text": "hub:\n  config:\n    KubeSpawner:\n      options_form: |\n        <input name=\"image_input\" type=\"text\" value=\"quay.io/jupyterhub/singleuser:5.2\"/>\n        <input name=\"debug_checkbox\" type=\"checkbox\" />\n      options_from_form: simple\n      apply_user_options:\n        image_input: image\n        debug_checkbox: debug",
+      "lang": "yaml",
+      "file": "spawners.md",
+      "line": 347
+    },
+    {
+      "kind": "readme_block",
+      "text": "// POST /hub/api/users/servers/:name\n{\n  \"display_name\": \"Optional Display Name\",\n  \"user_options\": {\n    \"option\": 5,\n    \"bool\": true,\n    \"string\": \"value\"\n  }\n}",
+      "lang": "json",
+      "file": "spawners.md",
+      "line": 368
+    },
+    {
+      "kind": "readme_block",
+      "text": "JupyterHub 6.0 moves user options under the `user_options` key in the JSON body.\nPrior to JupyterHub 6.0, the whole JSON body was passed.\nFor backward compatibility, JupyterHub 6 will still pass the full body as `user_options` if neither `user_options` nor `display_name` key is specified, but this behavior is deprecated.",
+      "lang": "{versionchanged} 6.0",
+      "file": "spawners.md",
+      "line": 382
+    },
+    {
+      "kind": "readme_block",
+      "text": "setup(\n  ...\n  entry_points={\n    'jupyterhub.spawners': [\n        'myservice = mypackage:MySpawner',\n    ],\n  },\n)",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 398
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.spawner_class = 'myservice'",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 412
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.spawner_class = 'mypackage:MySpawner'",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 418
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.cmd = [\"my-singleuser-wrapper\"]\nc.Spawner.args = [\"--debug\", \"--flag\"]",
+      "lang": "python",
+      "file": "spawners.md",
+      "line": 438
+    },
+    {
+      "kind": "readme_block",
+      "text": "my-singleuser-wrapper --debug --flag",
+      "lang": "bash",
+      "file": "spawners.md",
+      "line": 445
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.redirect_to_server = False",
+      "lang": "python",
+      "file": "urls.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.default_url = '/services/my-landing-service'",
+      "lang": "python",
+      "file": "urls.md",
+      "line": 50
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.auto_login = True",
+      "lang": "python",
+      "file": "urls.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.shutdown_on_logout = True",
+      "lang": "python",
+      "file": "urls.md",
+      "line": 100
+    },
+    {
+      "kind": "readme_block",
+      "text": "projects:\n  vox:\n    members:\n      - vex\n      - vax\n      - pike\n  mighty:\n    members:\n      - fjord\n      - beau\n      - jester",
+      "lang": "yaml",
+      "file": "collaboration-users.md",
+      "line": 56
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = []\n\nc.JupyterHub.load_groups = {\n    # collaborative accounts get added to this group\n    # so it's easy to see which accounts are collaboration accounts\n    \"collaborative\": {\"users\": []},\n}",
+      "lang": "python",
+      "file": "collaboration-users.md",
+      "line": 75
+    },
+    {
+      "kind": "readme_block",
+      "text": "for project_name, project in project_config[\"projects\"].items():\n    # get the members of the project\n    members = project.get(\"members\", [])\n    print(f\"Adding project {project_name} with members {members}\")\n    # add them to a group for the project\n    c.JupyterHub.load_groups[project_name] = {\"users\": members}\n    # define a new user for the collaboration\n    collab_user = f\"{project_name}-col",
+      "lang": "python",
+      "file": "collaboration-users.md",
+      "line": 99
+    },
+    {
+      "kind": "readme_block",
+      "text": "def pre_spawn_hook(spawner):\n    group_names = {group.name for group in spawner.user.groups}\n    if \"collaborative\" in group_names:\n        spawner.log.info(f\"Enabling RTC for user {spawner.user.name}\")\n        spawner.args.append(\"--LabApp.collaborative=True\")\n\n\nc.Spawner.pre_spawn_hook = pre_spawn_hook",
+      "lang": "python",
+      "file": "collaboration-users.md",
+      "line": 138
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.allow_all = True\n# or\nc.Authenticator.allowed_users = {\"name\", ...}",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.allowed_users = {'mal', 'zoe', 'inara', 'kaylee'}\n# c.Authenticator.allow_all = False\nc.Authenticator.allow_existing_users = False",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 46
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.request_otp = True",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 73
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.otp_prompt = 'Google Authenticator:'",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 79
+    },
+    {
+      "kind": "readme_block",
+      "text": "As of JupyterHub 2.0, the full permissions of `admin_users`\nshould not be required.\nInstead, it is best to assign [roles](define-role-target) to users or groups\nwith only the scopes they require.",
+      "lang": "{note}",
+      "file": "authenticators-users-basics.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.admin_users = {'mal', 'zoe'}",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 98
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n    {\n        \"name\": \"admin\",\n        \"users\": [\"admin1\", \"...\"],\n    }\n]",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 109
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.PAMAuthenticator.admin_groups = {'wheel'}",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 129
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.load_roles = [\n  {\n    \"name\": \"teachers\",\n    \"scopes\": [\n      \"admin-ui\",\n      \"list:users\",\n      \"access:servers!group=students\",\n    ],\n    \"groups\": [\"teachers\"],\n  }\n]",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 138
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Authenticator.allow_existing_users = True",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 168
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.LocalAuthenticator.create_system_users = True",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 195
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.DummyAuthenticator.password = \"some_password\"",
+      "lang": "python",
+      "file": "authenticators-users-basics.md",
+      "line": 233
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --generate-config",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 23
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub -f /path/to/jupyterhub_config.py",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 36
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub -f /etc/jupyterhub/jupyterhub_config.py",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 44
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --help-all",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 56
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 64
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --Spawner.notebook_dir='~/assignments'",
+      "lang": "bash",
+      "file": "config-basics.md",
+      "line": 75
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub --ip=192.168.1.2 --port=443",
+      "lang": "bash",
+      "file": "networking-basics.md",
+      "line": 20
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.ip = '192.168.1.2'\nc.JupyterHub.port = 443",
+      "lang": "python",
+      "file": "networking-basics.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.ConfigurableHTTPProxy.api_url = 'http://10.0.1.4:5432'",
+      "lang": "python",
+      "file": "networking-basics.md",
+      "line": 53
+    },
+    {
+      "kind": "readme_block",
+      "text": "# ideally a private network address\nc.JupyterHub.proxy_api_ip = '10.0.1.4'\nc.JupyterHub.proxy_api_port = 5432",
+      "lang": "python",
+      "file": "networking-basics.md",
+      "line": 62
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.hub_ip = '10.0.1.4'\nc.JupyterHub.hub_port = 54321",
+      "lang": "python",
+      "file": "networking-basics.md",
+      "line": 80
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.hub_ip = '0.0.0.0'  # listen on all interfaces\nc.JupyterHub.hub_connect_ip = '10.0.1.4'  # IP as seen on the docker network. Can also be a hostname.",
+      "lang": "python",
+      "file": "networking-basics.md",
+      "line": 89
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.ssl_key = '/path/to/my.key'\nc.JupyterHub.ssl_cert = '/path/to/my.cert'",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 36
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.ssl_key = '/etc/letsencrypt/live/{mydomain.tld}/privkey.pem'\nc.JupyterHub.ssl_cert = '/etc/letsencrypt/live/{mydomain.tld}/fullchain.pem'",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 55
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.ssl_key = '/etc/letsencrypt/live/example.com/privkey.pem'\nc.JupyterHub.ssl_cert = '/etc/letsencrypt/live/example.com/fullchain.pem'",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 63
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.ConfigurableHTTPProxy.api_token = 'abc123...' # any random string",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 95
+    },
+    {
+      "kind": "readme_block",
+      "text": "export CONFIGPROXY_AUTH_TOKEN=$(openssl rand -hex 32)",
+      "lang": "bash",
+      "file": "security-basics.md",
+      "line": 104
+    },
+    {
+      "kind": "readme_block",
+      "text": "openssl rand -hex 32 > /srv/jupyterhub/jupyterhub_cookie_secret",
+      "lang": "bash",
+      "file": "security-basics.md",
+      "line": 131
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.cookie_secret_file = '/srv/jupyterhub/jupyterhub_cookie_secret'",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 141
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JPY_COOKIE_SECRET=$(openssl rand -hex 32)",
+      "lang": "bash",
+      "file": "security-basics.md",
+      "line": 156
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.cookie_secret = bytes.fromhex('64 CHAR HEX STRING')",
+      "lang": "python",
+      "file": "security-basics.md",
+      "line": 169
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {'name': 'adding-users', 'api_token': 'super-secret-token'},\n]",
+      "lang": "python",
+      "file": "services-basics.md",
+      "line": 61
+    },
+    {
+      "kind": "readme_block",
+      "text": "Adding API token for <username>",
+      "lang": "none",
+      "file": "services-basics.md",
+      "line": 72
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.JupyterHub.services = [\n    {\n        'name': 'idle-culler',\n        'command': [sys.executable, '-m', 'jupyterhub_idle_culler', '--timeout=3600'],\n    }\n]\n\nc.JupyterHub.load_roles = [\n    {\n        \"name\": \"list-and-cull\", # name the role\n        \"services\": [\n            \"idle-culler\", # assign the service to this role\n        ],\n        \"scopes\": [\n            # declare what permissions the s",
+      "lang": "python",
+      "file": "services-basics.md",
+      "line": 93
+    },
+    {
+      "kind": "readme_block",
+      "text": "Prior to 2.0, the idle-culler required 'admin' permissions.\nIt now needs the scopes:\n\n- `list:users` to access the user list endpoint\n- `read:users:activity` to read activity info\n- `admin:servers` to start/stop servers",
+      "lang": "{versionchanged} 2.0",
+      "file": "services-basics.md",
+      "line": 122
+    },
+    {
+      "kind": "readme_block",
+      "text": "export JUPYTERHUB_API_TOKEN='token'\n    python -m jupyterhub_idle_culler [--timeout=900] [--url=http://127.0.0.1:8081/hub/api]",
+      "lang": "bash",
+      "file": "services-basics.md",
+      "line": 146
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.notebook_dir = '~/notebooks'",
+      "lang": "python",
+      "file": "spawners-basics.md",
+      "line": 15
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.args = ['--debug', '--profile=PHYS131']",
+      "lang": "python",
+      "file": "spawners-basics.md",
+      "line": 21
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.args = ['--NotebookApp.default_url=/notebooks/Welcome.ipynb']",
+      "lang": "python",
+      "file": "spawners-basics.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\nquickstart\ninstallation-basics\nquickstart-docker",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\ngetting-started/config-basics\ngetting-started/networking-basics\ngetting-started/security-basics\ngetting-started/authenticators-users-basics\ngetting-started/services-basics\ngetting-started/spawners-basics",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 26
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\nserver-api",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 41
+    },
+    {
+      "kind": "readme_block",
+      "text": ":maxdepth: 1\n\nsharing\ncollaboration-users",
+      "lang": "{toctree}",
+      "file": "index.md",
+      "line": 51
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run -d -p 8000:8000 --name jupyterhub quay.io/jupyterhub/jupyterhub jupyterhub",
+      "lang": "",
+      "file": "quickstart-docker.md",
+      "line": 26
+    },
+    {
+      "kind": "readme_block",
+      "text": "# find the container id\ndocker ps\n\n# stop the running container\ndocker stop  <container-id>\n\n# resume the paused container\ndocker start <container-id>",
+      "lang": "",
+      "file": "quickstart-docker.md",
+      "line": 34
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker exec -it jupyterhub bash",
+      "lang": "",
+      "file": "quickstart-docker.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo apt-get install nodejs npm",
+      "lang": "",
+      "file": "quickstart.md",
+      "line": 21
+    },
+    {
+      "kind": "readme_block",
+      "text": "python3 -m pip install jupyterhub\nnpm install -g configurable-http-proxy\npython3 -m pip install jupyterlab notebook  # needed if running the notebook servers in the same environment",
+      "lang": "bash",
+      "file": "quickstart.md",
+      "line": 53
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub -h\nconfigurable-http-proxy -h",
+      "lang": "bash",
+      "file": "quickstart.md",
+      "line": 69
+    },
+    {
+      "kind": "readme_block",
+      "text": "c = get_config()  # noqa\nc.Authenticator.allow_all = True\n# alternative: c.Authenticator.allowed_users = {\"yourusername\"}",
+      "lang": "python",
+      "file": "quickstart.md",
+      "line": 91
+    },
+    {
+      "kind": "readme_block",
+      "text": "jupyterhub",
+      "lang": "bash",
+      "file": "quickstart.md",
+      "line": 107
+    },
+    {
+      "kind": "readme_block",
+      "text": "sudo jupyterhub",
+      "lang": "bash",
+      "file": "quickstart.md",
+      "line": 117
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /hub/api/users/:username",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 24
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"admin\": false,\n  \"groups\": [],\n  \"pending\": null,\n  \"server\": null,\n  \"name\": \"test-1\",\n  \"kind\": \"user\",\n  \"last_activity\": \"2021-08-03T18:12:46.026411Z\",\n  \"created\": \"2021-08-03T18:09:59.767600Z\",\n  \"roles\": [\"user\"],\n  \"servers\": {}\n}",
+      "lang": "json",
+      "file": "server-api.md",
+      "line": 32
+    },
+    {
+      "kind": "readme_block",
+      "text": "\"servers\": {\n    \"\": {\n      \"name\": \"\",\n      \"last_activity\": \"2021-08-03T18:48:35.934000Z\",\n      \"started\": \"2021-08-03T18:48:29.093885Z\",\n      \"pending\": null,\n      \"ready\": true,\n      \"url\": \"/user/test-1/\",\n      \"user_options\": {},\n      \"progress_url\": \"/hub/api/users/test-1/server/progress\"\n    }\n  }",
+      "lang": "json",
+      "file": "server-api.md",
+      "line": 51
+    },
+    {
+      "kind": "readme_block",
+      "text": "\"servers\": {\n    \"\": {\n      \"name\": \"\",\n      \"last_activity\": \"2021-08-03T18:48:29.093885Z\",\n      \"started\": \"2021-08-03T18:48:29.093885Z\",\n      \"pending\": \"spawn\",\n      \"ready\": false,\n      \"url\": \"/user/test-1/\",\n      \"user_options\": {},\n      \"progress_url\": \"/hub/api/users/test-1/server/progress\"\n    }\n  }",
+      "lang": "json",
+      "file": "server-api.md",
+      "line": 92
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /hub/api/users/:username/servers/[:servername]",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 117
+    },
+    {
+      "kind": "readme_block",
+      "text": "def server_ready(hub_url, user, server_name=\"\", token):\n    r = requests.get(\n        f\"{hub_url}/hub/api/users/{user}/servers/{server_name}\",\n        headers={\"Authorization\": f\"token {token}\"},\n    )\n    r.raise_for_status()\n    user_model = r.json()\n    servers = user_model.get(\"servers\", {})\n    if server_name not in servers:\n        return False\n\n    server = servers[server_name]\n    if serve",
+      "lang": "python",
+      "file": "server-api.md",
+      "line": 153
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /hub/api/users/:user/servers/:servername/progress",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 185
+    },
+    {
+      "kind": "readme_block",
+      "text": "data: {\"progress\": 10, \"message\": \"...\", ...}",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 194
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"progress\": 0-100,\n    \"message\": \"\",\n    \"ready\": True, # or False\n\n}",
+      "lang": "python",
+      "file": "server-api.md",
+      "line": 205
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"progress\": 100,\n  \"ready\": true,\n  \"message\": \"Server ready at /user/test-1/\",\n  \"html_message\": \"Server ready at <a href=\\\"/user/test-1/\\\">/user/test-1/</a>\",\n  \"url\": \"/user/test-1/\"\n}",
+      "lang": "json",
+      "file": "server-api.md",
+      "line": 229
+    },
+    {
+      "kind": "readme_block",
+      "text": "data: {\"progress\": 0, \"message\": \"Server requested\"}\n\ndata: {\"progress\": 50, \"message\": \"Spawning server...\"}\n\ndata: {\"progress\": 100, \"ready\": true, \"message\": \"Server ready at /user/test-user/\", \"html_message\": \"Server ready at <a href=\\\"/user/test-user/\\\">/user/test-user/</a>\", \"url\": \"/user/test-user/\"}",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 244
+    },
+    {
+      "kind": "readme_block",
+      "text": ":language: python\n:pyobject: event_stream",
+      "lang": "{literalinclude} ../../../examples/server-api/start-stop-server.py",
+      "file": "server-api.md",
+      "line": 255
+    },
+    {
+      "kind": "readme_block",
+      "text": "DELETE /hub/api/users/:user/servers/[:servername]",
+      "lang": "",
+      "file": "server-api.md",
+      "line": 266
+    },
+    {
+      "kind": "readme_block",
+      "text": ":language: python\n:pyobject: stop_server",
+      "lang": "{literalinclude} ../../../examples/server-api/start-stop-server.py",
+      "file": "server-api.md",
+      "line": 288
+    },
+    {
+      "kind": "readme_block",
+      "text": "Access scopes are new in JupyterHub 2.0.\nTo access servers in JupyterHub 1.x,\na token must be owned by the same user as the server,\n*or* be an admin token if admin_access is enabled.",
+      "lang": "{note}",
+      "file": "server-api.md",
+      "line": 300
+    },
+    {
+      "kind": "readme_block",
+      "text": ":language: python\n:start-at: def event_stream\n:end-before: def main",
+      "lang": "{literalinclude} ../../../examples/server-api/start-stop-server.py",
+      "file": "server-api.md",
+      "line": 328
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.oauth_client_allowed_scopes = [\"access:servers!server\", \"shares!server\"]",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 64
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.oauth_client_allowed_scopes = [\n  \"read:users:name\", \"shares!user\", \"list:users\", \"servers!user\"\n]",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 71
+    },
+    {
+      "kind": "readme_block",
+      "text": "c.Spawner.server_token_scopes = [\n  \"users:activity!user\",\n  \"shares!server\",\n]",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 83
+    },
+    {
+      "kind": "readme_block",
+      "text": "import requests\nfrom getpass import getpass\n\ntoken = getpass.getpass(\"JupyterHub API token: \")\n\nsession = requests.Session()\nsession.headers = {\"Authorization\": f\"Bearer {token}\"}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 106
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /hub/api/share-codes/:username/:servername",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 133
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /hub/api/share-codes/barb/",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 139
+    },
+    {
+      "kind": "readme_block",
+      "text": "# sample values, replace with your actual hub\nhub_url = \"http://127.0.0.1:8000\"\nusername = \"barb\"\n\nr = session.post(f\"{hub_url}/hub/api/share-codes/{username}/\")",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 143
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  'server': {'user': {'name': 'barb'},\n    'name': '',\n    'url': '/user/barb/',\n    'ready': True,\n  },\n  'scopes': ['access:servers!server=barb/'],\n  'id': 'sc_2',\n  'created_at': '2024-01-10T13:01:32.972409Z',\n  'expires_at': '2024-01-11T13:01:32.970126Z',\n  'exchange_count': 0,\n  'last_exchanged_at': None,\n  'code': 'U-eYLFT1lGstEqfMHpAIvTZ1MRjZ1Y1a-loGQ0K86to',\n  'accept_url': '/hub/accept-",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 153
+    },
+    {
+      "kind": "readme_block",
+      "text": "import json\n\noptions = {\n  \"scopes\": [\n    f\"access:servers!server={username}/\", # access the server (default)\n    f\"servers!server={username}/\", # start/stop the server\n    f\"shares!server={username}/\", # further share the server with others\n  ],\n  \"expires_in\": 3600, # code expires in one hour\n}\n\nsession.post(f\"{hub_url}/hub/api/share-codes/{username}/\", data=json.dumps(options))",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 192
+    },
+    {
+      "kind": "readme_block",
+      "text": "/hub/accept-code?code=abc123&next=/users/barb/lab/tree/mynotebook.ipynb",
+      "lang": "",
+      "file": "sharing.md",
+      "line": 216
+    },
+    {
+      "kind": "readme_block",
+      "text": "session.get()",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 227
+    },
+    {
+      "kind": "readme_block",
+      "text": "{'items': [{'server': {'user': {'name': 'barb'},\n    'name': '',\n    'url': '/user/barb/',\n    'ready': True},\n   'scopes': ['access:servers!server=barb/',\n    'servers!server=barb/',\n    'shares!server=barb/'],\n   'user': {'name': 'shared-with'},\n   'group': None,\n   'kind': 'user',\n   'created_at': '2024-01-10T13:16:56.432599Z'}],\n '_pagination': {'offset': 0, 'limit': 200, 'total': 1, 'next': N",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 233
+    },
+    {
+      "kind": "readme_block",
+      "text": "options = {\n    \"user\": \"shared-with\",\n    \"scopes\": [\"shares!server=barb/\"],\n}\n\nsession.patch(f\"{hub_url}/hub/api/shares/{username}/\", data=json.dumps(options))",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 257
+    },
+    {
+      "kind": "readme_block",
+      "text": "{'server': {'user': {'name': 'barb'},\n  'name': '',\n  'url': '/user/barb/',\n  'ready': True},\n 'scopes': ['access:servers!server=barb/', 'servers!server=barb/'],\n 'user': {'name': 'shared-with'},\n 'group': None,\n 'kind': 'user',\n 'created_at': '2024-01-10T13:16:56.432599Z'}",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 268
+    },
+    {
+      "kind": "readme_block",
+      "text": "options = {\n    \"user\": \"shared-with\",\n}\n\nsession.patch(f\"{hub_url}/hub/api/shares/{username}/\", data=json.dumps(options))",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 284
+    },
+    {
+      "kind": "readme_block",
+      "text": "session.delete(f\"{hub_url}/hub/api/shares/{username}/\")",
+      "lang": "python",
+      "file": "sharing.md",
+      "line": 294
+    }
+  ],
+  "examples": [
+    {
+      "text": "still have a browser tab open. For example, you might have 3 tabs open and you shut",
+      "kind": "prose_marker",
+      "file": "log-messages.md",
+      "line": 22,
+      "score": 7
+    },
+    {
+      "text": "For example, to run the test `test_shutdown` in the file `test_api.py`,",
+      "kind": "prose_marker",
+      "file": "tests.md",
+      "line": 59,
+      "score": 6
+    },
+    {
+      "text": "I have X users, what resources do I need?",
+      "kind": "question",
+      "file": "capacity-planning.md",
+      "line": 9,
+      "score": 6
+    },
+    {
+      "text": "How many users can I support with this machine?",
+      "kind": "question",
+      "file": "capacity-planning.md",
+      "line": 9,
+      "score": 6
+    },
+    {
+      "text": "We often say that the Hub 'owns' the database.",
+      "kind": "prose_marker",
+      "file": "database.md",
+      "line": 49,
+      "score": 6
+    },
+    {
+      "text": "To avoid this, specify sudospawner's absolute path. For example, start",
+      "kind": "prose_marker",
+      "file": "troubleshooting.md",
+      "line": 26,
+      "score": 6
+    },
+    {
+      "text": "(Details on how to do this is out of the scope of this tutorial. For example, it might be a",
+      "kind": "prose_marker",
+      "file": "separate-proxy.md",
+      "line": 50,
+      "score": 6
+    },
+    {
+      "text": "For instance, the behaviour prior to adoption of RBAC is that creating or deleting users requires _admin rights_.",
+      "kind": "prose_marker",
+      "file": "index.md",
+      "line": 18,
+      "score": 6
+    },
+    {
+      "text": "For example, the following tasks can each be a unique Service:",
+      "kind": "prose_marker",
+      "file": "services.md",
+      "line": 9,
+      "score": 6
+    },
+    {
+      "text": "action or task. For example, shutting down individuals' single user",
+      "kind": "prose_marker",
+      "file": "services-basics.md",
+      "line": 7,
+      "score": 6
+    },
+    {
+      "text": "For example, to connect to a PostgreSQL database with psycopg2:",
+      "kind": "prose_marker",
+      "file": "database.md",
+      "line": 149,
+      "score": 5
+    },
+    {
+      "text": "2. sharing links that will bring the visitor to _your_ server (e.g. for real-time collaboration, or RTC)",
+      "kind": "weak_marker",
+      "file": "faq.md",
+      "line": 17,
+      "score": 5
+    }
+  ],
+  "files": [
+    "__init__.py",
+    "__main__.py",
+    "_data.py",
+    "_memoize.py",
+    "_version.py",
+    "_xsrf_utils.py",
+    "env.py",
+    "0eee8c825d24_added_properties_column.py",
+    "19c0846f6344_base_revision_for_0_5.py",
+    "1cebaf56856c_session_id.py",
+    "3c2384c5aae1_add_from_config_column_to_the_services_.py",
+    "3ec6993fe20c_encrypted_auth_state.py",
+    "4621fec11365_manage_roles.py",
+    "4dc2d5a8c53c_user_options.py",
+    "56cc5a70207e_token_tracking.py",
+    "651f5419b74d_api_token_scopes.py",
+    "833da8570507_rbac.py",
+    "896818069c98_token_expires.py",
+    "99a28a4418e1_user_created.py",
+    "af4cbdb2d13c_services.py",
+    "afd65840b69e_pkce.py",
+    "be8ecf03ddac_service_timeout.py",
+    "d68c98b66cd4_client_description.py",
+    "eeb276e51423_auth_state.py",
+    "f460b0348206_add_display_name_to_spawners.py",
+    "ff1860e38070_added_user_info.py",
+    "__init__.py",
+    "auth.py",
+    "base.py",
+    "groups.py",
+    "hub.py",
+    "proxy.py",
+    "services.py",
+    "shares.py",
+    "users.py",
+    "app.py",
+    "auth.py",
+    "__init__.py",
+    "shared.py",
+    "crypto.py",
+    "dbutil.py",
+    "__init__.py",
+    "base.py",
+    "login.py",
+    "metrics.py",
+    "pages.py",
+    "static.py",
+    "httpclient.py",
+    "log.py",
+    "metrics.py",
+    "__init__.py",
+    "provider.py",
+    "objects.py",
+    "orm.py",
+    "proxy.py",
+    "roles.py",
+    "scopes.py",
+    "__init__.py",
+    "auth.py",
+    "service.py",
+    "__init__.py",
+    "__main__.py",
+    "_decorator.py",
+    "_disable_user_config.py",
+    "app.py",
+    "extension.py",
+    "mixins.py",
+    "slugs.py",
+    "spawner.py",
+    "__init__.py",
+    "__init__.py",
+    "conftest.py",
+    "test_browser.py",
+    "test_share.py",
+    "conftest.py",
+    "__init__.py",
+    "mocking.py",
+    "mockserverapp.py",
+    "mockservice.py",
+    "mocksu.py",
+    "populate_db.py",
+    "test_api.py",
+    "test_app.py",
+    "test_auth.py",
+    "test_auth_expiry.py",
+    "test_crypto.py",
+    "test_db.py",
+    "test_dummyauth.py",
+    "test_eventlog.py",
+    "test_internal_ssl_connections.py",
+    "test_internal_ssl_connections_external_authorities.py",
+    "test_memoize.py",
+    "test_metrics.py",
+    "test_migrations.py",
+    "test_named_servers.py",
+    "test_objects.py",
+    "test_orm.py",
+    "test_pages.py",
+    "test_proxy.py",
+    "test_roles.py",
+    "test_scopes.py",
+    "test_services.py",
+    "test_services_auth.py",
+    "test_shared_password.py",
+    "test_shares.py",
+    "test_singleuser.py",
+    "test_slugs.py",
+    "test_spawner.py",
+    "test_traitlets.py",
+    "test_unix_socket.py",
+    "test_user.py",
+    "test_utils.py",
+    "test_version.py",
+    "utils.py",
+    "traitlets.py",
+    "user.py",
+    "utils.py",
+    "conf.py",
+    "generate-scope-table.py"
+  ],
+  "notes": [
+    "README.md: syntax error at line 190, skipped",
+    "loss 항이 없다. 학습 스크립트(train*.py, *_trainer.py)를 함께 넘겨야 방법론 그림의 관계를 그릴 수 있다.",
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다."
+  ]
+}

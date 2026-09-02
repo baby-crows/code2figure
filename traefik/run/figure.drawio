@@ -1,0 +1,183 @@
+<mxfile host="papertrail">
+  <diagram name="traefik-architecture">
+    <mxGraphModel dx="1600" dy="1000" grid="0" page="1" pageWidth="1340" pageHeight="940" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="zdata" value="Data path: the listener stays open across every reconfiguration" style="rounded=1;arcSize=4;fillColor=#eef3f9;strokeColor=#8aa4c0;verticalAlign=top;align=left;spacingLeft=14;spacingTop=8;fontSize=17;fontStyle=1;fontColor=#2b4c70;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="104" y="52" width="1010" height="254" as="geometry" />
+        </mxCell>
+
+        <mxCell id="zctrl" value="Control path: a complete new handler tree is built off the data path" style="rounded=1;arcSize=4;fillColor=#fdf6ec;strokeColor=#d99b4a;verticalAlign=top;align=right;spacingRight=14;spacingTop=8;fontSize=17;fontStyle=1;fontColor=#8a520f;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="104" y="424" width="1010" height="320" as="geometry" />
+        </mxCell>
+
+        <mxCell id="title" value="Traefik: how a container label becomes a live route" style="text;html=1;align=left;verticalAlign=middle;fontSize=21;fontStyle=1;fontColor=#1a1a1a;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="24" y="10" width="700" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c7" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot;&gt;RouterFactory&lt;/font&gt;&lt;/b&gt;&#10;builds a complete new tree&#10;on every change" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="128" y="496" width="264" height="228" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot;&gt;ConfigurationWatcher&lt;/font&gt;&lt;/b&gt;" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="416" y="496" width="330" height="228" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" style="group;html=1;fontFamily=Times New Roman;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="104" y="762" width="1010" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ed0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="client" target="a1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a4" target="b1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a4" target="b2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;endArrow=block;endFill=1;exitX=1;exitY=0.78;entryX=0;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a4" target="b3"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="ec1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.18;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="s1" target="c5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ec2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.44;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="s2" target="c5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ec3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.72;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="s3" target="c5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ec4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="c5" target="c6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ec5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="c6" target="c7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ec6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.8;endArrow=block;endFill=1;exitX=0.5;exitY=0;entryX=0.1;entryY=1;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="c7" target="a8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="es1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=3;endArrow=block;endFill=1;exitX=0.5;exitY=0;entryX=0.63;entryY=1;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="a8" target="a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="client" value="client" style="shape=actor;html=1;fillColor=#ffffff;strokeColor=#5f6f80;verticalLabelPosition=bottom;verticalAlign=top;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="26" y="160" width="56" height="66" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a1" value="&lt;b&gt;EntryPoint web&lt;/b&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;address: :80&lt;/font&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;listener.Accept()&lt;/font&gt;&#10;opened at start-up,&#10;before any route exists" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="128" y="132" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="1" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="128" y="96" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a2" value="&lt;b&gt;TCP router&lt;/b&gt;&#10;peeks the ClientHello,&#10;muxes on SNI, terminates&#10;TLS, forwards HTTP" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="348" y="132" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="2" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="348" y="96" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a3" value="&lt;b&gt;HTTP muxer and middlewares&lt;/b&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;Host(`whoami.docker.localhost`)&lt;/font&gt;&#10;chain: secure-headers, ip-allowlist" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="568" y="132" width="316" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="3" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="568" y="96" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a4" value="&lt;b&gt;Service load balancer&lt;/b&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;wrr | p2c | hrw&lt;/font&gt;&#10;health-checked pool,&#10;one server per request" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="904" y="132" width="186" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="4" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="904" y="96" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lblb" value="[external]&#10;backend containers" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontColor=#5f6368;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="94" width="170" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="&lt;font face=&quot;Courier New&quot;&gt;traefik/whoami&lt;/font&gt;" style="rounded=1;arcSize=10;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="144" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="&lt;font face=&quot;Courier New&quot;&gt;traefik/whoami&lt;/font&gt;" style="rounded=1;arcSize=10;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="190" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="..." style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#8a8a8a;dashed=1;dashPattern=4 4;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="236" width="170" height="36" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a8" value="&lt;b&gt;Handler switcher&lt;/b&gt; (&lt;font face=&quot;Courier New&quot;&gt;safe.Safe&lt;/font&gt;)&#10;one pointer store; applies to&#10;new connections only" style="rounded=0;fillColor=#dcefe4;strokeColor=#2e7d55;strokeWidth=3;align=center;verticalAlign=middle;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="330" y="330" width="300" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" value="8" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="288" y="352" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n7" value="7" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="128" y="460" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n6" value="6" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="416" y="460" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c5" value="&lt;b&gt;Providers&lt;/b&gt;&#10;each provider watches its own&#10;source and pushes a message&#10;onto one buffered channel&#10;&#10;&lt;font face=&quot;Courier New&quot;&gt;@docker, @kubernetes,&lt;/font&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;@file, ...&lt;/font&gt;&#10;throttled per provider" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#5f6f80;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="770" y="496" width="320" height="228" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="5" style="text;html=1;align=center;verticalAlign=middle;fontColor=#ffffff;labelBackgroundColor=#1a1a1a;fontSize=17;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="770" y="460" width="30" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lbls" value="[external]&#10;configuration sources" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontColor=#5f6368;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="444" width="170" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="Docker daemon&#10;&lt;font face=&quot;Courier New&quot;&gt;docker.sock&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="496" width="170" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="Kubernetes API" style="shape=hexagon;perimeter=hexagonPerimeter2;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="570" width="170" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="file provider&#10;&lt;font face=&quot;Courier New&quot;&gt;dynamic.yml&lt;/font&gt;" style="shape=note;size=14;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="1134" y="638" width="170" height="58" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cap" value="Figure 1. Traefik keeps two paths apart. (1) The entry point opens its listener at start-up, before any route exists, and never reopens it. (2) The TCP router peeks the TLS ClientHello, muxes on SNI&#10;and terminates TLS; (3) the HTTP muxer matches the router rule and runs the middleware chain; (4) the service load balancer forwards to one healthy backend. Meanwhile (5) each provider watches its own&#10;infrastructure and pushes a message onto one buffered channel, (6) the configuration watcher discards unchanged messages and merges the rest into a single configuration, and (7) the router factory&#10;builds a complete new handler tree. (8) A single pointer store swaps that tree in, so connections already open keep the previous one. Repository: eval/demo/sandbox/traefik; commit not determined." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#5f6368;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="24" y="828" width="1280" height="84" as="geometry" />
+        </mxCell>
+      <mxCell id="c6b" value="apply: merges providers into&#10;one &lt;font face=&quot;Courier New&quot;&gt;dynamic.Configuration&lt;/font&gt;&#10;&lt;font face=&quot;Courier New&quot;&gt;routers, services, middlewares&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#fdf6ec;strokeColor=#d99b4a;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="c6">
+          <mxGeometry x="10" y="122" width="310" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="lgbg" value="" style="rounded=1;arcSize=6;fillColor=#ffffff;strokeColor=#b8c8d8;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="0" y="0" width="1010" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tin1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="c7" source="c7t1" target="c7t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="tin2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="c7" source="c7t2" target="c7t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cin1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=15;html=1;fontFamily=Times New Roman;" edge="1" parent="c6" source="c6a" target="c6b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="c7t1" value="&lt;font face=&quot;Courier New&quot;&gt;entryPoint web&lt;/font&gt;" style="rounded=0;fillColor=#f6e6cf;strokeColor=#c07818;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="c7">
+          <mxGeometry x="8" y="86" width="248" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7t2" value="&lt;font face=&quot;Courier New&quot;&gt;router whoami@docker&lt;/font&gt;" style="rounded=0;fillColor=#f6e6cf;strokeColor=#c07818;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="c7">
+          <mxGeometry x="24" y="136" width="232" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7t3" value="&lt;font face=&quot;Courier New&quot;&gt;service whoami&lt;/font&gt;" style="rounded=0;fillColor=#f6e6cf;strokeColor=#c07818;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="c7">
+          <mxGeometry x="40" y="186" width="216" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c6a" value="receive: drops nil, empty and&#10;unchanged provider messages" style="rounded=1;arcSize=8;fillColor=#fdf6ec;strokeColor=#d99b4a;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fontSize=15;html=1;fontFamily=Times New Roman;" vertex="1" parent="c6">
+          <mxGeometry x="10" y="40" width="310" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs1" value="" style="rounded=0;fillColor=#1a1a1a;strokeColor=none;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="14" y="23" width="28" height="5" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt1" value="request path" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="48" y="13" width="110" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs2" value="" style="rounded=0;fillColor=#c07818;strokeColor=none;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="170" y="23" width="28" height="5" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt2" value="configuration path" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="204" y="13" width="150" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs3" value="" style="rounded=0;fillColor=#2e7d55;strokeColor=none;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="366" y="22" width="28" height="7" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt3" value="the swap point" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="400" y="13" width="130" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs4" value="" style="rounded=1;arcSize=10;fillColor=#f7f7f7;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="542" y="14" width="32" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt4" value="outside the process" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="582" y="13" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs5" value="" style="rounded=1;arcSize=10;fillColor=#ffffff;strokeColor=#8a8a8a;dashed=1;dashPattern=4 4;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="754" y="14" width="32" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt5" value="count set at runtime" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="794" y="13" width="180" height="26" as="geometry" />
+        </mxCell>
+
+        </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

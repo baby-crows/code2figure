@@ -1,0 +1,213 @@
+<mxfile host="papertrail">
+  <diagram name="argo-workflows">
+    <mxGraphModel dx="1400" dy="1100" grid="0" page="1" pageWidth="1080" pageHeight="1110" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="zoneC" value="Workflow Controller [runtime]" style="rounded=1;arcSize=4;fillColor=#eef5ec;strokeColor=#5f8f52;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=13;fontStyle=1;fontColor=#2e5a26;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="36" y="170" width="270" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="zoneK" value="Kubernetes API" style="rounded=1;arcSize=4;fillColor=#f4f8fc;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=13;fontStyle=1;fontColor=#3a4a5a;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="416" y="170" width="280" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="zoneP" value="Workflow pod, one per node [runtime]" style="rounded=1;arcSize=4;fillColor=#fdf6ec;strokeColor=#d99b4a;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=13;fontStyle=1;fontColor=#8a520f;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="736" y="170" width="288" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="wband" value="only the controller writes this" style="rounded=1;arcSize=4;fillColor=#dceafa;strokeColor=#2b6cb0;strokeWidth=1.6;verticalAlign=bottom;align=left;spacingLeft=12;spacingBottom=4;fontSize=12;fontStyle=1;fontColor=#1c4e85;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="436" y="206" width="240" height="252" as="geometry" />
+        </mxCell>
+
+        <mxCell id="queue" value="wfQueue&#10;&lt;font style=&quot;font-size:12px&quot;&gt;key = namespace/name&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#5f8f52;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontSize=13;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="52" y="294" width="232" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="operate" value="operate() on a DeepCopy&#10;&lt;font style=&quot;font-size:12px&quot;&gt;30 s budget, then requeue&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#dcefe4;strokeColor=#2e7d55;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontSize=13;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="52" y="482" width="232" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="wf" value="Workflow: dag-diamond-&#10;&lt;font style=&quot;font-size:12px&quot;&gt;spec.entrypoint: diamond&lt;/font&gt;" style="shape=note;size=14;fillColor=#ffffff;strokeColor=#2b6cb0;strokeWidth=1.6;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontSize=13;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="450" y="234" width="212" height="196" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli" value="argo CLI&#10;&lt;font face=&quot;Courier New&quot; style=&quot;font-size:12px&quot;&gt;argo submit dag-diamond.yaml&lt;/font&gt;" style="rounded=1;arcSize=10;fillColor=#f3e6f2;strokeColor=#a3549a;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="36" y="64" width="250" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" style="group;html=1;fontFamily=Times New Roman;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="560" y="790" width="452" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="cli" target="client"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="client" target="server"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="create Workflow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=2.2;endArrow=block;endFill=1;exitX=0.25;exitY=1;entryX=0.82;entryY=0;labelBackgroundColor=#ffffff;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="server" target="wf"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="requeue key" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#5f6368;strokeWidth=1.5;dashed=1;dashPattern=5 4;endArrow=block;endFill=1;exitX=0;exitY=0.15;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="zoneK" target="inf"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="inf" target="queue"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="queue" target="worker"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="worker" target="operate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eo1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="op1" target="op2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eo2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#2e7d55;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="op2" target="op3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="persistUpdates" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=2.2;endArrow=block;endFill=1;exitX=1;exitY=0.05;entryX=0;entryY=0.76;labelBackgroundColor=#ffffff;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="operate" target="wf"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=2.2;endArrow=block;endFill=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="operate" target="podobj"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.78;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="podobj" target="zoneP"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="cinit" target="cmain"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep2" value="exitcode" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;dashed=1;dashPattern=5 4;endArrow=block;endFill=1;exitX=0.15;exitY=1;entryX=0.15;entryY=0;labelBackgroundColor=#fdf6ec;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="cmain" target="shared"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.4;dashed=1;dashPattern=5 4;endArrow=block;endFill=1;exitX=0.85;exitY=1;entryX=0.85;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="shared" target="cwait"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="create / patch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=2.2;endArrow=block;endFill=1;exitX=0.2;exitY=1;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="cwait" target="wtr"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#c07818;strokeWidth=1.6;startArrow=block;startFill=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.35;entryY=0;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="zoneP" target="repo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" value="Dehydrate · Hydrate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.8;startArrow=block;startFill=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="operate" target="sql"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="da" style="edgeStyle=none;strokeColor=#2b6cb0;strokeWidth=1.4;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="dagA" target="dagB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="db" style="edgeStyle=none;strokeColor=#2b6cb0;strokeWidth=1.4;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="dagA" target="dagC"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="dc" style="edgeStyle=none;strokeColor=#2b6cb0;strokeWidth=1.4;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="dagB" target="dagD"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="dd" style="edgeStyle=none;strokeColor=#2b6cb0;strokeWidth=1.4;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="dagC" target="dagD"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="client" value="pkg/apiclient&#10;&lt;font style=&quot;font-size:12px&quot;&gt;argo-server gRPC · HTTP1&#10;offline · direct kube&lt;/font&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;fillColor=#eef7f0;strokeColor=#3d8b5f;fontSize=13;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="316" y="64" width="216" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="server" value="argo-server [runtime]&#10;&lt;font style=&quot;font-size:12px&quot;&gt;gRPC and HTTP on one port, UI embedded&lt;/font&gt;" style="rounded=1;arcSize=10;fillColor=#e3eef9;strokeColor=#2b6cb0;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="562" y="64" width="278" height="76" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inf" value="Informers&#10;&lt;font style=&quot;font-size:12px&quot;&gt;Workflow · Pod&#10;WorkflowTaskResult&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#5f8f52;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="52" y="206" width="232" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="q1" value="" style="rounded=0;fillColor=#dcefe4;strokeColor=#2e7d55;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="68" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q2" value="" style="rounded=0;fillColor=#dcefe4;strokeColor=#2e7d55;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="134" y="340" width="68" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q3" value="" style="rounded=0;fillColor=#ffffff;strokeColor=#2e7d55;dashed=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="208" y="340" width="68" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="workerBack" value="" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#5f8f52;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="58" y="398" width="232" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="worker" value="worker goroutine&#10;&lt;font style=&quot;font-size:12px&quot;&gt;workflowKeyLock(key)&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#5f8f52;fontSize=13;fontStyle=1;verticalAlign=top;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="52" y="406" width="232" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="op1" value="merge task results into status" style="rounded=0;fillColor=#ffffff;strokeColor=#2e7d55;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="216" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="op2" value="reconcile pods against status" style="rounded=0;fillColor=#ffffff;strokeColor=#2e7d55;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="60" y="578" width="216" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="op3" value="walk templates from the entrypoint" style="rounded=0;fillColor=#ffffff;strokeColor=#2e7d55;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="60" y="626" width="216" height="32" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dagA" value="A" style="ellipse;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="546" y="292" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dagB" value="B" style="ellipse;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="478" y="342" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dagC" value="C" style="ellipse;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="614" y="342" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dagD" value="D" style="ellipse;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;fontStyle=1;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="546" y="392" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="podobjBack" value="" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#7a8085;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="460" y="478" width="212" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="podobj" value="Pod&#10;&lt;font style=&quot;font-size:12px&quot;&gt;one per node&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#7a8085;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="450" y="486" width="212" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="wtrBack" value="" style="shape=note;size=12;fillColor=#ffffff;strokeColor=#7a8085;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="460" y="570" width="206" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="wtr" value="WorkflowTaskResult&#10;&lt;font style=&quot;font-size:12px&quot;&gt;name = node ID&#10;outputs · progress&lt;/font&gt;" style="shape=note;size=12;fillColor=#ffffff;strokeColor=#7a8085;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="450" y="580" width="206" height="86" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cinit" value="init&#10;&lt;font style=&quot;font-size:12px&quot;&gt;stage input artifacts and parameters&lt;/font&gt;" style="rounded=0;fillColor=#ffffff;strokeColor=#c07818;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="760" y="214" width="248" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="cmain" value="main&#10;&lt;font style=&quot;font-size:12px&quot;&gt;argoexec emissary is PID 1&#10;it runs the user command&lt;/font&gt;" style="rounded=0;fillColor=#fdeccd;strokeColor=#c07818;strokeWidth=1.8;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="760" y="298" width="248" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="shared" value="&lt;font face=&quot;Courier New&quot;&gt;/var/run/argo&lt;/font&gt; shared volume" style="rounded=0;fillColor=#f5f0e2;strokeColor=#8a7f6a;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="760" y="402" width="248" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cwait" value="wait&#10;&lt;font style=&quot;font-size:12px&quot;&gt;PostMain: script result → parameters&#10;→ artifacts → logs&lt;/font&gt;" style="rounded=0;fillColor=#ffffff;strokeColor=#c07818;fontSize=13;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="760" y="456" width="248" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" value="artifact repository&#10;&lt;font style=&quot;font-size:12px&quot;&gt;s3 · gcs · azure · git · http&lt;/font&gt;" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;fillColor=#f0ece4;strokeColor=#8a7f6a;fontSize=13;fontStyle=1;verticalAlign=middle;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="800" y="660" width="212" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="sql" value="SQL: Postgres or MySQL&#10;&lt;font style=&quot;font-size:12px&quot;&gt;offloaded status.nodes&#10;argo_archived_workflows&lt;/font&gt;" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;fillColor=#f0ece4;strokeColor=#8a7f6a;fontSize=13;fontStyle=1;verticalAlign=middle;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="70" y="766" width="248" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="n1" value="1" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="6" y="56" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="2" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="6" y="212" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="3" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="6" y="482" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="4" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="700" y="214" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="5" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="424" y="580" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" value="6" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="36" y="758" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="title" value="Argo Workflows: one workflow key, one reconcile pass" style="text;html=1;fontSize=17;fontStyle=1;align=left;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="36" y="12" width="600" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cap" value="Figure 1. Argo Workflows, from submit to pod and back. (1) The CLI reaches the cluster through pkg/apiclient, which speaks to argo-server, or&#10;straight to the Kubernetes API, so the controller also runs stand alone. (2) Informers on Workflow, Pod and WorkflowTaskResult all push the&#10;same key, namespace/name, onto wfQueue, and a worker holds workflowKeyLock while it reconciles that key, so one workflow is never&#10;reconciled twice at the same time. (3) operate() works on a DeepCopy of the informer object: it merges task results, reconciles pods, then&#10;walks the templates from spec.entrypoint, and gives up after 30 s so that no single workflow can hold a worker. (4) Every ready node becomes&#10;a Pod whose main container is wrapped by argoexec emissary as PID 1. (5) The executor never writes the Workflow. It creates or patches a&#10;WorkflowTaskResult named after the node ID, outside the write boundary, and the controller merges it on the next pass, which is what closes&#10;the loop. (6) persistUpdates compresses status.nodes and offloads it to SQL when it is still too large, so every reader outside the controller must&#10;hydrate first. Commit not determined: this copy of the repository carries no .git directory. The init-less pod layout, a single supervisor&#10;container in place of init and wait, is an opt-in beta and is not drawn." style="text;html=1;fontSize=11;align=left;verticalAlign=top;fontColor=#5f6368;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="36" y="946" width="976" height="150" as="geometry" />
+        </mxCell>
+      <mxCell id="lgbg" value="" style="rounded=1;arcSize=6;fillColor=#ffffff;strokeColor=#7a8085;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="0" y="0" width="452" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="lgt" value="Legend" style="text;html=1;fontSize=13;fontStyle=1;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="12" y="6" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs1" value="" style="rounded=0;fillColor=none;strokeColor=#1a1a1a;strokeWidth=2.2;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="14" y="40" width="30" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx1" value="writes an object" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="54" y="32" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs2" value="" style="rounded=0;fillColor=none;strokeColor=#5f6368;strokeWidth=1.5;dashed=1;dashPattern=5 4;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="14" y="70" width="30" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx2" value="watches, does not write" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="54" y="62" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs3" value="" style="rounded=0;fillColor=none;strokeColor=#8a8a8a;dashed=1;dashPattern=8 5;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="14" y="96" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx3" value="separate process" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="54" y="96" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs4" value="" style="shape=note;size=8;fillColor=#ffffff;strokeColor=#7a8085;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="232" y="34" width="34" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx4" value="stacked: one per node" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="276" y="34" width="164" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs5" value="" style="rounded=1;arcSize=4;fillColor=#dceafa;strokeColor=#2b6cb0;strokeWidth=1.6;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="232" y="66" width="34" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx5" value="controller write boundary" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="276" y="66" width="164" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lgs6" value="" style="rounded=0;fillColor=#1a1a1a;strokeColor=none;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="232" y="98" width="22" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="lgx6" value="reading order" style="text;html=1;fontSize=12;align=left;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="276" y="97" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

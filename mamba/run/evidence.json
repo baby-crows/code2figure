@@ -1,0 +1,705 @@
+{
+  "components": [
+    {
+      "name": "fuse_pregate_headwise_norm",
+      "kind": "module",
+      "cls": "bool",
+      "file": "mamba3.py",
+      "line": 84,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L84"
+      ]
+    },
+    {
+      "name": "d_inner",
+      "kind": "module",
+      "cls": "int",
+      "file": "mamba3.py",
+      "line": 92,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L92"
+      ]
+    },
+    {
+      "name": "rotary_dim_divisor",
+      "kind": "module",
+      "cls": "int",
+      "file": "mamba3.py",
+      "line": 99,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L99"
+      ]
+    },
+    {
+      "name": "B_norm",
+      "kind": "module",
+      "cls": "RMSNormGated",
+      "file": "mamba3.py",
+      "line": 126,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L126"
+      ]
+    },
+    {
+      "name": "C_norm",
+      "kind": "module",
+      "cls": "RMSNormGated",
+      "file": "mamba3.py",
+      "line": 127,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L127"
+      ]
+    },
+    {
+      "name": "norm",
+      "kind": "module",
+      "cls": "RMSNormGated",
+      "file": "mamba3.py",
+      "line": 144,
+      "state": "",
+      "evidence": [
+        "mamba3.py#L144"
+      ]
+    },
+    {
+      "name": "norm",
+      "kind": "module",
+      "cls": "norm_cls",
+      "file": "block.py",
+      "line": 29,
+      "state": "",
+      "evidence": [
+        "block.py#L29"
+      ]
+    },
+    {
+      "name": "mixer",
+      "kind": "module",
+      "cls": "mixer_cls",
+      "file": "block.py",
+      "line": 30,
+      "state": "",
+      "evidence": [
+        "block.py#L30"
+      ]
+    },
+    {
+      "name": "norm2",
+      "kind": "module",
+      "cls": "norm_cls",
+      "file": "block.py",
+      "line": 32,
+      "state": "",
+      "evidence": [
+        "block.py#L32"
+      ]
+    },
+    {
+      "name": "mlp",
+      "kind": "module",
+      "cls": "mlp_cls",
+      "file": "block.py",
+      "line": 33,
+      "state": "",
+      "evidence": [
+        "block.py#L33"
+      ]
+    },
+    {
+      "name": "layers",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "mixer_seq_simple.py",
+      "line": 158,
+      "state": "",
+      "evidence": [
+        "mixer_seq_simple.py#L158"
+      ]
+    },
+    {
+      "name": "norm_f",
+      "kind": "module",
+      "cls": "",
+      "file": "mixer_seq_simple.py",
+      "line": 177,
+      "state": "",
+      "evidence": [
+        "mixer_seq_simple.py#L177"
+      ]
+    },
+    {
+      "name": "backbone",
+      "kind": "module",
+      "cls": "MixerModel",
+      "file": "mixer_seq_simple.py",
+      "line": 247,
+      "state": "",
+      "evidence": [
+        "mixer_seq_simple.py#L247"
+      ]
+    }
+  ],
+  "losses": [],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [
+    "Mamba3",
+    "Block",
+    "MixerModel",
+    "MambaLMHeadModel"
+  ],
+  "artifacts": [
+    {
+      "kind": "test_fixture",
+      "text": "assert self.d_inner % self.headdim == 0",
+      "lang": "",
+      "file": "mamba3.py",
+      "line": 93
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dt.shape == (batch, nheads, seqlen), f'dt shape mismatch: {dt.shape}'",
+      "lang": "",
+      "file": "angle_dt.py",
+      "line": 161
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert batch == 1, 'Varlen mode requires batch=1'",
+      "lang": "",
+      "file": "angle_dt.py",
+      "line": 156
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert init_state.shape == (num_sequences, nheads, dim), f'init_state shape mismatch: {init_state.shape}'",
+      "lang": "",
+      "file": "angle_dt.py",
+      "line": 163
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert headdim % 2 == 0",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 180
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert angle_state.shape == (batch, nheads, rotary_dim // 2)",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 184
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dt.shape == (batch, nheads)",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 186
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert bias_q.shape == (mimo_dim, nheads, headdim), f'bias_q shape {bias_q.shape} != (mimo_dim, nheads, headdim) {(mimo_dim, nheads, headdim)}'",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 191
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert bias_k.shape == (mimo_dim, nheads, headdim), f'bias_k shape {bias_k.shape} != (mimo_dim, nheads, headdim) {(mimo_dim, nheads, headdim)}'",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 195
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert D % 2 == 0",
+      "lang": "",
+      "file": "mamba3_mimo_rotary_step.py",
+      "line": 336
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert S % chunk_size == 0, f'Sequence length {S} must be divisible by chunk_size {chunk_size}'",
+      "lang": "",
+      "file": "mamba3_mimo_utils.py",
+      "line": 544
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dSSdA.shape == (B, H, nchunks, chunk_size, chunk_size), f'dSSdA shape mismatch: expected {(B, H, nchunks, chunk_size, chunk_size)}, got {dSSdA.shape}'",
+      "lang": "",
+      "file": "mamba3_mimo_utils.py",
+      "line": 545
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert cu_seqlens.ndim == 1, f'cu_seqlens must be 1D, got shape {tuple(cu_seqlens.shape)}'",
+      "lang": "",
+      "file": "mamba3_mimo_utils.py",
+      "line": 636
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dSSdA.shape == (B, H, nchunks_global, chunk_size, chunk_size), f'dSSdA shape mismatch: got {dSSdA.shape}, expected {(B, H, nchunks_global, chunk_size, chunk_size)}'",
+      "lang": "",
+      "file": "mamba3_mimo_utils.py",
+      "line": 1333
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert nheads % nheads_qk == 0, 'nheads must be divisible by nheads_qk (for GQA support)'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 668
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert v.shape == (batch, seqlen, nheads, headdim_v)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 672
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert da_cs.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 673
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert da_cs_sum.shape == (batch, nheads, nchunks)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 674
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert qk_dot.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 675
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert SSM_States.shape == (batch, nheads, headdim_v, nchunks * headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 676
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert do.shape == (batch, seqlen, nheads, headdim_v)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 677
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert scale.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1222
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert gamma.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1223
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert q_bias.shape == (nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1224
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert k_bias.shape == (nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1225
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert angles.shape == (batch, seqlen, nheads, headdim_angles)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1227
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dq_in.shape == (batch, seqlen, nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1228
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dk_in.shape == (batch, seqlen, nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1229
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dqk.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1230
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert nheads % nheads_qk == 0, 'nheads must be multiple of nheads_qk for GQA support'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1234
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert dgamma.shape == (batch, nheads, seqlen), f'dgamma shape mismatch: {dgamma.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1664
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert trap.shape == (batch, nheads, seqlen), f'trap shape mismatch: {trap.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1666
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert batch == 1",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 662
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert D.shape == (nheads,)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 681
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert d_ok_state.shape == (num_sequences, nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1233
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert batch == 1, 'Batch size must be 1 when using variable-length sequences.'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1659
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert d_issm_state.shape == (num_sequences, nheads, headdim_v, headdim_qk), f'd_issm_state shape mismatch: {d_issm_state.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1672
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert input_k_state.shape == (num_sequences, nheads, headdim_qk), f'input_k_state shape mismatch: {input_k_state.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1674
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert input_v_state.shape == (num_sequences, nheads, headdim_v), f'input_v_state shape mismatch: {input_v_state.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1676
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert nheads % nheads_qk == 0, f'nheads ({nheads}) must be divisible by nheads_qk ({nheads_qk})'",
+      "lang": "",
+      "file": "mamba3_siso_combined.py",
+      "line": 373
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert headdim_qk % 2 == 0, f'headdim_qk ({headdim_qk}) must be even for rotary embeddings'",
+      "lang": "",
+      "file": "mamba3_siso_combined.py",
+      "line": 374
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert ADT.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 549
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert DT.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 550
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Trap.shape == (batch, nheads, seqlen)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 551
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Q_bias.shape == (nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 552
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert K_bias.shape == (nheads, headdim_qk)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 553
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Angles.shape == (batch, seqlen, nheads, headdim_angles)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 557
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Z.shape == (batch, seqlen, nheads, headdim_v)",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 562
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Init_SSM_State.shape == (num_sequences, nheads, headdim_v, headdim_qk), f'Initial_States[0] shape mismatch: expected {(num_sequences, nheads, headdim_v, headdim_qk)}, got {Init_SSM_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 566
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Init_K_State.shape == (num_sequences, nheads, headdim_qk), f'Initial_States[1] shape mismatch: expected {(num_sequences, nheads, headdim_qk)}, got {Init_K_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 568
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Init_V_State.shape == (num_sequences, nheads, headdim_v), f'Initial_States[2] shape mismatch: expected {(num_sequences, nheads, headdim_v)}, got {Init_V_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_fwd.py",
+      "line": 570
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert ADT.shape == (batch, nheads), f'ADT shape mismatch: expected {(batch, nheads)}, got {ADT.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 288
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert DT.shape == (batch, nheads), f'DT shape mismatch: expected {(batch, nheads)}, got {DT.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 289
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Trap.shape == (batch, nheads), f'Trap shape mismatch: expected {(batch, nheads)}, got {Trap.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 290
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Q_bias.shape == (nheads, headdim_qk), f'Q_bias shape mismatch: expected {(nheads, headdim_qk)}, got {Q_bias.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 291
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert K_bias.shape == (nheads, headdim_qk), f'K_bias shape mismatch: expected {(nheads, headdim_qk)}, got {K_bias.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 292
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Angles.shape == (batch, nheads, headdim_angles), f'Angles shape mismatch: expected {(batch, nheads, headdim_angles)}, got {Angles.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 295
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Input_Angle_State.shape == (batch, nheads, headdim_angles), f'Input_Angle_State shape mismatch: expected {(batch, nheads, headdim_angles)}, got {Input_Angle_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 303
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Input_SSM_State.shape == (batch, nheads, headdim_v, headdim_qk), f'Input_SSM_State shape mismatch: expected {(batch, nheads, headdim_v, headdim_qk)}, got {Input_SSM_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 304
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Input_K_State.shape == (batch, nheads, headdim_qk), f'Input_K_State shape mismatch: expected {(batch, nheads, headdim_qk)}, got {Input_K_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 305
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Input_V_State.shape == (batch, nheads, headdim_v), f'Input_V_State shape mismatch: expected {(batch, nheads, headdim_v)}, got {Input_V_State.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 306
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert D.shape == (nheads,), f'D shape mismatch: expected {(nheads,)}, got {D.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 298
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert Z.shape == (batch, nheads, headdim_v), f'Z shape mismatch: expected {(batch, nheads, headdim_v)}, got {Z.shape}'",
+      "lang": "",
+      "file": "mamba3_siso_step.py",
+      "line": 300
+    }
+  ],
+  "examples": [
+    {
+      "text": ", only support Mamba1, Mamba2, and Mamba3",
+      "kind": "sample_string",
+      "file": "mixer_seq_simple.py",
+      "line": 61,
+      "score": 2
+    },
+    {
+      "text": "Varlen mode requires batch=1",
+      "kind": "sample_string",
+      "file": "angle_dt.py",
+      "line": 156,
+      "score": 2
+    },
+    {
+      "text": "Mamba-3 Backward Pass Triton Kernels.\n\nCopyright (c) 2026, Dao AI Lab, Goombalab",
+      "kind": "sample_string",
+      "file": "mamba3_siso_bwd.py",
+      "line": 1,
+      "score": 2
+    },
+    {
+      "text": "Mamba-3 Triton Autograd Wrapper\n\nCopyright (c) 2025, Dao AI Lab, Goombalab",
+      "kind": "sample_string",
+      "file": "mamba3_siso_combined.py",
+      "line": 1,
+      "score": 2
+    },
+    {
+      "text": "Custom autograd function for Mamba-3 with Triton kernels.",
+      "kind": "sample_string",
+      "file": "mamba3_siso_combined.py",
+      "line": 51,
+      "score": 2
+    },
+    {
+      "text": "Mamba-3 SISO Forward Pass Triton Kernel.\n\nCopyright (c) 2025, Dao AI Lab, Goombalab",
+      "kind": "sample_string",
+      "file": "mamba3_siso_fwd.py",
+      "line": 1,
+      "score": 2
+    },
+    {
+      "text": "Initial_States[0] shape mismatch: expected",
+      "kind": "sample_string",
+      "file": "mamba3_siso_fwd.py",
+      "line": 567,
+      "score": 2
+    },
+    {
+      "text": "Initial_States[1] shape mismatch: expected",
+      "kind": "sample_string",
+      "file": "mamba3_siso_fwd.py",
+      "line": 569,
+      "score": 2
+    },
+    {
+      "text": "Initial_States[2] shape mismatch: expected",
+      "kind": "sample_string",
+      "file": "mamba3_siso_fwd.py",
+      "line": 571,
+      "score": 2
+    },
+    {
+      "text": "Mamba-3 Step Kernel.\n\nCopyright (c) 2025, Dao AI Lab, Goombalab",
+      "kind": "sample_string",
+      "file": "mamba3_siso_step.py",
+      "line": 1,
+      "score": 2
+    },
+    {
+      "text": "Mamba-3 Util Functions.\n\nCopyright (c) 2025, Dao AI Lab, Goombalab",
+      "kind": "sample_string",
+      "file": "utils.py",
+      "line": 1,
+      "score": 2
+    },
+    {
+      "text": "u: (batch, seqlen, hidden_dim)\n        Returns: same shape as u",
+      "kind": "sample_string",
+      "file": "mamba3.py",
+      "line": 161,
+      "score": 1
+    }
+  ],
+  "files": [
+    "mamba3.py",
+    "block.py",
+    "mixer_seq_simple.py",
+    "__init__.py",
+    "angle_dt.py",
+    "grouped_head_reduction.py",
+    "mamba3_mimo_rotary_step.py",
+    "mamba3_mimo_utils.py",
+    "mamba3_siso_bwd.py",
+    "mamba3_siso_combined.py",
+    "mamba3_siso_fwd.py",
+    "mamba3_siso_step.py",
+    "utils.py"
+  ],
+  "notes": [
+    "loss 항이 없다. 학습 스크립트(train*.py, *_trainer.py)를 함께 넘겨야 방법론 그림의 관계를 그릴 수 있다.",
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다.",
+    "T1 관통 예시를 찾지 못했다. 지어내지 말고 사용자에게 대표 사례 한 건을 요청한다 — 실제 입력 하나와 그때 나오는 결과 하나. 코드 저장소에는 없고 논문 본문·데이터셋에만 있는 경우가 흔하다."
+  ]
+}

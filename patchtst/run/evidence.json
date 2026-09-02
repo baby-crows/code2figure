@@ -1,0 +1,763 @@
+{
+  "components": [
+    {
+      "name": "decomp_module",
+      "kind": "module",
+      "cls": "series_decomp",
+      "file": "PatchTST.py",
+      "line": 52,
+      "state": "",
+      "evidence": [
+        "PatchTST.py#L52"
+      ]
+    },
+    {
+      "name": "model_trend",
+      "kind": "module",
+      "cls": "PatchTST_backbone",
+      "file": "PatchTST.py",
+      "line": 53,
+      "state": "",
+      "evidence": [
+        "PatchTST.py#L53"
+      ]
+    },
+    {
+      "name": "model_res",
+      "kind": "module",
+      "cls": "PatchTST_backbone",
+      "file": "PatchTST.py",
+      "line": 61,
+      "state": "",
+      "evidence": [
+        "PatchTST.py#L61"
+      ]
+    },
+    {
+      "name": "model",
+      "kind": "module",
+      "cls": "PatchTST_backbone",
+      "file": "PatchTST.py",
+      "line": 70,
+      "state": "",
+      "evidence": [
+        "PatchTST.py#L70"
+      ]
+    },
+    {
+      "name": "backbone",
+      "kind": "module",
+      "cls": "TSTiEncoder",
+      "file": "PatchTST_backbone.py",
+      "line": 41,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L41"
+      ]
+    },
+    {
+      "name": "W_pos",
+      "kind": "module",
+      "cls": "positional_encoding",
+      "file": "PatchTST_backbone.py",
+      "line": 147,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L147"
+      ]
+    },
+    {
+      "name": "encoder",
+      "kind": "module",
+      "cls": "TSTEncoder",
+      "file": "PatchTST_backbone.py",
+      "line": 153,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L153"
+      ]
+    },
+    {
+      "name": "layers",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "PatchTST_backbone.py",
+      "line": 183,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L183"
+      ]
+    },
+    {
+      "name": "self_attn",
+      "kind": "module",
+      "cls": "_MultiheadAttention",
+      "file": "PatchTST_backbone.py",
+      "line": 211,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L211"
+      ]
+    },
+    {
+      "name": "ff",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "PatchTST_backbone.py",
+      "line": 221,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L221"
+      ]
+    },
+    {
+      "name": "sdp_attn",
+      "kind": "module",
+      "cls": "_ScaledDotProductAttention",
+      "file": "PatchTST_backbone.py",
+      "line": 292,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L292"
+      ]
+    },
+    {
+      "name": "to_out",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "PatchTST_backbone.py",
+      "line": 295,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L295"
+      ]
+    },
+    {
+      "name": "revin_layer",
+      "kind": "module",
+      "cls": "RevIN",
+      "file": "PatchTST_backbone.py",
+      "line": 29,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L29"
+      ]
+    },
+    {
+      "name": "padding_patch_layer",
+      "kind": "module",
+      "cls": "ReplicationPad1d",
+      "file": "PatchTST_backbone.py",
+      "line": 37,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L37"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "loaded",
+      "cls": "create_pretrain_head",
+      "file": "PatchTST_backbone.py",
+      "line": 55,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L55"
+      ]
+    },
+    {
+      "name": "linears",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "PatchTST_backbone.py",
+      "line": 98,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L98"
+      ]
+    },
+    {
+      "name": "dropouts",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "PatchTST_backbone.py",
+      "line": 99,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L99"
+      ]
+    },
+    {
+      "name": "flattens",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "PatchTST_backbone.py",
+      "line": 100,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L100"
+      ]
+    },
+    {
+      "name": "norm_attn",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "PatchTST_backbone.py",
+      "line": 216,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L216"
+      ]
+    },
+    {
+      "name": "norm_ffn",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "PatchTST_backbone.py",
+      "line": 229,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L229"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "module",
+      "cls": "Flatten_Head",
+      "file": "PatchTST_backbone.py",
+      "line": 57,
+      "state": "",
+      "evidence": [
+        "PatchTST_backbone.py#L57"
+      ]
+    },
+    {
+      "name": "stdev",
+      "kind": "module",
+      "cls": "detach",
+      "file": "RevIN.py",
+      "line": 41,
+      "state": "",
+      "evidence": [
+        "RevIN.py#L41"
+      ]
+    },
+    {
+      "name": "last",
+      "kind": "module",
+      "cls": "unsqueeze",
+      "file": "RevIN.py",
+      "line": 38,
+      "state": "",
+      "evidence": [
+        "RevIN.py#L38"
+      ]
+    },
+    {
+      "name": "mean",
+      "kind": "module",
+      "cls": "detach",
+      "file": "RevIN.py",
+      "line": 40,
+      "state": "",
+      "evidence": [
+        "RevIN.py#L40"
+      ]
+    },
+    {
+      "name": "avg",
+      "kind": "module",
+      "cls": "AvgPool1d",
+      "file": "PatchTST_layers.py",
+      "line": 32,
+      "state": "",
+      "evidence": [
+        "PatchTST_layers.py#L32"
+      ]
+    },
+    {
+      "name": "backbone",
+      "kind": "module",
+      "cls": "PatchTSTEncoder",
+      "file": "patchTST.py",
+      "line": 39,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L39"
+      ]
+    },
+    {
+      "name": "self_attn",
+      "kind": "module",
+      "cls": "MultiheadAttention",
+      "file": "patchTST.py",
+      "line": 272,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L272"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "module",
+      "cls": "PretrainHead",
+      "file": "patchTST.py",
+      "line": 51,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L51"
+      ]
+    },
+    {
+      "name": "W_P",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "patchTST.py",
+      "line": 190,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L190"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "module",
+      "cls": "PredictionHead",
+      "file": "patchTST.py",
+      "line": 53,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L53"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "module",
+      "cls": "RegressionHead",
+      "file": "patchTST.py",
+      "line": 55,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L55"
+      ]
+    },
+    {
+      "name": "head",
+      "kind": "module",
+      "cls": "ClassificationHead",
+      "file": "patchTST.py",
+      "line": 57,
+      "state": "",
+      "evidence": [
+        "patchTST.py#L57"
+      ]
+    },
+    {
+      "name": "mask",
+      "kind": "module",
+      "cls": "bool",
+      "file": "patch_mask.py",
+      "line": 58,
+      "state": "",
+      "evidence": [
+        "patch_mask.py#L58"
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "name": "loss_func",
+      "fn": "expr",
+      "args": [],
+      "file": "patch_mask.py",
+      "line": 47,
+      "weight": "",
+      "evidence": "self.learner.loss_func = self._loss"
+    },
+    {
+      "name": "loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patch_mask.py",
+      "line": 67,
+      "weight": "",
+      "evidence": "loss = (preds - target) ** 2"
+    },
+    {
+      "name": "loss",
+      "fn": "mean",
+      "args": [],
+      "file": "patch_mask.py",
+      "line": 68,
+      "weight": "",
+      "evidence": "loss = loss.mean(dim=-1)"
+    },
+    {
+      "name": "loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patch_mask.py",
+      "line": 69,
+      "weight": "",
+      "evidence": "loss = (loss * self.mask).sum() / self.mask.sum()"
+    },
+    {
+      "name": "loss_func",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "patchtst_pretrain.py",
+      "line": 98,
+      "weight": "",
+      "evidence": "loss_func = torch.nn.MSELoss(reduction='mean')"
+    },
+    {
+      "name": "loss_func",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "patchtst_pretrain.py",
+      "line": 121,
+      "weight": "",
+      "evidence": "loss_func = torch.nn.MSELoss(reduction='mean')"
+    },
+    {
+      "name": "train_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patchtst_pretrain.py",
+      "line": 139,
+      "weight": "",
+      "evidence": "train_loss = learn.recorder['train_loss']"
+    },
+    {
+      "name": "valid_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patchtst_pretrain.py",
+      "line": 140,
+      "weight": "",
+      "evidence": "valid_loss = learn.recorder['valid_loss']"
+    },
+    {
+      "name": "loss_func",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "patchtst_finetune.py",
+      "line": 109,
+      "weight": "",
+      "evidence": "loss_func = torch.nn.MSELoss(reduction='mean')"
+    },
+    {
+      "name": "train_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patchtst_finetune.py",
+      "line": 127,
+      "weight": "",
+      "evidence": "train_loss = learn.recorder['train_loss']"
+    },
+    {
+      "name": "valid_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "patchtst_finetune.py",
+      "line": 128,
+      "weight": "",
+      "evidence": "valid_loss = learn.recorder['valid_loss']"
+    },
+    {
+      "name": "loss_func",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "patchtst_finetune.py",
+      "line": 143,
+      "weight": "",
+      "evidence": "loss_func = torch.nn.MSELoss(reduction='mean')"
+    },
+    {
+      "name": "loss_func",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "patchtst_finetune.py",
+      "line": 173,
+      "weight": "",
+      "evidence": "loss_func = torch.nn.MSELoss(reduction='mean')"
+    },
+    {
+      "name": "criterion",
+      "fn": "MSELoss",
+      "args": [],
+      "file": "exp_main.py",
+      "line": 51,
+      "weight": "",
+      "evidence": "criterion = nn.MSELoss()"
+    },
+    {
+      "name": "total_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "exp_main.py",
+      "line": 55,
+      "weight": "",
+      "evidence": "total_loss = []"
+    },
+    {
+      "name": "total_loss",
+      "fn": "average",
+      "args": [
+        "total_loss"
+      ],
+      "file": "exp_main.py",
+      "line": 96,
+      "weight": "",
+      "evidence": "total_loss = np.average(total_loss)"
+    },
+    {
+      "name": "criterion",
+      "fn": "_select_criterion",
+      "args": [],
+      "file": "exp_main.py",
+      "line": 115,
+      "weight": "",
+      "evidence": "criterion = self._select_criterion()"
+    },
+    {
+      "name": "train_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "exp_main.py",
+      "line": 128,
+      "weight": "",
+      "evidence": "train_loss = []"
+    },
+    {
+      "name": "train_loss",
+      "fn": "average",
+      "args": [
+        "train_loss"
+      ],
+      "file": "exp_main.py",
+      "line": 198,
+      "weight": "",
+      "evidence": "train_loss = np.average(train_loss)"
+    },
+    {
+      "name": "vali_loss",
+      "fn": "vali",
+      "args": [
+        "vali_data",
+        "vali_loader",
+        "criterion"
+      ],
+      "file": "exp_main.py",
+      "line": 199,
+      "weight": "",
+      "evidence": "vali_loss = self.vali(vali_data, vali_loader, criterion)"
+    },
+    {
+      "name": "test_loss",
+      "fn": "vali",
+      "args": [
+        "test_data",
+        "test_loader",
+        "criterion"
+      ],
+      "file": "exp_main.py",
+      "line": 200,
+      "weight": "",
+      "evidence": "test_loss = self.vali(test_data, test_loader, criterion)"
+    },
+    {
+      "name": "loss",
+      "fn": "criterion",
+      "args": [
+        "pred",
+        "true"
+      ],
+      "file": "exp_main.py",
+      "line": 93,
+      "weight": "",
+      "evidence": "loss = criterion(pred, true)"
+    },
+    {
+      "name": "loss",
+      "fn": "criterion",
+      "args": [
+        "outputs",
+        "batch_y"
+      ],
+      "file": "exp_main.py",
+      "line": 174,
+      "weight": "",
+      "evidence": "loss = criterion(outputs, batch_y)"
+    },
+    {
+      "name": "loss",
+      "fn": "criterion",
+      "args": [
+        "outputs",
+        "batch_y"
+      ],
+      "file": "exp_main.py",
+      "line": 159,
+      "weight": "",
+      "evidence": "loss = criterion(outputs, batch_y)"
+    }
+  ],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [
+    "Model",
+    "PatchTST_backbone",
+    "Flatten_Head",
+    "TSTiEncoder",
+    "TSTEncoder",
+    "TSTEncoderLayer",
+    "_MultiheadAttention",
+    "_ScaledDotProductAttention",
+    "RevIN",
+    "Transpose",
+    "moving_avg",
+    "series_decomp",
+    "PatchTST",
+    "RegressionHead",
+    "ClassificationHead",
+    "PredictionHead",
+    "PretrainHead",
+    "PatchTSTEncoder",
+    "TSTEncoder",
+    "TSTEncoderLayer",
+    "Patch"
+  ],
+  "artifacts": [
+    {
+      "kind": "readme_block",
+      "text": "sh ./scripts/PatchTST/weather.sh",
+      "lang": "",
+      "file": "README.md",
+      "line": 61
+    },
+    {
+      "kind": "readme_block",
+      "text": "python patchtst_pretrain.py --dset ettm1 --mask_ratio 0.4",
+      "lang": "",
+      "file": "README.md",
+      "line": 72
+    },
+    {
+      "kind": "readme_block",
+      "text": "python patchtst_finetune.py --dset ettm1 --pretrained_model <model_name>",
+      "lang": "",
+      "file": "README.md",
+      "line": 78
+    },
+    {
+      "kind": "readme_block",
+      "text": "@inproceedings{Yuqietal-2023-PatchTST,\n  title     = {A Time Series is Worth 64 Words: Long-term Forecasting with Transformers},\n  author    = {Nie, Yuqi and\n               H. Nguyen, Nam and\n               Sinthong, Phanwadee and \n               Kalagnanam, Jayant},\n  booktitle = {International Conference on Learning Representations},\n  year      = {2023}\n}",
+      "lang": "",
+      "file": "README.md",
+      "line": 108
+    }
+  ],
+  "examples": [
+    {
+      "text": "Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}",
+      "kind": "sample_string",
+      "file": "exp_main.py",
+      "line": 202,
+      "score": 2
+    },
+    {
+      "text": "iters: {0}, epoch: {1} | loss: {2:.7f}",
+      "kind": "sample_string",
+      "file": "exp_main.py",
+      "line": 178,
+      "score": 2
+    },
+    {
+      "text": "speed: {:.4f}s/iter; left time: {:.4f}s",
+      "kind": "sample_string",
+      "file": "exp_main.py",
+      "line": 181,
+      "score": 2
+    },
+    {
+      "text": "Moving average block to highlight the trend of time series",
+      "kind": "sample_string",
+      "file": "PatchTST_layers.py",
+      "line": 26,
+      "score": 1
+    },
+    {
+      "text": "is not available. You can use \"relu\", \"gelu\", or a callable",
+      "kind": "sample_string",
+      "file": "PatchTST_layers.py",
+      "line": 20,
+      "score": 1
+    },
+    {
+      "text": "head type should be either pretrain, prediction, or regression",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 37,
+      "score": 1
+    },
+    {
+      "text": "z: tensor [bs x num_patch x n_vars x patch_len]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 61,
+      "score": 1
+    },
+    {
+      "text": "x: [bs x nvars x d_model x num_patch]\n        output: [bs x output_dim]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 82,
+      "score": 1
+    },
+    {
+      "text": "x: [bs x nvars x d_model x num_patch]\n        output: [bs x n_classes]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 102,
+      "score": 1
+    },
+    {
+      "text": "x: [bs x nvars x d_model x num_patch]\n        output: [bs x forecast_len x nvars]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 137,
+      "score": 1
+    },
+    {
+      "text": "x: tensor [bs x nvars x d_model x num_patch]\n        output: tensor [bs x nvars x num_patch x patch_len]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 163,
+      "score": 1
+    },
+    {
+      "text": "x: tensor [bs x num_patch x nvars x patch_len]",
+      "kind": "sample_string",
+      "file": "patchTST.py",
+      "line": 207,
+      "score": 1
+    }
+  ],
+  "files": [
+    "PatchTST.py",
+    "PatchTST_backbone.py",
+    "RevIN.py",
+    "PatchTST_layers.py",
+    "patchTST.py",
+    "patch_mask.py",
+    "patchtst_pretrain.py",
+    "patchtst_finetune.py",
+    "exp_main.py"
+  ],
+  "notes": [
+    "README.md: syntax error at line 9, skipped",
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다.",
+    "T1 관통 예시를 찾지 못했다. 지어내지 말고 사용자에게 대표 사례 한 건을 요청한다 — 실제 입력 하나와 그때 나오는 결과 하나. 코드 저장소에는 없고 논문 본문·데이터셋에만 있는 경우가 흔하다."
+  ]
+}

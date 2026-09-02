@@ -1,0 +1,167 @@
+<!doctype html><html lang=ko><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Argo Workflows — 한 키, 한 번의 리컨사일 — method-figure 데모</title><style>
+*{box-sizing:border-box}
+body{margin:0;background:#0f1115;color:#e6e9ee;
+  font:15px/1.75 -apple-system,'Segoe UI','Malgun Gothic',sans-serif}
+a{color:#7aa7e8;text-decoration:none}a:hover{text-decoration:underline}
+code{font:13px/1.5 'Cascadia Code',Consolas,monospace;background:#1b1f27;
+  padding:1px 5px;border-radius:4px;color:#d8c9a3}
+q{color:#c9d3e0;font-style:italic}q:before{content:'\201C'}q:after{content:'\201D'}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 90px}
+header{border-bottom:1px solid #232833;margin-bottom:34px;padding:38px 0 24px}
+h1{font-size:27px;margin:0 0 8px;font-weight:650}
+h2{font-size:19px;margin:44px 0 12px;padding-bottom:7px;border-bottom:1px solid #232833}
+h3{font-size:15px;margin:26px 0 8px;color:#b9c4d2}
+.sub{color:#8d97a6;font-size:14px;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:#232833;border:1px solid #232833;border-radius:8px;
+  overflow:hidden;margin:22px 0 0}
+.meta div{background:#161a21;padding:11px 14px}
+.meta b{display:block;color:#8d97a6;font-size:11.5px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{border:1px solid #232833;padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#161a21;color:#9fb0c4;font-weight:600}
+ul{margin:10px 0;padding-left:22px}li{margin:5px 0}
+.note{background:#161a21;border-left:3px solid #3d6fb5;padding:13px 17px;
+  border-radius:0 6px 6px 0;margin:16px 0}
+.pass{color:#5ec27a;font-weight:600}.fail{color:#e0705f;font-weight:600}
+pre.prompt{background:#161a21;border:1px solid #232833;border-radius:8px;
+  padding:17px 19px;overflow:auto;font:13px/1.7 'Cascadia Code',Consolas,monospace;
+  color:#d3dae4;white-space:pre-wrap}
+.copy{float:right;background:#232833;border:1px solid #313846;color:#c9d3e0;
+  border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+.copy:hover{background:#2c3342}
+.stage{background:#0b0d11;border:1px solid #232833;border-radius:10px;
+  overflow:hidden;margin:16px 0 0}
+.stage img{display:block;width:100%;background:#0b0d11}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-bottom:1px solid #232833;background:#161a21}
+.pill{background:#232833;color:#9fb0c4;border-radius:20px;padding:2px 11px;
+  font-size:12.5px;font-variant-numeric:tabular-nums}
+.bar h3{margin:0;font-size:15px;color:#e6e9ee}
+.cap{padding:13px 17px;color:#aab6c6;font-size:14px;border-top:1px solid #232833}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 0}
+.nav button{background:#161a21;border:1px solid #232833;color:#8d97a6;
+  border-radius:7px;padding:7px 13px;font-size:13px;cursor:pointer}
+.nav button:hover{border-color:#3d6fb5;color:#e6e9ee}
+.nav button[aria-current=true]{background:#2a4a7a;border-color:#3d6fb5;color:#fff}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 0}
+.side figure{margin:0;background:#fff;border:1px solid #232833;border-radius:8px;
+  overflow:hidden}
+.side img{display:block;width:100%}
+.side figcaption{background:#161a21;color:#9fb0c4;padding:9px 13px;font-size:13px}
+iframe{width:100%;height:640px;border:1px solid #232833;border-radius:8px;
+  background:#fff}
+video{display:block;width:100%;border:1px solid #232833;border-radius:8px;
+  background:#0b0d11;margin:16px 0 0}
+details{background:#161a21;border:1px solid #232833;border-radius:8px;
+  padding:12px 17px;margin:12px 0}
+details summary{cursor:pointer;color:#9fb0c4;font-size:14px}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid #232833;
+  color:#6b7583;font-size:13px}
+@media(max-width:820px){.side{grid-template-columns:1fr}}
+</style></head><body>
+<div class=wrap>
+<header>
+<p class=sub><a href="../index.html">← 전체 목록</a> · T2-3 · T2</p>
+<h1>Argo Workflows — 한 키, 한 번의 리컨사일</h1>
+<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
+정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
+<div class=meta><div><b>저장소</b><a href="https://github.com/argoproj/argo-workflows">argoproj/argo-workflows</a></div><div><b>커밋</b><i>commit not determined</i></div><div><b>규모</b>3,023 files, 77.8 MB (Go 저장소, docs/ 이미지 포함)</div><div><b>유형</b>T2 · 리컨사일 루프 구조이다. 컨트롤러가 제출된 Workflow 를 <code>wfQueue</code> 에서 하나씩 꺼내 <code>workflowKeyLock</code> 아래 <code>operate()</code> 를 실행한다. 노드마다 생성된 Pod 의 결과는 <code>WorkflowTaskResult</code> 로 반환되어 다음 패스에 병합된다.</div><div><b>정답지</b>프로젝트 자신의 아키텍처 문서 (<code>docs/architecture.md</code> + <code>assets/</code> 다이어그램) Argo Workflows 아키텍처 다이어그램 (배포 토폴로지)</div><div><b>실행 시간</b>약 36분 (19:39 → 20:15) · 프레임 109장</div></div>
+</header>
+
+<h2>블라인드 조건</h2>
+<ul><li>정답지는 <b>프로젝트 자신의 아키텍처 다이어그램</b>이다. <code>docs/architecture.md</code> 에 포함된 <code>assets/diagram.png</code>·<code>assets/overview.jpeg</code> 등 4장이며, 저장소 내부에 있다.</li><li>프롬프트는 저자의 아키텍처 그림을 웹에서 찾지 말고 저장소가 그릴 것을 정하도록 지시하였다. 리포트: <q>I read the <b>prose</b> of <code>docs/architecture.md</code>, <code>AGENTS.md</code>, <code>workflow/controller/AGENTS.md</code> … and the code, and left the four image files unopened.</q></li><li>그래서 나온 그림은 정답지와 <b>관점이 다르다</b>. 정답지는 네임스페이스와 Pod 개수 중심의 <b>배포 토폴로지</b>이고, 산출물은 제출→리컨사일→Pod→TaskResult 의 <b>실행 흐름</b>이다. 저자 그림을 복제한 것이었다면 이렇게 달라지지 않는다.</li><li>커밋도 제공하지 않았다. 대상 폴더에 <code>argo\.git</code> 이 없어 <code>rev-parse --show-toplevel</code> 이 argo 가 아니라 <code>paper-trail</code> 을 가리켰고, 틀린 SHA 대신 캡션에 <b><code>Commit not determined</code></b> 를 기록하였다.</li></ul>
+
+<h2>프롬프트</h2>
+<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
+<pre class=prompt><button class=copy>복사</button><span>/method-figure
+
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\sandbox\argo
+
+이 저장소를 읽고 이 프로젝트가 어떻게 동작하는지 보여주는 아키텍처 그림을
+만들어줘.
+
+지켜야 할 것:
+- 이 저장소의 코드와 문서에서만 읽는다. 이 프로젝트의 공식 문서 사이트나
+  저자가 그린 아키텍처 그림을 웹에서 찾아보지 않는다. 무엇을 그릴지는
+  저장소가 정한다.
+- 산출물은 전부 이 폴더에 쓴다:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\argo\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (evidence.py 가 뽑은 재료 원문),
+  render.png (최종 그림을 렌더한 PNG),
+  render-r1.png (독립 시각 게이트를 처음 통과시키기 전 시점의 렌더).
+  게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
+- report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
+  몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
+  적는다.</span></pre>
+
+<h2>실행 경과</h2>
+<p class=sub>캡처 프레임 109장 중 9장을 선별하였다. 좌우 방향키로 이동한다.</p>
+<div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button></div>
+<div class=stage>
+  <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
+  <img id=shot alt="">
+  <div class=cap id=scap></div>
+</div>
+
+<h2>게이트 4종 결과</h2>
+<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① XML 파싱 / 렌더</td><td>통과</td><td>1</td><td>draw.io XML 파싱 + 뷰어 기동 (전용 포트 8901)</td></tr><tr><td>② <code>check_layout.py --max 6</code></td><td><code>ok</code> (엣지 22, 라벨 6)</td><td>3</td><td>1라운드 flag 10건: 컨테이너·라벨 넘침, 존 경계 침범, 화살표 없는 셀(배지·큐칸), 화살표 위 그림. 2라운드 Informers 카드 넘침 1건</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>2</td><td>1라운드 <code>onborder</code> 8건 + <code>cross</code> 2건: 라벨이 상자 경계에 걸치고 화살표 두 쌍이 교차</td></tr><tr><td>③-b 육안 자기점검</td><td>결함 2건 발견</td><td>1</td><td>범례는 '점선 = 별도 프로세스'인데 컨트롤러 존만 <b>실선</b>; Pod 이 노드당 하나인데 스택으로 안 그려짐. 둘 다 수정</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>1</td><td>첫 응답이 근거 없는 all-PASS 여서 <b>반려</b>하고 좌표·인용을 요구하였다. 재응답에서 항목별 근거와 함께 통과</td></tr></table>
+<div class=note>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</div>
+
+<h2>게이트 ③ 와 육안 점검이 바꾼 것</h2>
+<p class=sub>게이트 ④ 는 <b>1라운드에 통과</b>하였다. 근거 없는 all-PASS 응답을 <b>반려</b>했을 뿐, 그림 자체는 게이트 ④ 때문에 바뀌지 않았다. 눈에 보이는 before/after 는 <code>render-r1.png</code>(기계 렌더 게이트 ③ 통과 이전)과 최종 <code>render.png</code> 사이의 차이이다. 여기에는 게이트 ③ 의 통로 재배치와, 그 뒤 <b>육안 자체 점검</b>이 검출한 두 결함(범례와 어긋난 실선 존, 스택 처리되지 않은 Pod)이 함께 들어 있다.</p>
+<div class=side>
+<figure><img src="legend-before.png" alt="before"><figcaption>③ 1라운드 (render-r1) — 왼쪽 컨트롤러 존이 <b>실선</b> 테두리이다. 범례는 '점선 = 별도 프로세스'인데 컨트롤러도 별도 프로세스여서 3분의 1이 어긋난다. Kubernetes API 열의 <b>Pod 는 단일 상자</b>이고, 파드·태스크결과 화살표가 <b>교차</b>한다.</figcaption></figure>
+<figure><img src="legend-after.png" alt="after"><figcaption>최종 (render) — 컨트롤러 존이 <b>점선</b>으로 바뀌어 세 존이 모두 일관되고, Pod 와 WorkflowTaskResult 가 <b>둘 다 스택</b>('one per node')이 되어 순서가 뒤집히며 교차가 사라진다. 번호 배지는 카드 모서리에서 왼쪽 여백으로 빠졌다.</figcaption></figure>
+</div>
+<div class=side style="margin-top:16px">
+<figure><img src="round1.png" alt="round1"><figcaption>③ 1라운드 (render-r1) 전체 (<span class=fail>GATE: FAIL</span>)</figcaption></figure>
+<figure><img src="ours.png" alt="final"><figcaption>최종 (render) 전체 (<span class=pass>GATE: PASS</span>)</figcaption></figure>
+</div>
+
+<h2>최종 산출물</h2>
+<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+
+
+<iframe src="run/fig.html" title="figure"></iframe>
+<p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
+<a href="run/report.md">report.md</a> ·
+<a href="run/fig.html">뷰어 새 창</a></p>
+
+<h2>정답지 대조</h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — 프로젝트 자신의 아키텍처 문서 (<code>docs/architecture.md</code> + <code>assets/</code> 다이어그램) Argo Workflows 아키텍처 다이어그램 (배포 토폴로지)</figcaption></figure></div>
+<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>전체 관점</td><td>배포 토폴로지: 네임스페이스·Pod 개수·외부 스토어</td><td>실행 흐름: 제출 → 리컨사일 → Pod → TaskResult → 되돌아옴</td><td>같은 시스템을 <b>배치</b> 대신 <b>리컨사일 루프</b>로 표현하였다.</td></tr><tr><td>클라이언트</td><td>User · Argo CLI · Kubectl · API Client · Web Browser · WebHook · Prometheus → LB</td><td><code>argo submit</code> 하나 → <code>pkg/apiclient</code> (gRPC · HTTP1 · offline · direct kube)</td><td>정답지는 접속 주체를 나열하고, 산출물은 제출 경로 하나와 apiclient 4경로를 그렸다.</td></tr><tr><td>argo-server</td><td><code>3 x Argo Server</code> Pod + Argo Server Service</td><td><code>argo-server [runtime]</code>, gRPC and HTTP on one port, UI embedded</td><td>복제 수 대신 <b>포트·UI 정보</b>를 담았다.</td></tr><tr><td>컨트롤러</td><td><code>1 x Workflow Controller</code> 상자 하나</td><td>informers → <code>wfQueue</code> → <code>workflowKeyLock</code> → <code>operate()</code> 3동작</td><td>정답지는 닫힌 상자로 두고, 산출물은 <b>루프 내부</b>를 드러냈다.</td></tr><tr><td>단일 기록자 불변식</td><td>없음</td><td>파란 띠 <q>only the controller writes this</q> + <code>WorkflowTaskResult</code> 를 띠 <b>밖</b>에</td><td>리컨사일 루프의 핵심 주장이며, 정답지에는 없다.</td></tr><tr><td>Workflow Pod</td><td><code>1000s x Workflow Pod</code> 아이콘 하나</td><td><code>init</code>/<code>main</code>/<code>wait</code> 세 컨테이너, <code>argoexec emissary</code> 가 PID 1</td><td>정답지는 개수를, 산출물은 <b>컨테이너 구조</b>를 나타냈다.</td></tr><tr><td>루프를 닫는 간선</td><td>없음 (패널이 그냥 나란함)</td><td><code>WorkflowTaskResult</code> → <code>create / patch</code> → 다음 패스에 병합</td><td><b>루프를 닫는 간선</b>이며, 정답지에는 없다.</td></tr><tr><td>인증 / OAuth</td><td>OAuth Provider 있음</td><td>안 그림</td><td>인증은 실행 흐름 밖이므로 정답지에는 있고 산출물에는 없다.</td></tr></table>
+
+<footer>method-figure · T2-3 argo · 산출물 경로 <code>out/demo/argo/</code>.
+정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+</div>
+<script>
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건을 제공한다. 무엇을 그릴지는 지시하지 않는다. 정답지가 저장소 <b>내부</b>에 든 아키텍처 이미지(<code>assets/diagram.png</code> 등 4장)여서, 이를 <b>여는지 여부</b>가 이 케이스의 확인 대상이다."], ["shots/02-evidence.png", "재료 수집", "<q>I'm cataloging the key architectural claims worth verifying — that the executor never directly writes to the Workflow object but instead routes through WorkflowTaskResult CRs merged by the controller … The strongest of these design claims is that <b>only the controller writes the Workflow object</b>.</q> 저장소의 <b>산문</b>(<code>AGENTS.md</code>, <code>architecture.md</code>)에서 리컨사일 루프의 불변식을 먼저 추린다."], ["shots/03-decide.png", "코드로 확인", "추린 주장을 <b>실제 Go 코드에 대조</b>한다: <code>operator.go</code>, <code>controller.go</code>, <code>taskresult.go</code>, <code>postmain.go</code>, <code>apiclient.go</code>. T2 에서는 상자에 예시 대신 <b>실제 식별자</b>(<code>wfQueue</code>, <code>workflowKeyLock</code>, <code>WorkflowTaskResult</code>)를 담아야 하므로, 그 근거를 파일·라인으로 확보한다."], ["shots/05-machine-gates.png", "기계 게이트", "<code>check_render.js</code> 1라운드가 <code>onborder</code> 8건·<code>cross</code> 2건을 검출하자 <q>Round 1 flagged 10 issues. Rewriting the layout with wider corridors and rerouted edges.</q> 로 통로를 넓혔고, 재실행에서 <q>Gate 3 is clean.</q> 를 확인하였다. 이후 자체 육안 점검과 독립 심사를 순서대로 진행한다."], ["shots/06-figure.png", "육안 자기점검이 검출한 결함", "<q>I catch a legend inconsistency: dashed borders are supposed to mean \"separate process,\" but zone C is drawn solid even though the controller is also a separate process — I decide to fix this by making zone C dashed too.</q> 기계 검사가 <code>flags: []</code> 로 통과시킨 그림에서, 범례와 어긋난 컨트롤러 존 표기를 자체 육안 점검으로 검출하였다. 이어 Pod 도 노드당 하나이므로 <b>스택</b>으로 수정하였다."], ["shots/07-gate4-fail.png", "게이트 ④ 근거 없는 통과를 반려", "보고서와 의도를 제공받지 않은 다른 에이전트가 <q>A1 PASS A2 PASS … C5 PASS</q> 로 <b>근거 없이</b> 통과시켰다. <q>The judge returned an all-PASS with no evidence, which is the exact failure mode the rubric warns about. Pushing back for substantiation.</q> 통과 응답을 받고도 <b>반려</b>하였다."], ["shots/08-gate4-pass.png", "게이트 ④ 항목별 근거를 받고 통과", "<q>Contamination check: correct Argo Workflows page.</q> 재응답은 좌표와 인용을 함께 제시하였다: <q>B4 PASS The structure says why: \"only the controller writes this\" plus \"WorkflowTaskResult … outside write boundary\" shows single-writer design; \"workflowKeyLock(key)\" shows no concurrent reconcile.</q> 남은 지적은 캡션 크기 한 건이며, <q>no gate-blocking issue</q> 이다."], ["shots/09-checks.png", "판별과 게이트 요약", "<q>Type: T2 (execution flow).</q> 게이트는 ① 렌더 1라운드, ② <code>check_layout.py</code> 3라운드, ③ <code>check_render.js</code> 2라운드, ④ 독립 시각 게이트 1라운드로 전부 통과하였다. <code>rev-parse --show-toplevel</code> 이 argo 가 아니라 <code>paper-trail</code> 을 가리켜, 캡션에 틀린 SHA 대신 <b><code>commit not determined</code></b> 를 기록하였다."], ["shots/10-summary.png", "자체 점검이 검출한 결함과 사람에게 넘긴 질문", "<q>Two defects my own screenshot pass caught after the machine checks were clean: the controller zone was solid while the legend said dashed = separate process, and Pod wasn't stacked though it is also one-per-node. Both fixed.</q> 마지막으로 비대화형 환경에서 수행하지 못한 항목을 사람에게 넘긴다: <q>does the 6-stage split (submit → informer/queue → operate → pod → task result → persist) match how you'd explain it …?</q>"]];
+let i=0;
+const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
+      cap=document.getElementById('scap'),pos=document.getElementById('spos'),
+      btns=[...document.querySelectorAll('.nav button')];
+function go(n){
+  i=(n+shots.length)%shots.length;
+  img.src=shots[i][0];img.alt=shots[i][1];
+  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  pos.textContent=(i+1)+' / '+shots.length;
+  btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
+  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
+}
+btns.forEach((b,k)=>b.onclick=()=>go(k));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')go(i+1);
+  if(e.key==='ArrowLeft')go(i-1);
+});
+go(0);
+document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
+  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
+  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+});
+</script>
+</body></html>

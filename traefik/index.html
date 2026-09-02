@@ -1,0 +1,167 @@
+<!doctype html><html lang=ko><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Traefik — 데이터·제어 두 경로로 가른 런타임 프록시 — method-figure 데모</title><style>
+*{box-sizing:border-box}
+body{margin:0;background:#0f1115;color:#e6e9ee;
+  font:15px/1.75 -apple-system,'Segoe UI','Malgun Gothic',sans-serif}
+a{color:#7aa7e8;text-decoration:none}a:hover{text-decoration:underline}
+code{font:13px/1.5 'Cascadia Code',Consolas,monospace;background:#1b1f27;
+  padding:1px 5px;border-radius:4px;color:#d8c9a3}
+q{color:#c9d3e0;font-style:italic}q:before{content:'\201C'}q:after{content:'\201D'}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 90px}
+header{border-bottom:1px solid #232833;margin-bottom:34px;padding:38px 0 24px}
+h1{font-size:27px;margin:0 0 8px;font-weight:650}
+h2{font-size:19px;margin:44px 0 12px;padding-bottom:7px;border-bottom:1px solid #232833}
+h3{font-size:15px;margin:26px 0 8px;color:#b9c4d2}
+.sub{color:#8d97a6;font-size:14px;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:#232833;border:1px solid #232833;border-radius:8px;
+  overflow:hidden;margin:22px 0 0}
+.meta div{background:#161a21;padding:11px 14px}
+.meta b{display:block;color:#8d97a6;font-size:11.5px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{border:1px solid #232833;padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#161a21;color:#9fb0c4;font-weight:600}
+ul{margin:10px 0;padding-left:22px}li{margin:5px 0}
+.note{background:#161a21;border-left:3px solid #3d6fb5;padding:13px 17px;
+  border-radius:0 6px 6px 0;margin:16px 0}
+.pass{color:#5ec27a;font-weight:600}.fail{color:#e0705f;font-weight:600}
+pre.prompt{background:#161a21;border:1px solid #232833;border-radius:8px;
+  padding:17px 19px;overflow:auto;font:13px/1.7 'Cascadia Code',Consolas,monospace;
+  color:#d3dae4;white-space:pre-wrap}
+.copy{float:right;background:#232833;border:1px solid #313846;color:#c9d3e0;
+  border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+.copy:hover{background:#2c3342}
+.stage{background:#0b0d11;border:1px solid #232833;border-radius:10px;
+  overflow:hidden;margin:16px 0 0}
+.stage img{display:block;width:100%;background:#0b0d11}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-bottom:1px solid #232833;background:#161a21}
+.pill{background:#232833;color:#9fb0c4;border-radius:20px;padding:2px 11px;
+  font-size:12.5px;font-variant-numeric:tabular-nums}
+.bar h3{margin:0;font-size:15px;color:#e6e9ee}
+.cap{padding:13px 17px;color:#aab6c6;font-size:14px;border-top:1px solid #232833}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 0}
+.nav button{background:#161a21;border:1px solid #232833;color:#8d97a6;
+  border-radius:7px;padding:7px 13px;font-size:13px;cursor:pointer}
+.nav button:hover{border-color:#3d6fb5;color:#e6e9ee}
+.nav button[aria-current=true]{background:#2a4a7a;border-color:#3d6fb5;color:#fff}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 0}
+.side figure{margin:0;background:#fff;border:1px solid #232833;border-radius:8px;
+  overflow:hidden}
+.side img{display:block;width:100%}
+.side figcaption{background:#161a21;color:#9fb0c4;padding:9px 13px;font-size:13px}
+iframe{width:100%;height:640px;border:1px solid #232833;border-radius:8px;
+  background:#fff}
+video{display:block;width:100%;border:1px solid #232833;border-radius:8px;
+  background:#0b0d11;margin:16px 0 0}
+details{background:#161a21;border:1px solid #232833;border-radius:8px;
+  padding:12px 17px;margin:12px 0}
+details summary{cursor:pointer;color:#9fb0c4;font-size:14px}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid #232833;
+  color:#6b7583;font-size:13px}
+@media(max-width:820px){.side{grid-template-columns:1fr}}
+</style></head><body>
+<div class=wrap>
+<header>
+<p class=sub><a href="../index.html">← 전체 목록</a> · T2-2 · T2</p>
+<h1>Traefik — 데이터·제어 두 경로로 가른 런타임 프록시</h1>
+<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
+정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
+<div class=meta><div><b>저장소</b><a href="https://github.com/traefik/traefik">traefik/traefik</a></div><div><b>커밋</b><i>commit not determined</i></div><div><b>규모</b>2250 files, 18.4 MB</div><div><b>유형</b>T2 · 데이터 경로(리스너 상시 개방)와 제어 경로(핸들러 트리 전체 재빌드)가 동시에 동작하고, safe.Safe 한 지점에서 핸들러를 교체한다. 순차 파이프라인이 아니다.</div><div><b>정답지</b>Traefik 공식 문서 'Architecture' 개념도 — 저장소 내 docs/content/assets/img/traefik-architecture.png (README 가 참조) 'Traefik Architecture At A Glance' 손그림 개념도 (Entrypoints → Routers → Services)</div><div><b>실행 시간</b>약 35분 (18:56 → 19:30) · 프레임 116장</div></div>
+</header>
+
+<h2>블라인드 조건</h2>
+<ul><li>정답지는 저장소가 직접 그린 <b>Architecture At A Glance</b> 개념도이다. 이 저장소는 그 계열 그림을 <code>docs/content/assets/img/traefik-architecture.png</code> 로 내부에 포함한다. 프롬프트는 <q>저자가 그린 아키텍처 그림을 웹에서 찾아보지 않는다</q> 고 지시하였고, 리포트도 그 파일을 <q>deliberately <b>not opened</b></q> 라고 기록하였다.</li><li><q>Only files inside the repository were read. The project's documentation site was not visited.</q> 코드만 참조하였다는 근거를 리포트가 직접 기록하였다.</li><li>커밋은 제공하지 않았다. <code>rev-parse --show-toplevel</code> 이 traefik 이 아니라 <code>paper-trail</code> 을 가리켰고, <q>a wrong SHA is worse than none</q> 판단에 따라 캡션에 <b>commit not determined</b> 를 넣고 경로만 기록하였다.</li><li>저자 그림을 열지 않은 것은 스킬 체크리스트 43번(저장소가 이미 아키텍처를 그렸는지 확인·비교)을 <b>알고서 벗어난</b> 선택이다. 이 그림의 구성 요소는 전부 코드에서 도출하였다.</li></ul>
+
+<h2>프롬프트</h2>
+<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
+<pre class=prompt><button class=copy>복사</button><span>/method-figure
+
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\sandbox\traefik
+
+이 저장소를 읽고 이 프로젝트가 어떻게 동작하는지 보여주는 아키텍처 그림을
+만들어줘.
+
+지켜야 할 것:
+- 이 저장소의 코드와 문서에서만 읽는다. 이 프로젝트의 공식 문서 사이트나
+  저자가 그린 아키텍처 그림을 웹에서 찾아보지 않는다. 무엇을 그릴지는
+  저장소가 정한다.
+- 산출물은 전부 이 폴더에 쓴다:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\traefik\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (evidence.py 가 뽑은 재료 원문),
+  render.png (최종 그림을 렌더한 PNG),
+  render-r1.png (독립 시각 게이트를 처음 통과시키기 전 시점의 렌더).
+  게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
+- report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
+  몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
+  적는다.</span></pre>
+
+<h2>실행 경과</h2>
+<p class=sub>캡처 프레임 116장 중 8장을 선별하였다. 좌우 방향키로 이동한다.</p>
+<div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button></div>
+<div class=stage>
+  <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
+  <img id=shot alt="">
+  <div class=cap id=scap></div>
+</div>
+
+<h2>게이트 4종 결과</h2>
+<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>통과</td><td>1</td><td>XML 파싱 + 뷰어 빌드</td></tr><tr><td>② <code>check_layout.py --max 6</code></td><td><code>ok</code> (엣지 라벨 0)</td><td>3</td><td>캡션이 한 줄이라 4932px 로 측정 → <code>&amp;#10;</code> 4개로 줄바꿈; 고아 배지·서브셀 다수 → 로드밸런서 <b>백엔드 3상자·엣지</b>와 트리 엣지로 실배선; 화살표 z-order 1건</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>2</td><td>번호 배지 8개가 <code>onborder</code> → 각 행 위 빈 띠로; 스위처 외곽선·라벨이 <code>online</code> 2건 → <code>process</code> 모양을 사각형으로</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>1 (첫 라운드)</td><td><b>C1 FAIL</b>: <code>Data path</code>/<code>Control path</code> 존과 번호 배지 1–8 이 <b>순서 장치 둘</b>로 읽힘. 미수정: 존을 지우면 두 경로 분리 주장이 사라지므로 근거만 기록</td></tr></table>
+<div class=note>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</div>
+
+<h2>게이트 ③ 와 육안 점검이 바꾼 것</h2>
+<p class=sub>이 케이스의 before/after 는 게이트 ④ 재수정이 아니다. 게이트 ④ 는 <b>첫 라운드에 통과</b>하였다. <code>render-r1.png</code> 은 프롬프트가 정의한 <q>독립 시각 게이트를 처음 통과시키기 전 시점의 렌더</q>, 곧 기계 시각 검사 <code>check_render.js</code> <b>1라운드</b> 직후의 그림이다. 그 1라운드가 배지 8개를 <code>onborder</code>, 스위처를 <code>online</code> 2건으로 검출하였고, 어떤 체커도 검출하지 못한 '제어 존 제목이 화살표를 가로지름'을 육안으로 추가 확인하였다. 세 건을 수정한 <code>render.png</code> 가 곧바로 게이트 ④ 를 통과하였다.</p>
+<div class=side>
+<figure><img src="legend-before.png" alt="before"><figcaption>③ 1라운드 (render-r1) — 번호 배지 1–8 이 각 상자 좌상단 <b>모서리에 걸쳐</b> 있어 어느 쪽 것도 아니게 읽힌다. 스위처는 <code>process</code> 모양이라 외곽선이 화살표로 세어지고, 제어 경로 존 제목은 <code>RouterFactory → 스위처</code> 화살표에 <b>겹쳐 지나간다</b>.</figcaption></figure>
+<figure><img src="legend-after.png" alt="after"><figcaption>최종 (게이트 ④ 통과) — 배지 여덟이 각 행 <b>위쪽 빈 띠</b>로 올라가고(8번은 존 사이 코리도로), 스위처는 3px 초록 테두리 <b>사각형</b>이 된다. 존 제목은 <code>align=right</code> 로 옮겨 화살표를 피한다.</figcaption></figure>
+</div>
+<div class=side style="margin-top:16px">
+<figure><img src="round1.png" alt="round1"><figcaption>③ 1라운드 (render-r1) 전체 (<span class=fail>GATE: FAIL</span>)</figcaption></figure>
+<figure><img src="ours.png" alt="final"><figcaption>최종 (게이트 ④ 통과) 전체 (<span class=pass>GATE: PASS</span>)</figcaption></figure>
+</div>
+
+<h2>최종 산출물</h2>
+<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+
+
+<iframe src="run/fig.html" title="figure"></iframe>
+<p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
+<a href="run/report.md">report.md</a> ·
+<a href="run/fig.html">뷰어 새 창</a></p>
+
+<h2>정답지 대조</h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — Traefik 공식 문서 'Architecture' 개념도 — 저장소 내 docs/content/assets/img/traefik-architecture.png (README 가 참조) 'Traefik Architecture At A Glance' 손그림 개념도 (Entrypoints → Routers → Services)</figcaption></figure></div>
+<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>전체 구성</td><td>요청 한 줄: Entrypoints → Routers → Services, 손그림 3상자</td><td>데이터 경로(리스너 상시 개방) + 제어 경로(트리 재빌드) <b>2존 8상자</b></td><td>정답지는 개념 요청 경로만 담고, 산출물은 코드에서 <b>재구성 경로까지</b> 도출해 두 평면으로 구성하였다.</td></tr><tr><td>진입점</td><td><q>Entrypoints — What Am I Listening To? Ports, ...</q></td><td><code>EntryPoint web</code>, <code>address: :80</code>, <code>listener.Accept()</code>, opened at start-up before any route exists</td><td>개념 질문 대 실제 식별자·시점: <code>server.go</code> 에서 리스너가 watcher <b>앞에서</b> 열린다.</td></tr><tr><td>라우터</td><td><q>Routers — Connect Requests to Services</q> + Rules · Middlewares · host/path/headers</td><td><code>TCP router</code>(ClientHello/SNI/TLS) → <code>HTTP muxer</code>, <code>Host(`whoami.docker.localhost`)</code></td><td>정답지의 한 상자를 <b>TCP·HTTP 두 단계</b>로 분해하고 실제 라우터 규칙까지 반영하였다.</td></tr><tr><td>미들웨어</td><td>라우터 안 초록 알약 <q>Middlewares — Tweak the request / response</q></td><td>HTTP muxer 상자 안 <code>chain: secure-headers, ip-allowlist</code> 한 줄</td><td>둘 다 라우터에 귀속되며, 산출물은 <code>docker/</code> 가이드의 <b>실제 체인 이름</b>을 사용하였다.</td></tr><tr><td>서비스</td><td><q>Services — Where is the feature? servers, load balancing</q></td><td><code>Service load balancer</code> <code>wrr | p2c | hrw</code>, health-checked pool + <b>backend 3상자</b>(traefik/whoami)</td><td>정답지는 개념 상자만 두고, 산출물은 전략 이름과 <b>백엔드 팬아웃</b>까지 형태로 나타냈다.</td></tr><tr><td>설정·프로바이더</td><td>없음</td><td><code>Providers</code>(@docker, @kubernetes, @file, ...) → <code>ConfigurationWatcher</code> → <code>RouterFactory</code></td><td>정답지에 <b>없는 제어 경로</b>를 코드 근거로 추가하였다 (<code>aggregator.go</code>, <code>configurationwatcher.go</code>)</td></tr><tr><td>핸들러 스왑</td><td>없음</td><td><code>Handler switcher (safe.Safe)</code>, 초록 스왑 화살표, <q>new connections only</q></td><td>재구성이 라이브 라우트에 <b>어떻게 반영되는지</b> 보여주며, 정답지에는 없는 핵심 정보이다.</td></tr><tr><td>진입 트리거</td><td><q>Incoming request</q> 물결선 → / <q>Calls the matching server</q></td><td><code>client</code> 아이콘 → EntryPoint (검은 요청 화살표)</td><td>진입 표현은 동일하며, 산출물은 요청 경로를 실제 엣지로 그렸다.</td></tr></table>
+
+<footer>method-figure · T2-2 traefik · 산출물 경로 <code>out/demo/traefik/</code>.
+정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+</div>
+<script>
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건. <q>이 프로젝트가 어떻게 동작하는지 보여주는 아키텍처 그림</q> 이라고만 하고 무엇을 그릴지는 말하지 않는다. 프롬프트가 <code>render-r1.png</code> 를 <q>독립 시각 게이트를 처음 통과시키기 전 시점의 렌더</q> 로 정의한다."], ["shots/02-evidence.png", "재료 수집과 SHA 대조", "<q>the git toplevel is paper-trail, not traefik ... I need to mark the commit as \"not determined\"</q> 커밋을 기록하지 않고, <q>system architecture analysis</q> 로 판단하여 <code>CLAUDE.md·AGENTS.md·README</code> 와 docs 를 읽어 흐름의 근거를 수집한다."], ["shots/03-decide.png", "두 경로로 구분", "<q>zones as process boundaries rather than sequential phases — a persistent \"data path\" zone that's never rebuilt, a \"config path\" zone that gets rebuilt on every change</q>. 존을 동시에 동작하는 <b>두 평면</b>으로 잡아 순차 단계 표현을 피하고 <q>Step 1 / Step 2</q> 라벨을 넣지 않는다. 이 결정이 이후 C1 지적으로 이어진다."], ["shots/05-machine-gates.png", "기계 게이트 ③ 통과", "<q>Gate three passes on round two with no flags.</q> 그 앞에서 <b>배지가 상자 테두리에 걸친 것</b>과 <b>제어 존 제목이 화살표를 가로지른 것</b> 등 그림 결함 세 건을 수정하였다. 엣지 17개가 모두 그려졌는지 육안으로 다시 확인한다."], ["shots/07-gate4-pass.png", "게이트 ④ 1라운드 PASS", "보고서와 의도를 제공받지 않은 별도 에이전트가 통과시켰다: <q>B4 PASS \"listener stays open across every reconfiguration\"; \"complete new handler tree is built off the data path\"; \"new connections only\"</q>. 사실 확인 세 줄(<code>safe.Safe</code>, <code>ConfigurationWatcher</code>, per-provider throttling)도 <q>verified</q> 로 확인되었다. 지적은 <b>C1 FAIL</b> 한 건이다."], ["shots/08-gate4-keep.png", "지적을 알고 남겨둔다", "<q>the zones and numbers are being read as two competing ordering devices ... I'll leave the figure as-is since it passed the gate, and just document the tension honestly ... the zones carry the mandatory visible process boundary, so there's no clean fix.</q> 심사자와 <b>다르게 판단하였고, 이를 리포트에 기록하였다</b>."], ["shots/09-checks.png", "판별과 그린 것", "<q>Type call: T2 (execution flow) — Traefik is a runtime system; evidence.py returned components=0 losses=0</q>. 설계 주장은 README 의 <q>Continuously updates its configuration (No restarts!)</q> 이고, 이를 배너 문구 대신 <b>구조로</b> 표현하였다: <code>data path</code>/<code>control path</code> 두 존과 코리도의 <code>safe.Safe</code> 하나로 나타냈다."], ["shots/10-summary.png", "네 게이트 요약", "<code>① 1 round · ② check_layout 3 rounds → ok · ③ check_render.js 2 rounds → flags: [] · ④ independent gate PASS on round 1</code>. <code>--show-toplevel</code> 이 <code>paper-trail</code> 을 가리켜 캡션에 <b>commit not determined</b> 를 넣었다. 유일한 지적 C1 은 <q>left it and explained why in the report</q> 로 처리하였다."]];
+let i=0;
+const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
+      cap=document.getElementById('scap'),pos=document.getElementById('spos'),
+      btns=[...document.querySelectorAll('.nav button')];
+function go(n){
+  i=(n+shots.length)%shots.length;
+  img.src=shots[i][0];img.alt=shots[i][1];
+  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  pos.textContent=(i+1)+' / '+shots.length;
+  btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
+  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
+}
+btns.forEach((b,k)=>b.onclick=()=>go(k));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')go(i+1);
+  if(e.key==='ArrowLeft')go(i-1);
+});
+go(0);
+document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
+  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
+  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+});
+</script>
+</body></html>

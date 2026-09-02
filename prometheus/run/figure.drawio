@@ -1,0 +1,296 @@
+<mxfile host="papertrail">
+  <diagram name="prometheus-t2">
+    <mxGraphModel dx="1400" dy="1100" grid="0" page="1" pageWidth="1020" pageHeight="1140" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="zsd" value="Discovery sources [external]" style="rounded=1;arcSize=4;fillColor=#fdf6ec;strokeColor=#d99b4a;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=13;fontStyle=1;fontColor=#8a520f;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="16" y="136" width="200" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zcore" value="prometheus: one process, one local disk, no external state" style="rounded=1;arcSize=4;fillColor=#eef5ec;strokeColor=#5f8f52;strokeWidth=1.6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=13;fontStyle=1;fontColor=#2e5a26;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="240" y="124" width="528" height="860" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="zext" value="Outside [external]" style="rounded=1;arcSize=4;fillColor=#fdf6ec;strokeColor=#d99b4a;dashed=1;dashPattern=8 5;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=13;fontStyle=1;fontColor=#8a520f;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="812" y="274" width="192" height="710" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="30" y="44" width="960" height="62" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tsdb" value="&lt;b&gt;Local TSDB&lt;/b&gt; [runtime]&lt;br&gt;A sample reaches &lt;font face=&quot;Courier New&quot;&gt;wal/&lt;/font&gt; before it reaches memory, so a restart replays it.&lt;br&gt;The Head is cut every 2 h, blocks merge upward, and 15d retention drops the oldest." style="rounded=1;arcSize=8;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="516" width="484" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="walb" value="&lt;font face=&quot;Courier New&quot;&gt;wal/&lt;/font&gt;&lt;br&gt;128 MB segments" style="rounded=0;fillColor=#ffffff;strokeColor=#2b6cb0;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="290" y="590" width="120" height="112" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="blkb" value="blocks &lt;font face=&quot;Courier New&quot;&gt;&amp;lt;ULID&amp;gt;/&lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;chunks, index,&lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;meta.json, tombstones&lt;/font&gt;" style="rounded=0;fillColor=#ffffff;strokeColor=#2b6cb0;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="586" y="590" width="170" height="112" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tg" value="&lt;b&gt;One Target per discovered entry&lt;/b&gt;" style="rounded=0;fillColor=#f2f2ee;strokeColor=#9aa0a6;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="528" y="164" width="228" height="104" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="q" value="pending alerts, oldest dropped first" style="rounded=0;fillColor=#f2f2ee;strokeColor=#9aa0a6;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="528" y="890" width="228" height="68" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ed1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0;exitY=0.31;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="disc" target="sd">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.69;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="sd" target="disc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="disc" target="tg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="642" y="222" as="sourcePoint"/><mxPoint x="642" y="234" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ed4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="tg" target="pool">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="642" y="283"/><mxPoint x="386" y="283"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ed5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="pool" target="loop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.31;exitDx=0;exitDy=0;entryX=0;entryY=0.26;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="loop" target="targ">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0;exitY=0.77;exitDx=0;exitDy=0;entryX=1;entryY=0.71;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="targ" target="loop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed8" value="app.Append(ref, lset, t, v)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.765;entryY=0;entryDx=0;entryDy=0;fontSize=12;labelBackgroundColor=#ffffff;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="loop" target="fanout">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.236;exitY=1;exitDx=0;exitDy=0;entryX=0.236;entryY=0;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="fanout" target="tsdb">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="fanout" target="remote">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edw1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="353" y="667" as="sourcePoint"/><mxPoint x="361" y="667" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ed11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="410" y="646" as="sourcePoint"/><mxPoint x="426" y="646" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ed12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="570" y="646" as="sourcePoint"/><mxPoint x="586" y="646" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="edb1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="622" y="674" as="sourcePoint"/><mxPoint x="632" y="674" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="edb2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="664" y="674" as="sourcePoint"/><mxPoint x="674" y="674" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="ed13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.765;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="tsdb" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="rules" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed15" value="ALERTS and recording rule results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.236;entryY=1;entryDx=0;entryDy=0;fontSize=12;labelBackgroundColor=#ffffff;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="rules" target="tsdb">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0;exitY=0.28;exitDx=0;exitDy=0;entryX=1;entryY=0.28;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="client" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.71;exitDx=0;exitDy=0;entryX=0;entryY=0.71;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="engine" target="client">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed18" value="firing alerts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;labelBackgroundColor=#ffffff;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="rules" target="notif">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="notif" target="q">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ed20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="q" target="am">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sd" value="&lt;b&gt;SD sources&lt;/b&gt;&lt;br&gt;Kubernetes API, Consul,&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;static_configs&lt;/font&gt; in the&lt;br&gt;config file, HTTP endpoints" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#a5763a;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="28" y="176" width="176" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="disc" value="&lt;b&gt;discovery.Manager&lt;/b&gt;&lt;br&gt;28 SD packages in &lt;font face=&quot;Courier New&quot;&gt;discovery/&lt;/font&gt;&lt;br&gt;polls them, then re-emits the&lt;br&gt;whole target set every 5 s" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="164" width="228" height="104" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="tgc1" value="&lt;font face=&quot;Courier New&quot;&gt;__address__ localhost:9090&lt;/font&gt;" style="rounded=0;fillColor=#ffffff;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="536" y="194" width="212" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="tgc2" value="&lt;font face=&quot;Courier New&quot;&gt;http://localhost:9090/metrics&lt;/font&gt;" style="rounded=0;fillColor=#dceafa;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="536" y="234" width="212" height="28" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pool" value="&lt;b&gt;scrape.Manager&lt;/b&gt;&lt;br&gt;one &lt;font face=&quot;Courier New&quot;&gt;scrapePool&lt;/font&gt; per job&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;relabel_configs&lt;/font&gt; rewrite the&lt;br&gt;labels into the URL above" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="298" width="228" height="102" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lp2" value="" style="rounded=1;arcSize=8;fillColor=#f0f2f4;strokeColor=#8f989f;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="536" y="290" width="218" height="102" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp1" value="" style="rounded=1;arcSize=8;fillColor=#f7f8f9;strokeColor=#8f989f;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="532" y="294" width="218" height="102" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop" value="&lt;b&gt;scrapeLoop&lt;/b&gt;, one per target&lt;br&gt;ticks every &lt;font face=&quot;Courier New&quot;&gt;scrape_interval&lt;/font&gt;&lt;br&gt;parses the body, then adds&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;up&lt;/font&gt; and &lt;font face=&quot;Courier New&quot;&gt;scrape_duration_seconds&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="528" y="298" width="218" height="102" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fanout" value="&lt;b&gt;storage.Fanout&lt;/b&gt;: the primary appender is the local TSDB, remote write is secondary" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="436" width="484" height="56" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="wb1" value="&lt;font face=&quot;Courier New&quot;&gt;000001&lt;/font&gt;" style="rounded=0;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="296" y="650" width="57" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="wb2" value="..." style="rounded=0;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="361" y="650" width="42" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="headb" value="&lt;b&gt;Head&lt;/b&gt;, in memory&lt;br&gt;full chunks are&lt;br&gt;m-mapped out to&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;chunks_head/&lt;/font&gt;" style="rounded=0;fillColor=#ffffff;strokeColor=#2b6cb0;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="426" y="590" width="144" height="112" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="nb1" value="2h" style="shape=note;size=10;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="594" y="654" width="28" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="nb2" value="6h" style="shape=note;size=10;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="632" y="654" width="32" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="nb3" value="18h" style="shape=note;size=10;fillColor=#dceafa;strokeColor=#2b6cb0;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="674" y="654" width="38" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rules" value="&lt;b&gt;rules.Manager&lt;/b&gt;&lt;br&gt;runs the groups in &lt;font face=&quot;Courier New&quot;&gt;rule_files&lt;/font&gt;&lt;br&gt;every &lt;font face=&quot;Courier New&quot;&gt;evaluation_interval&lt;/font&gt;&lt;br&gt;an alert fires after its &lt;font face=&quot;Courier New&quot;&gt;for&lt;/font&gt; window" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="764" width="228" height="94" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="engine" value="&lt;b&gt;promql.Engine&lt;/b&gt;&lt;br&gt;one Querier spanning the Head&lt;br&gt;and every overlapping block&lt;br&gt;serves &lt;font face=&quot;Courier New&quot;&gt;/api/v1/query&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="528" y="764" width="228" height="94" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="notif" value="&lt;b&gt;notifier.Manager&lt;/b&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;alerting:&lt;/font&gt; in the config file&lt;br&gt;queue 10000, batches of 256" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="272" y="890" width="228" height="68" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="q1" value="" style="rounded=0;fillColor=#dceafa;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="540" y="922" width="46" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="q2" value="" style="rounded=0;fillColor=#dceafa;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="596" y="922" width="46" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="q3" value="" style="rounded=0;fillColor=#ffffff;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="652" y="922" width="46" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="q4" value="" style="rounded=0;fillColor=#ffffff;strokeColor=#9aa0a6;fontSize=12;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="708" y="922" width="36" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="targ" value="&lt;b&gt;Targets&lt;/b&gt; [external]&lt;br&gt;one HTTP path each&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;localhost:9090&lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;/metrics&lt;/font&gt; in the example" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#a5763a;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="824" y="310" width="168" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="remote" value="&lt;b&gt;Remote write&lt;/b&gt;&lt;br&gt;[external, optional]" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#a5763a;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="824" y="436" width="168" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="client" value="&lt;b&gt;API client&lt;/b&gt; [external]&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;GET /api/v1/query&lt;/font&gt;&lt;br&gt;browser UI, Grafana,&lt;br&gt;another prometheus" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#a5763a;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="824" y="764" width="168" height="94" as="geometry"/>
+        </mxCell>
+        <mxCell id="am" value="&lt;b&gt;Alertmanager&lt;/b&gt; [external]&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;alertmanager:9093&lt;/font&gt;&lt;br&gt;&lt;font face=&quot;Courier New&quot;&gt;POST /api/v2/alerts&lt;/font&gt;" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#a5763a;fontSize=12;verticalAlign=top;align=left;spacingLeft=8;spacingTop=6;html=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="824" y="890" width="168" height="68" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="n1" value="1" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="164" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="2" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="298" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="3" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="502" y="298" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="4" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="436" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="5" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="516" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="6" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="764" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n7" value="7" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="502" y="764" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="n8" value="8" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="246" y="890" width="26" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="title" value="Prometheus 3.14.0: one server process, from service discovery to a fired alert" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="30" y="12" width="960" height="26" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cap" value="Figure 1. What one Prometheus server does between two scrapes. (1) discovery.Manager polls the configured SD sources and re-emits the whole&lt;br&gt;target set. (2) scrape.Manager keeps one scrapePool per job and lets relabel_configs rewrite the discovered labels into one URL per target.&lt;br&gt;(3) One scrapeLoop per target issues the HTTP GET and parses the reply. (4) storage.Fanout hands every sample to the local TSDB first.&lt;br&gt;(5) The TSDB logs to wal/ before memory, cuts the Head into a 2 h block, and merges blocks upward. (6) rules.Manager evaluates the rule&lt;br&gt;files and appends its results back into the same database. (7) promql.Engine reads the Head and the blocks together. (8) notifier.Manager&lt;br&gt;batches firing alerts out. Every arrow that crosses the green boundary is started from inside it, and nothing outside it holds state that this&lt;br&gt;server needs to answer a query. Source: local checkout of the repository, VERSION 3.14.0, commit not determined (the folder has no .git)." style="text;html=1;fontSize=12;align=left;verticalAlign=top;fontColor=#4a4a4a;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1000" width="960" height="124" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lgbg" value="" style="rounded=0;fillColor=#ffffff;strokeColor=#b8c8d8;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="0" y="0" width="960" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="lge6" style="edgeStyle=none;strokeColor=#1a1a1a;strokeWidth=1.6;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="legend">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="248" y="45" as="sourcePoint"/><mxPoint x="266" y="45" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="lge7" style="edgeStyle=none;strokeColor=#4a6f8a;strokeWidth=1.4;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;html=1;fontFamily=Times New Roman;" edge="1" parent="legend">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="488" y="45" as="sourcePoint"/><mxPoint x="506" y="45" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="lgs1" value="" style="rounded=0;fillColor=#eef5ec;strokeColor=#5f8f52;strokeWidth=1.6;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="8" y="8" width="18" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt1" value="this prometheus process" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="32" y="6" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgs2" value="" style="rounded=0;fillColor=#fdf6ec;strokeColor=#d99b4a;dashed=1;dashPattern=8 5;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="248" y="8" width="18" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt2" value="[external] another process" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="272" y="6" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgs3" value="" style="rounded=0;fillColor=#dceafa;strokeColor=#2b6cb0;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="488" y="8" width="18" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt3" value="state held on the local disk" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="512" y="6" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgs4" value="" style="rounded=1;arcSize=8;fillColor=#f0f2f4;strokeColor=#8f989f;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="732" y="6" width="18" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgs4b" value="" style="rounded=1;arcSize=8;fillColor=#ffffff;strokeColor=#3a4750;html=1;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="728" y="10" width="18" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt4" value="stacked: one per target" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="754" y="6" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgs5" value="1" style="text;html=1;fillColor=#1a1a1a;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="8" y="36" width="18" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt5" value="read in this order" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="32" y="36" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt6" value="a call started on this side" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="272" y="36" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lgt7" value="data returned or produced" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontFamily=Times New Roman;" vertex="1" parent="legend">
+          <mxGeometry x="512" y="36" width="200" height="20" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

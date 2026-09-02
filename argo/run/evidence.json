@@ -1,0 +1,25 @@
+{
+  "components": [],
+  "losses": [],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [],
+  "artifacts": [],
+  "examples": [
+    {
+      "text": "`wait` container performs tasks that are needed for clean up, including saving off parameters and artifacts",
+      "kind": "weak_marker",
+      "file": "architecture.md",
+      "line": 21,
+      "score": 4
+    }
+  ],
+  "files": [],
+  "notes": [
+    "architecture.md: syntax error at line 27, skipped",
+    "AGENTS.md: syntax error at line 7, skipped",
+    "README.md: syntax error at line 2, skipped",
+    "loss 항이 없다. 학습 스크립트(train*.py, *_trainer.py)를 함께 넘겨야 방법론 그림의 관계를 그릴 수 있다.",
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다."
+  ]
+}

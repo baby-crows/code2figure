@@ -1,0 +1,511 @@
+{
+  "components": [
+    {
+      "name": "attn",
+      "kind": "module",
+      "cls": "Attention",
+      "file": "restormer_arch.py",
+      "line": 142,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L142"
+      ]
+    },
+    {
+      "name": "ffn",
+      "kind": "module",
+      "cls": "FeedForward",
+      "file": "restormer_arch.py",
+      "line": 144,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L144"
+      ]
+    },
+    {
+      "name": "body",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 175,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L175"
+      ]
+    },
+    {
+      "name": "patch_embed",
+      "kind": "module",
+      "cls": "OverlapPatchEmbed",
+      "file": "restormer_arch.py",
+      "line": 209,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L209"
+      ]
+    },
+    {
+      "name": "encoder_level1",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 211,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L211"
+      ]
+    },
+    {
+      "name": "down1_2",
+      "kind": "module",
+      "cls": "Downsample",
+      "file": "restormer_arch.py",
+      "line": 213,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L213"
+      ]
+    },
+    {
+      "name": "encoder_level2",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 214,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L214"
+      ]
+    },
+    {
+      "name": "down2_3",
+      "kind": "module",
+      "cls": "Downsample",
+      "file": "restormer_arch.py",
+      "line": 216,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L216"
+      ]
+    },
+    {
+      "name": "encoder_level3",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 217,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L217"
+      ]
+    },
+    {
+      "name": "down3_4",
+      "kind": "module",
+      "cls": "Downsample",
+      "file": "restormer_arch.py",
+      "line": 219,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L219"
+      ]
+    },
+    {
+      "name": "latent",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 220,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L220"
+      ]
+    },
+    {
+      "name": "decoder_level3",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 224,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L224"
+      ]
+    },
+    {
+      "name": "decoder_level2",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 229,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L229"
+      ]
+    },
+    {
+      "name": "decoder_level1",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 233,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L233"
+      ]
+    },
+    {
+      "name": "refinement",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "restormer_arch.py",
+      "line": 235,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L235"
+      ]
+    },
+    {
+      "name": "body",
+      "kind": "module",
+      "cls": "BiasFree_LayerNorm",
+      "file": "restormer_arch.py",
+      "line": 64,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L64"
+      ]
+    },
+    {
+      "name": "body",
+      "kind": "module",
+      "cls": "WithBias_LayerNorm",
+      "file": "restormer_arch.py",
+      "line": 66,
+      "state": "",
+      "evidence": [
+        "restormer_arch.py#L66"
+      ]
+    },
+    {
+      "name": "dist",
+      "kind": "module",
+      "cls": "Beta",
+      "file": "image_restoration_model.py",
+      "line": 24,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L24"
+      ]
+    },
+    {
+      "name": "net_g",
+      "kind": "module",
+      "cls": "define_network",
+      "file": "image_restoration_model.py",
+      "line": 65,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L65"
+      ]
+    },
+    {
+      "name": "net_g",
+      "kind": "module",
+      "cls": "model_to_device",
+      "file": "image_restoration_model.py",
+      "line": 66,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L66"
+      ]
+    },
+    {
+      "name": "ema_decay",
+      "kind": "module",
+      "cls": "get",
+      "file": "image_restoration_model.py",
+      "line": 82,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L82"
+      ]
+    },
+    {
+      "name": "lq",
+      "kind": "module",
+      "cls": "to",
+      "file": "image_restoration_model.py",
+      "line": 137,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L137"
+      ]
+    },
+    {
+      "name": "mixing_augmentation",
+      "kind": "module",
+      "cls": "Mixing_Augment",
+      "file": "image_restoration_model.py",
+      "line": 63,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L63"
+      ]
+    },
+    {
+      "name": "net_g_ema",
+      "kind": "module",
+      "cls": "to",
+      "file": "image_restoration_model.py",
+      "line": 90,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L90"
+      ]
+    },
+    {
+      "name": "cri_pix",
+      "kind": "module",
+      "cls": "to",
+      "file": "image_restoration_model.py",
+      "line": 106,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L106"
+      ]
+    },
+    {
+      "name": "optimizer_g",
+      "kind": "module",
+      "cls": "Adam",
+      "file": "image_restoration_model.py",
+      "line": 128,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L128"
+      ]
+    },
+    {
+      "name": "gt",
+      "kind": "module",
+      "cls": "to",
+      "file": "image_restoration_model.py",
+      "line": 139,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L139"
+      ]
+    },
+    {
+      "name": "output",
+      "kind": "injected",
+      "cls": "pred",
+      "file": "image_restoration_model.py",
+      "line": 197,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L197"
+      ]
+    },
+    {
+      "name": "optimizer_g",
+      "kind": "module",
+      "cls": "AdamW",
+      "file": "image_restoration_model.py",
+      "line": 130,
+      "state": "",
+      "evidence": [
+        "image_restoration_model.py#L130"
+      ]
+    },
+    {
+      "name": "coef",
+      "kind": "module",
+      "cls": "reshape",
+      "file": "losses.py",
+      "line": 92,
+      "state": "",
+      "evidence": [
+        "losses.py#L92"
+      ]
+    },
+    {
+      "name": "coef",
+      "kind": "module",
+      "cls": "to",
+      "file": "losses.py",
+      "line": 99,
+      "state": "",
+      "evidence": [
+        "losses.py#L99"
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "name": "loss_module",
+      "fn": "import_module",
+      "args": [
+        "'basicsr.models.losses'"
+      ],
+      "file": "image_restoration_model.py",
+      "line": 12,
+      "weight": "",
+      "evidence": "loss_module = importlib.import_module('basicsr.models.losses')"
+    },
+    {
+      "name": "loss_dict",
+      "fn": "OrderedDict",
+      "args": [],
+      "file": "image_restoration_model.py",
+      "line": 157,
+      "weight": "",
+      "evidence": "loss_dict = OrderedDict()"
+    },
+    {
+      "name": "log_dict",
+      "fn": "reduce_loss_dict",
+      "args": [
+        "loss_dict"
+      ],
+      "file": "image_restoration_model.py",
+      "line": 170,
+      "weight": "",
+      "evidence": "self.log_dict = self.reduce_loss_dict(loss_dict)"
+    },
+    {
+      "name": "loss_weight",
+      "fn": "expr",
+      "args": [],
+      "file": "losses.py",
+      "line": 41,
+      "weight": "",
+      "evidence": "self.loss_weight = loss_weight"
+    },
+    {
+      "name": "loss_weight",
+      "fn": "expr",
+      "args": [],
+      "file": "losses.py",
+      "line": 70,
+      "weight": "",
+      "evidence": "self.loss_weight = loss_weight"
+    },
+    {
+      "name": "loss_weight",
+      "fn": "expr",
+      "args": [],
+      "file": "losses.py",
+      "line": 89,
+      "weight": "",
+      "evidence": "self.loss_weight = loss_weight"
+    },
+    {
+      "name": "loss",
+      "fn": "mean",
+      "args": [
+        "torch.sqrt(diff * diff + self.eps * self"
+      ],
+      "file": "losses.py",
+      "line": 121,
+      "weight": "",
+      "evidence": "loss = torch.mean(torch.sqrt(diff * diff + self.eps * self.eps))"
+    }
+  ],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [
+    "BiasFree_LayerNorm",
+    "WithBias_LayerNorm",
+    "LayerNorm",
+    "FeedForward",
+    "Attention",
+    "TransformerBlock",
+    "OverlapPatchEmbed",
+    "Downsample",
+    "Upsample",
+    "Restormer",
+    "ImageCleanModel",
+    "L1Loss",
+    "MSELoss",
+    "PSNRLoss",
+    "CharbonnierLoss"
+  ],
+  "artifacts": [
+    {
+      "kind": "test_fixture",
+      "text": "assert len(normalized_shape) == 1",
+      "lang": "",
+      "file": "restormer_arch.py",
+      "line": 32
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert reduction == 'mean'",
+      "lang": "",
+      "file": "losses.py",
+      "line": 88
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(pred.size()) == 4",
+      "lang": "",
+      "file": "losses.py",
+      "line": 96
+    }
+  ],
+  "examples": [
+    {
+      "text": "Base Deblur model for single image deblur.",
+      "kind": "sample_string",
+      "file": "image_restoration_model.py",
+      "line": 52,
+      "score": 1
+    },
+    {
+      "text": "Use Exponential Moving Average with decay:",
+      "kind": "sample_string",
+      "file": "image_restoration_model.py",
+      "line": 86,
+      "score": 1
+    },
+    {
+      "text": "pixel loss are None.",
+      "kind": "sample_string",
+      "file": "image_restoration_model.py",
+      "line": 109,
+      "score": 0
+    },
+    {
+      "text": "will not be optimized.",
+      "kind": "sample_string",
+      "file": "image_restoration_model.py",
+      "line": 124,
+      "score": 0
+    },
+    {
+      "text": "is not supperted yet.",
+      "kind": "sample_string",
+      "file": "image_restoration_model.py",
+      "line": 133,
+      "score": 0
+    },
+    {
+      "text": ". Supported ones are:",
+      "kind": "sample_string",
+      "file": "losses.py",
+      "line": 38,
+      "score": 0
+    }
+  ],
+  "files": [
+    "restormer_arch.py",
+    "image_restoration_model.py",
+    "losses.py"
+  ],
+  "notes": [
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다.",
+    "T1 관통 예시를 찾지 못했다. 지어내지 말고 사용자에게 대표 사례 한 건을 요청한다 — 실제 입력 하나와 그때 나오는 결과 하나. 코드 저장소에는 없고 논문 본문·데이터셋에만 있는 경우가 흔하다."
+  ]
+}

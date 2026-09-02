@@ -1,0 +1,1236 @@
+{
+  "components": [
+    {
+      "name": "act",
+      "kind": "module",
+      "cls": "get_act",
+      "file": "ddpm.py",
+      "line": 43,
+      "state": "",
+      "evidence": [
+        "ddpm.py#L43"
+      ]
+    },
+    {
+      "name": "all_modules",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ddpm.py",
+      "line": 106,
+      "state": "",
+      "evidence": [
+        "ddpm.py#L106"
+      ]
+    },
+    {
+      "name": "convs",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "layers.py",
+      "line": 136,
+      "state": "",
+      "evidence": [
+        "layers.py#L136"
+      ]
+    },
+    {
+      "name": "norms",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "layers.py",
+      "line": 161,
+      "state": "",
+      "evidence": [
+        "layers.py#L161"
+      ]
+    },
+    {
+      "name": "adapt_convs",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "layers.py",
+      "line": 284,
+      "state": "",
+      "evidence": [
+        "layers.py#L284"
+      ]
+    },
+    {
+      "name": "output_convs",
+      "kind": "module",
+      "cls": "RCUBlock",
+      "file": "layers.py",
+      "line": 288,
+      "state": "",
+      "evidence": [
+        "layers.py#L288"
+      ]
+    },
+    {
+      "name": "crp",
+      "kind": "module",
+      "cls": "CRPBlock",
+      "file": "layers.py",
+      "line": 293,
+      "state": "",
+      "evidence": [
+        "layers.py#L293"
+      ]
+    },
+    {
+      "name": "output_convs",
+      "kind": "module",
+      "cls": "CondRCUBlock",
+      "file": "layers.py",
+      "line": 326,
+      "state": "",
+      "evidence": [
+        "layers.py#L326"
+      ]
+    },
+    {
+      "name": "crp",
+      "kind": "module",
+      "cls": "CondCRPBlock",
+      "file": "layers.py",
+      "line": 331,
+      "state": "",
+      "evidence": [
+        "layers.py#L331"
+      ]
+    },
+    {
+      "name": "pixelshuffle",
+      "kind": "module",
+      "cls": "PixelShuffle",
+      "file": "layers.py",
+      "line": 388,
+      "state": "",
+      "evidence": [
+        "layers.py#L388"
+      ]
+    },
+    {
+      "name": "non_linearity",
+      "kind": "injected",
+      "cls": "act",
+      "file": "layers.py",
+      "line": 401,
+      "state": "",
+      "evidence": [
+        "layers.py#L401"
+      ]
+    },
+    {
+      "name": "normalize1",
+      "kind": "module",
+      "cls": "normalization",
+      "file": "layers.py",
+      "line": 435,
+      "state": "",
+      "evidence": [
+        "layers.py#L435"
+      ]
+    },
+    {
+      "name": "NIN_0",
+      "kind": "module",
+      "cls": "NIN",
+      "file": "layers.py",
+      "line": 563,
+      "state": "",
+      "evidence": [
+        "layers.py#L563"
+      ]
+    },
+    {
+      "name": "NIN_1",
+      "kind": "module",
+      "cls": "NIN",
+      "file": "layers.py",
+      "line": 564,
+      "state": "",
+      "evidence": [
+        "layers.py#L564"
+      ]
+    },
+    {
+      "name": "NIN_2",
+      "kind": "module",
+      "cls": "NIN",
+      "file": "layers.py",
+      "line": 565,
+      "state": "",
+      "evidence": [
+        "layers.py#L565"
+      ]
+    },
+    {
+      "name": "NIN_3",
+      "kind": "module",
+      "cls": "NIN",
+      "file": "layers.py",
+      "line": 566,
+      "state": "",
+      "evidence": [
+        "layers.py#L566"
+      ]
+    },
+    {
+      "name": "Conv_0",
+      "kind": "module",
+      "cls": "ddpm_conv3x3",
+      "file": "layers.py",
+      "line": 627,
+      "state": "",
+      "evidence": [
+        "layers.py#L627"
+      ]
+    },
+    {
+      "name": "Conv_1",
+      "kind": "module",
+      "cls": "ddpm_conv3x3",
+      "file": "layers.py",
+      "line": 635,
+      "state": "",
+      "evidence": [
+        "layers.py#L635"
+      ]
+    },
+    {
+      "name": "msf",
+      "kind": "module",
+      "cls": "MSFBlock",
+      "file": "layers.py",
+      "line": 291,
+      "state": "",
+      "evidence": [
+        "layers.py#L291"
+      ]
+    },
+    {
+      "name": "msf",
+      "kind": "module",
+      "cls": "CondMSFBlock",
+      "file": "layers.py",
+      "line": 329,
+      "state": "",
+      "evidence": [
+        "layers.py#L329"
+      ]
+    },
+    {
+      "name": "conv",
+      "kind": "module",
+      "cls": "Sequential",
+      "file": "layers.py",
+      "line": 360,
+      "state": "",
+      "evidence": [
+        "layers.py#L360"
+      ]
+    },
+    {
+      "name": "shortcut",
+      "kind": "module",
+      "cls": "conv_shortcut",
+      "file": "layers.py",
+      "line": 433,
+      "state": "",
+      "evidence": [
+        "layers.py#L433"
+      ]
+    },
+    {
+      "name": "conv1",
+      "kind": "module",
+      "cls": "ncsn_conv3x3",
+      "file": "layers.py",
+      "line": 408,
+      "state": "",
+      "evidence": [
+        "layers.py#L408"
+      ]
+    },
+    {
+      "name": "normalize2",
+      "kind": "module",
+      "cls": "normalization",
+      "file": "layers.py",
+      "line": 409,
+      "state": "",
+      "evidence": [
+        "layers.py#L409"
+      ]
+    },
+    {
+      "name": "conv2",
+      "kind": "module",
+      "cls": "ncsn_conv3x3",
+      "file": "layers.py",
+      "line": 410,
+      "state": "",
+      "evidence": [
+        "layers.py#L410"
+      ]
+    },
+    {
+      "name": "conv2",
+      "kind": "module",
+      "cls": "ConvMeanPool",
+      "file": "layers.py",
+      "line": 415,
+      "state": "",
+      "evidence": [
+        "layers.py#L415"
+      ]
+    },
+    {
+      "name": "Conv_2",
+      "kind": "module",
+      "cls": "ddpm_conv3x3",
+      "file": "layers.py",
+      "line": 638,
+      "state": "",
+      "evidence": [
+        "layers.py#L638"
+      ]
+    },
+    {
+      "name": "Conv_0",
+      "kind": "module",
+      "cls": "conv1x1",
+      "file": "layerspp.py",
+      "line": 49,
+      "state": "",
+      "evidence": [
+        "layerspp.py#L49"
+      ]
+    },
+    {
+      "name": "Conv_0",
+      "kind": "module",
+      "cls": "conv3x3",
+      "file": "layerspp.py",
+      "line": 174,
+      "state": "",
+      "evidence": [
+        "layerspp.py#L174"
+      ]
+    },
+    {
+      "name": "Conv_1",
+      "kind": "module",
+      "cls": "conv3x3",
+      "file": "layerspp.py",
+      "line": 181,
+      "state": "",
+      "evidence": [
+        "layerspp.py#L181"
+      ]
+    },
+    {
+      "name": "Conv_2",
+      "kind": "module",
+      "cls": "conv1x1",
+      "file": "layerspp.py",
+      "line": 235,
+      "state": "",
+      "evidence": [
+        "layerspp.py#L235"
+      ]
+    },
+    {
+      "name": "Conv_2",
+      "kind": "module",
+      "cls": "conv3x3",
+      "file": "layerspp.py",
+      "line": 184,
+      "state": "",
+      "evidence": [
+        "layerspp.py#L184"
+      ]
+    },
+    {
+      "name": "progressive",
+      "kind": "module",
+      "cls": "lower",
+      "file": "ncsnpp.py",
+      "line": 58,
+      "state": "",
+      "evidence": [
+        "ncsnpp.py#L58"
+      ]
+    },
+    {
+      "name": "progressive_input",
+      "kind": "module",
+      "cls": "lower",
+      "file": "ncsnpp.py",
+      "line": 59,
+      "state": "",
+      "evidence": [
+        "ncsnpp.py#L59"
+      ]
+    },
+    {
+      "name": "pyramid_downsample",
+      "kind": "module",
+      "cls": "Downsample",
+      "file": "ncsnpp.py",
+      "line": 110,
+      "state": "",
+      "evidence": [
+        "ncsnpp.py#L110"
+      ]
+    },
+    {
+      "name": "norm",
+      "kind": "module",
+      "cls": "get_normalization",
+      "file": "ncsnv2.py",
+      "line": 48,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L48"
+      ]
+    },
+    {
+      "name": "normalizer",
+      "kind": "module",
+      "cls": "norm",
+      "file": "ncsnv2.py",
+      "line": 57,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L57"
+      ]
+    },
+    {
+      "name": "res1",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 60,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L60"
+      ]
+    },
+    {
+      "name": "res2",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 67,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L67"
+      ]
+    },
+    {
+      "name": "res3",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 74,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L74"
+      ]
+    },
+    {
+      "name": "refine1",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 96,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L96"
+      ]
+    },
+    {
+      "name": "refine2",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 97,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L97"
+      ]
+    },
+    {
+      "name": "refine3",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 98,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L98"
+      ]
+    },
+    {
+      "name": "refine4",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 99,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L99"
+      ]
+    },
+    {
+      "name": "refine1",
+      "kind": "module",
+      "cls": "CondRefineBlock",
+      "file": "ncsnv2.py",
+      "line": 186,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L186"
+      ]
+    },
+    {
+      "name": "refine2",
+      "kind": "module",
+      "cls": "CondRefineBlock",
+      "file": "ncsnv2.py",
+      "line": 187,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L187"
+      ]
+    },
+    {
+      "name": "refine3",
+      "kind": "module",
+      "cls": "CondRefineBlock",
+      "file": "ncsnv2.py",
+      "line": 188,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L188"
+      ]
+    },
+    {
+      "name": "refine4",
+      "kind": "module",
+      "cls": "CondRefineBlock",
+      "file": "ncsnv2.py",
+      "line": 189,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L189"
+      ]
+    },
+    {
+      "name": "res4",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 259,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L259"
+      ]
+    },
+    {
+      "name": "res5",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 266,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L266"
+      ]
+    },
+    {
+      "name": "refine5",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 277,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L277"
+      ]
+    },
+    {
+      "name": "res31",
+      "kind": "module",
+      "cls": "ModuleList",
+      "file": "ncsnv2.py",
+      "line": 353,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L353"
+      ]
+    },
+    {
+      "name": "refine31",
+      "kind": "module",
+      "cls": "RefineBlock",
+      "file": "ncsnv2.py",
+      "line": 377,
+      "state": "",
+      "evidence": [
+        "ncsnv2.py#L377"
+      ]
+    },
+    {
+      "name": "instance_norm",
+      "kind": "module",
+      "cls": "InstanceNorm2d",
+      "file": "normalization.py",
+      "line": 73,
+      "state": "",
+      "evidence": [
+        "normalization.py#L73"
+      ]
+    },
+    {
+      "name": "rsde",
+      "kind": "module",
+      "cls": "reverse",
+      "file": "sampling.py",
+      "line": 133,
+      "state": "",
+      "evidence": [
+        "sampling.py#L133"
+      ]
+    },
+    {
+      "name": "beta_0",
+      "kind": "injected",
+      "cls": "beta_min",
+      "file": "sde_lib.py",
+      "line": 122,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L122"
+      ]
+    },
+    {
+      "name": "beta_1",
+      "kind": "injected",
+      "cls": "beta_max",
+      "file": "sde_lib.py",
+      "line": 123,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L123"
+      ]
+    },
+    {
+      "name": "discrete_betas",
+      "kind": "module",
+      "cls": "linspace",
+      "file": "sde_lib.py",
+      "line": 125,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L125"
+      ]
+    },
+    {
+      "name": "alphas_cumprod",
+      "kind": "module",
+      "cls": "cumprod",
+      "file": "sde_lib.py",
+      "line": 127,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L127"
+      ]
+    },
+    {
+      "name": "sqrt_alphas_cumprod",
+      "kind": "module",
+      "cls": "sqrt",
+      "file": "sde_lib.py",
+      "line": 128,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L128"
+      ]
+    },
+    {
+      "name": "sqrt_1m_alphas_cumprod",
+      "kind": "module",
+      "cls": "sqrt",
+      "file": "sde_lib.py",
+      "line": 129,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L129"
+      ]
+    },
+    {
+      "name": "discrete_sigmas",
+      "kind": "module",
+      "cls": "exp",
+      "file": "sde_lib.py",
+      "line": 219,
+      "state": "",
+      "evidence": [
+        "sde_lib.py#L219"
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "name": "enable_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "default_celeba_configs.py",
+      "line": 36,
+      "weight": "",
+      "evidence": "evaluate.enable_loss = True"
+    },
+    {
+      "name": "enable_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "default_cifar10_configs.py",
+      "line": 36,
+      "weight": "",
+      "evidence": "evaluate.enable_loss = True"
+    },
+    {
+      "name": "enable_loss",
+      "fn": "expr",
+      "args": [],
+      "file": "default_lsun_configs.py",
+      "line": 36,
+      "weight": "",
+      "evidence": "evaluate.enable_loss = True"
+    },
+    {
+      "name": "loss",
+      "fn": "expr",
+      "args": [],
+      "file": "celeba.py",
+      "line": 26,
+      "weight": "",
+      "evidence": "training.loss = 'vesde'"
+    },
+    {
+      "name": "loss",
+      "fn": "mean",
+      "args": [
+        "losses"
+      ],
+      "file": "losses.py",
+      "line": 98,
+      "weight": "",
+      "evidence": "loss = torch.mean(losses)"
+    },
+    {
+      "name": "losses",
+      "fn": "square",
+      "args": [
+        "score - target"
+      ],
+      "file": "losses.py",
+      "line": 120,
+      "weight": "",
+      "evidence": "losses = torch.square(score - target)"
+    },
+    {
+      "name": "losses",
+      "fn": "expr",
+      "args": [],
+      "file": "losses.py",
+      "line": 121,
+      "weight": "",
+      "evidence": "losses = reduce_op(losses.reshape(losses.shape[0], -1), dim=-1) * sigmas ** 2"
+    },
+    {
+      "name": "loss",
+      "fn": "mean",
+      "args": [
+        "losses"
+      ],
+      "file": "losses.py",
+      "line": 122,
+      "weight": "",
+      "evidence": "loss = torch.mean(losses)"
+    },
+    {
+      "name": "losses",
+      "fn": "square",
+      "args": [
+        "score - noise"
+      ],
+      "file": "losses.py",
+      "line": 143,
+      "weight": "",
+      "evidence": "losses = torch.square(score - noise)"
+    },
+    {
+      "name": "losses",
+      "fn": "reduce_op",
+      "args": [
+        "losses.reshape(losses.shape[0], -1)"
+      ],
+      "file": "losses.py",
+      "line": 144,
+      "weight": "",
+      "evidence": "losses = reduce_op(losses.reshape(losses.shape[0], -1), dim=-1)"
+    },
+    {
+      "name": "loss",
+      "fn": "mean",
+      "args": [
+        "losses"
+      ],
+      "file": "losses.py",
+      "line": 145,
+      "weight": "",
+      "evidence": "loss = torch.mean(losses)"
+    },
+    {
+      "name": "loss_fn",
+      "fn": "get_sde_loss_fn",
+      "args": [
+        "sde",
+        "train"
+      ],
+      "file": "losses.py",
+      "line": 166,
+      "weight": "",
+      "evidence": "loss_fn = get_sde_loss_fn(sde, train, reduce_mean=reduce_mean, continuous=True, likelihood_weighting=likelihood_weighting)"
+    },
+    {
+      "name": "losses",
+      "fn": "square",
+      "args": [
+        "score * std[:, None, None, None] + z"
+      ],
+      "file": "losses.py",
+      "line": 91,
+      "weight": "",
+      "evidence": "losses = torch.square(score * std[:, None, None, None] + z)"
+    },
+    {
+      "name": "losses",
+      "fn": "reduce_op",
+      "args": [
+        "losses.reshape(losses.shape[0], -1)"
+      ],
+      "file": "losses.py",
+      "line": 92,
+      "weight": "",
+      "evidence": "losses = reduce_op(losses.reshape(losses.shape[0], -1), dim=-1)"
+    },
+    {
+      "name": "losses",
+      "fn": "square",
+      "args": [
+        "score + z / std[:, None, None, None]"
+      ],
+      "file": "losses.py",
+      "line": 95,
+      "weight": "",
+      "evidence": "losses = torch.square(score + z / std[:, None, None, None])"
+    },
+    {
+      "name": "losses",
+      "fn": "expr",
+      "args": [],
+      "file": "losses.py",
+      "line": 96,
+      "weight": "",
+      "evidence": "losses = reduce_op(losses.reshape(losses.shape[0], -1), dim=-1) * g2"
+    },
+    {
+      "name": "loss_fn",
+      "fn": "get_smld_loss_fn",
+      "args": [
+        "sde",
+        "train"
+      ],
+      "file": "losses.py",
+      "line": 171,
+      "weight": "",
+      "evidence": "loss_fn = get_smld_loss_fn(sde, train, reduce_mean=reduce_mean)"
+    },
+    {
+      "name": "loss",
+      "fn": "loss_fn",
+      "args": [
+        "model",
+        "batch"
+      ],
+      "file": "losses.py",
+      "line": 195,
+      "weight": "",
+      "evidence": "loss = loss_fn(model, batch)"
+    },
+    {
+      "name": "loss_fn",
+      "fn": "get_ddpm_loss_fn",
+      "args": [
+        "sde",
+        "train"
+      ],
+      "file": "losses.py",
+      "line": 173,
+      "weight": "",
+      "evidence": "loss_fn = get_ddpm_loss_fn(sde, train, reduce_mean=reduce_mean)"
+    },
+    {
+      "name": "loss",
+      "fn": "loss_fn",
+      "args": [
+        "model",
+        "batch"
+      ],
+      "file": "losses.py",
+      "line": 205,
+      "weight": "",
+      "evidence": "loss = loss_fn(model, batch)"
+    },
+    {
+      "name": "loss",
+      "fn": "train_step_fn",
+      "args": [
+        "state",
+        "batch"
+      ],
+      "file": "run_lib.py",
+      "line": 131,
+      "weight": "",
+      "evidence": "loss = train_step_fn(state, batch)"
+    },
+    {
+      "name": "eval_loss",
+      "fn": "eval_step_fn",
+      "args": [
+        "state",
+        "eval_batch"
+      ],
+      "file": "run_lib.py",
+      "line": 145,
+      "weight": "",
+      "evidence": "eval_loss = eval_step_fn(state, eval_batch)"
+    },
+    {
+      "name": "all_losses",
+      "fn": "expr",
+      "args": [],
+      "file": "run_lib.py",
+      "line": 287,
+      "weight": "",
+      "evidence": "all_losses = []"
+    },
+    {
+      "name": "all_losses",
+      "fn": "asarray",
+      "args": [
+        "all_losses"
+      ],
+      "file": "run_lib.py",
+      "line": 299,
+      "weight": "",
+      "evidence": "all_losses = np.asarray(all_losses)"
+    },
+    {
+      "name": "eval_loss",
+      "fn": "eval_step",
+      "args": [
+        "state",
+        "eval_batch"
+      ],
+      "file": "run_lib.py",
+      "line": 293,
+      "weight": "",
+      "evidence": "eval_loss = eval_step(state, eval_batch)"
+    }
+  ],
+  "frozen": [
+    "x  (likelihood.py#L34)"
+  ],
+  "trainable": [
+    "x  (likelihood.py#L31)"
+  ],
+  "entry_points": [
+    "DDPM",
+    "Dense",
+    "CRPBlock",
+    "CondCRPBlock",
+    "RCUBlock",
+    "CondRCUBlock",
+    "MSFBlock",
+    "CondMSFBlock",
+    "RefineBlock",
+    "CondRefineBlock",
+    "ConvMeanPool",
+    "MeanPoolConv",
+    "UpsampleConv",
+    "ConditionalResidualBlock",
+    "ResidualBlock",
+    "NIN",
+    "AttnBlock",
+    "Upsample",
+    "Downsample",
+    "ResnetBlockDDPM",
+    "GaussianFourierProjection",
+    "Combine",
+    "AttnBlockpp",
+    "Upsample",
+    "Downsample",
+    "ResnetBlockDDPMpp",
+    "ResnetBlockBigGANpp",
+    "NCSNpp",
+    "NCSNv2",
+    "NCSN",
+    "NCSNv2_128",
+    "NCSNv2_256",
+    "ConditionalBatchNorm2d",
+    "ConditionalInstanceNorm2d",
+    "ConditionalVarianceNorm2d",
+    "VarianceNorm2d",
+    "ConditionalNoneNorm2d",
+    "NoneNorm2d",
+    "InstanceNorm2dPlus",
+    "ConditionalInstanceNorm2dPlus",
+    "Conv2d",
+    "FusedLeakyReLU"
+  ],
+  "artifacts": [
+    {
+      "kind": "test_fixture",
+      "text": "evaluate.num_samples = 50000",
+      "lang": "",
+      "file": "default_celeba_configs.py",
+      "line": 35
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(output) == 1",
+      "lang": "",
+      "file": "evaluation.py",
+      "line": 82
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(timesteps.shape) == 1",
+      "lang": "",
+      "file": "layers.py",
+      "line": 516
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert emb.shape == (timesteps.shape[0], embedding_dim)",
+      "lang": "",
+      "file": "layers.py",
+      "line": 528
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert x.shape == (B, C, H // 2, W // 2)",
+      "lang": "",
+      "file": "layers.py",
+      "line": 615
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert len(w.shape) == 4",
+      "lang": "",
+      "file": "up_or_down_sampling.py",
+      "line": 100
+    },
+    {
+      "kind": "test_fixture",
+      "text": "assert k.ndim == 2",
+      "lang": "",
+      "file": "up_or_down_sampling.py",
+      "line": 186
+    },
+    {
+      "kind": "readme_block",
+      "text": "from diffusers import DiffusionPipeline\n\nmodel_id = \"google/ncsnpp-ffhq-1024\"\n\n# load model and scheduler\nsde_ve = DiffusionPipeline.from_pretrained(model_id)\n\n# run pipeline in inference (sample random noise and denoise)\nimage = sde_ve().images[0]\n\n\n# save image\nimage[0].save(\"sde_ve_generated_image.png\")",
+      "lang": "python",
+      "file": "README.md",
+      "line": 40
+    },
+    {
+      "kind": "readme_block",
+      "text": "main.py:\n  --config: Training configuration.\n    (default: 'None')\n  --eval_folder: The folder name for storing evaluation results\n    (default: 'eval')\n  --mode: <train|eval>: Running mode: train or eval\n  --workdir: Working directory",
+      "lang": "sh",
+      "file": "README.md",
+      "line": 88
+    },
+    {
+      "kind": "readme_block",
+      "text": "@inproceedings{\n  song2021scorebased,\n  title={Score-Based Generative Modeling through Stochastic Differential Equations},\n  author={Yang Song and Jascha Sohl-Dickstein and Diederik P Kingma and Abhishek Kumar and Stefano Ermon and Ben Poole},\n  booktitle={International Conference on Learning Representations},\n  year={2021},\n  url={https://openreview.net/forum?id=PxTIG12RRHS}\n}",
+      "lang": "bib",
+      "file": "README.md",
+      "line": 173
+    }
+  ],
+  "examples": [
+    {
+      "text": "Training NCSNv3 on CIFAR-10 with continuous sigmas.",
+      "kind": "sample_string",
+      "file": "cifar10_ddpmpp_continuous.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Training NCSN++ on CIFAR-10 with sub-VP SDE.",
+      "kind": "sample_string",
+      "file": "cifar10_ncsnpp_continuous.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Training NCSN++ on CIFAR-10.",
+      "kind": "sample_string",
+      "file": "cifar10_ncsnpp_deep_continuous.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Training NCSN++ on CIFAR-10 with SMLD.",
+      "kind": "sample_string",
+      "file": "cifar10_ncsnpp.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Training NCSN++ on CIFAR-10 with VE SDE.",
+      "kind": "sample_string",
+      "file": "cifar10_ncsnpp_continuous.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for reproducing NCSNv1 on CelebA.",
+      "kind": "sample_string",
+      "file": "celeba.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for training NCSN with technique 1,2,4 only.",
+      "kind": "sample_string",
+      "file": "celeba_124.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for training NCSN with technique 1245 only.",
+      "kind": "sample_string",
+      "file": "celeba_1245.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for training NCSNv1 model with technique 5 only.",
+      "kind": "sample_string",
+      "file": "celeba_5.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for reproducing NCSNv1 on CIFAR-10.",
+      "kind": "sample_string",
+      "file": "cifar10.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for training NCSN with technique 1,2,4,5 only.",
+      "kind": "sample_string",
+      "file": "cifar10_1245.py",
+      "line": 17,
+      "score": 2
+    },
+    {
+      "text": "Config file for training NCSN with technique 5 only.",
+      "kind": "sample_string",
+      "file": "cifar10_5.py",
+      "line": 17,
+      "score": 2
+    }
+  ],
+  "files": [
+    "default_celeba_configs.py",
+    "default_cifar10_configs.py",
+    "default_lsun_configs.py",
+    "cifar10_ddpm_continuous.py",
+    "cifar10_ddpmpp_continuous.py",
+    "cifar10_ddpmpp_deep_continuous.py",
+    "cifar10_ncsnpp_continuous.py",
+    "cifar10_ncsnpp_deep_continuous.py",
+    "bedroom_ncsnpp_continuous.py",
+    "celeba_ncsnpp.py",
+    "celebahq_256_ncsnpp_continuous.py",
+    "celebahq_ncsnpp_continuous.py",
+    "church_ncsnpp_continuous.py",
+    "cifar10_ddpm.py",
+    "cifar10_ncsnpp.py",
+    "cifar10_ncsnpp_continuous.py",
+    "cifar10_ncsnpp_deep_continuous.py",
+    "ffhq_256_ncsnpp_continuous.py",
+    "ffhq_ncsnpp_continuous.py",
+    "celeba.py",
+    "celeba_124.py",
+    "celeba_1245.py",
+    "celeba_5.py",
+    "cifar10.py",
+    "cifar10_124.py",
+    "cifar10_1245.py",
+    "cifar10_5.py",
+    "bedroom.py",
+    "celeba.py",
+    "cifar10.py",
+    "cifar10_ddpmpp.py",
+    "cifar10_ddpmpp_continuous.py",
+    "cifar10_ddpmpp_deep_continuous.py",
+    "cifar10_ncsnpp.py",
+    "cifar10_ncsnpp_continuous.py",
+    "cifar10_ncsnpp_deep_continuous.py",
+    "bedroom.py",
+    "celebahq.py",
+    "church.py",
+    "cifar10.py",
+    "cifar10_continuous.py",
+    "cifar10_unconditional.py",
+    "controllable_generation.py",
+    "datasets.py",
+    "debug.py",
+    "evaluation.py",
+    "likelihood.py",
+    "losses.py",
+    "main.py",
+    "__init__.py",
+    "ddpm.py",
+    "ema.py",
+    "layers.py",
+    "layerspp.py",
+    "ncsnpp.py",
+    "ncsnv2.py",
+    "normalization.py",
+    "up_or_down_sampling.py",
+    "utils.py",
+    "__init__.py",
+    "fused_act.py",
+    "upfirdn2d.py",
+    "run_lib.py",
+    "sampling.py",
+    "sde_lib.py",
+    "utils.py"
+  ],
+  "notes": [
+    "T1 관통 예시를 찾지 못했다. 지어내지 말고 사용자에게 대표 사례 한 건을 요청한다 — 실제 입력 하나와 그때 나오는 결과 하나. 코드 저장소에는 없고 논문 본문·데이터셋에만 있는 경우가 흔하다."
+  ]
+}

@@ -1,0 +1,2676 @@
+{
+  "components": [],
+  "losses": [],
+  "frozen": [],
+  "trainable": [],
+  "entry_points": [],
+  "artifacts": [
+    {
+      "kind": "readme_block",
+      "text": "tsdb/wlog: optimize WAL watcher reads\nfix(PromQL): do not skip histogram buckets when trimming\nfeat(agent): fix ST append; add compliance RW sender test\nchore: fix emptyStringTest issues from gocritic\nci: add statuses write permission to prombench workflow\ndocs: clarify that `lookback_delta` query parameter takes either a duration or number of seconds",
+      "lang": "",
+      "file": "AGENTS.md",
+      "line": 14
+    },
+    {
+      "kind": "readme_block",
+      "text": "[FEATURE]     new capability\n[ENHANCEMENT] improvement to existing behaviour\n[PERF]        performance improvement\n[BUGFIX]      bug fix\n[SECURITY]    security fix\n[CHANGE]      breaking or behavioural change",
+      "lang": "",
+      "file": "AGENTS.md",
+      "line": 53
+    },
+    {
+      "kind": "readme_block",
+      "text": "Fixes #18243",
+      "lang": "",
+      "file": "AGENTS.md",
+      "line": 125
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run --rm -v prometheus-data:/prometheus alpine chown -R 65532:65532 /prometheus",
+      "lang": "",
+      "file": "CHANGELOG.md",
+      "line": 240
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run -v prometheus-data:/prometheus prom/prometheus:latest-distroless",
+      "lang": "",
+      "file": "CHANGELOG.md",
+      "line": 244
+    },
+    {
+      "kind": "readme_block",
+      "text": "# For building.\ngo build ./cmd/prometheus/\n./prometheus\n\n# For testing.\nmake test         # Make sure all the tests pass before you commit and push :)",
+      "lang": "bash",
+      "file": "CONTRIBUTING.md",
+      "line": 36
+    },
+    {
+      "kind": "readme_block",
+      "text": "make lint",
+      "lang": "bash",
+      "file": "CONTRIBUTING.md",
+      "line": 46
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Pick the latest tagged release.\ngo get example.com/some/module/pkg@latest\n\n# Pick a specific version.\ngo get example.com/some/module/pkg@vX.Y.Z",
+      "lang": "bash",
+      "file": "CONTRIBUTING.md",
+      "line": 70
+    },
+    {
+      "kind": "readme_block",
+      "text": "go mod tidy",
+      "lang": "bash",
+      "file": "CONTRIBUTING.md",
+      "line": 80
+    },
+    {
+      "kind": "readme_block",
+      "text": "// As of writing this was somewhere around line 600.\nvar (\n\tyyDebug        = 0 // This can be a number 0 -> 5.\n\tyyErrorVerbose = false  // This can be set to true.\n)",
+      "lang": "golang",
+      "file": "CONTRIBUTING.md",
+      "line": 94
+    },
+    {
+      "kind": "readme_block",
+      "text": "type Discoverer interface {\n\tRun(ctx context.Context, up chan<- []*targetgroup.Group)\n}",
+      "lang": "go",
+      "file": "README.md",
+      "line": 137
+    },
+    {
+      "kind": "readme_block",
+      "text": "[]targetgroup.Group{\n\t{\n\t\tTargets: []model.LabelSet{\n\t\t\t{\n\t\t\t\t\"__instance__\": \"10.11.150.1:7870\",\n\t\t\t\t\"hostname\":     \"demo-target-1\",\n\t\t\t\t\"test\":         \"simple-test\",\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"__instance__\": \"10.11.150.4:7870\",\n\t\t\t\t\"hostname\":     \"demo-target-2\",\n\t\t\t\t\"test\":         \"simple-test\",\n\t\t\t},\n\t\t},\n\t\tLabels: model.LabelSet{\n\t\t\t\"job\": \"mysql\",\n\t\t},\n\t\t\"Source\": \"file1\",\n\t},\n\t{\n\t\tTargets: []model",
+      "lang": "go",
+      "file": "README.md",
+      "line": 149
+    },
+    {
+      "kind": "readme_block",
+      "text": "&targetgroup.Group{\n\tTargets: []model.LabelSet{\n\t\t{\n\t\t\t\"__instance__\": \"10.11.122.11:6001\",\n\t\t\t\"hostname\":     \"demo-postgres-1\",\n\t\t\t\"test\":         \"simple-test\",\n\t\t},\n\t},\n\tLabels: model.LabelSet{\n\t\t\"job\": \"postgres\",\n\t},\n\t\"Source\": \"file2\",\n}",
+      "lang": "go",
+      "file": "README.md",
+      "line": 193
+    },
+    {
+      "kind": "readme_block",
+      "text": "&targetgroup.Group{\n\tTargets:  nil,\n\t\"Source\": \"file2\",\n}",
+      "lang": "go",
+      "file": "README.md",
+      "line": 211
+    },
+    {
+      "kind": "readme_block",
+      "text": "type Config interface {\n\t// Name returns the name of the discovery mechanism.\n\tName() string\n\n\t// NewDiscoverer returns a Discoverer for the Config\n\t// with the given DiscovererOptions.\n\tNewDiscoverer(DiscovererOptions) (Discoverer, error)\n}\n\ntype DiscovererOptions struct {\n\tLogger *slog.Logger\n\n\t// A registerer for the Discoverer's metrics.\n\tRegisterer prometheus.Registerer\n\t\n\tHTTPClientOptions [",
+      "lang": "go",
+      "file": "README.md",
+      "line": 225
+    },
+    {
+      "kind": "readme_block",
+      "text": "groups:\n- name: example\n  labels:\n    team: myteam\n  rules:\n  - alert: HighRequestLatency\n    expr: job:request_latency_seconds:mean5m{job=\"myjob\"} > 0.5\n    for: 10m\n    keep_firing_for: 5m\n    labels:\n      severity: page\n    annotations:\n      summary: High request latency",
+      "lang": "yaml",
+      "file": "alerting_rules.md",
+      "line": 19
+    },
+    {
+      "kind": "readme_block",
+      "text": "groups:\n- name: example\n  rules:\n\n  # Alert for any instance that is unreachable for >5 minutes.\n  - alert: InstanceDown\n    expr: up == 0\n    for: 5m\n    labels:\n      severity: page\n    annotations:\n      summary: \"Instance {{ $labels.instance }} down\"\n      description: \"{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.\"\n\n  # Alert for any instance that has ",
+      "lang": "yaml",
+      "file": "alerting_rules.md",
+      "line": 70
+    },
+    {
+      "kind": "readme_block",
+      "text": "global:\n  # How frequently to scrape targets by default.\n  [ scrape_interval: <duration> | default = 1m ]\n\n  # How long until a scrape request times out.\n  # It cannot be greater than the scrape interval.\n  [ scrape_timeout: <duration> | default = 10s ]\n\n  # The protocols to negotiate during a scrape with the client.\n  # Supported values (case sensitive): PrometheusProto, OpenMetricsText0.0.1,\n  #",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 54
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The job name assigned to scraped metrics by default.\njob_name: <job_name>\n\n# How frequently to scrape targets from this job.\n[ scrape_interval: <duration> | default = <global_config.scrape_interval> ]\n\n# Per-scrape timeout when scraping this job.\n# It cannot be greater than the scrape interval.\n[ scrape_timeout: <duration> | default = <global_config.scrape_timeout> ]\n\n# The protocols to negotiat",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 319
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Sets the `Authorization` header on every request with the\n# configured username and password.\n# username and username_file are mutually exclusive.\n# password and password_file are mutually exclusive.\nbasic_auth:\n  [ username: <string> ]\n  [ username_file: <string> ]\n  [ password: <secret> ]\n  [ password_file: <string> ]\n\n# Sets the `Authorization` header on every request with\n# the configured cr",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 685
+    },
+    {
+      "kind": "readme_block",
+      "text": "# CA certificate to validate API server certificate with. At most one of ca and ca_file is allowed.\n[ ca: <string> ]\n[ ca_file: <filename> ]\n\n# Certificate and key for client cert authentication to the server.\n# At most one of cert and cert_file is allowed.\n# At most one of key and key_file is allowed.\n[ cert: <string> ]\n[ cert_file: <filename> ]\n[ key: <secret> ]\n[ key_file: <filename> ]\n\n# Serve",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 752
+    },
+    {
+      "kind": "readme_block",
+      "text": "client_id: <string>\n\n# OAuth2 grant type to use. It can be one of\n# \"client_credentials\" or \"urn:ietf:params:oauth:grant-type:jwt-bearer\" (RFC 7523).\n# Default value is \"client_credentials\"\n[ grant_type: <string> ]\n\n# Client secret to provide to authorization server. Only used if\n# GrantType is set empty or set to \"client_credentials\".\n[ client_secret: <secret> ]\n\n# Read the client secret from a f",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 790
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The AWS role to use for service discovery.\n# Must be one of: ec2, lightsail, ecs, msk, elasticache, or rds.\nrole: <string>\n\n# The AWS region. If blank, the region from the instance metadata is used.\n[ region: <string> ]\n\n# Custom endpoint to be used.\n[ endpoint: <string> ]\n\n# AWS access key ID. If blank, the environment variable AWS_ACCESS_KEY_ID is used.\n[ access_key: <string> ]\n\n# AWS secret a",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1307
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Azure API.\n# The Azure environment.\n[ environment: <string> | default = AzurePublicCloud ]\n\n# The authentication method, either OAuth, ManagedIdentity, SDK or WorkloadIdentity.\n# See https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview\n# SDK authentication method uses environment variables by default.\n# See https://learn.micro",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1391
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Consul API. It is to be defined\n# as the Consul documentation requires.\n[ server: <host> | default = \"localhost:8500\" ]\n# Prefix for URIs for when consul is behind an API gateway (reverse proxy).\n[ path_prefix: <string> ]\n[ token: <secret> ]\n[ datacenter: <string> ]\n# Namespaces are only supported in Consul Enterprise.\n[ namespace: <string> ]\n# Admin Partitions are ",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1460
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The DigitalOcean role to use for service discovery.\n# Must be one of: droplets or databases.\n[ role: <string> | default = droplets ]\n\n# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# The time after which the targets are refreshed.\n[ refresh_interval: <duration> | default = 60s ]\n\n# HTTP client settings, including authentication methods (such as basic auth and\n# authorization)",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1571
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Address of the Docker daemon.\nhost: <string>\n\n# The port to scrape metrics from, when `role` is nodes, and for discovered\n# tasks and services that don't have published ports.\n[ port: <int> | default = 80 ]\n\n# The host to use if the container is in host networking mode.\n[ host_networking_host: <string> | default = \"localhost\" ]\n\n# Sort all non-nil networks in ascending order based on network nam",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1614
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Address of the Docker daemon.\nhost: <string>\n\n# Role of the targets to retrieve. Must be `services`, `tasks`, or `nodes`.\nrole: <string>\n\n# The port to scrape metrics from, when `role` is nodes, and for discovered\n# tasks and services that don't have published ports.\n[ port: <int> | default = 80 ]\n\n# Optional filters to limit the discovery process to a subset of available\n# resources.\n# The avai",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1748
+    },
+    {
+      "kind": "readme_block",
+      "text": "# A list of DNS domain names to be queried.\nnames:\n  [ - <string> ]\n\n# The type of DNS query to perform. One of SRV, A, AAAA, MX or NS.\n[ type: <string> | default = 'SRV' ]\n\n# The port number used if the query type is not SRV.\n[ port: <int>]\n\n# The time after which the provided names are refreshed.\n[ refresh_interval: <duration> | default = 30s ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1803
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the EC2 API.\n\n# The AWS region. If blank, the region from the instance metadata is used.\n[ region: <string> ]\n\n# Custom endpoint to be used.\n[ endpoint: <string> ]\n\n# The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`\n# and `AWS_SECRET_ACCESS_KEY` are used.\n[ access_key: <string> ]\n[ secret_key: <secret> ]\n# Named AWS profile used to connect to th",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1856
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the OpenStack API.\n\n# The OpenStack role of entities that should be discovered.\nrole: <openstack_role>\n\n# The OpenStack Region.\nregion: <string>\n\n# identity_endpoint specifies the HTTP endpoint that is required to work with\n# the Identity API of the appropriate version. While it's ultimately needed by\n# all of the identity services, it will often be populated by a provi",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 1965
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Access key to use. https://api.ovh.com\napplication_key: <string>\napplication_secret: <secret>\nconsumer_key: <secret>\n# Service of the targets to retrieve. Must be `vps` or `dedicated_server`.\nservice: <string>\n# API endpoint. https://github.com/ovh/go-ovh#supported-apis\n[ endpoint: <string> | default = \"ovh-eu\" ]\n# Refresh interval to re-read the resources list.\n[ refresh_interval: <duration> | ",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2080
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The URL of the PuppetDB root query endpoint.\nurl: <string>\n\n# Puppet Query Language (PQL) query. Only resources are supported.\n# https://puppet.com/docs/puppetdb/latest/api/query/v4/pql.html\nquery: <string>\n\n# Whether to include the parameters as meta labels.\n# Due to the differences between parameter types and Prometheus labels,\n# some parameters might not be rendered. The format of the paramet",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2120
+    },
+    {
+      "kind": "readme_block",
+      "text": "[\n  {\n    \"targets\": [ \"<host>\", ... ],\n    \"labels\": {\n      \"<labelname>\": \"<labelvalue>\", ...\n    }\n  },\n  ...\n]",
+      "lang": "json",
+      "file": "configuration.md",
+      "line": 2175
+    },
+    {
+      "kind": "readme_block",
+      "text": "- targets:\n  [ - '<host>' ]\n  labels:\n    [ <labelname>: <labelvalue> ... ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2189
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Patterns for files from which target groups are extracted.\nfiles:\n  [ - <filename_pattern> ... ]\n\n# Refresh interval to re-read the files.\n[ refresh_interval: <duration> | default = 5m ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2207
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the GCE API.\n\n# The GCP Project\nproject: <string>\n\n# The zone of the scrape targets. If you need multiple zones use multiple\n# gce_sd_configs.\nzone: <string>\n\n# Filter can be used optionally to filter the instance list by other criteria\n# Syntax of this filter string is described here in the filter query parameter section:\n# https://cloud.google.com/compute/docs/referen",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2243
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The Hetzner role of entities that should be discovered.\n# One of robot or hcloud.\nrole: <string>\n\n# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# The time after which the servers are refreshed.\n[ refresh_interval: <duration> | default = 60s ]\n\n# Label selector used to filter the servers when fetching them from the API. See https://docs.hetzner.cloud/#label-selector for more ",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2325
+    },
+    {
+      "kind": "readme_block",
+      "text": "# URL from which the targets are fetched.\nurl: <string>\n\n# Refresh interval to re-query the endpoint.\n[ refresh_interval: <duration> | default = 60s ]\n\n# HTTP client settings, including authentication methods (such as basic auth and\n# authorization), proxy configurations, TLS options, custom HTTP headers, etc.\n[ <http_config> ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2381
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The unique ID of the data center.\ndatacenter_id: <string>\n\n# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# The time after which the servers are refreshed.\n[ refresh_interval: <duration> | default = 60s ]\n\n# HTTP client settings, including authentication methods (such as basic auth and\n# authorization), proxy configurations, TLS options, custom HTTP headers, etc.\n[ <http_conf",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2420
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Kubernetes API.\n\n# The API server addresses. If left empty, Prometheus is assumed to run inside\n# of the cluster and will discover API servers automatically and use the pod's\n# CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.\n[ api_server: <host> ]\n\n# The Kubernetes role of entities that should be discovered.\n# One of endpoints",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2610
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Address of the Kuma Control Plane's MADS xDS server.\nserver: <string>\n\n# Client id is used by Kuma Control Plane to compute Monitoring Assignment for specific Prometheus backend.\n# This is useful when migrating between multiple Prometheus backends, or having separate backend for each Mesh.\n# When not specified, system hostname/fqdn will be used if available, if not `prometheus` will be used.\n[ c",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2699
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Lightsail API.\n\n# The AWS region. If blank, the region from the instance metadata is used.\n[ region: <string> ]\n\n# Custom endpoint to be used.\n[ endpoint: <string> ]\n\n# The AWS API keys. If blank, the environment variables `AWS_ACCESS_KEY_ID`\n# and `AWS_SECRET_ACCESS_KEY` are used.\n[ access_key: <string> ]\n[ secret_key: <secret> ]\n# Named AWS profile used to connect",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2744
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Optional region to filter on.\n[ region: <string> ]\n\n# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# The string by which Linode Instance tags are joined into the tag label.\n[ tag_separator: <string> | default = , ]\n\n# The time after which the linode instances are refreshed.\n[ refresh_interval: <duration> | default = 60s ]\n\n# HTTP client settings, including authentication meth",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2814
+    },
+    {
+      "kind": "readme_block",
+      "text": "# List of URLs to be used to contact Marathon servers.\n# You need to provide at least one server URL.\nservers:\n  - <string>\n\n# Polling interval\n[ refresh_interval: <duration> | default = 30s ]\n\n# Optional authentication information for token-based authentication\n# https://docs.mesosphere.com/1.11/security/ent/iam-api/#passing-an-authentication-token\n# It is mutually exclusive with `auth_token_file",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2852
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The Zookeeper servers.\nservers:\n  - <host>\n# Paths can point to a single service, or the root of a tree of services.\npaths:\n  - <string>\n[ timeout: <duration> | default = 10s ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2898
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Nomad API. It is to be defined\n# as the Nomad documentation requires.\n[ allow_stale: <boolean> | default = true ]\n[ namespace: <string> | default = default ]\n[ refresh_interval: <duration> | default = 60s ]\n[ region: <string> | default = global ]\n# The URL to connect to the API.\n[ server: <string> ]\n[ tag_separator: <string> | default = ,]\n\n# HTTP client settings, i",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 2924
+    },
+    {
+      "kind": "readme_block",
+      "text": "Allow group <group-name> to read instances in tenancy\nAllow group <group-name> to read compartments in tenancy\nAllow group <group-name> to read vnic-attachments in tenancy\nAllow group <group-name> to read vnics in tenancy",
+      "lang": "text",
+      "file": "configuration.md",
+      "line": 2949
+    },
+    {
+      "kind": "readme_block",
+      "text": "Allow dynamic-group <dynamic-group-name> to read instances in tenancy\nAllow dynamic-group <dynamic-group-name> to read compartments in tenancy\nAllow dynamic-group <dynamic-group-name> to read vnic-attachments in tenancy\nAllow dynamic-group <dynamic-group-name> to read vnics in tenancy",
+      "lang": "text",
+      "file": "configuration.md",
+      "line": 2958
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Authentication method. Supported values: \"api_key\" (default), \"instance_principal\".\n# \"instance_principal\" uses IMDS-based credentials and requires no credential fields;\n# it is the recommended method when Prometheus runs on OCI compute.\n[ auth: <string> | default = \"api_key\" ]\n\n# API key auth fields. Required when auth is \"api_key\".\n[ tenancy: <string> ]\n[ user: <string> ]\n[ fingerprint: <strin",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3001
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The Zookeeper servers.\nservers:\n  - <host>\n# Paths can point to a single serverset, or the root of a tree of serversets.\npaths:\n  - <string>\n[ timeout: <duration> | default = 10s ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3089
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The STACKIT project\nproject: <string>\n\n# STACKIT region to use. No automatic discovery of the region is done.\n[ region : <string> | default = \"eu01\" ]\n\n# Custom API endpoint to be used. Format scheme://host:port\n[ endpoint : <string>  ]\n\n# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# Raw private key string used for authenticating a service account\n[ private_key: <string> ]\n",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3121
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  //....\n  \"credentials\": {\n    \"kid\": \"6a7c3b36-xxxxxxxx\",\n    \"iss\": \"xxxx@sa.stackit.cloud\",\n    \"sub\": \"af2c2336-xxxxxxxx\",\n    \"aud\": \"https://stackit-service-account-prod.apps.01.cf.eu01.stackit.cloud\",\n    \"privateKey\": \"-----BEGIN PRIVATE KEY-----xxxx\"\n  }\n}",
+      "lang": "json",
+      "file": "configuration.md",
+      "line": 3160
+    },
+    {
+      "kind": "readme_block",
+      "text": "stackit_sd_config:\n- oauth2:\n    client_id: <credentials.sub>\n    client_certificate_key: <credentials.privateKey>\n    client_certificate_key_id: <credentials.kid>\n    iss: <credentials.iss>\n    audience: <credentials.aud>\n    grant_type: \"urn:ietf:params:oauth:grant-type:jwt-bearer\"\n    token_url: \"https://service-account.api.stackit.cloud/token\"\n    signature_algorithm: RS512",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3175
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The information to access the Triton discovery API.\n\n# The account to use for discovering new targets.\naccount: <string>\n\n# The type of targets to discover, can be set to:\n# * \"container\" to discover virtual machines (SmartOS zones, lx/KVM/bhyve branded zones) running on Triton\n# * \"cn\" to discover compute nodes (servers/global zones) making up the Triton infrastructure\n[ role : <string> | defau",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3222
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The URL to connect to the Eureka server.\nserver: <string>\n\n# Refresh interval to re-read the app instance list.\n[ refresh_interval: <duration> | default = 30s ]\n\n# HTTP client settings, including authentication methods (such as basic auth and\n# authorization), proxy configurations, TLS options, custom HTTP headers, etc.\n[ <http_config> ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3289
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Access key to use. https://console.scaleway.com/project/credentials\naccess_key: <string>\n\n# Secret key to use when listing targets. https://console.scaleway.com/project/credentials\n# It is mutually exclusive with `secret_key_file`.\n[ secret_key: <secret> ]\n\n# Sets the secret key with the credentials read from the configured file.\n# It is mutually exclusive with `secret_key`.\n[ secret_key_file: <",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3364
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The URL to connect to the Uyuni server.\nserver: <string>\n\n# Credentials are used to authenticate the requests to Uyuni API.\nusername: <string>\npassword: <secret>\n\n# The entitlement string to filter eligible systems.\n[ entitlement: <string> | default = monitoring_entitled ]\n\n# The string by which Uyuni group names are joined into the groups label.\n[ separator: <string> | default = , ]\n\n# Refresh ",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3426
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The port to scrape metrics from.\n[ port: <int> | default = 80 ]\n\n# The time after which the instances are refreshed.\n[ refresh_interval: <duration> | default = 60s ]\n\n# HTTP client settings, including authentication methods (such as basic auth and\n# authorization), proxy configurations, TLS options, custom HTTP headers, etc.\n[ <http_config> ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3479
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Region to use.\n[ region: <string> | default = \"eu-west-2\" ]\n\n# Access key (20 alphanumeric characters). See https://docs.outscale.com/en/userguide/Creating-an-Access-Key.html\naccess_key: <string>\n\n# Secret key (40 characters). Use one of `secret_key` or `secret_key_file`.\n[ secret_key: <secret> ]\n\n# Secret key file.\n[ secret_key_file: <filename> ]\n\n# API endpoint URL. Defaults to https://api.<re",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3509
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The targets specified by the static config.\ntargets:\n  [ - '<host>' ]\n\n# Labels assigned to all metrics scraped from the targets.\nlabels:\n  [ <labelname>: <labelvalue> ... ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3541
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The source_labels tells the rule what labels to fetch from the series. Any\n# labels which do not exist get a blank value (\"\").  Their content is concatenated\n# using the configured separator and matched against the configured regular expression\n# for the replace, keep, and drop actions.\n[ source_labels: '[' <labelname> [, ...] ']' ]\n\n# Separator placed between concatenated source label values.\n[",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3624
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Per-target Alertmanager timeout when pushing alerts.\n[ timeout: <duration> | default = 10s ]\n\n# The api version of Alertmanager.\n[ api_version: <string> | default = v2 ]\n\n# Prefix for the HTTP path alerts are pushed to.\n[ path_prefix: <path> | default = / ]\n\n# Configures the protocol scheme used for requests.\n[ scheme: <scheme> | default = http ]\n\n# Optionally configures AWS's Signature Verifica",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3711
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The URL of the endpoint to send samples to.\nurl: <string>\n\n# protobuf message to use when writing to the remote write endpoint.\n#\n# * The `prometheus.WriteRequest` represents the message introduced in Remote Write 1.0, which\n# will be deprecated eventually.\n# * The `io.prometheus.write.v2.Request` was introduced in Remote Write 2.0 and replaces the former,\n# by improving efficiency and sending m",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 3902
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The URL of the endpoint to query from.\nurl: <string>\n\n# Name of the remote read config, which if specified must be unique among remote read configs.\n# The name will be used in metrics and logging in place of a generated value to help users distinguish between\n# remote read configs.\n[ name: <string> ]\n\n# An optional list of equality matchers which have to be\n# present in a selector to query the r",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 4088
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Configures how old an out-of-order/out-of-bounds sample can be w.r.t. the TSDB max time.\n# An out-of-order/out-of-bounds sample is ingested into the TSDB as long as the timestamp\n# of the sample is >= TSDB.MaxTime-out_of_order_time_window.\n#\n# When out_of_order_time_window is >0, the errors out-of-order and out-of-bounds are\n# combined into a single error called 'too-old'; a sample is either (a)",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 4130
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Configures the maximum size of the circular buffer used to store exemplars for all series. Resizable during runtime.\n[ max_exemplars: <int> | default = 100000 ]",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 4217
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Client used to export the traces. Options are 'http' or 'grpc'.\n[ client_type: <string> | default = grpc ]\n\n# Endpoint to send the traces to. Should be provided in format <host>:<port>.\n[ endpoint: <string> ]\n\n# Sets the probability a given trace will be sampled. Must be a float from 0 through 1.\n[ sampling_fraction: <float> | default = 0 ]\n\n# If disabled, the client will use a secure connection",
+      "lang": "yaml",
+      "file": "configuration.md",
+      "line": 4226
+    },
+    {
+      "kind": "readme_block",
+      "text": "tls_server_config:\n  # Certificate and key files for server to use to authenticate to client.\n  cert_file: <filename>\n  key_file: <filename>\n\n  # Server policy for client authentication. Maps to ClientAuth Policies.\n  # For more detail on clientAuth options:\n  # https://golang.org/pkg/crypto/tls/#ClientAuthType\n  #\n  # NOTE: If you want to enable client authentication, you need to use\n  # RequireA",
+      "lang": "yaml",
+      "file": "https.md",
+      "line": 28
+    },
+    {
+      "kind": "readme_block",
+      "text": "promtool check healthy --url=http://localhost:9090 --http.config.file=http-config-file.yml",
+      "lang": "bash",
+      "file": "promtool.md",
+      "line": 10
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Note that `basic_auth` and `authorization` options are mutually exclusive.\n\n# Sets the `Authorization` header with the configured username and password.\n# `username_ref` and `password_ref`refer to the name of the secret within the secret manager.\n# `password`, `password_file` and `password_ref` are mutually exclusive.\nbasic_auth:\n  [ username: <string> ]\n  [ username_file: <filename> ]\n  [ usern",
+      "lang": "yaml",
+      "file": "promtool.md",
+      "line": 29
+    },
+    {
+      "kind": "readme_block",
+      "text": "# `client_id` and `client_secret` are used to authenticate your\n# application with the authorization server in order to get\n# an access token.\n# `client_secret`, `client_secret_file` and `client_secret_ref` are mutually exclusive.\nclient_id: <string>\n[ client_secret: <secret> ]\n[ client_secret_file: <filename> ]\n[ client_secret_ref: <string> ]\n\n# `scopes` specify the reason for the resource access",
+      "lang": "yaml",
+      "file": "promtool.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "# For the following configurations, use either `ca`, `cert` and `key` or `ca_file`, `cert_file` and `key_file` or use `ca_ref`, `cert_ref` or `key_ref`.\n# Text of the CA certificate to use for the server.\n[ ca: <string> ]\n# CA certificate to validate the server certificate with.\n[ ca_file: <filename> ]\n# `ca_ref` is the name of the secret within the secret manager to use as the CA cert.\n[ ca_ref: ",
+      "lang": "yaml",
+      "file": "promtool.md",
+      "line": 122
+    },
+    {
+      "kind": "readme_block",
+      "text": "[ values:\n  [ - <string> ... ] ]\n\n[ secrets:\n  [ - <secret> ... ] ]\n\n[ files:\n  [ - <filename> ... ] ]",
+      "lang": "yaml",
+      "file": "promtool.md",
+      "line": 166
+    },
+    {
+      "kind": "readme_block",
+      "text": "promtool check rules /path/to/example.rules.yml",
+      "lang": "bash",
+      "file": "recording_rules.md",
+      "line": 25
+    },
+    {
+      "kind": "readme_block",
+      "text": "groups:\n  [ - <rule_group> ]",
+      "lang": "yaml",
+      "file": "recording_rules.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "groups:\n  - name: example\n    rules:\n    - record: code:prometheus_http_requests_total:sum\n      expr: sum by (code) (prometheus_http_requests_total)",
+      "lang": "yaml",
+      "file": "recording_rules.md",
+      "line": 64
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The name of the group. Must be unique within a file.\nname: <string>\n\n# How often rules in the group are evaluated.\n[ interval: <duration> | default = global.evaluation_interval ]\n\n# Limit the number of alerts an alerting rule and series a recording\n# rule can produce. 0 is no limit.\n[ limit: <int> | default = 0 ]\n\n# Offset the rule evaluation timestamp of this particular group by the specified d",
+      "lang": "yaml",
+      "file": "recording_rules.md",
+      "line": 74
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The name of the time series to output to. Must be a valid metric name.\nrecord: <string>\n\n# The PromQL expression to evaluate. Every evaluation cycle this is\n# evaluated at the current time, and the result recorded as a new set of\n# time series with the metric name as given by 'record'.\nexpr: <string>\n\n# Labels to add or overwrite before storing the result.\nlabels:\n  [ <labelname>: <labelvalue> ]",
+      "lang": "yaml",
+      "file": "recording_rules.md",
+      "line": 101
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The name of the alert. Must be a valid label value.\nalert: <string>\n\n# The PromQL expression to evaluate. Every evaluation cycle this is\n# evaluated at the current time, and all resultant time series become\n# pending/firing alerts.\nexpr: <string>\n\n# Alerts are considered firing once they have been returned for this long.\n# Alerts which have not yet fired for long enough are considered pending.\n[",
+      "lang": "yaml",
+      "file": "recording_rules.md",
+      "line": 117
+    },
+    {
+      "kind": "readme_block",
+      "text": "alert: InstanceDown\nexpr: up == 0\nfor: 5m\nlabels:\n  severity: page\nannotations:\n  summary: \"Instance {{$labels.instance}} down\"\n  description: \"{{$labels.instance}} of job {{$labels.job}} has been down for more than 5 minutes.\"",
+      "lang": "yaml",
+      "file": "template_examples.md",
+      "line": 14
+    },
+    {
+      "kind": "readme_block",
+      "text": "{{ range query \"up\" }}\n  {{ .Labels.instance }} {{ .Value }}\n{{ end }}",
+      "lang": "",
+      "file": "template_examples.md",
+      "line": 34
+    },
+    {
+      "kind": "readme_block",
+      "text": "{{ with query \"some_metric{instance='someinstance'}\" }}\n  {{ . | first | value | humanize }}\n{{ end }}",
+      "lang": "",
+      "file": "template_examples.md",
+      "line": 44
+    },
+    {
+      "kind": "readme_block",
+      "text": "{{ with printf \"node_memory_MemTotal{job='node',instance='%s'}\" .Params.instance | query }}\n  {{ . | first | value | humanize1024 }}B\n{{ end }}",
+      "lang": "",
+      "file": "template_examples.md",
+      "line": 59
+    },
+    {
+      "kind": "readme_block",
+      "text": "<table>\n{{ range printf \"node_network_receive_bytes{job='node',instance='%s',device!='lo'}\" .Params.instance | query | sortByLabel \"device\"}}\n  <tr><th colspan=2>{{ .Labels.device }}</th></tr>\n  <tr>\n    <td>Received</td>\n    <td>{{ with printf \"rate(node_network_receive_bytes{job='node',instance='%s',device='%s'}[5m])\" .Labels.instance .Labels.device | query }}{{ . | first | value | humanize }}B/",
+      "lang": "html",
+      "file": "template_examples.md",
+      "line": 69
+    },
+    {
+      "kind": "readme_block",
+      "text": "{{/* Define the template */}}\n{{define \"myTemplate\"}}\n  do something\n{{end}}\n\n{{/* Use the template */}}\n{{template \"myTemplate\"}}",
+      "lang": "",
+      "file": "template_examples.md",
+      "line": 96
+    },
+    {
+      "kind": "readme_block",
+      "text": "{{define \"myMultiArgTemplate\"}}\n  First argument: {{.arg0}}\n  Second argument: {{.arg1}}\n{{end}}\n{{template \"myMultiArgTemplate\" (args 1 2)}}",
+      "lang": "",
+      "file": "template_examples.md",
+      "line": 108
+    },
+    {
+      "kind": "readme_block",
+      "text": "type sample struct {\n  Labels map[string]string\n  Value  interface{}\n}",
+      "lang": "go",
+      "file": "template_reference.md",
+      "line": 16
+    },
+    {
+      "kind": "readme_block",
+      "text": "# For a single test file.\n./promtool test rules test.yml\n\n# If you have multiple test files, say test1.yml,test2.yml,test3.yml\n./promtool test rules test1.yml test2.yml test3.yml",
+      "lang": "shell",
+      "file": "unit_testing_rules.md",
+      "line": 8
+    },
+    {
+      "kind": "readme_block",
+      "text": "# This is a list of rule files to consider for testing. Globs are supported.\nrule_files:\n  [ - <file_name> ]\n\n[ evaluation_interval: <duration> | default = 1m ]\n\n# Setting fuzzy_compare true will very slightly weaken floating point comparisons.\n# This will (effectively) ignore differences in the last bit of the mantissa.\n[ fuzzy_compare: <boolean> | default = false ]\n\n# The order in which group na",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 18
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Series data\n[ interval: <duration> | default = evaluation_interval ]\ninput_series:\n  [ - <series> ]\n\n# Name of the test group\n[ name: <string> ]\n\n# Start timestamp for the test group. This sets the base time for all samples\n# and evaluations in this test group.\n# Accepts either a Unix timestamp (e.g., 1609459200) or an RFC3339 formatted\n# timestamp (e.g., \"2021-01-01T00:00:00Z\").\n# Default: 0 (U",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 42
+    },
+    {
+      "kind": "readme_block",
+      "text": "# This follows the usual series notation '<metric name>{<label name>=<label value>, ...}'\n# Examples:\n#      series_name{label1=\"value1\", label2=\"value2\"}\n#      go_goroutines{job=\"prometheus\", instance=\"localhost:9090\"}\nseries: <string>\n\n# This uses expanding notation.\n# Expanding notation:\n#     'a+bxn' becomes 'a a+b a+(2*b) a+(3*b) … a+(n*b)'\n#     Read this as series starts at a, then n furth",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "# The time elapsed from start_timestamp when the alerts have to be checked.\n# This is a duration relative to start_timestamp (which defaults to 0).\neval_time: <duration>\n\n# Name of the alert to be tested.\nalertname: <string>\n\n# List of expected alerts which are firing under the given alertname at\n# given evaluation time. If you want to test if an alerting rule should\n# not be firing, then you can ",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 151
+    },
+    {
+      "kind": "readme_block",
+      "text": "# These are the expanded labels and annotations of the expected alert.\n# Note: labels also include the labels of the sample associated with the\n# alert (same as what you see in `/alerts`, without series `__name__` and `alertname`)\nexp_labels:\n  [ <labelname>: <string> ]\nexp_annotations:\n  [ <labelname>: <string> ]",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 168
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Expression to evaluate\nexpr: <string>\n\n# The time elapsed from start_timestamp when the expression has to be evaluated.\n# This is a duration relative to start_timestamp (which defaults to 0).\neval_time: <duration>\n\n# Expected samples at the given evaluation time.\nexp_samples:\n  [ - <sample> ]",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 180
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Labels of the sample in usual series notation '<metric name>{<label name>=<label value>, ...}'\n# Examples:\n#      series_name{label1=\"value1\", label2=\"value2\"}\n#      go_goroutines{job=\"prometheus\", instance=\"localhost:9090\"}\nlabels: <string>\n\n# The expected value of the PromQL expression.\nvalue: <number>",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 195
+    },
+    {
+      "kind": "readme_block",
+      "text": "# This is the main input for unit testing.\n# Only this file is passed as command line argument.\n\nrule_files:\n    - alerts.yml\n\nevaluation_interval: 1m\n\ntests:\n    # Test 1.\n    - interval: 1m\n      # Series data.\n      input_series:\n          - series: 'up{job=\"prometheus\", instance=\"localhost:9090\"}'\n            values: '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'\n          - series: 'up{job=\"node_exporter\", ",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 214
+    },
+    {
+      "kind": "readme_block",
+      "text": "# This is the rules file.\n\ngroups:\n- name: example\n  rules:\n\n  - alert: InstanceDown\n    expr: up == 0\n    for: 5m\n    labels:\n        severity: page\n    annotations:\n        summary: \"Instance {{ $labels.instance }} down\"\n        description: \"{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.\"\n\n  - alert: AnotherInstanceDown\n    expr: up == 0\n    for: 10m\n    ",
+      "lang": "yaml",
+      "file": "unit_testing_rules.md",
+      "line": 267
+    },
+    {
+      "kind": "readme_block",
+      "text": "rate(successful_requests[5m])\n+ fill(0)\n  rate(failed_requests[5m])",
+      "lang": "",
+      "file": "feature_flags.md",
+      "line": 357
+    },
+    {
+      "kind": "readme_block",
+      "text": "scrape_configs:\n  - job_name: 'federate'\n    scrape_interval: 15s\n\n    honor_labels: true\n    metrics_path: '/federate'\n\n    params:\n      'match[]':\n        - '{job=\"prometheus\"}'\n        - '{__name__=~\"job:.*\"}'\n\n    static_configs:\n      - targets:\n        - 'source-prometheus-1:9090'\n        - 'source-prometheus-2:9090'\n        - 'source-prometheus-3:9090'",
+      "lang": "yaml",
+      "file": "federation.md",
+      "line": 73
+    },
+    {
+      "kind": "readme_block",
+      "text": "tar xvfz prometheus-*.tar.gz\ncd prometheus-*",
+      "lang": "bash",
+      "file": "getting_started.md",
+      "line": 17
+    },
+    {
+      "kind": "readme_block",
+      "text": "global:\n  scrape_interval:     15s # By default, scrape targets every 15 seconds.\n\n  # Attach these labels to any time series or alerts when communicating with\n  # external systems (federation, remote storage, Alertmanager).\n  external_labels:\n    monitor: 'codelab-monitor'\n\n# A scrape configuration containing exactly one endpoint to scrape:\n# Here it's Prometheus itself.\nscrape_configs:\n  # The j",
+      "lang": "yaml",
+      "file": "getting_started.md",
+      "line": 34
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Start Prometheus.\n# By default, Prometheus stores its database in ./data (flag --storage.tsdb.path).\n./prometheus --config.file=prometheus.yml",
+      "lang": "bash",
+      "file": "getting_started.md",
+      "line": 64
+    },
+    {
+      "kind": "readme_block",
+      "text": "prometheus_target_interval_length_seconds",
+      "lang": "",
+      "file": "getting_started.md",
+      "line": 89
+    },
+    {
+      "kind": "readme_block",
+      "text": "prometheus_target_interval_length_seconds{quantile=\"0.99\"}",
+      "lang": "",
+      "file": "getting_started.md",
+      "line": 101
+    },
+    {
+      "kind": "readme_block",
+      "text": "count(prometheus_target_interval_length_seconds)",
+      "lang": "",
+      "file": "getting_started.md",
+      "line": 107
+    },
+    {
+      "kind": "readme_block",
+      "text": "rate(prometheus_tsdb_head_chunks_created_total[1m])",
+      "lang": "",
+      "file": "getting_started.md",
+      "line": 122
+    },
+    {
+      "kind": "readme_block",
+      "text": "tar -xzvf node_exporter-*.*.tar.gz\ncd node_exporter-*.*\n\n# Start 3 example targets in separate terminals:\n./node_exporter --web.listen-address 127.0.0.1:8080\n./node_exporter --web.listen-address 127.0.0.1:8081\n./node_exporter --web.listen-address 127.0.0.1:8082",
+      "lang": "bash",
+      "file": "getting_started.md",
+      "line": 135
+    },
+    {
+      "kind": "readme_block",
+      "text": "scrape_configs:\n  - job_name:       'node'\n\n    # Override the global default and scrape targets from this job every 5 seconds.\n    scrape_interval: 5s\n\n    static_configs:\n      - targets: ['localhost:8080', 'localhost:8081']\n        labels:\n          group: 'production'\n\n      - targets: ['localhost:8082']\n        labels:\n          group: 'canary'",
+      "lang": "yaml",
+      "file": "getting_started.md",
+      "line": 161
+    },
+    {
+      "kind": "readme_block",
+      "text": "avg by (job, instance, mode) (rate(node_cpu_seconds_total[5m]))",
+      "lang": "",
+      "file": "getting_started.md",
+      "line": 213
+    },
+    {
+      "kind": "readme_block",
+      "text": "groups:\n- name: cpu-node\n  rules:\n  - record: job_instance_mode:node_cpu_seconds:avg_rate5m\n    expr: avg by (job, instance, mode) (rate(node_cpu_seconds_total[5m]))",
+      "lang": "yaml",
+      "file": "getting_started.md",
+      "line": 223
+    },
+    {
+      "kind": "readme_block",
+      "text": "global:\n  scrape_interval:     15s # By default, scrape targets every 15 seconds.\n  evaluation_interval: 15s # Evaluate rules every 15 seconds.\n\n  # Attach these extra labels to all timeseries collected by this Prometheus instance.\n  external_labels:\n    monitor: 'codelab-monitor'\n\nrule_files:\n  - 'prometheus.rules.yml'\n\nscrape_configs:\n  - job_name: 'prometheus'\n\n    # Override the global default",
+      "lang": "yaml",
+      "file": "getting_started.md",
+      "line": 234
+    },
+    {
+      "kind": "readme_block",
+      "text": "[\n    {\n        \"targets\": [\"10.0.10.2:9100\", \"10.0.10.3:9100\", \"10.0.10.4:9100\", \"10.0.10.5:9100\"],\n        \"labels\": {\n            \"__meta_datacenter\": \"london\",\n            \"__meta_prometheus_job\": \"node\"\n        }\n    },\n    {\n        \"targets\": [\"10.0.40.2:9100\", \"10.0.40.3:9100\"],\n        \"labels\": {\n            \"__meta_datacenter\": \"london\",\n            \"__meta_prometheus_job\": \"alertmanage",
+      "lang": "json",
+      "file": "http_sd.md",
+      "line": 74
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run \\\n    -p 9090:9090 \\\n    -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \\\n    prom/prometheus",
+      "lang": "bash",
+      "file": "installation.md",
+      "line": 47
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run \\\n    -p 9090:9090 \\\n    -v /path/to/config:/etc/prometheus \\\n    prom/prometheus",
+      "lang": "bash",
+      "file": "installation.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Create persistent volume for your data\ndocker volume create prometheus-data\n# Start Prometheus container\ndocker run \\\n    -p 9090:9090 \\\n    -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \\\n    -v prometheus-data:/prometheus \\\n    prom/prometheus",
+      "lang": "bash",
+      "file": "installation.md",
+      "line": 70
+    },
+    {
+      "kind": "readme_block",
+      "text": "FROM prom/prometheus\nADD prometheus.yml /etc/prometheus/",
+      "lang": "Dockerfile",
+      "file": "installation.md",
+      "line": 91
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker build -t my-prometheus .\ndocker run -p 9090:9090 my-prometheus",
+      "lang": "bash",
+      "file": "installation.md",
+      "line": 98
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /-/healthy\nHEAD /-/healthy",
+      "lang": "",
+      "file": "management_api.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /-/ready\nHEAD /-/ready",
+      "lang": "",
+      "file": "management_api.md",
+      "line": 21
+    },
+    {
+      "kind": "readme_block",
+      "text": "PUT  /-/reload\nPOST /-/reload",
+      "lang": "",
+      "file": "management_api.md",
+      "line": 31
+    },
+    {
+      "kind": "readme_block",
+      "text": "PUT  /-/quit\nPOST /-/quit",
+      "lang": "",
+      "file": "management_api.md",
+      "line": 43
+    },
+    {
+      "kind": "readme_block",
+      "text": "global:\n  metric_name_validation_scheme: legacy",
+      "lang": "",
+      "file": "migration.md",
+      "line": 177
+    },
+    {
+      "kind": "readme_block",
+      "text": "scrape_configs:\n  - job_name: job1\n    metric_name_validation_scheme: utf8\n  - job_name: job2\n    metric_name_validation_scheme: legacy",
+      "lang": "",
+      "file": "migration.md",
+      "line": 184
+    },
+    {
+      "kind": "readme_block",
+      "text": "ts=2024-10-23T22:01:06.074Z caller=main.go:627 level=info msg=\"No time or size retention was set so using the default time retention\" duration=15d\nts=2024-10-23T22:01:06.074Z caller=main.go:671 level=info msg=\"Starting Prometheus Server\" mode=server version=\"(version=, branch=, revision=91d80252c3e528728b0f88d254dd720f6be07cb8-modified)\"\nts=2024-10-23T22:01:06.074Z caller=main.go:676 level=info bu",
+      "lang": "",
+      "file": "migration.md",
+      "line": 196
+    },
+    {
+      "kind": "readme_block",
+      "text": "time=2024-10-24T00:03:07.542+02:00 level=INFO source=/home/user/go/src/github.com/prometheus/prometheus/cmd/prometheus/main.go:640 msg=\"No time or size retention was set so using the default time retention\" duration=15d\ntime=2024-10-24T00:03:07.542+02:00 level=INFO source=/home/user/go/src/github.com/prometheus/prometheus/cmd/prometheus/main.go:681 msg=\"Starting Prometheus Server\" mode=server vers",
+      "lang": "",
+      "file": "migration.md",
+      "line": 205
+    },
+    {
+      "kind": "readme_block",
+      "text": "metric_relabel_configs:\n      - source_labels:\n          - quantile\n        target_label: quantile\n        regex: (\\d+)\\.0+\n      - source_labels:\n          - le\n          - __name__\n        target_label: le\n        regex: (\\d+)\\.0+;.*_bucket",
+      "lang": "yaml",
+      "file": "migration.md",
+      "line": 236
+    },
+    {
+      "kind": "readme_block",
+      "text": "usage: prometheus [<flags>]\n\nThe Prometheus monitoring server\n\nFlags:\n  -h, --help                     Show context-sensitive help (also try --help-long and --help-man).\n      (... other flags)\n      --storage.tsdb.path=\"data/\"\n                                 Base path for metrics storage. Use with server mode only.\n      --storage.agent.path=\"data-agent/\"\n                                 Base pa",
+      "lang": "",
+      "file": "prometheus_agent.md",
+      "line": 36
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\" | \"error\",\n  \"data\": <data>,\n\n  // Only set if status is \"error\". The data field may still hold\n  // additional data.\n  \"errorType\": \"<string>\",\n  \"error\": \"<string>\",\n\n  // Only set if there were warnings while executing the request.\n  // There will still be data in the data field.\n  \"warnings\": [\"<string>\"],\n  // Only set if there were info-level annotations while executi",
+      "lang": "json",
+      "file": "api.md",
+      "line": 49
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/query\nPOST /api/v1/query",
+      "lang": "",
+      "file": "api.md",
+      "line": 92
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"resultType\": \"matrix\" | \"vector\" | \"scalar\" | \"string\",\n  \"result\": <value>\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 115
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/query?query=up&time=2015-07-01T20:10:51.781Z'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 129
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : {\n      \"resultType\" : \"vector\",\n      \"result\" : [\n         {\n            \"metric\" : {\n               \"__name__\" : \"up\",\n               \"job\" : \"prometheus\",\n               \"instance\" : \"localhost:9090\"\n            },\n            \"value\": [ 1435781451.781, \"1\" ]\n         },\n         {\n            \"metric\" : {\n               \"__name__\" : \"up\",\n               ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 133
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/query_range\nPOST /api/v1/query_range",
+      "lang": "",
+      "file": "api.md",
+      "line": 164
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"resultType\": \"matrix\",\n  \"result\": <value>\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 187
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/query_range?query=up&start=2015-07-01T20:10:30.781Z&end=2015-07-01T20:11:00.781Z&step=15s'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 200
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : {\n      \"resultType\" : \"matrix\",\n      \"result\" : [\n         {\n            \"metric\" : {\n               \"__name__\" : \"up\",\n               \"job\" : \"prometheus\",\n               \"instance\" : \"localhost:9090\"\n            },\n            \"values\" : [\n               [ 1435781430.781, \"1\" ],\n               [ 1435781445.781, \"1\" ],\n               [ 1435781460.781, \"1\" ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 204
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/format_query\nPOST /api/v1/format_query",
+      "lang": "",
+      "file": "api.md",
+      "line": 257
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/format_query?query=foo/bar'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 274
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : \"foo / bar\"\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 278
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/parse_query\nPOST /api/v1/parse_query",
+      "lang": "",
+      "file": "api.md",
+      "line": 291
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/parse_query?query=foo/bar'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 308
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"data\" : {\n      \"bool\" : false,\n      \"lhs\" : {\n         \"matchers\" : [\n            {\n               \"name\" : \"__name__\",\n               \"type\" : \"=\",\n               \"value\" : \"foo\"\n            }\n         ],\n         \"name\" : \"foo\",\n         \"offset\" : 0,\n         \"startOrEnd\" : null,\n         \"timestamp\" : null,\n         \"type\" : \"vectorSelector\"\n      },\n      \"matching\" : {\n         \"card",
+      "lang": "json",
+      "file": "api.md",
+      "line": 312
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/series\nPOST /api/v1/series",
+      "lang": "",
+      "file": "api.md",
+      "line": 367
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -g 'http://localhost:9090/api/v1/series?' --data-urlencode 'match[]=up' --data-urlencode 'match[]=process_start_time_seconds{job=\"prometheus\"}'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 392
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : [\n      {\n         \"__name__\" : \"up\",\n         \"job\" : \"prometheus\",\n         \"instance\" : \"localhost:9090\"\n      },\n      {\n         \"__name__\" : \"up\",\n         \"job\" : \"node\",\n         \"instance\" : \"localhost:9091\"\n      },\n      {\n         \"__name__\" : \"process_start_time_seconds\",\n         \"job\" : \"prometheus\",\n         \"instance\" : \"localhost:9090\"\n     ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 396
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/labels\nPOST /api/v1/labels",
+      "lang": "",
+      "file": "api.md",
+      "line": 423
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'localhost:9090/api/v1/labels'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 442
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"status\": \"success\",\n    \"data\": [\n        \"__name__\",\n        \"call\",\n        \"code\",\n        \"config\",\n        \"dialer_name\",\n        \"endpoint\",\n        \"event\",\n        \"goversion\",\n        \"handler\",\n        \"instance\",\n        \"interval\",\n        \"job\",\n        \"le\",\n        \"listener_name\",\n        \"name\",\n        \"quantile\",\n        \"reason\",\n        \"role\",\n        \"scrape_job\",\n   ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 446
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/label/<label_name>/values",
+      "lang": "",
+      "file": "api.md",
+      "line": 479
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/label/http_status_code/values",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 498
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : [\n      \"200\",\n      \"504\"\n   ]\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 502
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/label/U__http_2e_status_code/values",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 524
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"status\" : \"success\",\n   \"data\" : [\n      \"200\",\n      \"404\"\n   ]\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 528
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/search/metric_names\nPOST /api/v1/search/metric_names\nGET /api/v1/search/label_names\nPOST /api/v1/search/label_names\nGET /api/v1/search/label_values\nPOST /api/v1/search/label_values",
+      "lang": "",
+      "file": "api.md",
+      "line": 546
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\"results\":[{\"name\":\"http_requests_total\",\"type\":\"counter\",\"help\":\"Total HTTP requests.\"}]}\n{\"status\":\"success\",\"has_more\":false}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 564
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -g 'http://localhost:9090/api/v1/search/metric_names?search[]=http_req&sort_by=score&include_metadata=true&limit=5'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 625
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -g 'http://localhost:9090/api/v1/search/label_values?label=instance&match[]=up&search[]=909&sort_by=score'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 637
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\"results\":[{\"value\":\"localhost:9090\"},{\"value\":\"localhost:9091\"}]}\n{\"status\":\"success\",\"has_more\":true}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 641
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/query_exemplars\nPOST /api/v1/query_exemplars",
+      "lang": "",
+      "file": "api.md",
+      "line": 651
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -g 'http://localhost:9090/api/v1/query_exemplars?query=test_exemplar_metric_total&start=2020-09-14T15:22:25.479Z&end=2020-09-14T15:23:25.479Z'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 662
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"seriesLabels\": {\n                \"__name__\": \"test_exemplar_metric_total\",\n                \"instance\": \"localhost:8090\",\n                \"job\": \"prometheus\",\n                \"service\": \"bar\"\n            },\n            \"exemplars\": [\n                {\n                    \"labels\": {\n                        \"trace_id\": \"EpTxMJ40fUus7aGY",
+      "lang": "json",
+      "file": "api.md",
+      "line": 666
+    },
+    {
+      "kind": "readme_block",
+      "text": "[\n  {\n    \"metric\": { \"<label_name>\": \"<label_value>\", ... },\n    \"values\": [ [ <unix_time>, \"<sample_value>\" ], ... ],\n    \"histograms\": [ [ <unix_time>, <histogram> ], ... ]\n  },\n  ...\n]",
+      "lang": "json",
+      "file": "api.md",
+      "line": 732
+    },
+    {
+      "kind": "readme_block",
+      "text": "[\n  {\n    \"metric\": { \"<label_name>\": \"<label_value>\", ... },\n    \"value\": [ <unix_time>, \"<sample_value>\" ],\n    \"histogram\": [ <unix_time>, <histogram> ]\n  },\n  ...\n]",
+      "lang": "json",
+      "file": "api.md",
+      "line": 754
+    },
+    {
+      "kind": "readme_block",
+      "text": "[ <unix_time>, \"<scalar_value>\" ]",
+      "lang": "json",
+      "file": "api.md",
+      "line": 776
+    },
+    {
+      "kind": "readme_block",
+      "text": "[ <unix_time>, \"<string_value>\" ]",
+      "lang": "json",
+      "file": "api.md",
+      "line": 785
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"count\": \"<count_of_observations>\",\n  \"sum\": \"<sum_of_observations>\",\n  \"buckets\": [ [ <boundary_rule>, \"<left_boundary>\", \"<right_boundary>\", \"<count_in_bucket>\" ], ... ]\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 793
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/scrape_pools",
+      "lang": "",
+      "file": "api.md",
+      "line": 817
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/scrape_pools",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 823
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"scrapePools\": [\n      \"prometheus\",\n      \"node_exporter\",\n      \"blackbox\"\n    ]\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 827
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/scrape_pools/config?scrapePool=<scrape_pool_name>",
+      "lang": "",
+      "file": "api.md",
+      "line": 854
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9090/api/v1/scrape_pools/config \\\n  --data-urlencode 'scrapePool=prometheus'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 858
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"yaml\": \"job_name: prometheus\\nscrape_interval: 15s\\nscrape_timeout: 10s\\nmetrics_path: /metrics\\nscheme: http\\n\"\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 863
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/targets",
+      "lang": "",
+      "file": "api.md",
+      "line": 877
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/targets",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 886
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"activeTargets\": [\n      {\n        \"discoveredLabels\": {\n          \"__address__\": \"127.0.0.1:9090\",\n          \"__metrics_path__\": \"/metrics\",\n          \"__scheme__\": \"http\",\n          \"job\": \"prometheus\"\n        },\n        \"labels\": {\n          \"instance\": \"127.0.0.1:9090\",\n          \"job\": \"prometheus\"\n        },\n        \"scrapePool\": \"prometheus\",\n       ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 890
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/targets?state=active'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 942
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/targets?scrapePool=node_exporter'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 978
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/targets/relabel_steps",
+      "lang": "",
+      "file": "api.md",
+      "line": 1018
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -g 'http://localhost:9090/api/v1/targets/relabel_steps?scrapePool=prometheus&labels={\"__address__\":\"localhost:9090\",\"job\":\"prometheus\"}'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1028
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n   \"data\" : {\n      \"steps\" : [\n         {\n            \"keep\" : true,\n            \"output\" : {\n               \"__address__\" : \"localhost:9090\",\n               \"env\" : \"development\",\n               \"job\" : \"prometheus\"\n            },\n            \"rule\" : {\n               \"action\" : \"replace\",\n               \"regex\" : \"(.*)\",\n               \"replacement\" : \"development\",\n               \"separator\"",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1032
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/rules",
+      "lang": "",
+      "file": "api.md",
+      "line": 1079
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/rules",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1094
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"data\": {\n        \"groups\": [\n            {\n                \"rules\": [\n                    {\n                        \"alerts\": [\n                            {\n                                \"activeAt\": \"2018-07-04T20:27:12.60602144+02:00\",\n                                \"annotations\": {\n                                    \"summary\": \"High request latency\"\n                                },",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1098
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/alerts",
+      "lang": "",
+      "file": "api.md",
+      "line": 1157
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/alerts",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1161
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n    \"data\": {\n        \"alerts\": [\n            {\n                \"activeAt\": \"2018-07-04T20:27:12.60602144+02:00\",\n                \"annotations\": {},\n                \"labels\": {\n                    \"alertname\": \"my-alert\"\n                },\n                \"state\": \"firing\",\n                \"value\": \"1e+00\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1165
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/targets/metadata",
+      "lang": "",
+      "file": "api.md",
+      "line": 1190
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9091/api/v1/targets/metadata \\\n    --data-urlencode 'metric=go_goroutines' \\\n    --data-urlencode 'match_target={job=\"prometheus\"}' \\\n    --data-urlencode 'limit=2'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1206
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"target\": {\n        \"instance\": \"127.0.0.1:9090\",\n        \"job\": \"prometheus\"\n      },\n      \"type\": \"gauge\",\n      \"help\": \"Number of goroutines that currently exist.\",\n      \"unit\": \"\"\n    },\n    {\n      \"target\": {\n        \"instance\": \"127.0.0.1:9091\",\n        \"job\": \"prometheus\"\n      },\n      \"type\": \"gauge\",\n      \"help\": \"Number of goroutines",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1213
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9091/api/v1/targets/metadata \\\n    --data-urlencode 'match_target={instance=\"127.0.0.1:9090\"}'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1242
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": [\n    // ...\n    {\n      \"target\": {\n        \"instance\": \"127.0.0.1:9090\",\n        \"job\": \"prometheus\"\n      },\n      \"metric\": \"prometheus_treecache_zookeeper_failures_total\",\n      \"type\": \"counter\",\n      \"help\": \"The total number of ZooKeeper failures.\",\n      \"unit\": \"\"\n    },\n    {\n      \"target\": {\n        \"instance\": \"127.0.0.1:9090\",\n        \"job\": \"prom",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1247
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/metadata",
+      "lang": "",
+      "file": "api.md",
+      "line": 1282
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9090/api/v1/metadata?limit=2",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1296
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"cortex_ring_tokens\": [\n      {\n        \"type\": \"gauge\",\n        \"help\": \"Number of tokens in the ring\",\n        \"unit\": \"\"\n      }\n    ],\n    \"http_requests_total\": [\n      {\n        \"type\": \"counter\",\n        \"help\": \"Number of HTTP requests\",\n        \"unit\": \"\"\n      },\n      {\n        \"type\": \"counter\",\n        \"help\": \"Amount of HTTP requests\",\n       ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1300
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9090/api/v1/metadata?limit_per_metric=1",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1329
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -G http://localhost:9090/api/v1/metadata?metric=http_requests_total",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1357
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"http_requests_total\": [\n      {\n        \"type\": \"counter\",\n        \"help\": \"Number of HTTP requests\",\n        \"unit\": \"\"\n      },\n      {\n        \"type\": \"counter\",\n        \"help\": \"Amount of HTTP requests\",\n        \"unit\": \"\"\n      }\n    ]\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1361
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/alertmanagers",
+      "lang": "",
+      "file": "api.md",
+      "line": 1386
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/alertmanagers",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1392
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"activeAlertmanagers\": [\n      {\n        \"url\": \"http://127.0.0.1:9090/api/v1/alerts\"\n      }\n    ],\n    \"droppedAlertmanagers\": [\n      {\n        \"url\": \"http://127.0.0.1:9093/api/v1/alerts\"\n      }\n    ]\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1396
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/config",
+      "lang": "",
+      "file": "api.md",
+      "line": 1422
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/config",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1429
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"yaml\": \"<content of the loaded config file in YAML>\",\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1433
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/flags",
+      "lang": "",
+      "file": "api.md",
+      "line": 1446
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/flags",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1452
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"alertmanager.notification-queue-capacity\": \"10000\",\n    \"alertmanager.timeout\": \"10s\",\n    \"log.level\": \"info\",\n    \"query.lookback-delta\": \"5m\",\n    \"query.max-concurrency\": \"20\",\n    ...\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1456
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/runtimeinfo",
+      "lang": "",
+      "file": "api.md",
+      "line": 1476
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/runtimeinfo",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1482
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"startTime\": \"2019-11-02T17:23:59.301361365+01:00\",\n    \"CWD\": \"/\",\n    \"hostname\" : \"DESKTOP-717H17Q\",\n    \"serverTime\": \"2025-01-05T18:27:33Z\",\n    \"reloadConfigSuccess\": true,\n    \"lastConfigTime\": \"2019-11-02T17:23:59+01:00\",\n    \"timeSeriesCount\": 873,\n    \"corruptionCount\": 0,\n    \"goroutineCount\": 48,\n    \"GOMAXPROCS\": 4,\n    \"GOGC\": \"\",\n    \"GODEBUG",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1486
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/buildinfo",
+      "lang": "",
+      "file": "api.md",
+      "line": 1515
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/buildinfo",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1521
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"version\": \"2.13.1\",\n    \"revision\": \"cb7cbad5f9a2823a622aaa668833ca04f50a0ea7\",\n    \"branch\": \"master\",\n    \"buildUser\": \"julius@desktop\",\n    \"buildDate\": \"20191102-16:19:59\",\n    \"goVersion\": \"go1.13.1\"\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1525
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/tsdb",
+      "lang": "",
+      "file": "api.md",
+      "line": 1547
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/tsdb",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1566
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"headStats\": {\n      \"numSeries\": 508,\n      \"chunkCount\": 937,\n      \"minTime\": 1591516800000,\n      \"maxTime\": 1598896800143,\n    },\n    \"seriesCountByMetricName\": [\n      {\n        \"name\": \"net_conntrack_dialer_conn_failed_total\",\n        \"value\": 20\n      },\n      {\n        \"name\": \"prometheus_http_request_duration_seconds_bucket\",\n        \"value\": 20\n ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1570
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/tsdb/blocks",
+      "lang": "",
+      "file": "api.md",
+      "line": 1632
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/tsdb/blocks",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1651
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"blocks\": [\n      {\n        \"ulid\": \"01JZ8JKZY6XSK3PTDP9ZKRWT60\",\n        \"minTime\": 1750860620060,\n        \"maxTime\": 1750867200000,\n        \"stats\": {\n          \"numSamples\": 13701,\n          \"numSeries\": 716,\n          \"numChunks\": 716\n        },\n        \"compaction\": {\n          \"level\": 1,\n          \"sources\": [\n            \"01JZ8JKZY6XSK3PTDP9ZKRWT60\"",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1655
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/walreplay",
+      "lang": "",
+      "file": "api.md",
+      "line": 1688
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/status/walreplay",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1700
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"min\": 2,\n    \"max\": 5,\n    \"current\": 40,\n    \"state\": \"in progress\"\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1704
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/status/self_metrics",
+      "lang": "",
+      "file": "api.md",
+      "line": 1728
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl 'http://localhost:9090/api/v1/status/self_metrics?metric_name_pattern=prometheus_build_info'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1746
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"name\": \"prometheus_build_info\",\n      \"help\": \"A metric with a constant '1' value labeled by version, revision, branch, goversion from which prometheus was built, and the goos and goarch for the build.\",\n      \"type\": \"GAUGE\",\n      \"metric\": [\n        {\n          \"label\": [\n            { \"name\": \"branch\", \"value\": \"main\" },\n            { \"name\": \"",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1750
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /api/v1/admin/tsdb/snapshot\nPUT /api/v1/admin/tsdb/snapshot",
+      "lang": "",
+      "file": "api.md",
+      "line": 1786
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -XPOST http://localhost:9090/api/v1/admin/tsdb/snapshot",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1795
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"name\": \"20171210T211224Z-2be650b6d019eb54\"\n  }\n}",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1799
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /api/v1/admin/tsdb/delete_series\nPUT /api/v1/admin/tsdb/delete_series",
+      "lang": "",
+      "file": "api.md",
+      "line": 1816
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -X POST \\\n  -g 'http://localhost:9090/api/v1/admin/tsdb/delete_series?match[]=up&match[]=process_start_time_seconds{job=\"prometheus\"}'",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1831
+    },
+    {
+      "kind": "readme_block",
+      "text": "POST /api/v1/admin/tsdb/clean_tombstones\nPUT /api/v1/admin/tsdb/clean_tombstones",
+      "lang": "",
+      "file": "api.md",
+      "line": 1845
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl -XPOST http://localhost:9090/api/v1/admin/tsdb/clean_tombstones",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1852
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/notifications",
+      "lang": "",
+      "file": "api.md",
+      "line": 1913
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/notifications",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1919
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"text\": \"Prometheus is shutting down and gracefully stopping all operations.\",\n      \"date\": \"2024-10-07T12:33:08.551376578+02:00\",\n      \"active\": true\n    }\n  ]\n}",
+      "lang": "",
+      "file": "api.md",
+      "line": 1923
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/notifications/live",
+      "lang": "",
+      "file": "api.md",
+      "line": 1942
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/notifications/live",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1948
+    },
+    {
+      "kind": "readme_block",
+      "text": "data: {\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"text\": \"Prometheus is shutting down and gracefully stopping all operations.\",\n      \"date\": \"2024-10-07T12:33:08.551376578+02:00\",\n      \"active\": true\n    }\n  ]\n}",
+      "lang": "",
+      "file": "api.md",
+      "line": 1952
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/notifications/live\n204 No Content",
+      "lang": "",
+      "file": "api.md",
+      "line": 1967
+    },
+    {
+      "kind": "readme_block",
+      "text": "GET /api/v1/features",
+      "lang": "",
+      "file": "api.md",
+      "line": 1978
+    },
+    {
+      "kind": "readme_block",
+      "text": "curl http://localhost:9090/api/v1/features",
+      "lang": "bash",
+      "file": "api.md",
+      "line": 1986
+    },
+    {
+      "kind": "readme_block",
+      "text": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"api\": {\n      \"admin\": false,\n      \"exclude_alerts\": true\n    },\n    \"otlp_receiver\": {\n      \"delta_conversion\": false,\n      \"native_delta_ingestion\": false\n    },\n    \"prometheus\": {\n      \"agent_mode\": false,\n      \"auto_reload_config\": false\n    },\n    \"promql\": {\n      \"anchored\": false,\n      \"at_modifier\": true\n    },\n    \"promql_functions\": {\n   ",
+      "lang": "json",
+      "file": "api.md",
+      "line": 1990
+    },
+    {
+      "kind": "readme_block",
+      "text": "absent(nonexistent{job=\"myjob\"})\n# => {job=\"myjob\"}\n\nabsent(nonexistent{job=\"myjob\",instance=~\".*\"})\n# => {job=\"myjob\"}\n\nabsent(sum(nonexistent{job=\"myjob\"}))\n# => {}",
+      "lang": "",
+      "file": "functions.md",
+      "line": 26
+    },
+    {
+      "kind": "readme_block",
+      "text": "absent_over_time(nonexistent{job=\"myjob\"}[1h])\n# => {job=\"myjob\"}\n\nabsent_over_time(nonexistent{job=\"myjob\",instance=~\".*\"}[1h])\n# => {job=\"myjob\"}\n\nabsent_over_time(sum(nonexistent{job=\"myjob\"})[1h:])\n# => {}",
+      "lang": "",
+      "file": "functions.md",
+      "line": 50
+    },
+    {
+      "kind": "readme_block",
+      "text": "delta(cpu_temp_celsius{host=\"zeus\"}[2h])",
+      "lang": "",
+      "file": "functions.md",
+      "line": 161
+    },
+    {
+      "kind": "readme_block",
+      "text": "histogram_quantiles(sum(rate(foo[1m])), \"quantile\", 0.9, 0.99)\n# => {quantile=\"0.9\"} 123\n     {quantile=\"0.99\"} 128",
+      "lang": "",
+      "file": "functions.md",
+      "line": 470
+    },
+    {
+      "kind": "readme_block",
+      "text": "increase(http_requests_total{job=\"api-server\"}[5m])",
+      "lang": "",
+      "file": "functions.md",
+      "line": 518
+    },
+    {
+      "kind": "readme_block",
+      "text": "rate(http_server_request_duration_seconds_count[2m])\n* on (job, instance) group_left (k8s_cluster_name)\n  target_info",
+      "lang": "",
+      "file": "functions.md",
+      "line": 578
+    },
+    {
+      "kind": "readme_block",
+      "text": "info(\n  rate(http_server_request_duration_seconds_count[2m]),\n  {k8s_cluster_name=~\".+\"}\n)",
+      "lang": "",
+      "file": "functions.md",
+      "line": 601
+    },
+    {
+      "kind": "readme_block",
+      "text": "info(rate(http_server_request_duration_seconds_count[2m]))",
+      "lang": "",
+      "file": "functions.md",
+      "line": 612
+    },
+    {
+      "kind": "readme_block",
+      "text": "irate(http_requests_total{job=\"api-server\"}[5m])",
+      "lang": "",
+      "file": "functions.md",
+      "line": 664
+    },
+    {
+      "kind": "readme_block",
+      "text": "label_join(up{job=\"api-server\",src1=\"a\",src2=\"b\",src3=\"c\"}, \"foo\", \",\", \"src1\", \"src2\", \"src3\")",
+      "lang": "",
+      "file": "functions.md",
+      "line": 689
+    },
+    {
+      "kind": "readme_block",
+      "text": "label_replace(up{job=\"api-server\",service=\"a:c\"}, \"foo\", \"$1\", \"service\", \"(.*):.*\")",
+      "lang": "",
+      "file": "functions.md",
+      "line": 705
+    },
+    {
+      "kind": "readme_block",
+      "text": "label_replace(up{job=\"api-server\",service=\"a:c\"}, \"foo\", \"$name\", \"service\", \"(?P<name>.*):(?P<version>.*)\")",
+      "lang": "",
+      "file": "functions.md",
+      "line": 710
+    },
+    {
+      "kind": "readme_block",
+      "text": "rate(http_requests_total{job=\"api-server\"}[5m])",
+      "lang": "",
+      "file": "functions.md",
+      "line": 804
+    },
+    {
+      "kind": "readme_block",
+      "text": "/api/v1/read",
+      "lang": "",
+      "file": "remote_read_api.md",
+      "line": 13
+    },
+    {
+      "kind": "readme_block",
+      "text": "./data\n├── 01BKGV7JBM69T2G1BGBGM6KB12\n│   └── meta.json\n├── 01BKGTZQ1SYQJTR4PB43C8PD98\n│   ├── chunks\n│   │   └── 000001\n│   ├── tombstones\n│   ├── index\n│   └── meta.json\n├── 01BKGTZQ1HHWHV8FBJXW1Y3W0K\n│   └── meta.json\n├── 01BKGV7JC0RY8A6MACW02A2PJD\n│   ├── chunks\n│   │   └── 000001\n│   ├── tombstones\n│   ├── index\n│   └── meta.json\n├── chunks_head\n│   └── 000001\n└── wal\n    ├── 000000002\n    └─",
+      "lang": "",
+      "file": "storage.md",
+      "line": 33
+    },
+    {
+      "kind": "readme_block",
+      "text": "needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample",
+      "lang": "",
+      "file": "storage.md",
+      "line": 113
+    },
+    {
+      "kind": "readme_block",
+      "text": "promtool tsdb create-blocks-from openmetrics <input file> [<output directory>]",
+      "lang": "",
+      "file": "storage.md",
+      "line": 228
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ promtool tsdb create-blocks-from rules \\\n    --start 1617079873 \\\n    --end 1617097873 \\\n    --url http://mypromserver.com:9090 \\\n    rules.yaml rules2.yaml",
+      "lang": "",
+      "file": "storage.md",
+      "line": 271
+    },
+    {
+      "kind": "readme_block",
+      "text": "scrape_configs:\n- job_name: 'RabbitMQ'\n  kubernetes_sd_configs:\n  - role: pod\n  relabel_configs:\n  - source_labels:\n    - __meta_kubernetes_pod_label_app\n    regex: rabbitmq\n    action: keep",
+      "lang": "",
+      "file": "README.md",
+      "line": 20
+    },
+    {
+      "kind": "readme_block",
+      "text": "go build\n\n./example_write_adapter",
+      "lang": "",
+      "file": "README.md",
+      "line": 8
+    },
+    {
+      "kind": "readme_block",
+      "text": "remote_write:\n  - url: \"http://localhost:1234/receive\"\n    protobuf_message: \"io.prometheus.write.v2.Request\"",
+      "lang": "yaml",
+      "file": "README.md",
+      "line": 16
+    },
+    {
+      "kind": "readme_block",
+      "text": "remote_write:\n  - url: \"http://localhost:1234/receive\"\n    protobuf_message: \"prometheus.WriteRequest\"",
+      "lang": "yaml",
+      "file": "README.md",
+      "line": 24
+    },
+    {
+      "kind": "readme_block",
+      "text": "./prometheus --enable-feature=metadata-wal-records",
+      "lang": "",
+      "file": "README.md",
+      "line": 32
+    },
+    {
+      "kind": "readme_block",
+      "text": "go build",
+      "lang": "",
+      "file": "README.md",
+      "line": 13
+    },
+    {
+      "kind": "readme_block",
+      "text": "./remote_storage_adapter --graphite-address=localhost:8080",
+      "lang": "",
+      "file": "README.md",
+      "line": 21
+    },
+    {
+      "kind": "readme_block",
+      "text": "./remote_storage_adapter --opentsdb-url=http://localhost:8081/",
+      "lang": "",
+      "file": "README.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "INFLUXDB_AUTH_TOKEN=<token> ./remote_storage_adapter --influxdb-url=http://localhost:8086/ --influxdb.organization=<organization_name> --influxdb.bucket=<bucket_name>",
+      "lang": "",
+      "file": "README.md",
+      "line": 33
+    },
+    {
+      "kind": "readme_block",
+      "text": "./remote_storage_adapter -h",
+      "lang": "",
+      "file": "README.md",
+      "line": 39
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).\nremote_write:\n  - url: \"http://localhost:9201/write\"\n\n# Remote read configuration (for InfluxDB only at the moment).\nremote_read:\n  - url: \"http://localhost:9201/read\"",
+      "lang": "yaml",
+      "file": "README.md",
+      "line": 47
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ go install github.com/google/go-jsonnet/cmd/jsonnet@latest\n$ go install github.com/google/go-jsonnet/cmd/jsonnetfmt@latest\n$ go install github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 11
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ jb install",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 24
+    },
+    {
+      "kind": "readme_block",
+      "text": "$ make prometheus_alerts.yaml\n$ make dashboards_out",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "# This is a comment.",
+      "lang": "",
+      "file": "README.md",
+      "line": 17
+    },
+    {
+      "kind": "readme_block",
+      "text": "load <interval>\n    <series> <points>\n    ...\n    <series> <points>",
+      "lang": "",
+      "file": "README.md",
+      "line": 37
+    },
+    {
+      "kind": "readme_block",
+      "text": "load 1m\n    my_metric{env=\"prod\"} 5 2+3x2 _ stale {{schema:1 sum:3 count:22 buckets:[5 10 7]}}",
+      "lang": "",
+      "file": "README.md",
+      "line": 50
+    },
+    {
+      "kind": "readme_block",
+      "text": "# Instant query\neval instant at <time> <query>\n    <expect>\n    ...\n    <expect>\n    <series> <points>\n    ...\n    <series> <points>\n    \n# Range query\neval range from <start> to <end> step <step> <query>\n    <expect>\n    ...\n    <expect>\n    <series> <points>\n    ...\n    <series> <points>",
+      "lang": "",
+      "file": "README.md",
+      "line": 85
+    },
+    {
+      "kind": "readme_block",
+      "text": "eval instant at 50m (\"Foo\")\n expect string \"Foo\"",
+      "lang": "",
+      "file": "README.md",
+      "line": 130
+    },
+    {
+      "kind": "readme_block",
+      "text": "expect range vector <start> to <end> step <step>",
+      "lang": "",
+      "file": "README.md",
+      "line": 141
+    },
+    {
+      "kind": "readme_block",
+      "text": "load 10s\n  some_metric{env=\"a\"} 1+1x5\n  some_metric{env=\"b\"} 2+2x5\neval instant at 1m some_metric[1m]\n  expect range vector from 10s to 1m step 10s\n  some_metric{env=\"a\"} 2 3 4 5 6\n  some_metric{env=\"b\"} 4 6 8 10 12",
+      "lang": "",
+      "file": "README.md",
+      "line": 146
+    },
+    {
+      "kind": "readme_block",
+      "text": "expect <type> <match_type>: <string>",
+      "lang": "",
+      "file": "README.md",
+      "line": 158
+    },
+    {
+      "kind": "readme_block",
+      "text": "eval instant at 1m sum by (env) (my_metric)\n    expect warn\n    expect no_info\n    {env=\"prod\"} 5\n    {env=\"test\"} 20\n    \neval range from 0 to 3m step 1m sum by (env) (my_metric)\n    expect warn msg: PromQL warning: something went wrong (1:15)\n    expect info regex: PromQL info: something went (wrong|boom) \\(1:15\\)\n    {env=\"prod\"} 2 5 10 20\n    {env=\"test\"} 10 20 30 45\n\neval instant at 1m ceil({",
+      "lang": "",
+      "file": "README.md",
+      "line": 179
+    },
+    {
+      "kind": "readme_block",
+      "text": "eval instant at 0m sum(metric)\n    expect warn msg: PromQL warning: encountered a mix of histograms and floats for aggregation (1:5)",
+      "lang": "",
+      "file": "README.md",
+      "line": 218
+    },
+    {
+      "kind": "readme_block",
+      "text": "eval instant at 50m histogram_quantiles(nonmonotonic_bucket, \"q\", 0.01, 0.5, 0.99)\n    expect info regex: PromQL info: input to histogram_quantile needed to be fixed for monotonicity .* \\(1:21\\)",
+      "lang": "",
+      "file": "README.md",
+      "line": 234
+    },
+    {
+      "kind": "readme_block",
+      "text": "eval instant at 50m histogram_quantiles(non_existent, \"q\", NaN)\n    expect warn regex: PromQL warning: quantile value should be between 0 and 1, got NaN \\([0-9]+:[0-9]+\\)",
+      "lang": "",
+      "file": "README.md",
+      "line": 246
+    },
+    {
+      "kind": "readme_block",
+      "text": "go run ./promql/promqltest/cmd/migrate/main.go --mode=strict [--dir=<directory>]",
+      "lang": "sh",
+      "file": "README.md",
+      "line": 257
+    },
+    {
+      "kind": "readme_block",
+      "text": "docker run --name prometheus -d -p 127.0.0.1:9090:9090 prom/prometheus",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 59
+    },
+    {
+      "kind": "readme_block",
+      "text": "make build\n./prometheus --config.file=your_config.yml",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 99
+    },
+    {
+      "kind": "readme_block",
+      "text": "build:\n    tags:\n        all:\n            - netgo\n            - builtinassets\n            - remove_all_sd           # Exclude all optional SDs\n            - enable_kubernetes_sd    # Re-enable only kubernetes",
+      "lang": "yaml",
+      "file": "README.md",
+      "line": 121
+    },
+    {
+      "kind": "readme_block",
+      "text": "go build -tags \"remove_all_sd,enable_kubernetes_sd\" ./cmd/prometheus",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 133
+    },
+    {
+      "kind": "readme_block",
+      "text": "make promu\npromu crossbuild -p linux/$(go env GOHOSTARCH)\nmake common-docker-current-arch",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 149
+    },
+    {
+      "kind": "readme_block",
+      "text": "go get buf.build/gen/go/prometheus/prometheus/protocolbuffers/go@latest",
+      "lang": "shell",
+      "file": "README.md",
+      "line": 180
+    },
+    {
+      "kind": "readme_block",
+      "text": "go get github.com/prometheus/prometheus@v0.300.0",
+      "lang": "shell",
+      "file": "README.md",
+      "line": 196
+    },
+    {
+      "kind": "readme_block",
+      "text": "go get github.com/prometheus/prometheus@v0.35.0",
+      "lang": "shell",
+      "file": "README.md",
+      "line": 205
+    },
+    {
+      "kind": "readme_block",
+      "text": "make update-all-go-deps",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 91
+    },
+    {
+      "kind": "readme_block",
+      "text": "make update-npm-deps",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 102
+    },
+    {
+      "kind": "readme_block",
+      "text": "GITHUB_TOKEN=<token> scripts/generate_release_notes.sh 3.Y_SET_ME.Z_SET_ME",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 124
+    },
+    {
+      "kind": "readme_block",
+      "text": "make ui-bump-version",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 135
+    },
+    {
+      "kind": "readme_block",
+      "text": "tag=\"v$(< VERSION)\"\ngit tag -s \"${tag}\" -m \"${tag}\"\ngit push origin \"${tag}\"",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 146
+    },
+    {
+      "kind": "readme_block",
+      "text": "[alias]\n  tag-release = \"!f() { tag=v${1:-$(cat VERSION)} ; git tag -s ${tag} -m ${tag} && git push origin ${tag}; }; f\"",
+      "lang": "ini",
+      "file": "RELEASE.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "tag=\"v$(./scripts/get_module_version.sh)\"\ngit tag -s \"${tag}\" -m \"${tag}\"\ngit push origin \"${tag}\"",
+      "lang": "bash",
+      "file": "RELEASE.md",
+      "line": 177
+    },
+    {
+      "kind": "readme_block",
+      "text": "0111...111 = maxint64\n    ...\n0000...111 = 7\n0000...110 = 6\n0000...101 = 5\n0000...100 = 4\n0000...011 = 3\n0000...010 = 2\n0000...001 = 1\n0000...000 = 0\n1111...111 = -1\n1111...110 = -2\n1111...101 = -3\n1111...100 = -4\n1111...011 = -5\n1111...010 = -6\n1111...001 = -7\n1111...000 = -8\n    ...\n1000...001 = minint64+1\n1000...000 = minint64",
+      "lang": "",
+      "file": "bstream.md",
+      "line": 14
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────────┐\n│  magic(0x85BD40DD) <4 byte>  │\n├──────────────────────────────┤\n│    version(1) <1 byte>       │\n├──────────────────────────────┤\n│    padding(0) <3 byte>       │\n├──────────────────────────────┤\n│ ┌──────────────────────────┐ │\n│ │         Chunk 1          │ │\n│ ├──────────────────────────┤ │\n│ │          ...             │ │\n│ ├──────────────────────────┤ │\n│ │ ",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 10
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────┬───────────────────┬─────────────┬───────────────────┐\n│ len <uvarint> │ encoding <1 byte> │ data <data> │ checksum <4 byte> │\n└───────────────┴───────────────────┴─────────────┴───────────────────┘",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 30
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────┬───────────────┬───────────────┬──────────────────────┬──────────────────────┬──────────────────────┬──────────────────────┬─────┬──────────────────────┬──────────────────────┬──────────────────┐\n│ num_samples <uint16> │ ts_0 <varint> │ v_0 <float64> │ ts_1_delta <uvarint> │ v_1_xor <varbit_xor> │ ts_2_dod <varbit_ts> │ v_2_xor <varbit_xor> │ ... │ ts_n_dod <varbit_ts> │ v_",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 45
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────┬───────────────────┬───────────────┬───────────────┬────────────────┬─-\n│ num_samples <uint16> │ st_header <uint8> | ts_0 <varint> │ v_0 <float64> │ ?st_0 <varint> |\n└──────────────────────┴───────────────────┴───────────────┴───────────────┴────────────────┴─-\n\n-─────────────────────┬───────────────────────┬─────────────────────────┬─-\n ts_1_delta <uvarint> │ v_1_xor <varb",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 78
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────┬───────────────────────┐\n   │ first_st_known<1 bit> | st_changed_on<7 bits> │\n   └───────────────────────┴───────────────────────┘",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 139
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────┬──────────────────────────┬───────────────────────────────┬─────────────────────┬──────────────────┬──────────────────┬──────────────────────┬────────────────┬──────────────────┐\n│ num_samples <uint16> │ histogram_flags <1 byte> │ zero_threshold <1 or 9 bytes> │ schema <varbit_int> │ pos_spans <data> │ neg_spans <data> │ custom_values <data> │ samples <data> │ padding <x bi",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 160
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬───────────────────────┬─────┬────────────────────────┬───────────────────────┐\n│ num_spans <varbit_uint> │ length_0 <varbit_uint> │ offset_0 <varbit_int> │ length_1 <varbit_uint> │ offset_1 <varbit_int> │ ... │ length_n <varbit_uint> │ offset_n <varbit_int> │\n└─────────────────────────┴───────────",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 168
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────┬──────────────────┬──────────────────┬─────┬──────────────────┐\n│ num_values <varbit_uint> │ value_0 <custom> │ value_1 <custom> │ ... │ value_n <custom> │\n└──────────────────────────┴─────────────────────────────────────┴─────┴──────────────────┘",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 178
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────┐\n│    sample_0 <data>       │\n├──────────────────────────┤\n│    sample_1 <data>       │\n├──────────────────────────┤\n│    sample_2 <data>       │\n├──────────────────────────┤\n│          ...             │\n├──────────────────────────┤\n│    sample_n <data>       │\n└──────────────────────────┘",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 186
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────┬─────────────────────┬──────────────────────────┬───────────────┬───────────────────────────┬─────┬───────────────────────────┬───────────────────────────┬─────┬───────────────────────────┐\n│ ts <varbit_int> │ count <varbit_uint> │ zero_count <varbit_uint> │ sum <float64> │ pos_bucket_0 <varbit_int> │ ... │ pos_bucket_n <varbit_int> │ neg_bucket_0 <varbit_int> │ ... │ neg_bucket",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 202
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────┬──────────────────────────┬───────────────────────────────┬──────────────────────┬─────────────────────────────────┬─────┬─────────────────────────────────┬─────────────────────────────────┬─────┬─────────────────────────────────┐\n│ ts_delta <varbit_int> │ count_delta <varbit_int> │ zero_count_delta <varbit_int> │ sum_xor <varbit_xor> │ pos_bucket_0_delta <varbit_int> │ ..",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 210
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────┬────────────────────────┬─────────────────────────────┬──────────────────────┬───────────────────────────────┬─────┬───────────────────────────────┬───────────────────────────────┬─────┬───────────────────────────────┐\n│ ts_dod <varbit_int> │ count_dod <varbit_int> │ zero_count_dod <varbit_int> │ sum_xor <varbit_xor> │ pos_bucket_0_dod <varbit_int> │ ... │ pos_bucket_n_dod <",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 218
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────────┬───────────────────────┬────────────────────┬───────────────────────────────┬─────────────────────┬──────────────────┬──────────────────┬──────────────────────┬────────────────┬──────────────────┐\n│ counter_reset <2 bits> │ num_samples <14 bits> │ st_header <1 byte> │ zero_threshold <1 or 9 bytes> │ schema <varbit_int> │ pos_spans <data> │ neg_spans <data> │ custom_values",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 280
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────┬───────────────────────┐\n  │ first_st_known<1 bit> │ st_changed_on<7 bits> │\n  └───────────────────────┴───────────────────────┘",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 290
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────┬──────────────────────┐\n│ sample_0 <data> │ ?st_0 <varint>       │\n├─────────────────┼──────────────────────┤\n│ sample_1 <data> │ ?st_1 <varbit_int>   │\n├─────────────────┼──────────────────────┤\n│ sample_2 <data> │ ?st_2 <varbit_int>   │\n├─────────────────┼──────────────────────┤\n│       ...       │         ...          │\n├─────────────────┼──────────────────────┤\n│ sample_n <d",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 318
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────┬─────────────────┬──────────────────────┬───────────────┬────────────────────────┬─────┬────────────────────────┬────────────────────────┬─────┬────────────────────────┐\n│ ts <varbit_int> │ count <float64> │ zero_count <float64> │ sum <float64> │ pos_bucket_0 <float64> │ ... │ pos_bucket_n <float64> │ neg_bucket_0 <float64> │ ... │ neg_bucket_n <float64> │\n└─────────────────┴───",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 354
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────┬────────────────────────┬─────────────────────────────┬──────────────────────┬───────────────────────────────┬─────┬───────────────────────────────┬───────────────────────────────┬─────┬───────────────────────────────┐\n│ ts_delta <varbit_int> │ count_xor <varbit_xor> │ zero_count_xor <varbit_xor> │ sum_xor <varbit_xor> │ pos_bucket_0_xor <varbit_xor> │ ... │ pos_bucket_n_x",
+      "lang": "",
+      "file": "chunks.md",
+      "line": 362
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────────┐\n│  magic(0x0130BC91) <4 byte>  │\n├──────────────────────────────┤\n│    version(1) <1 byte>       │\n├──────────────────────────────┤\n│    padding(0) <3 byte>       │\n├──────────────────────────────┤\n│ ┌──────────────────────────┐ │\n│ │         Chunk 1          │ │\n│ ├──────────────────────────┤ │\n│ │          ...             │ │\n│ ├──────────────────────────┤ │\n│ │ ",
+      "lang": "",
+      "file": "head_chunks.md",
+      "line": 9
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────┬───────────────────────┬───────────────────────┬───────────────────┬───────────────┬──────────────┬────────────────┐\n| series ref <8 byte> | mint <8 byte, uint64> | maxt <8 byte, uint64> | encoding <1 byte> | len <uvarint> | data <bytes> │ CRC32 <4 byte> │\n└─────────────────────┴───────────────────────┴───────────────────────┴───────────────────┴───────────────┴─────────────",
+      "lang": "",
+      "file": "head_chunks.md",
+      "line": 35
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────────────┬─────────────────────┐\n│ magic(0xBAAAD700) <4b>     │ version(1) <1 byte> │\n├────────────────────────────┴─────────────────────┤\n│ ┌──────────────────────────────────────────────┐ │\n│ │                 Symbol Table                 │ │\n│ ├──────────────────────────────────────────────┤ │\n│ │                    Series                    │ │\n│ ├──────────────────────────",
+      "lang": "",
+      "file": "index.md",
+      "line": 6
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────┬─────────────────────┐\n│ len <4b>           │ #symbols <4b>       │\n├────────────────────┴─────────────────────┤\n│ ┌──────────────────────┬───────────────┐ │\n│ │ len(str_1) <uvarint> │ str_1 <bytes> │ │\n│ ├──────────────────────┴───────────────┤ │\n│ │                . . .                 │ │\n│ ├──────────────────────┬───────────────┤ │\n│ │ len(str_n) <uvarint> │ str_n <bytes>",
+      "lang": "",
+      "file": "index.md",
+      "line": 48
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────┐\n│ ┌───────────────────────────────────┐ │\n│ │   series_1                        │ │\n│ ├───────────────────────────────────┤ │\n│ │                 . . .             │ │\n│ ├───────────────────────────────────┤ │\n│ │   series_n                        │ │\n│ └───────────────────────────────────┘ │\n└───────────────────────────────────────┘",
+      "lang": "",
+      "file": "index.md",
+      "line": 70
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│ len <uvarint>                                                            │\n├──────────────────────────────────────────────────────────────────────────┤\n│ ┌──────────────────────────────────────────────────────────────────────┐ │\n│ │                     labels count <uvarint64>                         │ │\n│ ├────────────",
+      "lang": "",
+      "file": "index.md",
+      "line": 91
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────┬────────────────┬────────────────┐\n│ len <4b>      │ #names <4b>    │ #entries <4b>  │\n├───────────────┴────────────────┴────────────────┤\n│ ┌─────────────────────────────────────────────┐ │\n│ │ ref(value_0) <4b>                           │ │\n│ ├─────────────────────────────────────────────┤ │\n│ │ ...                                         │ │\n│ ├─────────────────────────────────",
+      "lang": "",
+      "file": "index.md",
+      "line": 135
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────┬───┬───┬──────────────┬──────────────┬──────────────┬──────────────┬───────┐\n│ 24 │ 1 │ 4 │ ref(value_0) | ref(value_1) | ref(value_2) | ref(value_3) | CRC32 |\n└────┴───┴───┴──────────────┴──────────────┴──────────────┴──────────────┴───────┘",
+      "lang": "",
+      "file": "index.md",
+      "line": 154
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────┬────────────────────┐\n│ len <4b>           │ #entries <4b>      │\n├────────────────────┴────────────────────┤\n│ ┌─────────────────────────────────────┐ │\n│ │ ref(series_1) <4b>                  │ │\n│ ├─────────────────────────────────────┤ │\n│ │ ...                                 │ │\n│ ├─────────────────────────────────────┤ │\n│ │ ref(series_n) <4b>                  │ │\n│ └─",
+      "lang": "",
+      "file": "index.md",
+      "line": 166
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────┬──────────────────────┐\n│ len <4b>            │ #entries <4b>        │\n├─────────────────────┴──────────────────────┤\n│ ┌────────────────────────────────────────┐ │\n│ │  n = 1 <1b>                            │ │\n│ ├──────────────────────┬─────────────────┤ │\n│ │ len(name) <uvarint>  │ name <bytes>    │ │\n│ ├──────────────────────┴─────────────────┤ │\n│ │  offset <uvarint64> ",
+      "lang": "",
+      "file": "index.md",
+      "line": 190
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────────────────────────┐\n│ ref(symbols) <8b>                       │\n├─────────────────────────────────────────┤\n│ ref(series) <8b>                        │\n├─────────────────────────────────────────┤\n│ ref(label indices start) <8b>           │\n├─────────────────────────────────────────┤\n│ ref(label offset table) <8b>            │\n├─────────────────────────────────────────┤\n│ re",
+      "lang": "",
+      "file": "index.md",
+      "line": 239
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────┬────────────────────────────┐\n│     Record Type <byte>   │   Series Ref <uint64>      │\n├──────────────────────────┴────────────────────────────┤\n│               Number of Labels <uvarint>              │\n├──────────────────────────────┬────────────────────────┤\n│     len(name_1) <uvarint>    │    name_1 <bytes>      │\n├──────────────────────────────┼────────────────────",
+      "lang": "",
+      "file": "memory_snapshot.md",
+      "line": 17
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────────────────────────────────────────────────┐\n│                        Record Type <byte>                       │\n├───────────────────────────────────┬─────────────────────────────┤\n│ len(Encoded Tombstones) <uvarint> │ Encoded Tombstones <bytes>  │\n└───────────────────────────────────┴─────────────────────────────┘",
+      "lang": "",
+      "file": "memory_snapshot.md",
+      "line": 61
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────────────────────────────────┐\n│                      Record Type <byte>                           │\n├───────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐                │\n│ │ series ref <8b>    │ timestamp <8b>            │                │\n│ └────────────────────┴──────────────────────────",
+      "lang": "",
+      "file": "memory_snapshot.md",
+      "line": 73
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────────────┬─────────────────────┐\n│ magic(0x0130BA30) <4b>     │ version(1) <1 byte> │\n├────────────────────────────┴─────────────────────┤\n│ ┌──────────────────────────────────────────────┐ │\n│ │                Tombstone 1                   │ │\n│ ├──────────────────────────────────────────────┤ │\n│ │                      ...                     │ │\n│ ├──────────────────────────",
+      "lang": "",
+      "file": "tombstones.md",
+      "line": 9
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────┬─────────────────┬────────────────┐\n│series ref <uvarint64> │ mint <varint64> │ maxt <varint64>│\n└───────────────────────┴─────────────────┴────────────────┘",
+      "lang": "",
+      "file": "tombstones.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────┬──────────┬────────────┬──────────────┐\n│ type <1b> │ len <2b> │ CRC32 <4b> │ data <bytes> │\n└───────────┴──────────┴────────────┴──────────────┘",
+      "lang": "",
+      "file": "wal.md",
+      "line": 31
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────┬──────────────────┬────────────────────┬──────────────────┐\n│ reserved <3bit> │ zstd_flag <1bit> │ snappy_flag <1bit> │ type_flag <3bit> │\n└─────────────────┴──────────────────┴────────────────────┴──────────────────┘",
+      "lang": "",
+      "file": "wal.md",
+      "line": 40
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────────────────────────────┐\n│ type = 1 <1b>                              │\n├────────────────────────────────────────────┤\n│ ┌─────────┬──────────────────────────────┐ │\n│ │ id <8b> │ n = len(labels) <uvarint>    │ │\n│ ├─────────┴────────────┬─────────────────┤ │\n│ │ len(str_1) <uvarint> │ str_1 <bytes>   │ │\n│ ├──────────────────────┴─────────────────┤ │\n│ │  ...                ",
+      "lang": "",
+      "file": "wal.md",
+      "line": 67
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│ type = 2 <1b>                                                    │\n├──────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐               │\n│ │ id <8b>            │ timestamp <8b>            │               │\n│ └────────────────────┴───────────────────────────┘   ",
+      "lang": "",
+      "file": "wal.md",
+      "line": 91
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌─────────────────────────────────────────────────────┐\n│ type = 3 <1b>                                       │\n├─────────────────────────────────────────────────────┤\n│ ┌─────────┬───────────────────┬───────────────────┐ │\n│ │ id <8b> │ min_time <varint> │ max_time <varint> │ │\n│ └─────────┴───────────────────┴───────────────────┘ │\n│                        . . .                        │\n└───────",
+      "lang": "",
+      "file": "wal.md",
+      "line": 110
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n│ type = 4 <1b>                                                    │\n├──────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐               │\n│ │ id <8b>            │ timestamp <8b>            │               │\n│ └────────────────────┴───────────────────────────┘   ",
+      "lang": "",
+      "file": "wal.md",
+      "line": 131
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌────────────────────────────────────────────┐\n│ type = 6 <1b>                              │\n├────────────────────────────────────────────┤\n│ ┌────────────────────────────────────────┐ │\n│ │ series_id <uvarint>                    │ │\n│ ├────────────────────────────────────────┤ │\n│ │ metric_type <1b>                       │ │\n│ ├────────────────────────────────────────┤ │\n│ │ num_fields <uvarint>",
+      "lang": "",
+      "file": "wal.md",
+      "line": 157
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────────────────────────────────────┐\n│ type = 7 <1b>                                                         │\n├───────────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐                    │\n│ │ id <8b>            │ timestamp <8b>            │                    │\n│ └────────────────────┴──────",
+      "lang": "",
+      "file": "wal.md",
+      "line": 188
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────────────────────────────────────┐\n│ type = 8 <1b>                                                         │\n├───────────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐                    │\n│ │ id <8b>            │ timestamp <8b>            │                    │\n│ └────────────────────┴──────",
+      "lang": "",
+      "file": "wal.md",
+      "line": 230
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────────────────────────────────────┐\n│ type = 9 <1b>                                                         │\n├───────────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐                    │\n│ │ id <8b>            │ timestamp <8b>            │                    │\n│ └────────────────────┴──────",
+      "lang": "",
+      "file": "wal.md",
+      "line": 273
+    },
+    {
+      "kind": "readme_block",
+      "text": "┌───────────────────────────────────────────────────────────────────────┐\n│ type = 10 <1b>                                                        │\n├───────────────────────────────────────────────────────────────────────┤\n│ ┌────────────────────┬───────────────────────────┐                    │\n│ │ id <8b>            │ timestamp <8b>            │                    │\n│ └────────────────────┴──────",
+      "lang": "",
+      "file": "wal.md",
+      "line": 314
+    },
+    {
+      "kind": "readme_block",
+      "text": "import {PromQLExtension} from '@prometheus-io/codemirror-promql';\nimport {basicSetup} from '@codemirror/basic-setup';\nimport {EditorState} from '@codemirror/state';\nimport {EditorView} from '@codemirror/view';\n\nconst promQL = new PromQLExtension()\nnew EditorView({\n    state: EditorState.create({\n        extensions: [basicSetup, promQL.asExtension()],\n    }),\n    // eslint-disable-next-line @typesc",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 49
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().activateLinter(false).activateCompletion(false) // here the linter and the autocomplete are deactivated",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 77
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({maxMetricsMetadata: 10000})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 100
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {url: 'https://prometheus.land'}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 119
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {fetchFn: myHTTPClient}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 128
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {lookbackInterval: 12 * 60 * 60 * 1000}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 140
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {httpErrorHandler: (error: any) => console.error(error)}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 149
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {httpMethod: 'GET'}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 160
+    },
+    {
+      "kind": "readme_block",
+      "text": "const customHeaders = new Headers({'header-name': 'test-value'});\nconst promql = new PromQLExtension().setComplete({remote: {requestHeaders: customHeaders}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 168
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promql = new PromQLExtension().setComplete({remote: {apiPrefix: '/my/api/prefix'}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 180
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: {cache: {maxAge: 5 * 60 * 1000}}})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 194
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({\n    remote: {\n        cache: {\n            initialMetricList: [\n                'ALERTS',\n                'ALERTS_FOR_STATE',\n                'alertmanager_alerts',\n                'alertmanager_alerts_invalid_total',\n                'alertmanager_alerts_received_total',\n            ]\n        }\n    }\n})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 206
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({remote: MyPrometheusClient})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 228
+    },
+    {
+      "kind": "readme_block",
+      "text": "const promQL = new PromQLExtension().setComplete({completeStrategy: myCustomImpl})",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 236
+    },
+    {
+      "kind": "readme_block",
+      "text": "make ui-build",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 27
+    },
+    {
+      "kind": "readme_block",
+      "text": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react\";\n\n// https://vitejs.dev/config/\nexport default defineConfig({\n  base: '',\n  plugins: [react()],\n  server: {\n    proxy: {\n      \"/api\": {\n        target: \"https://prometheus.demo.prometheus.io/\",\n        changeOrigin: true,\n      },\n      \"/-/\": {\n        target: \"https://prometheus.demo.prometheus.io/\",\n        changeOri",
+      "lang": "typescript",
+      "file": "README.md",
+      "line": 57
+    },
+    {
+      "kind": "readme_block",
+      "text": "npm test",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 84
+    },
+    {
+      "kind": "readme_block",
+      "text": "CI=true npm test",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 95
+    },
+    {
+      "kind": "readme_block",
+      "text": "make build",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 118
+    },
+    {
+      "kind": "readme_block",
+      "text": "tar -xvf prometheus-web-ui-<version>.tar.gz -C web/ui",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 137
+    },
+    {
+      "kind": "readme_block",
+      "text": "make PREBUILT_ASSETS_STATIC_DIR=web/ui/static build",
+      "lang": "bash",
+      "file": "README.md",
+      "line": 143
+    }
+  ],
+  "examples": [
+    {
+      "text": "{{$labels.instance}} of job {{$labels.job}} has been down for more than 5 minutes.",
+      "kind": "code_block_quote",
+      "file": "template_examples.md",
+      "line": 22,
+      "score": 7
+    },
+    {
+      "text": "For example, if an instant vector of float samples is multiplied by 2,",
+      "kind": "prose_marker",
+      "file": "operators.md",
+      "line": 53,
+      "score": 7
+    },
+    {
+      "text": "E.g. for `nbits = 3`, we can encode 8 distinct numbers, and we have a choice of choosing our boundaries.  For example -4 to 3,",
+      "kind": "prose_marker",
+      "file": "bstream.md",
+      "line": 48,
+      "score": 7
+    },
+    {
+      "text": "read, remote write, node exporter textfile collector). For example anything",
+      "kind": "prose_marker",
+      "file": "README.md",
+      "line": 38,
+      "score": 6
+    },
+    {
+      "text": "For instance, if you would like to check whether your local Prometheus server is healthy, you would use:",
+      "kind": "prose_marker",
+      "file": "promtool.md",
+      "line": 9,
+      "score": 6
+    },
+    {
+      "text": "samples were returned to avoid an execution error. For example this could",
+      "kind": "prose_marker",
+      "file": "template_examples.md",
+      "line": 51,
+      "score": 6
+    },
+    {
+      "text": "For example, a cluster scheduler running multiple services might expose",
+      "kind": "prose_marker",
+      "file": "federation.md",
+      "line": 45,
+      "score": 6
+    },
+    {
+      "text": "reliable warnings about mismatched operations. For example, applying the `rate`",
+      "kind": "prose_marker",
+      "file": "basics.md",
+      "line": 46,
+      "score": 6
+    },
+    {
+      "text": "Comments can be given by prefixing the comment with a `#`, for example:",
+      "kind": "prose_marker",
+      "file": "README.md",
+      "line": 15,
+      "score": 6
+    },
+    {
+      "text": "[PERF] Speed up regex label matchers matching a set of literal values (e.g. `{job=~\"foo|bar|baz\"}`). #18833",
+      "kind": "weak_marker",
+      "file": "CHANGELOG.md",
+      "line": 21,
+      "score": 5
+    },
+    {
+      "text": "[BUGFIX] Alerting: Consider alert relabeling when deciding whether alerts are dropped. #15979",
+      "kind": "prose_marker",
+      "file": "CHANGELOG.md",
+      "line": 552,
+      "score": 5
+    },
+    {
+      "text": "exposed as labels. For example for EC2 tags, there would be",
+      "kind": "prose_marker",
+      "file": "README.md",
+      "line": 75,
+      "score": 5
+    }
+  ],
+  "files": [],
+  "notes": [
+    "loss 항이 없다. 학습 스크립트(train*.py, *_trainer.py)를 함께 넘겨야 방법론 그림의 관계를 그릴 수 있다.",
+    "frozen/trainable 표시가 없다. 코드에서 확인되지 않으면 사용자에게 물어야 한다."
+  ]
+}

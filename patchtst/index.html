@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>PatchTST — 시계열 예측 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>PatchTST — 시계열 예측 — method-figure</title>
+<meta name=t-ko content="PatchTST — 시계열 예측 — method-figure">
+<meta name=t-en content="PatchTST — Time Series Forecasting — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T1M-2 · T1-M</p>
-<h1>PatchTST — 시계열 예측</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/yuqinie98/PatchTST">yuqinie98/PatchTST</a></div><div><b>커밋</b><code>204c21e</code></div><div><b>규모</b>142 files, 4.2 MB (pic/ 이미지 포함)</div><div><b>유형</b>T1-M · M-P1 직렬 + M-P4 중첩 (반복은 × N 으로 접음)</div><div><b>정답지</b>arXiv:2211.14730 Figure 1</div><div><b>실행 시간</b>약 50분 (11:36 → 12:26) · 프레임 135장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T1M-2 · T1-M</p>
+<h1><span class=l-ko>PatchTST — 시계열 예측</span><span class=l-en>PatchTST — Time Series Forecasting</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/yuqinie98/PatchTST">yuqinie98/PatchTST</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><code>204c21e</code></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b><span class=l-ko>142 files, 4.2 MB (pic/ 이미지 포함)</span><span class=l-en>142 files, 4.2 MB (includes pic/ images)</span></div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T1-M · <span class=l-ko>M-P1 직렬 + M-P4 중첩 (반복은 × N 으로 접음)</span><span class=l-en>M-P1 series + M-P4 nesting (repetition folded as × N)</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b>arXiv:2211.14730 Figure 1</div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 50분 (11:36 → 12:26) · 프레임 135장</span><span class=l-en>about 50 min (11:36 → 12:26) · 135 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>정답지는 <b>논문 Figure 1</b>이다. 이 저장소는 그 그림을 <code>pic/model.png</code> 로 저장소 안에 포함한다. swav 와 달리 정답 그림이 저장소 내부에 있다.</li><li>그래서 프롬프트에 <code>pic/model.png</code>·논문·README 링크 이미지를 열지 말 것을 명시하였다.</li><li>리포트 기록: <q>Only this repository's code was read. The paper, the authors' figure (<code>pic/model.png</code>), and the images the README links to were not opened.</q></li><li>커밋은 알려주지 않았다. <code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는지 스스로 확인한 뒤 캡션에 <code>204c21e</code> 를 넣었다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>정답지는 <b>논문 Figure 1</b>이다. 이 저장소는 그 그림을 <code>pic/model.png</code> 로 저장소 안에 포함한다. swav 와 달리 정답 그림이 저장소 내부에 있다.</span><span class=l-en>The answer key is <b>paper Figure 1</b>. This repository includes that figure inside the repository as <code>pic/model.png</code>. Unlike swav, the answer figure is inside the repository.</span></li><li><span class=l-ko>그래서 프롬프트에 <code>pic/model.png</code>·논문·README 링크 이미지를 열지 말 것을 명시하였다.</span><span class=l-en>So the prompt explicitly states not to open <code>pic/model.png</code>, the paper, or images linked from the README.</span></li><li><span class=l-ko>리포트 기록: <q>Only this repository's code was read. The paper, the authors' figure (<code>pic/model.png</code>), and the images the README links to were not opened.</q></span><span class=l-en>Report entry: <q>Only this repository's code was read. The paper, the authors' figure (<code>pic/model.png</code>), and the images the README links to were not opened.</q></span></li><li><span class=l-ko>커밋은 알려주지 않았다. <code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는지 스스로 확인한 뒤 캡션에 <code>204c21e</code> 를 넣었다.</span><span class=l-en>The commit was not disclosed. After verifying for itself that <code>rev-parse --show-toplevel</code> matched the target folder, it put <code>204c21e</code> in the caption.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\patchtst
 
@@ -168,10 +197,29 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 135장 중 9장을 선별하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\patchtst
+
+Read this repository and produce the methodology figure that belongs in the paper&#x27;s Figure 1 slot.
+
+Follow these rules:
+- Read only from this repository&#x27;s code. Do not look up the method&#x27;s paper, the authors&#x27; figures, or external images
+  linked from the repo README. The code decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\patchtst\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (the raw material extracted by evidence.py),
+  render.png (a PNG render of the final figure),
+  render-r1.png (the render right before the independent visual gate first passed it).
+  If the gate passes on the first try, you don&#x27;t need to produce render-r1.png.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 135장 중 9장을 선별하였다.</span><span class=l-en>9 of 135 captured frames were selected.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -179,67 +227,73 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>통과</td><td>1</td><td>XML 파싱 + 뷰어 기동 (전용 포트 8931)</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code> (엣지 라벨 0)</td><td>2</td><td>글자 겹침 2건, 미검증 커밋 1건, 화살표 z-order 1건. 이후 라운드에서 라벨 넘침 3건을 추가로 검출하였다</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>매 라운드 1회</td><td>3라운드 모두 첫 시도에 <code>flags</code> 가 비어 있었다</td></tr><tr><td>③-b 육안 자기점검</td><td>결함 1건 발견</td><td>1</td><td>겹친 판이 범례에서는 '채널', 인코더에서는 '× N 층' 을 의미하여 <b>동일 기호가 두 가지로 해석</b>되었다</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>3 / 3 (마지막 기회)</td><td>1차 <b>B4 FAIL</b>, 2차 <b>B3·B4·B6·E1 FAIL</b>, 3차에 통과하였다</td></tr></table>
-<div class=note>기계 검사 셋이 전부 <code>ok</code> 인 그림을 <b>독립 시각 게이트가 두 번 떨어뜨렸다.</b> 심사자에게는 렌더 PNG 와 검사 원문만 주고 보고서·의도·단계 분해는 주지 않는다 — 자기 그림을 자기가 판정하면 통과하기 때문이다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① Render</span></td><td><span class=l-ko>통과</span><span class=l-en>pass</span></td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동 (전용 포트 8931)</span><span class=l-en>XML parsing + viewer launch (dedicated port 8931)</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><span class=l-ko><code>ok</code> (엣지 라벨 0)</span><span class=l-en><code>ok</code> (0 edge labels)</span></td><td>2</td><td><span class=l-ko>글자 겹침 2건, 미검증 커밋 1건, 화살표 z-order 1건. 이후 라운드에서 라벨 넘침 3건을 추가로 검출하였다</span><span class=l-en>2 text overlaps, 1 unverified commit, 1 arrow z-order issue. A later round additionally flagged 3 label overflows</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td><span class=l-ko>매 라운드 1회</span><span class=l-en>1 per round</span></td><td><span class=l-ko>3라운드 모두 첫 시도에 <code>flags</code> 가 비어 있었다</span><span class=l-en><code>flags</code> was empty on the first attempt in all 3 rounds</span></td></tr><tr><td><span class=l-ko>③-b 육안 자기점검</span><span class=l-en>③-b visual self-check</span></td><td><span class=l-ko>결함 1건 발견</span><span class=l-en>1 defect found</span></td><td>1</td><td><span class=l-ko>겹친 판이 범례에서는 '채널', 인코더에서는 '× N 층' 을 의미하여 <b>동일 기호가 두 가지로 해석</b>되었다</span><span class=l-en>The same symbol was interpreted two ways: the stacked plate means 'channels' in the legend but '× N layers' in the encoder</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ independent visual gate</span></td><td><b>GATE: PASS</b></td><td><span class=l-ko>3 / 3 (마지막 기회)</span><span class=l-en>3 / 3 (last chance)</span></td><td><span class=l-ko>1차 <b>B4 FAIL</b>, 2차 <b>B3·B4·B6·E1 FAIL</b>, 3차에 통과하였다</span><span class=l-en>round 1 <b>B4 FAIL</b>, round 2 <b>B3·B4·B6·E1 FAIL</b>, passed on round 3</span></td></tr></table>
+<div class=note><span class=l-ko>기계 검사 셋이 전부 <code>ok</code> 인 그림을 <b>독립 시각 게이트가 두 번 떨어뜨렸다.</b> 심사자에게는 렌더 PNG 와 검사 원문만 주고 보고서·의도·단계 분해는 주지 않는다 — 자기 그림을 자기가 판정하면 통과하기 때문이다.</span><span class=l-en>The <b>independent visual gate rejected twice</b> a figure for which all three machine checks had returned <code>ok</code>. The reviewer is given only the rendered PNG and the raw checker output — no report, intent, or step breakdown — because a figure judged by its own author always passes.</span></div>
 
-<h2>게이트 ④ 반려 후 변경 사항</h2>
-<p class=sub>1라운드 반려 사유는 <q>구조가 <b>왜</b>를 말하지 않는다</q>(B4)였고, 2라운드에서는 수정으로 추가한 전이 화살표가 <b>잘못된 두 상자를 연결한다</b>(B3·B6·E1)고 더 구체적으로 지적되었다. 수정 위치는 그림 아래쪽 <b>패널 3</b> 이다. 분리되어 있던 두 경로를 동일 계열 2행으로 재구성하였다.</p>
+<h2><span class=l-ko>게이트 ④ 반려 후 변경 사항</span><span class=l-en>What changed after the gate ④ rejection</span></h2>
+<p class=sub><span class=l-ko>1라운드 반려 사유는 <q>구조가 <b>왜</b>를 말하지 않는다</q>(B4)였고, 2라운드에서는 수정으로 추가한 전이 화살표가 <b>잘못된 두 상자를 연결한다</b>(B3·B6·E1)고 더 구체적으로 지적되었다. 수정 위치는 그림 아래쪽 <b>패널 3</b> 이다. 분리되어 있던 두 경로를 동일 계열 2행으로 재구성하였다.</span><span class=l-en>The round 1 rejection reason was that <q>the structure does not say <b>why</b></q> (B4), and in round 2 it was pointed out more specifically that the transfer arrow added by the fix <b>connects the wrong two boxes</b> (B3·B6·E1). The fix location is <b>panel 3</b> at the bottom of the figure. The two previously separate paths were restructured into two rows of the same lineage.</span></p>
 <div class=side>
-<figure><img src="legend-before.png" alt="before"><figcaption>1라운드 — 패널 3 이 <b>분리된 두 경로</b>이다. 지도학습 / 자기지도가 따로 놓여 있고, 둘 사이에 연결선이 없다</figcaption></figure>
-<figure><img src="legend-after.png" alt="after"><figcaption>3라운드 — 동일 계열 2행. 각 행이 <code>Transformer encoder</code> 상자로 시작하고, 보라 점선이 <b>인코더 → 인코더</b> 로 연결된다</figcaption></figure>
+<figure><img src="legend-before.png" alt="before"><figcaption><span class=l-ko>1라운드 — 패널 3 이 <b>분리된 두 경로</b>이다. 지도학습 / 자기지도가 따로 놓여 있고, 둘 사이에 연결선이 없다</span><span class=l-en>round 1 — Panel 3 is <b>two separate paths</b>. Supervised and self-supervised sit apart, with no connecting line between them</span></figcaption></figure>
+<figure><img src="legend-after.png" alt="after"><figcaption><span class=l-ko>3라운드 — 동일 계열 2행. 각 행이 <code>Transformer encoder</code> 상자로 시작하고, 보라 점선이 <b>인코더 → 인코더</b> 로 연결된다</span><span class=l-en>round 3 — Two rows of the same lineage. Each row starts with a <code>Transformer encoder</code> box, and a purple dashed line connects <b>encoder → encoder</b></span></figcaption></figure>
 </div>
 <div class=side style="margin-top:16px">
-<figure><img src="round1.png" alt="round1"><figcaption>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</figcaption></figure>
-<figure><img src="ours.png" alt="final"><figcaption>3라운드 전체 (<span class=pass>GATE: PASS</span>)</figcaption></figure>
+<figure><img src="round1.png" alt="round1"><figcaption><span class=l-ko>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</span><span class=l-en>round 1, whole figure (<span class=fail>GATE: FAIL</span>)</span></figcaption></figure>
+<figure><img src="ours.png" alt="final"><figcaption><span class=l-ko>3라운드 전체 (<span class=pass>GATE: PASS</span>)</span><span class=l-en>round 3, whole figure (<span class=pass>GATE: PASS</span>)</span></figcaption></figure>
 </div>
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</span><span class=l-en>The output is draw.io XML, not an image. It zooms and pans, and it can be downloaded and edited.</span></p>
 
 
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — arXiv:2211.14730 Figure 1</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>전체 구성</td><td>(a) 채널 분해 / (b) 지도 / (c) 자기지도</td><td>① 패칭 / ② 채널독립 인코더 / ③ 두 헤드</td><td>정답지는 <b>배치</b> 기준으로, 산출물은 <b>기여 순서</b> 기준으로 구분하였다</td></tr><tr><td>패칭</td><td>회색 막대 여러 개 (숫자 없음)</td><td>336 막대 + <b>겹치는</b> 창 + 42칸 토큰띠, <code>P = 16, S = 8, N = 42</code></td><td><code>unfold(size=16, step=8)</code> 에서 <b>S &lt; P 라 겹친다</b>는 점을 형태로 표현하였다</td></tr><tr><td>채널 독립</td><td>5개 시계열 → 공유 백본 → 5개 출력</td><td>채널 카드 2장 → 화살표 2개 → <b>임베딩 1개·인코더 1개</b></td><td><code>reshape(bs*nvars, ...)</code> 로 변수축이 배치에 접히는 구조를 배치로 표현하였다</td></tr><tr><td>어텐션</td><td>없음 (Transformer Backbone 회색 상자)</td><td><code>42 × 42</code> 정사각 + <q>within one channel</q></td><td>심사자 1라운드 B4 지적을 반영해 <b>추가</b>하였다. 6칸 도식이며 캡션에 42×42 를 명시하였다</td></tr><tr><td>RevIN</td><td>'Instance Norm + Patching' 한 상자</td><td>양 끝을 감싸는 <code>RevIN norm</code> / <code>RevIN denorm</code> 두 상자</td><td>코드는 <code>norm</code> → <code>denorm</code> 을 두 번 호출하므로 두 상자로 표현하였다</td></tr><tr><td>전이</td><td>없음 (두 패널이 나란히 배치)</td><td>보라 점선 <b>인코더 → 인코더</b> + 범례 1줄</td><td><code>transfer_weights(exclude_head=True)</code>. 2라운드 지적을 반영해 수정한 부분이다</td></tr><tr><td>인코더 내부</td><td>오른쪽에 확대 인셋 (n×)</td><td>패널 2 아래 점선 띠 1개 (<code>× N = 3</code> 은 글자로)</td><td>겹친 판을 <b>채널</b>에 이미 썼으므로 인코더에 또 쓰면 기호가 두 가지로 해석된다</td></tr><tr><td>패딩</td><td>없음</td><td>없음 (캡션에 <code>N = 42</code> 가 padding 포함이라 명시)</td><td>해당 요소를 그리지 않고 <b>그리지 않았다고 캡션에 기재하였다</b></td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — arXiv:2211.14730 Figure 1</figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>전체 구성</span><span class=l-en>Overall structure</span></td><td><span class=l-ko>(a) 채널 분해 / (b) 지도 / (c) 자기지도</span><span class=l-en>(a) channel decomposition / (b) supervised / (c) self-supervised</span></td><td><span class=l-ko>① 패칭 / ② 채널독립 인코더 / ③ 두 헤드</span><span class=l-en>① patching / ② channel-independent encoder / ③ two heads</span></td><td><span class=l-ko>정답지는 <b>배치</b> 기준으로, 산출물은 <b>기여 순서</b> 기준으로 구분하였다</span><span class=l-en>The answer key is organized by <b>layout</b>; our figure is organized by <b>order of contribution</b></span></td></tr><tr><td><span class=l-ko>패칭</span><span class=l-en>Patching</span></td><td><span class=l-ko>회색 막대 여러 개 (숫자 없음)</span><span class=l-en>Several gray bars (no numbers)</span></td><td><span class=l-ko>336 막대 + <b>겹치는</b> 창 + 42칸 토큰띠, <code>P = 16, S = 8, N = 42</code></span><span class=l-en>336 bar + <b>overlapping</b> windows + a 42-cell token strip, <code>P = 16, S = 8, N = 42</code></span></td><td><span class=l-ko><code>unfold(size=16, step=8)</code> 에서 <b>S &lt; P 라 겹친다</b>는 점을 형태로 표현하였다</span><span class=l-en>Expressed as shape the fact that <code>unfold(size=16, step=8)</code> <b>overlaps because S &lt; P</b></span></td></tr><tr><td><span class=l-ko>채널 독립</span><span class=l-en>Channel independence</span></td><td><span class=l-ko>5개 시계열 → 공유 백본 → 5개 출력</span><span class=l-en>5 time series → shared backbone → 5 outputs</span></td><td><span class=l-ko>채널 카드 2장 → 화살표 2개 → <b>임베딩 1개·인코더 1개</b></span><span class=l-en>2 channel cards → 2 arrows → <b>1 embedding, 1 encoder</b></span></td><td><span class=l-ko><code>reshape(bs*nvars, ...)</code> 로 변수축이 배치에 접히는 구조를 배치로 표현하였다</span><span class=l-en>Expressed through layout the structure where <code>reshape(bs*nvars, ...)</code> folds the variable axis into the batch</span></td></tr><tr><td><span class=l-ko>어텐션</span><span class=l-en>Attention</span></td><td><span class=l-ko>없음 (Transformer Backbone 회색 상자)</span><span class=l-en>none (gray Transformer Backbone box)</span></td><td><span class=l-ko><code>42 × 42</code> 정사각 + <q>within one channel</q></span><span class=l-en><code>42 × 42</code> square + <q>within one channel</q></span></td><td><span class=l-ko>심사자 1라운드 B4 지적을 반영해 <b>추가</b>하였다. 6칸 도식이며 캡션에 42×42 를 명시하였다</span><span class=l-en><b>Added</b> in response to the reviewer's round 1 B4 note. A 6-cell diagram, with 42×42 stated in the caption</span></td></tr><tr><td>RevIN</td><td><span class=l-ko>'Instance Norm + Patching' 한 상자</span><span class=l-en>One box, 'Instance Norm + Patching'</span></td><td><span class=l-ko>양 끝을 감싸는 <code>RevIN norm</code> / <code>RevIN denorm</code> 두 상자</span><span class=l-en>Two boxes bracketing both ends, <code>RevIN norm</code> / <code>RevIN denorm</code></span></td><td><span class=l-ko>코드는 <code>norm</code> → <code>denorm</code> 을 두 번 호출하므로 두 상자로 표현하였다</span><span class=l-en>The code calls <code>norm</code> → <code>denorm</code> twice, so it was expressed as two boxes</span></td></tr><tr><td><span class=l-ko>전이</span><span class=l-en>Transfer</span></td><td><span class=l-ko>없음 (두 패널이 나란히 배치)</span><span class=l-en>none (two panels placed side by side)</span></td><td><span class=l-ko>보라 점선 <b>인코더 → 인코더</b> + 범례 1줄</span><span class=l-en>purple dashed line <b>encoder → encoder</b> + 1 legend line</span></td><td><span class=l-ko><code>transfer_weights(exclude_head=True)</code>. 2라운드 지적을 반영해 수정한 부분이다</span><span class=l-en><code>transfer_weights(exclude_head=True)</code>. This is the part fixed in response to the round 2 note</span></td></tr><tr><td><span class=l-ko>인코더 내부</span><span class=l-en>Inside the encoder</span></td><td><span class=l-ko>오른쪽에 확대 인셋 (n×)</span><span class=l-en>Zoomed inset on the right (n×)</span></td><td><span class=l-ko>패널 2 아래 점선 띠 1개 (<code>× N = 3</code> 은 글자로)</span><span class=l-en>One dashed strip under panel 2 (<code>× N = 3</code> written as text)</span></td><td><span class=l-ko>겹친 판을 <b>채널</b>에 이미 썼으므로 인코더에 또 쓰면 기호가 두 가지로 해석된다</span><span class=l-en>Since the stacked plate was already used for <b>channels</b>, using it again on the encoder makes the symbol read two ways</span></td></tr><tr><td><span class=l-ko>패딩</span><span class=l-en>Padding</span></td><td><span class=l-ko>없음</span><span class=l-en>none</span></td><td><span class=l-ko>없음 (캡션에 <code>N = 42</code> 가 padding 포함이라 명시)</span><span class=l-en>none (the caption states <code>N = 42</code> includes padding)</span></td><td><span class=l-ko>해당 요소를 그리지 않고 <b>그리지 않았다고 캡션에 기재하였다</b></span><span class=l-en>The element was not drawn, and <b>the caption states that it was not drawn</b></span></td></tr></table>
 
-<footer>method-figure · T1M-2 patchtst · 산출물 경로 <code>out/demo/patchtst/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T1M-2 patchtst · 산출물 경로 <code>out/demo/patchtst/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T1M-2 patchtst · output path <code>out/demo/patchtst/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건을 제공한다. 무엇을 그릴지는 지시하지 않는다. 이 저장소는 저자 그림을 <code>pic/model.png</code> 로 포함하고 있어서 <b>이를 여는지 여부</b>가 이 케이스의 확인 대상이다."], ["shots/02-evidence.png", "근거 수집", "<q>The SHA checks out with the toplevel.</q> 커밋을 자체 대조한 뒤, README 의 'Key Designs'(patching·channel-independence)를 도면 구성의 근거로 사용하였다. 이어서 backbone·RevIN·self-supervised 를 병렬로 읽는다."], ["shots/03-decide.png", "숫자 확정", "T1-M 의 관통 예시는 <b>텐서와 설정값</b>으로 구성된다. <code>patch_len 16, stride 8</code> → <code>(336-16)/8+1 = 41</code>, <code>padding_patch='end'</code> 때문에 <b>+1 해서 42</b>. 이 42가 그림 전체에서 일관되게 사용된다."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>Gate ③ passes with empty flags. Now rendering the PNG and inspecting it myself.</q> 기계 검사 통과 후 자체 육안 점검, 독립 심사 순으로 진행한다."], ["shots/06-gate4-fail.png", "게이트 ④ 1라운드 FAIL", "기계 검사 3종을 통과한 도면을 보고서와 의도를 제공받지 않은 별도 에이전트가 <b>B4 항목에서 반려하였다</b>: <q>Panels 1–3 show what is shared and shortened, but no structural comparison or mechanism explains <b>why</b> channel independence and two heads are preferable.</q>"], ["shots/07-gate4-pass.png", "게이트 ④ 3라운드 PASS", "<q>B4 PASS Panel 1 shows 336 steps reduced to 42 attention tokens; Panel 3 structurally shows the pretrained encoder copied into fine-tuning while only the head changes.</q> 마지막 남은 지적은 <q>None. Any deeper empirical justification … would require paper or experimental material not derivable from repository code alone.</q> <b>코드만으로 도출 가능한 범위</b>임을 심사자가 확인하였다."], ["shots/08-figure.png", "육안 자기점검이 검출한 결함", "<q>Self-inspection found one real defect: stacked plates mean \"channels\" in the legend but \"×N layers\" on the encoder. Fixing that ambiguity.</q> 기계 검사와 독립 심사가 검출하지 못한 항목을 <b>자체 육안 점검</b>에서 검출하였다. 인코더의 겹친 판을 삭제하고 <code>× N = 3</code> 을 글자로 표기하였다."], ["shots/09-checks.png", "판별과 검사 요약", "<q>판별: T1-M (<code>nn.Module</code> + <code>forward</code> 다수, API 호출 0). 위상은 M-P1 직렬 + M-P4(<code>ModuleList</code>, <code>n_layers=3</code>) 중첩.</q> 관통 예시는 <code>scripts/PatchTST/weather.sh</code> 한 설정으로 통일하였다."], ["shots/10-summary.png", "게이트가 검출한 결함 세 가지", "① <q>왜 이렇게 만들었나</q>가 구조로 표현되지 않았다 → <b>42×42 어텐션 사각형</b>과 패널 3 의 전이 링크를 추가하였다. ② 전이 화살표가 <code>Reconstructed patches → Flatten+linear</code> 로 그어져 있었다(실제로는 인코더→인코더) → 패널 3 을 <q>같은 사슬, 헤드만 교체</q> 2행으로 재구성하였다. ③ 범례의 겹친 판이 <b>채널</b>을 뜻하는데 인코더에도 같은 판을 써서 <code>×N=3</code> 과 충돌하였다 → 인코더 판을 제거하였다. 마지막 항목은 기계 검사와 독립 심사가 아닌 <b>자체 육안 점검</b>이 검출하였다."]];
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건을 제공한다. 무엇을 그릴지는 지시하지 않는다. 이 저장소는 저자 그림을 <code>pic/model.png</code> 로 포함하고 있어서 <b>이를 여는지 여부</b>가 이 케이스의 확인 대상이다.", "Prompt", "Provides the repository's absolute path, the output path, and the blind conditions. It does not instruct what to draw. Since this repository includes the authors' figure as <code>pic/model.png</code>, <b>whether it opens it</b> is what this case checks."], ["shots/02-evidence.png", "근거 수집", "<q>The SHA checks out with the toplevel.</q> 커밋을 자체 대조한 뒤, README 의 'Key Designs'(patching·channel-independence)를 도면 구성의 근거로 사용하였다. 이어서 backbone·RevIN·self-supervised 를 병렬로 읽는다.", "Gathering evidence", "<q>The SHA checks out with the toplevel.</q> After self-verifying the commit, it used the README's 'Key Designs' (patching, channel-independence) as the basis for the figure's structure. It then reads the backbone, RevIN, and self-supervised code in parallel."], ["shots/03-decide.png", "숫자 확정", "T1-M 의 관통 예시는 <b>텐서와 설정값</b>으로 구성된다. <code>patch_len 16, stride 8</code> → <code>(336-16)/8+1 = 41</code>, <code>padding_patch='end'</code> 때문에 <b>+1 해서 42</b>. 이 42가 그림 전체에서 일관되게 사용된다.", "Fixing the numbers", "T1-M's running example is made up of <b>tensors and config values</b>. <code>patch_len 16, stride 8</code> → <code>(336-16)/8+1 = 41</code>, and because of <code>padding_patch='end'</code>, <b>+1 to make 42</b>. This 42 is used consistently throughout the figure."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>Gate ③ passes with empty flags. Now rendering the PNG and inspecting it myself.</q> 기계 검사 통과 후 자체 육안 점검, 독립 심사 순으로 진행한다.", "Machine gates pass", "<q>Gate ③ passes with empty flags. Now rendering the PNG and inspecting it myself.</q> Proceeds in order: machine checks pass, then its own visual inspection, then independent review."], ["shots/06-gate4-fail.png", "게이트 ④ 1라운드 FAIL", "기계 검사 3종을 통과한 도면을 보고서와 의도를 제공받지 않은 별도 에이전트가 <b>B4 항목에서 반려하였다</b>: <q>Panels 1–3 show what is shared and shortened, but no structural comparison or mechanism explains <b>why</b> channel independence and two heads are preferable.</q>", "Gate ④ round 1 FAIL", "A separate agent, given no report or intent, <b>rejected</b> a figure that had passed all three machine checks <b>on item B4</b>: <q>Panels 1–3 show what is shared and shortened, but no structural comparison or mechanism explains <b>why</b> channel independence and two heads are preferable.</q>"], ["shots/07-gate4-pass.png", "게이트 ④ 3라운드 PASS", "<q>B4 PASS Panel 1 shows 336 steps reduced to 42 attention tokens; Panel 3 structurally shows the pretrained encoder copied into fine-tuning while only the head changes.</q> 마지막 남은 지적은 <q>None. Any deeper empirical justification … would require paper or experimental material not derivable from repository code alone.</q> <b>코드만으로 도출 가능한 범위</b>임을 심사자가 확인하였다.", "Gate ④ round 3 PASS", "<q>B4 PASS Panel 1 shows 336 steps reduced to 42 attention tokens; Panel 3 structurally shows the pretrained encoder copied into fine-tuning while only the head changes.</q> The last remaining note was <q>None. Any deeper empirical justification … would require paper or experimental material not derivable from repository code alone.</q> The reviewer confirmed this was <b>within what code alone can support</b>."], ["shots/08-figure.png", "육안 자기점검이 검출한 결함", "<q>Self-inspection found one real defect: stacked plates mean \"channels\" in the legend but \"×N layers\" on the encoder. Fixing that ambiguity.</q> 기계 검사와 독립 심사가 검출하지 못한 항목을 <b>자체 육안 점검</b>에서 검출하였다. 인코더의 겹친 판을 삭제하고 <code>× N = 3</code> 을 글자로 표기하였다.", "Defect found by the visual self-check", "<q>Self-inspection found one real defect: stacked plates mean \"channels\" in the legend but \"×N layers\" on the encoder. Fixing that ambiguity.</q> An item that neither the machine checks nor the independent review had caught was found by the <b>self visual check</b>. The stacked plate on the encoder was removed and <code>× N = 3</code> was written as text instead."], ["shots/09-checks.png", "판별과 검사 요약", "<q>판별: T1-M (<code>nn.Module</code> + <code>forward</code> 다수, API 호출 0). 위상은 M-P1 직렬 + M-P4(<code>ModuleList</code>, <code>n_layers=3</code>) 중첩.</q> 관통 예시는 <code>scripts/PatchTST/weather.sh</code> 한 설정으로 통일하였다.", "Determination and check summary", "<q>Classification: T1-M (<code>nn.Module</code> + multiple <code>forward</code>, 0 API calls). Topology is M-P1 series + M-P4 (<code>ModuleList</code>, <code>n_layers=3</code>) nesting.</q> The running example was unified to a single configuration, <code>scripts/PatchTST/weather.sh</code>."], ["shots/10-summary.png", "게이트가 검출한 결함 세 가지", "① <q>왜 이렇게 만들었나</q>가 구조로 표현되지 않았다 → <b>42×42 어텐션 사각형</b>과 패널 3 의 전이 링크를 추가하였다. ② 전이 화살표가 <code>Reconstructed patches → Flatten+linear</code> 로 그어져 있었다(실제로는 인코더→인코더) → 패널 3 을 <q>같은 사슬, 헤드만 교체</q> 2행으로 재구성하였다. ③ 범례의 겹친 판이 <b>채널</b>을 뜻하는데 인코더에도 같은 판을 써서 <code>×N=3</code> 과 충돌하였다 → 인코더 판을 제거하였다. 마지막 항목은 기계 검사와 독립 심사가 아닌 <b>자체 육안 점검</b>이 검출하였다.", "Three defects found by the gate", "① <q>Why it was built this way</q> was not expressed structurally → added a <b>42×42 attention square</b> and the transfer link in panel 3. ② The transfer arrow was drawn as <code>Reconstructed patches → Flatten+linear</code> (it should actually be encoder→encoder) → panel 3 was restructured into two rows of <q>same chain, only the head swapped</q>. ③ The stacked plate in the legend means <b>channels</b>, but the same plate was used on the encoder, clashing with <code>×N=3</code> → the encoder plate was removed. This last item was caught not by the machine checks or the independent review but by the <b>self visual check</b>."]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

@@ -1,110 +1,161 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>출처 및 저작권</title><style>
-.hero{border-bottom:1px solid var(--border);margin-bottom:8px;padding:52px 0 30px}
-.eyebrow{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.09em;
-  text-transform:uppercase;margin:0 0 12px}
-.hero h1{font-size:31px;line-height:1.45;margin:0 0 14px;font-weight:650;
-  max-width:940px}
-.lede{color:var(--fg2);font-size:16px;margin:0;max-width:820px}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 0}
-.pillar{background:var(--surface);border:1px solid var(--border);border-radius:10px;
-  padding:18px 20px 20px;border-top:3px solid var(--accent-line)}
-.pillar h4{margin:0 0 3px;font-size:15px;color:var(--fg)}
-.pillar .role{color:var(--accent);font-size:12.5px;margin:0 0 12px}
-.pillar ul{margin:0;padding-left:17px;font-size:13.5px;color:var(--fg2)}
-.pillar li{margin:6px 0}
-.pillar .en{color:var(--fg4);font-size:12px}
-.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
-  gap:12px;margin:16px 0 0}
-.use{background:var(--surface);border:1px solid var(--border);border-radius:9px;
-  padding:15px 17px}
-.use b{display:block;color:var(--fg);font-size:14px;margin-bottom:5px}
-.use span{color:var(--fg3);font-size:13px;line-height:1.65}
-.split{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;
-  gap:0;margin:22px 0 4px;border:1px solid var(--border);border-radius:10px;
-  overflow:hidden}
-.half{background:var(--surface);padding:20px 24px}
-.half.right{background:var(--surface2)}
-.half .tag{color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;margin:0 0 7px}
-.half h4{margin:0 0 6px;font-size:16px}
-.half p{margin:0;color:var(--fg3);font-size:13.5px;line-height:1.7}
-.mid{width:1px;background:var(--border)}
-.io{display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;
-  gap:0;margin:16px 0 0}
-.io .box{background:var(--surface);border:1px solid var(--border);border-radius:10px;
-  padding:16px 18px;min-height:100%}
-.io .arrow{text-align:center;color:var(--accent);font-size:22px}
-.io .box b{display:block;font-size:12px;color:var(--accent);letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:8px}
-.io img{display:block;width:100%;border-radius:6px;background:var(--thumb);margin-top:4px}
-.io ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--fg2)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
-  gap:14px;margin:16px 0 0}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;
-  overflow:hidden;display:block;color:inherit}
-.card:hover{border-color:var(--accent);text-decoration:none}
-.card .thumb{background:var(--thumb);height:132px;display:flex;align-items:center;
-  justify-content:center;overflow:hidden;padding:6px;
-  border-bottom:1px solid var(--border)}
-.card .thumb img{width:100%;height:100%;object-fit:contain;object-position:center}
-.card .body{padding:12px 14px 14px}
-.card .kind{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.05em}
-.card .name{font-size:14px;color:var(--fg);margin:3px 0 5px;font-weight:600}
-.card .repo{font-size:12px;color:var(--fg4);
-  font-family:'Cascadia Code',Consolas,monospace}
-.flow{margin:14px 0 0}
-.fstage{margin-bottom:12px}
-.fhead{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.03em;
-  margin:0 0 8px}
-.frow{display:flex;align-items:stretch;gap:6px;flex-wrap:nowrap}
-.step{flex:1 1 0;min-width:0;background:var(--surface);border:1px solid var(--border);
-  border-radius:8px;padding:10px 11px}
-.step b{display:block;font-size:13px;color:var(--fg)}
-.step span{display:block;font-size:11.5px;color:var(--fg3);line-height:1.45;margin-top:4px}
-.step i{display:inline-block;font-style:normal;font-size:11px;font-weight:700;
-  color:var(--accent);margin-bottom:3px}
-.step em{display:inline-block;font-style:normal;font-size:10.5px;margin-top:6px;
-  padding:1px 6px;border-radius:999px;border:1px solid var(--border2);color:var(--fg4)}
-.step.gate{background:var(--surface2)}
-.step.gate em.human{border-color:var(--warn);color:var(--warn)}
-.step.out{background:var(--accent-bg);border-color:var(--accent-line)}
-.fto{flex:0 0 auto;align-self:center;color:var(--fg4);font-size:15px}
-.fback{margin-top:8px;border:1px dashed var(--border2);border-radius:8px;
-  padding:8px 11px;font-size:12px;color:var(--fg3);line-height:1.55}
-.fback b{color:var(--fg2)}
-@media(max-width:900px){.pillars{grid-template-columns:1fr}
-  .split{grid-template-columns:1fr}.mid{width:auto;height:1px}
-  .io{grid-template-columns:1fr}.io .arrow{padding:10px 0;transform:rotate(90deg)}
-  .frow{flex-wrap:wrap}.step{flex:1 1 45%}.fto{display:none}}
+<title>Sources and copyright</title>
+<meta name=t-ko content="출처 및 저작권">
+<meta name=t-en content="Sources and copyright">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
+:root{
+  --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
+  --border:#303030; --border2:#3D3D3D;
+  --fg:#F5F5F5; --fg2:#C7C7C7; --fg3:#9A9A9A; --fg4:#8F8F8F;
+  --accent:#479EF5; --accent2:#62ABF5; --accent-bg:#0A2540; --accent-line:#0F6CBD; --bubble-user:#123E66;
+  --code-bg:#242424; --code-fg:#E5C07B;
+  --pass:#54B054; --fail:#E37D80; --warn:#E9A33A;
+  --thumb:#FFFFFF; --shadow:0 6px 20px rgba(0,0,0,.45);
+}
+[data-theme=light]{
+  --bg:#FFFFFF; --surface:#FAF9F8; --surface2:#F3F2F1; --stage:#F3F2F1;
+  --border:#E1DFDD; --border2:#D2D0CE;
+  --fg:#242424; --fg2:#424242; --fg3:#616161; --fg4:#6E6E6E;
+  --accent:#0F6CBD; --accent2:#115EA3; --accent-bg:#EBF3FC; --accent-line:#0F6CBD; --bubble-user:#DCEBFA;
+  --code-bg:#F3F2F1; --code-fg:#8F5A00;
+  --pass:#0E700E; --fail:#B10E1C; --warn:#8F5A00;
+  --thumb:#FFFFFF; --shadow:0 6px 20px rgba(0,0,0,.14);
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}[data-theme=light]{color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:15px/1.75 'Segoe UI Variable Text','Segoe UI',-apple-system,'Malgun Gothic',sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+code{font:13px/1.5 'Cascadia Code',Consolas,monospace;background:var(--code-bg);
+  padding:1px 5px;border-radius:4px;color:var(--code-fg)}
+q{color:var(--fg2);font-style:italic}q:before{content:'\201C'}q:after{content:'\201D'}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px 90px}
+header{border-bottom:1px solid var(--border);margin-bottom:34px;padding:38px 0 24px}
+h1{font-size:27px;margin:0 0 8px;font-weight:650;
+  font-family:'Segoe UI Variable Display','Segoe UI',sans-serif}
+h2{font-size:19px;margin:44px 0 12px;padding-bottom:7px;
+  border-bottom:1px solid var(--border);
+  font-family:'Segoe UI Variable Display','Segoe UI',sans-serif}
+h3{font-size:15px;margin:26px 0 8px;color:var(--fg2)}
+.sub{color:var(--fg3);font-size:14px;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;margin:22px 0 0}
+.meta div{background:var(--surface);padding:11px 14px}
+.meta b{display:block;color:var(--fg3);font-size:11.5px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--surface);color:var(--fg2);font-weight:600}
+ul{margin:10px 0;padding-left:22px}li{margin:5px 0}
+.note{background:var(--surface);border-left:3px solid var(--accent-line);
+  padding:13px 17px;border-radius:0 6px 6px 0;margin:16px 0}
+.pass{color:var(--pass);font-weight:600}.fail{color:var(--fail);font-weight:600}
+pre.prompt{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:17px 19px;overflow:auto;font:13px/1.7 'Cascadia Code',Consolas,monospace;
+  color:var(--fg2);white-space:pre-wrap}
+.copy{float:right;background:var(--surface2);border:1px solid var(--border2);
+  color:var(--fg2);border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+.copy:hover{border-color:var(--accent)}
+.stage{background:var(--stage);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;margin:16px 0 0}
+.stage img{display:block;width:100%;background:var(--stage)}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-bottom:1px solid var(--border);background:var(--surface)}
+.pill{background:var(--surface2);color:var(--fg2);border-radius:20px;padding:2px 11px;
+  font-size:12.5px;font-variant-numeric:tabular-nums}
+.bar h3{margin:0;font-size:15px;color:var(--fg)}
+.cap{padding:13px 17px;color:var(--fg2);font-size:14px;border-top:1px solid var(--border)}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0 0}
+.nav button{background:var(--surface);border:1px solid var(--border);color:var(--fg3);
+  border-radius:7px;padding:7px 13px;font-size:13px;cursor:pointer}
+.nav button:hover{border-color:var(--accent);color:var(--fg)}
+.nav button[aria-current=true]{background:var(--accent-line);border-color:var(--accent-line);
+  color:#fff}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 0}
+.side figure{margin:0;background:var(--thumb);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden}
+.side img{display:block;width:100%}
+.side figcaption{background:var(--surface);color:var(--fg2);padding:9px 13px;font-size:13px}
+iframe{width:100%;height:640px;border:1px solid var(--border);border-radius:8px;
+  background:#fff}
+video{display:block;width:100%;border:1px solid var(--border);border-radius:8px;
+  background:var(--stage);margin:16px 0 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:12px 17px;margin:12px 0}
+details summary{cursor:pointer;color:var(--fg2);font-size:14px}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
+  color:var(--fg4);font-size:13px}
+#theme{position:fixed;top:16px;right:18px;z-index:45;display:flex;align-items:center;
+  gap:7px;padding:7px 13px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);color:var(--fg2);cursor:pointer;box-shadow:var(--shadow);
+  font:600 12.5px/1 'Segoe UI',system-ui,sans-serif}
+#theme:hover{border-color:var(--accent);color:var(--fg)}
+#theme svg{width:14px;height:14px;fill:currentColor}
+#theme .moon{display:none}
+[data-theme=light] #theme .moon{display:block}
+[data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
+@media(max-width:820px){.side{grid-template-columns:1fr}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 </style></head><body>
+<button id=theme type=button aria-label="색 테마 전환">
+<svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
+<svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
+<script>(function(){var b=document.getElementById('theme');
+b.addEventListener('click',function(){
+var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
+r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="index.html">← 전체 목록</a></p>
-<h1>출처 및 저작권</h1>
-<p class=sub>이 사이트는 <code>method-figure</code> 스킬의 검증 결과를 정리한 것이다.
-검증에 사용한 저장소와 대조에 사용한 도면의 출처를 아래에 밝힌다.</p>
+<p class=sub><a href="index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a></p>
+<h1><span class=l-ko>출처 및 저작권</span><span class=l-en>Sources and copyright</span></h1>
+<p class=sub><span class=l-ko>이 사이트는 <code>method-figure</code> 스킬의 검증 결과를 정리한 것이다. 검증에 사용한 저장소와 대조에 사용한 도면의 출처를 아래에 밝힌다.</span><span class=l-en>This site collects the validation results for the <code>method-figure</code> skill. The repositories used for validation and the figures used for comparison are credited below.</span></p>
 </header>
 
-<h2>대조용 도면 (정답지)</h2>
-<p class=sub>각 페이지의 <b>정답지 대조</b> 절에 실린 도면은 아래 저작자의 것이다.
-스킬의 산출물과 나란히 놓아 비교하기 위한 인용이며, 이 사이트는 해당 도면의
-저작권을 주장하지 않는다. 각 도면의 권리는 원저작자에게 있다.</p>
-<table><tr><th>케이스</th><th>저장소</th><th>출처</th><th>도면</th></tr><tr><td>T1M-1</td><td><a href="https://github.com/facebookresearch/swav">facebookresearch/swav</a></td><td>arXiv:2006.09882</td><td>Figure 1 (오른쪽 패널)</td></tr><tr><td>T1M-2</td><td><a href="https://github.com/yuqinie98/PatchTST">yuqinie98/PatchTST</a></td><td>arXiv:2211.14730</td><td>Figure 1</td></tr><tr><td>T1M-3</td><td><a href="https://github.com/swz30/Restormer">swz30/Restormer</a></td><td>arXiv:2111.09881</td><td>Figure 2</td></tr><tr><td>T1M-4</td><td><a href="https://github.com/state-spaces/mamba">state-spaces/mamba</a></td><td>Mamba (arXiv:2312.00752)</td><td>Figure 3</td></tr><tr><td>T1M-5</td><td><a href="https://github.com/yang-song/score_sde_pytorch">yang-song/score_sde_pytorch</a></td><td>Score-Based Generative Modeling through SDEs (arXiv:2011.13456)</td><td>Figure 2</td></tr><tr><td>T2-1</td><td><a href="https://github.com/jupyterhub/jupyterhub">jupyterhub/jupyterhub</a></td><td>저장소 자체 문서 — &lt;code&gt;docs/source/reference/technical-overview.md&lt;/code&gt; 와 &lt;code&gt;docs/source/explanation/concepts.md&lt;/code&gt; (아키텍처 이미지 &lt;code&gt;jhub-parts.png&lt;/code&gt; 를 임베드하는 문서)</td><td>저자의 아키텍처 그림 — Browser → Configurable HTTP Proxy → {Hub, Notebook}, Hub 안에 Authenticator / User Database / Spawner 중첩</td></tr><tr><td>T2-2</td><td><a href="https://github.com/traefik/traefik">traefik/traefik</a></td><td>Traefik 공식 문서 &#x27;Architecture&#x27; 개념도 — 저장소 내 docs/content/assets/img/traefik-architecture.png (README 가 참조)</td><td>&#x27;Traefik Architecture At A Glance&#x27; 손그림 개념도 (Entrypoints → Routers → Services)</td></tr><tr><td>T2-3</td><td><a href="https://github.com/argoproj/argo-workflows">argoproj/argo-workflows</a></td><td>프로젝트 자신의 아키텍처 문서 (&lt;code&gt;docs/architecture.md&lt;/code&gt; + &lt;code&gt;assets/&lt;/code&gt; 다이어그램)</td><td>Argo Workflows 아키텍처 다이어그램 (배포 토폴로지)</td></tr><tr><td>T2-4</td><td><a href="https://github.com/containerd/containerd">containerd/containerd</a></td><td>containerd 자체 문서 — &lt;code&gt;docs/historical/design/architecture.md&lt;/code&gt; (architecture.png / data-flow.png 참조)</td><td>저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</td></tr><tr><td>T2-5</td><td><a href="https://github.com/prometheus/prometheus">prometheus/prometheus</a></td><td>Prometheus 공식 아키텍처 다이어그램 (documentation/images/architecture.svg)</td><td>아키텍처 다이어그램 (Retrieval·Storage·PromQL + Service Discovery + Alertmanager)</td></tr></table>
+<h2><span class=l-ko>대조용 도면 (정답지)</span><span class=l-en>Comparison figures (answer keys)</span></h2>
+<p class=sub><span class=l-ko>각 페이지의 <b>정답지 대조</b> 절에 실린 도면은 아래 저작자의 것이다. 스킬의 산출물과 나란히 놓아 비교하기 위한 인용이며, 이 사이트는 해당 도면의 저작권을 주장하지 않는다. 각 도면의 권리는 원저작자에게 있다.</span><span class=l-en>The figures shown in the <b>against the answer key</b> section of each page belong to the authors listed below. They are cited so they can be placed beside the skill&rsquo;s output for comparison; this site claims no copyright over them, and all rights remain with the original authors.</span></p>
+<table><tr><th><span class=l-ko>케이스</span><span class=l-en>Case</span></th><th><span class=l-ko>저장소</span><span class=l-en>Repository</span></th>
+<th><span class=l-ko>출처</span><span class=l-en>Source</span></th><th><span class=l-ko>도면</span><span class=l-en>Figure</span></th></tr><tr><td>T1M-1</td><td><a href="https://github.com/facebookresearch/swav">facebookresearch/swav</a></td><td>arXiv:2006.09882</td><td><span class=l-ko>Figure 1 (오른쪽 패널)</span><span class=l-en>Figure 1 (right panel)</span></td></tr><tr><td>T1M-2</td><td><a href="https://github.com/yuqinie98/PatchTST">yuqinie98/PatchTST</a></td><td>arXiv:2211.14730</td><td>Figure 1</td></tr><tr><td>T1M-3</td><td><a href="https://github.com/swz30/Restormer">swz30/Restormer</a></td><td>arXiv:2111.09881</td><td>Figure 2</td></tr><tr><td>T1M-4</td><td><a href="https://github.com/state-spaces/mamba">state-spaces/mamba</a></td><td>Mamba (arXiv:2312.00752)</td><td>Figure 3</td></tr><tr><td>T1M-5</td><td><a href="https://github.com/yang-song/score_sde_pytorch">yang-song/score_sde_pytorch</a></td><td>Score-Based Generative Modeling through SDEs (arXiv:2011.13456)</td><td>Figure 2</td></tr><tr><td>T2-1</td><td><a href="https://github.com/jupyterhub/jupyterhub">jupyterhub/jupyterhub</a></td><td><span class=l-ko>저장소 자체 문서 — &lt;code&gt;docs/source/reference/technical-overview.md&lt;/code&gt; 와 &lt;code&gt;docs/source/explanation/concepts.md&lt;/code&gt; (아키텍처 이미지 &lt;code&gt;jhub-parts.png&lt;/code&gt; 를 임베드하는 문서)</span><span class=l-en>The repository&amp;rsquo;s own docs — &lt;code&gt;docs/source/reference/technical-overview.md&lt;/code&gt; and &lt;code&gt;docs/source/explanation/concepts.md&lt;/code&gt; (the pages that embed the architecture image &lt;code&gt;jhub-parts.png&lt;/code&gt;)</span></td><td><span class=l-ko>저자의 아키텍처 그림 — Browser → Configurable HTTP Proxy → {Hub, Notebook}, Hub 안에 Authenticator / User Database / Spawner 중첩</span><span class=l-en>The author&#x27;s architecture figure — Browser → Configurable HTTP Proxy → {Hub, Notebook}, with Authenticator / User Database / Spawner nested inside the Hub</span></td></tr><tr><td>T2-2</td><td><a href="https://github.com/traefik/traefik">traefik/traefik</a></td><td><span class=l-ko>Traefik 공식 문서 &#x27;Architecture&#x27; 개념도 — 저장소 내 docs/content/assets/img/traefik-architecture.png (README 가 참조)</span><span class=l-en>Traefik official documentation, the &amp;lsquo;Architecture&amp;rsquo; concept diagram — docs/content/assets/img/traefik-architecture.png in the repository (referenced by the README)</span></td><td><span class=l-ko>&#x27;Traefik Architecture At A Glance&#x27; 손그림 개념도 (Entrypoints → Routers → Services)</span><span class=l-en>&#x27;Traefik Architecture At A Glance&#x27; hand-drawn concept diagram (Entrypoints → Routers → Services)</span></td></tr><tr><td>T2-3</td><td><a href="https://github.com/argoproj/argo-workflows">argoproj/argo-workflows</a></td><td><span class=l-ko>프로젝트 자신의 아키텍처 문서 (&lt;code&gt;docs/architecture.md&lt;/code&gt; + &lt;code&gt;assets/&lt;/code&gt; 다이어그램)</span><span class=l-en>The project&amp;rsquo;s own architecture docs (&lt;code&gt;docs/architecture.md&lt;/code&gt; + &lt;code&gt;assets/&lt;/code&gt; diagrams)</span></td><td><span class=l-ko>Argo Workflows 아키텍처 다이어그램 (배포 토폴로지)</span><span class=l-en>Argo Workflows architecture diagram (deployment topology)</span></td></tr><tr><td>T2-4</td><td><a href="https://github.com/containerd/containerd">containerd/containerd</a></td><td><span class=l-ko>containerd 자체 문서 — &lt;code&gt;docs/historical/design/architecture.md&lt;/code&gt; (architecture.png / data-flow.png 참조)</span><span class=l-en>containerd&amp;rsquo;s own docs — &lt;code&gt;docs/historical/design/architecture.md&lt;/code&gt; (which references architecture.png / data-flow.png)</span></td><td><span class=l-ko>저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</span><span class=l-en>The repository&#x27;s own architecture diagram (top: GRPC·Metrics; middle: Storage·Metadata plugin services; bottom: Runtimes + dashed OS)</span></td></tr><tr><td>T2-5</td><td><a href="https://github.com/prometheus/prometheus">prometheus/prometheus</a></td><td><span class=l-ko>Prometheus 공식 아키텍처 다이어그램 (documentation/images/architecture.svg)</span><span class=l-en>Prometheus official architecture diagram (documentation/images/architecture.svg)</span></td><td><span class=l-ko>아키텍처 다이어그램 (Retrieval·Storage·PromQL + Service Discovery + Alertmanager)</span><span class=l-en>Architecture diagram (Retrieval·Storage·PromQL + Service Discovery + Alertmanager)</span></td></tr></table>
 
-<h2>검증 대상 저장소</h2>
-<p class=sub>모든 저장소는 각자의 오픈소스 라이선스를 따른다. 이 사이트에는 저장소의
-소스 코드를 포함하지 않으며, 스킬이 생성한 도면과 실행 기록만 포함한다.
-도면 안의 식별자(파일명·함수명·설정 키)는 해당 저장소에서 인용한 것이다.</p>
+<h2><span class=l-ko>검증 대상 저장소</span><span class=l-en>Repositories under validation</span></h2>
+<p class=sub><span class=l-ko>모든 저장소는 각자의 오픈소스 라이선스를 따른다. 이 사이트에는 저장소의 소스 코드를 포함하지 않으며, 스킬이 생성한 도면과 실행 기록만 포함한다. 도면 안의 식별자(파일명·함수명·설정 키)는 해당 저장소에서 인용한 것이다.</span><span class=l-en>Every repository is governed by its own open-source licence. This site does not include their source code — only the figures the skill produced and the record of the runs. Identifiers inside the figures (file names, function names, config keys) are quoted from those repositories.</span></p>
 
-<h2>생성물</h2>
-<p class=sub><code>figure.drawio</code>, <code>render.png</code>,
-<code>report.md</code>, 실행 화면 캡처는 이 검증 과정에서 생성한 것이다.</p>
+<h2><span class=l-ko>생성물</span><span class=l-en>Generated material</span></h2>
+<p class=sub><span class=l-ko><code>figure.drawio</code>, <code>render.png</code>, <code>report.md</code>, 실행 화면 캡처는 이 검증 과정에서 생성한 것이다.</span><span class=l-en><code>figure.drawio</code>, <code>render.png</code>, <code>report.md</code> and the screen captures were all produced during this validation.</span></p>
 
-<h2>문의</h2>
-<p class=sub>게시 중단을 포함해 문의가 있으면 저장소 이슈로 알려주기 바란다.
-이 사이트는 한시적으로 게시한다.</p>
+<h2><span class=l-ko>문의</span><span class=l-en>Contact</span></h2>
+<p class=sub><span class=l-ko>게시 중단을 포함해 문의가 있으면 저장소 이슈로 알려주기 바란다. 이 사이트는 한시적으로 게시한다.</span><span class=l-en>For any request, including takedown, please open an issue on the repository. This site is published for a limited period.</span></p>
 
-<footer>method-figure 검증 결과 · 출처 및 저작권</footer>
+<footer><span class=l-ko>method-figure 검증 결과 · 출처 및 저작권</span><span class=l-en>method-figure validation results · sources and copyright</span></footer>
 </div></body></html>

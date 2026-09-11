@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Restormer — 이미지 복원 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>Restormer — 이미지 복원 — method-figure</title>
+<meta name=t-ko content="Restormer — 이미지 복원 — method-figure">
+<meta name=t-en content="Restormer — Image Restoration — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T1M-3 · T1-M</p>
-<h1>Restormer — 이미지 복원</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/swz30/Restormer">swz30/Restormer</a></div><div><b>커밋</b><code>68dc6ac</code></div><div><b>규모</b>120 files, 4.4 MB (demo/ 샘플 이미지 포함)</div><div><b>유형</b>T1-M · M-P3 U자 + skip, M-P4 중첩 (블록은 한 번만 펼침)</div><div><b>정답지</b>arXiv:2111.09881 Figure 2</div><div><b>실행 시간</b>약 48분 (12:51 → 13:39) · 프레임 144장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T1M-3 · T1-M</p>
+<h1><span class=l-ko>Restormer — 이미지 복원</span><span class=l-en>Restormer — Image Restoration</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/swz30/Restormer">swz30/Restormer</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><code>68dc6ac</code></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b><span class=l-ko>120 files, 4.4 MB (demo/ 샘플 이미지 포함)</span><span class=l-en>120 files, 4.4 MB (includes demo/ sample images)</span></div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T1-M · <span class=l-ko>M-P3 U자 + skip, M-P4 중첩 (블록은 한 번만 펼침)</span><span class=l-en>M-P3 U-shape + skip, M-P4 nested (block unfolded only once)</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b>arXiv:2111.09881 Figure 2</div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 48분 (12:51 → 13:39) · 프레임 144장</span><span class=l-en>about 48 min (12:51 → 13:39) · 144 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>정답지는 <b>논문 Figure 2</b>이다. 저장소 <code>README.md</code> 가 네트워크 구조도를 <b>imgur 외부 링크</b>로 걸어두고 arXiv 도 링크한다.</li><li>리포트 기록: <q>The README links a network-architecture image on imgur and the arXiv paper; <b>neither was fetched</b>.</q> 쓴 README 내용은 저장소 파일 안에 있는 초록 문단 한 개뿐이고, 그것도 주장 문구 확인용이다.</li><li><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는 것을 확인하고 캡션에 <code>68dc6ac</code> 를 넣었다.</li><li>이 케이스는 <b>실제 샘플 이미지</b>(<code>demo/degraded/couple.jpg</code> → 복원본)가 저장소에 들어 있다. 사용 여부를 직접 판단해야 한다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>정답지는 <b>논문 Figure 2</b>이다. 저장소 <code>README.md</code> 가 네트워크 구조도를 <b>imgur 외부 링크</b>로 걸어두고 arXiv 도 링크한다.</span><span class=l-en>The answer key is <b>paper Figure 2</b>. The repository's <code>README.md</code> links the network architecture diagram as an <b>external imgur link</b> and also links arXiv.</span></li><li><span class=l-ko>리포트 기록: <q>The README links a network-architecture image on imgur and the arXiv paper; <b>neither was fetched</b>.</q> 쓴 README 내용은 저장소 파일 안에 있는 초록 문단 한 개뿐이고, 그것도 주장 문구 확인용이다.</span><span class=l-en>Report log: <q>The README links a network-architecture image on imgur and the arXiv paper; <b>neither was fetched</b>.</q> The only README content actually used was a single abstract paragraph inside the repository file, and even that was just to confirm a claim.</span></li><li><span class=l-ko><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는 것을 확인하고 캡션에 <code>68dc6ac</code> 를 넣었다.</span><span class=l-en>Confirmed that <code>rev-parse --show-toplevel</code> matches the target folder, and put <code>68dc6ac</code> in the caption.</span></li><li><span class=l-ko>이 케이스는 <b>실제 샘플 이미지</b>(<code>demo/degraded/couple.jpg</code> → 복원본)가 저장소에 들어 있다. 사용 여부를 직접 판단해야 한다.</span><span class=l-en>This case has <b>real sample images</b> (<code>demo/degraded/couple.jpg</code> → restored) in the repository. Whether to use them had to be judged directly.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\restormer
 
@@ -168,10 +197,29 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 144장 중 8장을 선별하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\restormer
+
+Read this repository and produce the methodology figure that belongs in the paper&#x27;s Figure 2 slot.
+
+Follow these rules:
+- Read only from this repository&#x27;s code. Do not look up the method&#x27;s paper, the authors&#x27; figures, or external images
+  linked from the repo README. The code decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\restormer\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (the raw material extracted by evidence.py),
+  render.png (a PNG render of the final figure),
+  render-r1.png (the render right before the independent visual gate first passed it).
+  If the gate passes on the first try, you don&#x27;t need to produce render-r1.png.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 144장 중 8장을 선별하였다.</span><span class=l-en>8 of 144 captured frames were selected.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -179,57 +227,63 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>PASS</td><td>1</td><td>XML 파싱 + 뷰어 기동 (전용 포트 8917)</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code> (엣지 라벨 0)</td><td>4</td><td>1라운드 <b>플래그 30건</b>: 라벨 넘침 28건, 화살표 z-order 1건. 4라운드에 <code>ok</code></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>3</td><td>1라운드 6건 → 2라운드 2건 → 3라운드 0건. 그중 <b>2건은 검사기 아티팩트</b>였고 DOM 을 조사하여 확인하였다</td></tr><tr><td>③-b 육안 자기점검</td><td>변경 1건</td><td>1</td><td>범례의 'Transformer blocks' 견본이 <b>주황 상자 한 개</b>여서 색을 잘못 표기하고 있었다</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>1 / 3</td><td>1라운드에 통과하였다. 따라서 <code>render-r1.png</code> 는 생성하지 않았다</td></tr></table>
-<div class=note>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① Render</span></td><td>PASS</td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동 (전용 포트 8917)</span><span class=l-en>XML parse + viewer launch (dedicated port 8917)</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><span class=l-ko><code>ok</code> (엣지 라벨 0)</span><span class=l-en><code>ok</code> (0 edge labels)</span></td><td>4</td><td><span class=l-ko>1라운드 <b>플래그 30건</b>: 라벨 넘침 28건, 화살표 z-order 1건. 4라운드에 <code>ok</code></span><span class=l-en>Round 1 <b>flagged 30 issues</b>: 28 label overflows, 1 arrow z-order. <code>ok</code> at round 4</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>3</td><td><span class=l-ko>1라운드 6건 → 2라운드 2건 → 3라운드 0건. 그중 <b>2건은 검사기 아티팩트</b>였고 DOM 을 조사하여 확인하였다</span><span class=l-en>Round 1: 6 → round 2: 2 → round 3: 0. Of those, <b>2 were checker artifacts</b>, confirmed by inspecting the DOM</span></td></tr><tr><td><span class=l-ko>③-b 육안 자기점검</span><span class=l-en>③-b visual self-check</span></td><td><span class=l-ko>변경 1건</span><span class=l-en>1 change</span></td><td>1</td><td><span class=l-ko>범례의 'Transformer blocks' 견본이 <b>주황 상자 한 개</b>여서 색을 잘못 표기하고 있었다</span><span class=l-en>The legend's 'Transformer blocks' swatch was a <b>single orange box</b>, mislabeling the color</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ independent visual gate</span></td><td><b>GATE: PASS</b></td><td>1 / 3</td><td><span class=l-ko>1라운드에 통과하였다. 따라서 <code>render-r1.png</code> 는 생성하지 않았다</span><span class=l-en>Passed on round 1. Therefore <code>render-r1.png</code> was not generated</span></td></tr></table>
+<div class=note><span class=l-ko>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</span><span class=l-en>The reviewer is given the rendered PNG and the raw checker output only — <b>no report, no stated intent, no step-by-step breakdown.</b> Growing the self-check list to 44 items did not improve the pass rate, so what was separated was the party doing the judging, not the checklist.</span></div>
 
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</span><span class=l-en>The output is draw.io XML, not an image. It zooms and pans, and it can be downloaded and edited.</span></p>
 
 
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — arXiv:2111.09881 Figure 2</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>전체 골격</td><td>4단 U자 + 스킵, 오른쪽에 (a)(b) 인셋</td><td>4단 U자 + 스킵, 아래에 (b) 인셋</td><td>위상은 같다. 인셋 위치는 가독성 폭 때문에 아래에 두었다</td></tr><tr><td>해상도·채널</td><td><code>H×W×C</code>, <code>H/2×W/2×2C</code> … 기호로</td><td><code>H × W, <b>48 ch</b></code> … <b>실수로</b></td><td><code>dim: 48</code> 등 저장소 option 파일 기본값을 그대로 읽어 넣었다</td></tr><tr><td>반복</td><td><code>× L₁ … × L₄</code> 기호</td><td>겹친 판 + <code>× 4 / × 6 / × 6 / × 8</code></td><td><code>num_blocks: [4,6,6,8]</code> 기본값. 접었고 범례에 접기 표기를 넣었다</td></tr><tr><td>스킵</td><td><code>ⓒ</code> 원 기호 + 'Skip Connections' 글자</td><td>가로 점선 + <b>회색 판</b>(concat), 같은 해상도끼리 수평 정렬</td><td>원 기호를 새로 만들지 않고 <b>판</b> 도형으로 처리하였다</td></tr><tr><td>블록 내부</td><td>(a) MDTA (b) GDFN 두 인셋, 색 채움</td><td>(b) 안에 MDTA·GDFN 두 하위 패널, <code>(C/h) × (C/h)</code> 명시</td><td>어텐션이 <b>채널 축</b>이라 <code>HW×HW</code> 가 아니라는 점이 이 논문의 핵심이다</td></tr><tr><td>기호 범례</td><td>왼쪽에 큰 범례 박스 (11항목, <code>⊕ ⊙ ⊗ ⓒ Ⓡ</code>)</td><td>위쪽 띠 6항목, 특수기호는 <code>+</code>·<code>x</code> 만</td><td>스킬이 <code>⊕ ⊗ ⊙ ⊘</code> 를 금지한다. 대신 원 안의 <code>+</code>/<code>x</code></td></tr><tr><td>샘플 이미지</td><td>실제 사진 before/after</td><td>없음 (<code>3 × H × W</code> 노트 카드)</td><td>저장소에 <b>있는데도</b> 사용하지 않았다. 이유는 리포트 §4-5</td></tr><tr><td>종횡비</td><td>가로로 넓은 2단 폭 그림</td><td><code>1348 × 1104</code>, 1.22:1</td><td>가독성 바닥값이 폭을 묶어서 패널이 세로로 쌓였다</td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — arXiv:2111.09881 Figure 2</figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>전체 골격</span><span class=l-en>Overall skeleton</span></td><td><span class=l-ko>4단 U자 + 스킵, 오른쪽에 (a)(b) 인셋</span><span class=l-en>4-stage U-shape + skip, (a)(b) insets on the right</span></td><td><span class=l-ko>4단 U자 + 스킵, 아래에 (b) 인셋</span><span class=l-en>4-stage U-shape + skip, (b) inset below</span></td><td><span class=l-ko>위상은 같다. 인셋 위치는 가독성 폭 때문에 아래에 두었다</span><span class=l-en>Same topology. The inset was placed below because of the readability width constraint</span></td></tr><tr><td><span class=l-ko>해상도·채널</span><span class=l-en>Resolution / channels</span></td><td><span class=l-ko><code>H×W×C</code>, <code>H/2×W/2×2C</code> … 기호로</span><span class=l-en><code>H×W×C</code>, <code>H/2×W/2×2C</code> … as symbols</span></td><td><span class=l-ko><code>H × W, <b>48 ch</b></code> … <b>실수로</b></span><span class=l-en><code>H × W, <b>48 ch</b></code> … <b>as actual numbers</b></span></td><td><span class=l-ko><code>dim: 48</code> 등 저장소 option 파일 기본값을 그대로 읽어 넣었다</span><span class=l-en>Values such as <code>dim: 48</code> were read directly from the repository's option file defaults</span></td></tr><tr><td><span class=l-ko>반복</span><span class=l-en>Repetition</span></td><td><span class=l-ko><code>× L₁ … × L₄</code> 기호</span><span class=l-en><code>× L₁ … × L₄</code> symbols</span></td><td><span class=l-ko>겹친 판 + <code>× 4 / × 6 / × 6 / × 8</code></span><span class=l-en>overlapping plates + <code>× 4 / × 6 / × 6 / × 8</code></span></td><td><span class=l-ko><code>num_blocks: [4,6,6,8]</code> 기본값. 접었고 범례에 접기 표기를 넣었다</span><span class=l-en><code>num_blocks: [4,6,6,8]</code> defaults. Folded, with the fold notation given in the legend</span></td></tr><tr><td><span class=l-ko>스킵</span><span class=l-en>Skip</span></td><td><span class=l-ko><code>ⓒ</code> 원 기호 + 'Skip Connections' 글자</span><span class=l-en><code>ⓒ</code> circle symbol + 'Skip Connections' text</span></td><td><span class=l-ko>가로 점선 + <b>회색 판</b>(concat), 같은 해상도끼리 수평 정렬</span><span class=l-en>horizontal dashed line + <b>gray plate</b> (concat), horizontally aligned at matching resolutions</span></td><td><span class=l-ko>원 기호를 새로 만들지 않고 <b>판</b> 도형으로 처리하였다</span><span class=l-en>Handled with a <b>plate</b> shape instead of creating a new circle symbol</span></td></tr><tr><td><span class=l-ko>블록 내부</span><span class=l-en>Inside the block</span></td><td><span class=l-ko>(a) MDTA (b) GDFN 두 인셋, 색 채움</span><span class=l-en>(a) MDTA (b) GDFN, two insets, color-filled</span></td><td><span class=l-ko>(b) 안에 MDTA·GDFN 두 하위 패널, <code>(C/h) × (C/h)</code> 명시</span><span class=l-en>MDTA and GDFN as two sub-panels inside (b), with <code>(C/h) × (C/h)</code> made explicit</span></td><td><span class=l-ko>어텐션이 <b>채널 축</b>이라 <code>HW×HW</code> 가 아니라는 점이 이 논문의 핵심이다</span><span class=l-en>The paper's key point is that attention is over the <b>channel axis</b>, so it is <code>(C/h) × (C/h)</code> and not <code>HW×HW</code></span></td></tr><tr><td><span class=l-ko>기호 범례</span><span class=l-en>Symbol legend</span></td><td><span class=l-ko>왼쪽에 큰 범례 박스 (11항목, <code>⊕ ⊙ ⊗ ⓒ Ⓡ</code>)</span><span class=l-en>large legend box on the left (11 items, <code>⊕ ⊙ ⊗ ⓒ Ⓡ</code>)</span></td><td><span class=l-ko>위쪽 띠 6항목, 특수기호는 <code>+</code>·<code>x</code> 만</span><span class=l-en>top strip, 6 items, only <code>+</code>/<code>x</code> as special symbols</span></td><td><span class=l-ko>스킬이 <code>⊕ ⊗ ⊙ ⊘</code> 를 금지한다. 대신 원 안의 <code>+</code>/<code>x</code></span><span class=l-en>The skill prohibits <code>⊕ ⊗ ⊙ ⊘</code>. <code>+</code>/<code>x</code> inside a circle used instead</span></td></tr><tr><td><span class=l-ko>샘플 이미지</span><span class=l-en>Sample images</span></td><td><span class=l-ko>실제 사진 before/after</span><span class=l-en>real before/after photos</span></td><td><span class=l-ko>없음 (<code>3 × H × W</code> 노트 카드)</span><span class=l-en>none (<code>3 × H × W</code> note card)</span></td><td><span class=l-ko>저장소에 <b>있는데도</b> 사용하지 않았다. 이유는 리포트 §4-5</span><span class=l-en>Present in the repository but <b>not used</b>. Reason in report §4-5</span></td></tr><tr><td><span class=l-ko>종횡비</span><span class=l-en>Aspect ratio</span></td><td><span class=l-ko>가로로 넓은 2단 폭 그림</span><span class=l-en>wide, two-tier layout</span></td><td><code>1348 × 1104</code>, 1.22:1</td><td><span class=l-ko>가독성 바닥값이 폭을 묶어서 패널이 세로로 쌓였다</span><span class=l-en>The readability floor value constrained the width, so panels stacked vertically</span></td></tr></table>
 
-<footer>method-figure · T1M-3 restormer · 산출물 경로 <code>out/demo/restormer/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T1M-3 restormer · 산출물 경로 <code>out/demo/restormer/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T1M-3 restormer · output path <code>out/demo/restormer/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "같은 형식이며 대상만 다르다. 이 저장소는 저자 구조도를 <b>외부 링크</b>로 걸어두고 있어서, 블라인드 조건이 파일을 열지 않는 것에 더해 <b>외부 이미지를 내려받지 않는 것</b>까지 포함한다."], ["shots/02-evidence.png", "유형 판정", "<q>This confirms Restormer fits T1-M given its module structure, forward pass, transformer blocks, and U-shaped architecture.</q> 스킬 지침과 저장소를 <b>함께</b> 읽으면서 유형을 확정하고, 이어서 <code>restormer_arch.py</code> 전문과 커밋 SHA 를 확인한다."], ["shots/03-decide.png", "관통 예시 사용 여부 판단", "<q>The repo actually includes real demo images … using <code>couple.jpg</code> and its restored counterpart as the running example is well justified.</q> 사용하기로 했다가 이후 철회하였다. 가독성 규칙이 강제한 캔버스 폭에서 끝 카드가 약 80px 로 작아 그 크기에서는 식별이 어렵기 때문이다. 그 경위를 리포트에 기록하였다."], ["shots/05-machine-gates.png", "기계 게이트 → 자체 육안 점검 → 독립 심사", "한 화면에 순서가 다 보인다: <code>render-measurement gate</code> → <q>Gate ③ (my own eyeball) found one issue</q> → <q>I've submitted the figure to the independent visual gate.</q> 각 단계가 서로를 대신하지 않는다."], ["shots/06-selfcheck.png", "육안 자기점검이 검출한 결함", "<q>the legend's \"Transformer blocks\" swatch is a single orange box, <b>which wrongly asserts orange = transformer blocks</b>. Fixing it to a 3-plate stack icon.</q> 인코더 스택은 청회색이고 디코더만 주황이었다. 견본이 <b>색</b> 대신 <b>겹치는 장치</b>를 설명하도록 수정하였다."], ["shots/07-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A 6항목·B 6항목·C 5항목 + 장르 검사까지 전부 PASS. <q>Wrong-page check PASS — render is explicitly about Restormer image restoration and matches <code>restormer_arch.py</code>.</q> 심사자에게는 PNG·확대 3장·검사 원문·저장소 경로만 제공하였다."], ["shots/08-figure.png", "산출물", "<q>Done. All five artifacts are in <code>out\\demo\\restormer\\run\\</code>.</q> 게이트 ④ 가 1라운드에 통과했으므로 <code>render-r1.png</code> 는 <b>생성하지 않았다</b>. 브리프의 지침에 따른 것이다."], ["shots/09-checks.png", "그림을 결정한 요인과 검사 요약", "<q>What decided the drawing: T1-M (model structure) — <code>restormer_arch.py</code> defines 8 <code>nn.Module</code> subclasses with <code>forward()</code> and zero API calls. Topology is M-P3 (U) with symmetric <code>down*/up*</code> pairs and <code>torch.cat</code> skips … folded to 3 plates + × N, interior opened once as panel (b).</q> 이어서 <q>Only the repo was read.</q> 와 게이트 표가 한 화면에 표시된다: <code>1348 × 1104, 1.22:1</code>, 글리프 <code>['→']</code>, 폰트 132/132, ④ 가 1라운드에 통과해 <code>render-r1.png</code> 는 사용되지 않았다."]];
+const shots=[["shots/01-prompt.png", "프롬프트", "같은 형식이며 대상만 다르다. 이 저장소는 저자 구조도를 <b>외부 링크</b>로 걸어두고 있어서, 블라인드 조건이 파일을 열지 않는 것에 더해 <b>외부 이미지를 내려받지 않는 것</b>까지 포함한다.", "Prompt", "Same format, different target only. This repository links the authors' architecture diagram as an <b>external link</b>, so the blind conditions include not only never opening the file but also <b>never downloading the external image</b>."], ["shots/02-evidence.png", "유형 판정", "<q>This confirms Restormer fits T1-M given its module structure, forward pass, transformer blocks, and U-shaped architecture.</q> 스킬 지침과 저장소를 <b>함께</b> 읽으면서 유형을 확정하고, 이어서 <code>restormer_arch.py</code> 전문과 커밋 SHA 를 확인한다.", "Type determination", "<q>This confirms Restormer fits T1-M given its module structure, forward pass, transformer blocks, and U-shaped architecture.</q> The type is confirmed by reading the skill guidance <b>together</b> with the repository, then the full text of <code>restormer_arch.py</code> and the commit SHA are checked."], ["shots/03-decide.png", "관통 예시 사용 여부 판단", "<q>The repo actually includes real demo images … using <code>couple.jpg</code> and its restored counterpart as the running example is well justified.</q> 사용하기로 했다가 이후 철회하였다. 가독성 규칙이 강제한 캔버스 폭에서 끝 카드가 약 80px 로 작아 그 크기에서는 식별이 어렵기 때문이다. 그 경위를 리포트에 기록하였다.", "Deciding whether to use the running example", "<q>The repo actually includes real demo images … using <code>couple.jpg</code> and its restored counterpart as the running example is well justified.</q> It was chosen and then withdrawn, because at the canvas width forced by the readability rule the end card is only about 80px, too small to make out at that size. That reasoning was recorded in the report."], ["shots/05-machine-gates.png", "기계 게이트 → 자체 육안 점검 → 독립 심사", "한 화면에 순서가 다 보인다: <code>render-measurement gate</code> → <q>Gate ③ (my own eyeball) found one issue</q> → <q>I've submitted the figure to the independent visual gate.</q> 각 단계가 서로를 대신하지 않는다.", "Machine gates → own visual check → independent review", "The sequence is all visible on one screen: <code>render-measurement gate</code> → <q>Gate ③ (my own eyeball) found one issue</q> → <q>I've submitted the figure to the independent visual gate.</q> No step substitutes for another."], ["shots/06-selfcheck.png", "육안 자기점검이 검출한 결함", "<q>the legend's \"Transformer blocks\" swatch is a single orange box, <b>which wrongly asserts orange = transformer blocks</b>. Fixing it to a 3-plate stack icon.</q> 인코더 스택은 청회색이고 디코더만 주황이었다. 견본이 <b>색</b> 대신 <b>겹치는 장치</b>를 설명하도록 수정하였다.", "Defect flagged by the visual self-check", "<q>the legend's \"Transformer blocks\" swatch is a single orange box, <b>which wrongly asserts orange = transformer blocks</b>. Fixing it to a 3-plate stack icon.</q> The encoder stack was blue-gray and only the decoder was orange. Fixed so the swatch describes <b>overlapping devices</b> instead of <b>color</b>."], ["shots/07-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A 6항목·B 6항목·C 5항목 + 장르 검사까지 전부 PASS. <q>Wrong-page check PASS — render is explicitly about Restormer image restoration and matches <code>restormer_arch.py</code>.</q> 심사자에게는 PNG·확대 3장·검사 원문·저장소 경로만 제공하였다.", "Gate ④ round 1 PASS", "A (6 items), B (6 items), C (5 items), plus the genre check — all PASS. <q>Wrong-page check PASS — render is explicitly about Restormer image restoration and matches <code>restormer_arch.py</code>.</q> The reviewer was given only the PNG, 3 zoom crops, the check transcript, and the repository path."], ["shots/08-figure.png", "산출물", "<q>Done. All five artifacts are in <code>out\\demo\\restormer\\run\\</code>.</q> 게이트 ④ 가 1라운드에 통과했으므로 <code>render-r1.png</code> 는 <b>생성하지 않았다</b>. 브리프의 지침에 따른 것이다.", "Output", "<q>Done. All five artifacts are in <code>out\\demo\\restormer\\run\\</code>.</q> Since gate ④ passed on round 1, <code>render-r1.png</code> was <b>not generated</b>, per the brief's instructions."], ["shots/09-checks.png", "그림을 결정한 요인과 검사 요약", "<q>What decided the drawing: T1-M (model structure) — <code>restormer_arch.py</code> defines 8 <code>nn.Module</code> subclasses with <code>forward()</code> and zero API calls. Topology is M-P3 (U) with symmetric <code>down*/up*</code> pairs and <code>torch.cat</code> skips … folded to 3 plates + × N, interior opened once as panel (b).</q> 이어서 <q>Only the repo was read.</q> 와 게이트 표가 한 화면에 표시된다: <code>1348 × 1104, 1.22:1</code>, 글리프 <code>['→']</code>, 폰트 132/132, ④ 가 1라운드에 통과해 <code>render-r1.png</code> 는 사용되지 않았다.", "What decided the figure and the check summary", "<q>What decided the drawing: T1-M (model structure) — <code>restormer_arch.py</code> defines 8 <code>nn.Module</code> subclasses with <code>forward()</code> and zero API calls. Topology is M-P3 (U) with symmetric <code>down*/up*</code> pairs and <code>torch.cat</code> skips … folded to 3 plates + × N, interior opened once as panel (b).</q> Followed by <q>Only the repo was read.</q> and the gate table shown on one screen: <code>1348 × 1104, 1.22:1</code>, glyphs <code>['→']</code>, font 132/132, ④ passed on round 1 so <code>render-r1.png</code> was unused."]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

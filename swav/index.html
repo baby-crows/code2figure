@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>SwAV — 자기지도 사전학습 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>SwAV — 자기지도 사전학습 — method-figure</title>
+<meta name=t-ko content="SwAV — 자기지도 사전학습 — method-figure">
+<meta name=t-en content="SwAV — Self-Supervised Pretraining — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T1M-1 · T1-M</p>
-<h1>SwAV — 자기지도 사전학습</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/facebookresearch/swav">facebookresearch/swav</a></div><div><b>커밋</b><code>06b1b7c</code></div><div><b>규모</b>26 files, 65 KB</div><div><b>유형</b>T1-M · M-P6 변형 (두 갈래 + 교환 예측)</div><div><b>정답지</b>arXiv:2006.09882 Figure 1 (오른쪽 패널)</div><div><b>실행 시간</b>약 32분 (19:19 → 19:51) · 프레임 94장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T1M-1 · T1-M</p>
+<h1><span class=l-ko>SwAV — 자기지도 사전학습</span><span class=l-en>SwAV — Self-Supervised Pretraining</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/facebookresearch/swav">facebookresearch/swav</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><code>06b1b7c</code></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b>26 files, 65 KB</div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T1-M · <span class=l-ko>M-P6 변형 (두 갈래 + 교환 예측)</span><span class=l-en>M-P6 variant (two branches + swapped prediction)</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b><span class=l-ko>arXiv:2006.09882 Figure 1 (오른쪽 패널)</span><span class=l-en>arXiv:2006.09882 Figure 1 (right panel)</span></div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 32분 (19:19 → 19:51) · 프레임 94장</span><span class=l-en>about 32 min (19:19 → 19:51) · 94 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>정답지는 <b>논문 Figure 1</b>이고 저장소 안에 없다. 저장소 클론만으로 블라인드 조건이 성립한다.</li><li>다만 <code>README.md:5</code> 가 외부 URL 로 illustration GIF 를 링크한다. 그래서 프롬프트에 <b>논문·저자 그림·외부 이미지를 찾지 말 것</b>을 명시하였다.</li><li>리포트 기록: <q>이 저장소의 코드/스크립트만 읽었다. 논문, 저자 그림, README가 링크한 외부 이미지는 열지 않았다. 웹 검색 0건.</q></li><li>커밋은 알려주지 않았다. 스킬이 <code>rev-parse --show-toplevel</code> 로 대상과 대조하는지 확인하기 위해서다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>정답지는 <b>논문 Figure 1</b>이고 저장소 안에 없다. 저장소 클론만으로 블라인드 조건이 성립한다.</span><span class=l-en>The answer key is <b>paper Figure 1</b>, which is not in the repository. Cloning the repository alone establishes blind conditions.</span></li><li><span class=l-ko>다만 <code>README.md:5</code> 가 외부 URL 로 illustration GIF 를 링크한다. 그래서 프롬프트에 <b>논문·저자 그림·외부 이미지를 찾지 말 것</b>을 명시하였다.</span><span class=l-en>However, <code>README.md:5</code> links an illustration GIF at an external URL. So the prompt explicitly states <b>do not look up the paper, the authors' figure, or external images</b>.</span></li><li><span class=l-ko>리포트 기록: <q>이 저장소의 코드/스크립트만 읽었다. 논문, 저자 그림, README가 링크한 외부 이미지는 열지 않았다. 웹 검색 0건.</q></span><span class=l-en>Report entry: <q>Only this repository's code and scripts were read. The paper, the authors' figure, and the external images the README links to were not opened. 0 web searches.</q></span></li><li><span class=l-ko>커밋은 알려주지 않았다. 스킬이 <code>rev-parse --show-toplevel</code> 로 대상과 대조하는지 확인하기 위해서다.</span><span class=l-en>The commit was not disclosed. This is to verify whether the skill checks the target against <code>rev-parse --show-toplevel</code>.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\swav
 
@@ -164,10 +193,25 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   figure.drawio, fig.html, report.md 세 개.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 94장 중 5장을 선별하였다. 게이트 ④ 와 최종 도면은 아래에 영상으로 별도 수록하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\swav
+
+Read this repository and produce the methodology figure that belongs in the paper&#x27;s Figure 1 slot.
+
+Follow these rules:
+- Read only from this repository&#x27;s code. Do not look up the method&#x27;s paper, the authors&#x27; figures, or external images
+  linked from the repo README. The code decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\swav\run\
+  figure.drawio, fig.html, report.md — three files.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 94장 중 5장을 선별하였다.</span><span class=l-en>5 of 94 captured frames were selected.</span><span class=l-ko> 게이트 ④ 와 최종 도면은 아래에 영상으로 별도 수록하였다.</span><span class=l-en> Gate ④ and the final figure are carried separately as video below.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -175,71 +219,76 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>통과</td><td>1</td><td>XML 파싱 + 뷰어 기동</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code>, exit 0</td><td>4 (최종본 7)</td><td>글자 넘침 3건, 미검증 커밋 1건, 화살표 z-order 1건을 검출하였다</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>2 (최종본 3)</td><td>라벨 위를 지나는 화살표 1건, 화살표 교차 1건을 검출하였다</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>2</td><td>1차 판정에서 <b>C5 FAIL</b>, 접힌 반복(× 6)에 범례 항목이 없다</td></tr></table>
-<div class=note>기계 검사 셋이 전부 <code>ok</code> 인 그림을 <b>독립 시각 게이트가 떨어뜨렸다.</b> 심사자에게는 렌더 PNG 와 검사 원문만 주고 보고서·의도·단계 분해는 주지 않는다 — 자기 그림을 자기가 판정하면 통과하기 때문이다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① Render</span></td><td><span class=l-ko>통과</span><span class=l-en>pass</span></td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동</span><span class=l-en>XML parsing + viewer launch</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code>, exit 0</td><td><span class=l-ko>4 (최종본 7)</span><span class=l-en>4 (final 7)</span></td><td><span class=l-ko>글자 넘침 3건, 미검증 커밋 1건, 화살표 z-order 1건을 검출하였다</span><span class=l-en>flagged 3 text overflows, 1 unverified commit, 1 arrow z-order issue</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td><span class=l-ko>2 (최종본 3)</span><span class=l-en>2 (final 3)</span></td><td><span class=l-ko>라벨 위를 지나는 화살표 1건, 화살표 교차 1건을 검출하였다</span><span class=l-en>flagged 1 arrow crossing over a label, 1 arrow crossing</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ independent visual gate</span></td><td><b>GATE: PASS</b></td><td>2</td><td><span class=l-ko>1차 판정에서 <b>C5 FAIL</b>, 접힌 반복(× 6)에 범례 항목이 없다</span><span class=l-en>round 1 ruled <b>C5 FAIL</b>: the folded repetition (× 6) has no legend entry</span></td></tr></table>
+<div class=note><span class=l-ko>기계 검사 셋이 전부 <code>ok</code> 인 그림을 <b>독립 시각 게이트가 떨어뜨렸다.</b> 심사자에게는 렌더 PNG 와 검사 원문만 주고 보고서·의도·단계 분해는 주지 않는다 — 자기 그림을 자기가 판정하면 통과하기 때문이다.</span><span class=l-en>The <b>independent visual gate rejected</b> a figure for which all three machine checks had returned <code>ok</code>. The reviewer is given only the rendered PNG and the raw checker output — no report, intent, or step breakdown — because a figure judged by its own author always passes.</span></div>
 
-<h2>게이트 ④ 반려 후 변경 사항</h2>
-<p class=sub>기계 검사 3종을 통과한 도면이 독립 심사에서 반려되고, 수정 후 재통과하는
-1회 순환은 정지 화면으로 제시하기 어려워 실행 중 캡처한 프레임을 이어 붙였다 (19:45:44 → 19:51:30, 27프레임 · 28초).</p>
+<h2><span class=l-ko>게이트 ④ 반려 후 변경 사항</span><span class=l-en>What changed after the gate ④ rejection</span></h2>
+<p class=sub><span class=l-ko>기계 검사 3종을 통과한 도면이 독립 심사에서 반려되고, 수정 후 재통과하는 1회 순환은 정지 화면으로 제시하기 어려워 실행 중 캡처한 프레임을 이어 붙였다 (19:45:44 → 19:51:30, 27프레임 · 28초).</span><span class=l-en>One full cycle — a figure that cleared all three machine checks, rejected by the independent review, revised, and passed again — does not read as stills, so the frames captured during the run were stitched together (19:45:44 → 19:51:30, 27 frames · 28 sec).</span></p>
 <video src="video/gate4.webm" controls preload=metadata
   poster="shots/06-gate4-fail.png"></video>
-<p class=sub>기계 검사 3종이 모두 <code>ok</code> 였다. 반려 사유는 한 가지이다: <q>repetition is folded as “Local crops … × 6”, but the legend has no folded-repetition sample or line explaining that notation.</q> 접기 표기를 사용하면 그 표기를 설명해야 한다는 것이다. 전체 그림에서는 몇 픽셀 차이로 잘 보이지 않으므로 범례 띠만 잘라 표시한다.</p>
+<p class=sub><span class=l-ko>기계 검사 3종이 모두 <code>ok</code> 였다. 반려 사유는 한 가지이다: <q>repetition is folded as “Local crops … × 6”, but the legend has no folded-repetition sample or line explaining that notation.</q> 접기 표기를 사용하면 그 표기를 설명해야 한다는 것이다. 전체 그림에서는 몇 픽셀 차이로 잘 보이지 않으므로 범례 띠만 잘라 표시한다.</span><span class=l-en>All three machine checks returned <code>ok</code>. There was one rejection reason: <q>repetition is folded as “Local crops … × 6”, but the legend has no folded-repetition sample or line explaining that notation.</q> Using folded notation requires explaining that notation. Since the difference is only a few pixels and hard to see in the full figure, only the legend strip is cropped and shown.</span></p>
 <div class=side>
-<figure><img src="legend-before.png" alt="before"><figcaption>1라운드 — 범례 3개. <code>× 6</code> 이 무슨 뜻인지 그림 어디에도 없다</figcaption></figure>
-<figure><img src="legend-after.png" alt="after"><figcaption>2라운드 — 범례 4개. 카드 견본 + <q>× 6 marks a branch drawn once for six crops</q></figcaption></figure>
+<figure><img src="legend-before.png" alt="before"><figcaption><span class=l-ko>1라운드 — 범례 3개. <code>× 6</code> 이 무슨 뜻인지 그림 어디에도 없다</span><span class=l-en>round 1 — 3 legend entries. There is nothing anywhere in the figure explaining what <code>× 6</code> means</span></figcaption></figure>
+<figure><img src="legend-after.png" alt="after"><figcaption><span class=l-ko>2라운드 — 범례 4개. 카드 견본 + <q>× 6 marks a branch drawn once for six crops</q></span><span class=l-en>round 2 — 4 legend entries. Card sample + <q>× 6 marks a branch drawn once for six crops</q></span></figcaption></figure>
 </div>
 <div class=side style="margin-top:16px">
-<figure><img src="round1.png" alt="round1"><figcaption>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</figcaption></figure>
-<figure><img src="ours.png" alt="final"><figcaption>2라운드 전체 (<span class=pass>GATE: PASS</span>)</figcaption></figure>
+<figure><img src="round1.png" alt="round1"><figcaption><span class=l-ko>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</span><span class=l-en>round 1, whole figure (<span class=fail>GATE: FAIL</span>)</span></figcaption></figure>
+<figure><img src="ours.png" alt="final"><figcaption><span class=l-ko>2라운드 전체 (<span class=pass>GATE: PASS</span>)</span><span class=l-en>round 2, whole figure (<span class=pass>GATE: PASS</span>)</span></figcaption></figure>
 </div>
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 정지 화면으로는 확인이 어려워 동일 배율 확대 비교를 영상으로 첨부하였다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 정지 화면으로는 확인이 어려워 동일 배율 확대 비교를 영상으로 첨부하였다.</span><span class=l-en>The output is draw.io XML, not an image. That is hard to show in a still, so a like-for-like zoom comparison is attached as video.</span></p>
 <video src="video/figure.webm" controls preload=metadata poster="shots/08-figure.png"></video>
-<p class=sub>아래는 해당 파일을 그대로 로드한 뷰어이다. 확대·이동이 가능하다.</p>
+<p class=sub><span class=l-ko>아래는 해당 파일을 그대로 로드한 뷰어이다. 확대·이동이 가능하다.</span><span class=l-en>Below is a viewer with that same file loaded. It zooms and pans.</span></p>
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — arXiv:2006.09882 Figure 1 (오른쪽 패널)</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>사다리꼴 인코더</td><td><code>f_θ</code> 사다리꼴 2개</td><td>ResNet-50 사다리꼴 3개 + <code>224²→7²</code>, <code>64→2048 ch</code></td><td>코드에서 읽은 stride 로 해상도를 계산하여 표기하였다</td></tr><tr><td>프로토타입</td><td><code>C</code> 회색 박스</td><td>세 행에 걸친 세로 박스 <code>128 × 3000</code></td><td>공유된다는 사실을 배치로 표현하였다</td></tr><tr><td>코드 <code>Q</code></td><td><code>Q₁</code>, <code>Q₂</code> 박스</td><td>Sinkhorn-Knopp 박스 + <code>ε = 0.05</code>, 3 iterations</td><td>파란색 = <code>torch.no_grad</code></td></tr><tr><td>교환 예측</td><td><q>Swapped Prediction</q> 박스</td><td><code>q₂</code> 를 <code>p₁</code> 옆에 배치, 만나는 자리에 loss 글자</td><td>대각선으로 그리면 교차가 발생해 게이트 ③ 에 걸린다</td></tr><tr><td>뷰 개수</td><td>2개</td><td>2 global + 6 local (× 6 접기)</td><td>코드 설정 <code>--nmb_crops 2 6</code> 에 근거한다</td></tr><tr><td>대조학습 패널</td><td>왼쪽에 비교군</td><td>없음</td><td>코드에 없는 구성 요소여서 그리지 않았다</td></tr><tr><td>queue</td><td>없음</td><td>없음 (캡션에 명시)</td><td>선택 기능이며 기본값이 0이다</td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — <span class=l-ko>arXiv:2006.09882 Figure 1 (오른쪽 패널)</span><span class=l-en>arXiv:2006.09882 Figure 1 (right panel)</span></figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>사다리꼴 인코더</span><span class=l-en>Trapezoid encoders</span></td><td><span class=l-ko><code>f_θ</code> 사다리꼴 2개</span><span class=l-en>2 <code>f_θ</code> trapezoids</span></td><td><span class=l-ko>ResNet-50 사다리꼴 3개 + <code>224²→7²</code>, <code>64→2048 ch</code></span><span class=l-en>3 ResNet-50 trapezoids + <code>224²→7²</code>, <code>64→2048 ch</code></span></td><td><span class=l-ko>코드에서 읽은 stride 로 해상도를 계산하여 표기하였다</span><span class=l-en>Resolutions were computed and labeled from the stride read from the code</span></td></tr><tr><td><span class=l-ko>프로토타입</span><span class=l-en>Prototypes</span></td><td><span class=l-ko><code>C</code> 회색 박스</span><span class=l-en><code>C</code> gray box</span></td><td><span class=l-ko>세 행에 걸친 세로 박스 <code>128 × 3000</code></span><span class=l-en>Vertical box spanning three rows <code>128 × 3000</code></span></td><td><span class=l-ko>공유된다는 사실을 배치로 표현하였다</span><span class=l-en>The fact that it is shared was expressed through layout</span></td></tr><tr><td><span class=l-ko>코드 <code>Q</code></span><span class=l-en>Code <code>Q</code></span></td><td><span class=l-ko><code>Q₁</code>, <code>Q₂</code> 박스</span><span class=l-en><code>Q₁</code>, <code>Q₂</code> boxes</span></td><td><span class=l-ko>Sinkhorn-Knopp 박스 + <code>ε = 0.05</code>, 3 iterations</span><span class=l-en>Sinkhorn-Knopp box + <code>ε = 0.05</code>, 3 iterations</span></td><td><span class=l-ko>파란색 = <code>torch.no_grad</code></span><span class=l-en>blue = <code>torch.no_grad</code></span></td></tr><tr><td><span class=l-ko>교환 예측</span><span class=l-en>Swapped prediction</span></td><td><span class=l-ko><q>Swapped Prediction</q> 박스</span><span class=l-en><q>Swapped Prediction</q> box</span></td><td><span class=l-ko><code>q₂</code> 를 <code>p₁</code> 옆에 배치, 만나는 자리에 loss 글자</span><span class=l-en><code>q₂</code> placed next to <code>p₁</code>, loss text at the point where they meet</span></td><td><span class=l-ko>대각선으로 그리면 교차가 발생해 게이트 ③ 에 걸린다</span><span class=l-en>Drawing it diagonally would create a crossing and trigger gate ③</span></td></tr><tr><td><span class=l-ko>뷰 개수</span><span class=l-en>Number of views</span></td><td><span class=l-ko>2개</span><span class=l-en>2</span></td><td><span class=l-ko>2 global + 6 local (× 6 접기)</span><span class=l-en>2 global + 6 local (× 6 folded)</span></td><td><span class=l-ko>코드 설정 <code>--nmb_crops 2 6</code> 에 근거한다</span><span class=l-en>Based on the code setting <code>--nmb_crops 2 6</code></span></td></tr><tr><td><span class=l-ko>대조학습 패널</span><span class=l-en>Contrastive learning panel</span></td><td><span class=l-ko>왼쪽에 비교군</span><span class=l-en>Comparison group on the left</span></td><td><span class=l-ko>없음</span><span class=l-en>none</span></td><td><span class=l-ko>코드에 없는 구성 요소여서 그리지 않았다</span><span class=l-en>Not drawn because it is not a component present in the code</span></td></tr><tr><td>queue</td><td><span class=l-ko>없음</span><span class=l-en>none</span></td><td><span class=l-ko>없음 (캡션에 명시)</span><span class=l-en>none (stated in the caption)</span></td><td><span class=l-ko>선택 기능이며 기본값이 0이다</span><span class=l-en>It is an optional feature and defaults to 0</span></td></tr></table>
 
-<footer>method-figure · T1M-1 swav · 산출물 경로 <code>out/demo/swav/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T1M-1 swav · 산출물 경로 <code>out/demo/swav/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T1M-1 swav · output path <code>out/demo/swav/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건만 준다. 무엇을 그릴지는 말하지 않는다."], ["shots/02-evidence.png", "근거 수집", "대상 저장소와 스킬 자산을 함께 읽는다. <code>evidence.py</code> 가 컴포넌트 20개·loss 4개를 추출하였고, 이 값이 T1-M 판별의 실측 근거가 된다."], ["shots/03-decide.png", "유형·위상 판정", "<q>T1-M (nn.Module + forward + channel args, zero API calls), topology M-P6-like two-branch with shared weights and swapped codes.</q> MoCo·BYOL·DINO 의 teacher–student 와 달리 <b>가중치를 공유</b>한다는 점까지 구별하였다."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>Machine gates are clean. Now the independent visual gate is a reviewer that sees only the rendering and the raw checker output.</q> 심사자에게 <b>PNG 와 검사 원문만</b> 전달한다. 보고서·의도·단계 분해는 제공하지 않는다."], ["shots/09-checks.png", "검사 요약", "크기 1015×724 (1.40:1), 본문 12px = 캔버스 폭의 1.18%, 엣지 라벨 0개, em-dash 0, 이모지 0. T1-M 은 엣지 라벨 상한이 0인데 처음부터 지켰다."]];
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건만 준다. 무엇을 그릴지는 말하지 않는다.", "Prompt", "Only the repository's absolute path, the output path, and the blind conditions are given. It does not say what to draw."], ["shots/02-evidence.png", "근거 수집", "대상 저장소와 스킬 자산을 함께 읽는다. <code>evidence.py</code> 가 컴포넌트 20개·loss 4개를 추출하였고, 이 값이 T1-M 판별의 실측 근거가 된다.", "Gathering evidence", "Reads the target repository together with the skill assets. <code>evidence.py</code> extracted 20 components and 4 losses, and this data is the empirical basis for the T1-M determination."], ["shots/03-decide.png", "유형·위상 판정", "<q>T1-M (nn.Module + forward + channel args, zero API calls), topology M-P6-like two-branch with shared weights and swapped codes.</q> MoCo·BYOL·DINO 의 teacher–student 와 달리 <b>가중치를 공유</b>한다는 점까지 구별하였다.", "Type and topology determination", "<q>T1-M (nn.Module + forward + channel args, zero API calls), topology M-P6-like two-branch with shared weights and swapped codes.</q> Unlike the teacher–student setup in MoCo, BYOL, and DINO, it also distinguished that the weights are <b>shared</b>."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>Machine gates are clean. Now the independent visual gate is a reviewer that sees only the rendering and the raw checker output.</q> 심사자에게 <b>PNG 와 검사 원문만</b> 전달한다. 보고서·의도·단계 분해는 제공하지 않는다.", "Machine gates pass", "<q>Machine gates are clean. Now the independent visual gate is a reviewer that sees only the rendering and the raw checker output.</q> Only the <b>PNG and the raw checker output</b> are given to the reviewer. No report, intent, or step breakdown is provided."], ["shots/09-checks.png", "검사 요약", "크기 1015×724 (1.40:1), 본문 12px = 캔버스 폭의 1.18%, 엣지 라벨 0개, em-dash 0, 이모지 0. T1-M 은 엣지 라벨 상한이 0인데 처음부터 지켰다.", "Check summary", "Size 1015×724 (1.40:1), body text 12px = 1.18% of canvas width, 0 edge labels, 0 em-dashes, 0 emoji. T1-M caps edge labels at 0, and this was met from the start."]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

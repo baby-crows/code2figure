@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Score-SDE — 스코어 기반 생성모형 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>Score-SDE — 스코어 기반 생성모형 — method-figure</title>
+<meta name=t-ko content="Score-SDE — 스코어 기반 생성모형 — method-figure">
+<meta name=t-en content="Score-SDE — Score-Based Generative Model — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T1M-5 · T1-M</p>
-<h1>Score-SDE — 스코어 기반 생성모형</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/yang-song/score_sde_pytorch">yang-song/score_sde_pytorch</a></div><div><b>커밋</b><code>cb1f359</code></div><div><b>규모</b>82 files, 5.2 MB</div><div><b>유형</b>T1-M · M-P5 시간 롤아웃(바깥) + M-P3 U자형 스코어 망(안, 자체 패널로 펼침)</div><div><b>정답지</b>Score-Based Generative Modeling through SDEs (arXiv:2011.13456) Figure 2</div><div><b>실행 시간</b>약 60분 (16:52 → 17:52) · 프레임 165장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T1M-5 · T1-M</p>
+<h1><span class=l-ko>Score-SDE — 스코어 기반 생성모형</span><span class=l-en>Score-SDE — Score-Based Generative Model</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/yang-song/score_sde_pytorch">yang-song/score_sde_pytorch</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><code>cb1f359</code></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b>82 files, 5.2 MB</div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T1-M · <span class=l-ko>M-P5 시간 롤아웃(바깥) + M-P3 U자형 스코어 망(안, 자체 패널로 펼침)</span><span class=l-en>M-P5 time rollout (outer) + M-P3 U-shaped score network (inner, unfolded as its own panel)</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b>Score-Based Generative Modeling through SDEs (arXiv:2011.13456) Figure 2</div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 60분 (16:52 → 17:52) · 프레임 165장</span><span class=l-en>about 60 min (16:52 → 17:52) · 165 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>저장소에 <b>세 세대의 신경망이 한 트리에 있다</b>: <code>NCSNpp</code> / <code>DDPM</code> / <code>NCSNv2</code>. 무엇을 그릴지는 코드가 정하게 뒀고, 실행은 <code>ve/cifar10_ncsnpp_continuous</code> 한 설정을 골랐다.</li><li>저자 그림 <code>assets/schematic.jpg</code>·논문·Colab·Diffusers 문서는 <b>열지 않았다</b>. 리포트 기록: <q>The repository's own figure (<code>assets/schematic.jpg</code>), the linked paper, the Colab notebooks and the Diffusers docs were <b>not</b> opened, per instruction.</q></li><li><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는지 먼저 확인한 뒤 캡션에 <code>cb1f359</code> 를 넣었다.</li><li>정답지는 논문 <b>Figure 2</b>(가로 한 줄, forward/reverse SDE + probability-flow ODE 궤적을 <code>p_t(x)</code> 히트맵 위에)이고, 산출물은 코드에서 나온 <b>3패널</b>(훈련·샘플링·NCSN++)이다. 저자 그림을 열지 않았고 구성이 정답지와 다르다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>저장소에 <b>세 세대의 신경망이 한 트리에 있다</b>: <code>NCSNpp</code> / <code>DDPM</code> / <code>NCSNv2</code>. 무엇을 그릴지는 코드가 정하게 뒀고, 실행은 <code>ve/cifar10_ncsnpp_continuous</code> 한 설정을 골랐다.</span><span class=l-en>The repository <b>has three generations of neural networks in one tree</b>: <code>NCSNpp</code> / <code>DDPM</code> / <code>NCSNv2</code>. What to draw was left for the code to decide, and the run picked a single config, <code>ve/cifar10_ncsnpp_continuous</code>.</span></li><li><span class=l-ko>저자 그림 <code>assets/schematic.jpg</code>·논문·Colab·Diffusers 문서는 <b>열지 않았다</b>. 리포트 기록: <q>The repository's own figure (<code>assets/schematic.jpg</code>), the linked paper, the Colab notebooks and the Diffusers docs were <b>not</b> opened, per instruction.</q></span><span class=l-en>The author's figure <code>assets/schematic.jpg</code>, the paper, Colab, and the Diffusers docs were <b>not opened</b>. Report record: <q>The repository's own figure (<code>assets/schematic.jpg</code>), the linked paper, the Colab notebooks and the Diffusers docs were <b>not</b> opened, per instruction.</q></span></li><li><span class=l-ko><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는지 먼저 확인한 뒤 캡션에 <code>cb1f359</code> 를 넣었다.</span><span class=l-en>First confirmed that <code>rev-parse --show-toplevel</code> matched the target folder, then put <code>cb1f359</code> in the caption.</span></li><li><span class=l-ko>정답지는 논문 <b>Figure 2</b>(가로 한 줄, forward/reverse SDE + probability-flow ODE 궤적을 <code>p_t(x)</code> 히트맵 위에)이고, 산출물은 코드에서 나온 <b>3패널</b>(훈련·샘플링·NCSN++)이다. 저자 그림을 열지 않았고 구성이 정답지와 다르다.</span><span class=l-en>The answer key is the paper's <b>Figure 2</b> (one horizontal row, forward/reverse SDE + probability-flow ODE trajectories over a <code>p_t(x)</code> heatmap), and our figure is <b>3 panels</b> derived from the code (training, sampling, NCSN++). The author's figure was not opened, and the layout differs from the answer key.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\scoresde
 
@@ -168,10 +197,29 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 165장 중 8장을 선별하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\scoresde
+
+Read this repository and produce the methodology figure that belongs in the paper&#x27;s Figure 1-2 slot.
+
+Follow these rules:
+- Read only from this repository&#x27;s code. Do not look up the method&#x27;s paper, the authors&#x27; figures, or external images
+  linked from the repo README. The code decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\scoresde\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (the raw material extracted by evidence.py),
+  render.png (a PNG render of the final figure),
+  render-r1.png (the render right before the independent visual gate first passed it).
+  If the gate passes on the first try, you don&#x27;t need to produce render-r1.png.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 165장 중 8장을 선별하였다.</span><span class=l-en>8 of 165 captured frames were selected.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -179,67 +227,73 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>통과</td><td>1</td><td>XML 파싱 + 뷰어 기동 (전용 포트 8931)</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code> (엣지 37, 라벨 0)</td><td>3</td><td>1라운드에 글자 겹침 2건·미검증 커밋 1건·화살표 z-order 1건, 이후 라운드에서 라벨 넘침과 입출력 화살표가 채널 캡션을 가로지르는 것을 검출하였다</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>3</td><td>texts 80 · shapes 29 · edges 48. 라벨을 전부 뽑아 코드 심볼(noise scale·step counts·채널·블록 수)과 대조하였다</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b> (내용). 남은 <code>GATE: FAIL</code> 은 <code>→</code> 글리프 한 줄뿐</td><td><b>6</b> (스킬 상한 3)</td><td>1차 <b>B6</b>(4² 병목을 8²·16² 보다 넓게)·<b>C2</b> 와 손실 분기·우도 방향 사실 오류, 2차 사실 오류 5건, 3~5차마다 새 사실 오류(합산 축·bpd 부호·Fourier 분할)를 검출하였다</td></tr></table>
-<div class=note>기계 검사 셋이 전부 <code>ok</code>·<code>flags: []</code> 인 그림을 <b>독립 시각 게이트가 다섯 번 떨어뜨렸다</b>(1~5라운드). 심사자에게는 렌더 PNG 와 확대 크롭, 루브릭만 주고 보고서·의도는 주지 않는다. 스킬 상한은 셋이지만 4·5라운드가 매번 새 사실 오류를 잡아서 여섯 라운드까지 갔다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① Render</span></td><td><span class=l-ko>통과</span><span class=l-en>pass</span></td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동 (전용 포트 8931)</span><span class=l-en>XML parse + viewer launch (dedicated port 8931)</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><span class=l-ko><code>ok</code> (엣지 37, 라벨 0)</span><span class=l-en><code>ok</code> (37 edges, 0 labels)</span></td><td>3</td><td><span class=l-ko>1라운드에 글자 겹침 2건·미검증 커밋 1건·화살표 z-order 1건, 이후 라운드에서 라벨 넘침과 입출력 화살표가 채널 캡션을 가로지르는 것을 검출하였다</span><span class=l-en>round 1 flagged 2 cases of text overlap, 1 unverified commit, and 1 arrow z-order issue; later rounds flagged label overflow and input/output arrows crossing the channel captions</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>3</td><td><span class=l-ko>texts 80 · shapes 29 · edges 48. 라벨을 전부 뽑아 코드 심볼(noise scale·step counts·채널·블록 수)과 대조하였다</span><span class=l-en>texts 80 · shapes 29 · edges 48. Extracted every label and cross-checked it against code symbols (noise scale, step counts, channels, block counts)</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ Independent visual gate</span></td><td><span class=l-ko><b>GATE: PASS</b> (내용). 남은 <code>GATE: FAIL</code> 은 <code>→</code> 글리프 한 줄뿐</span><span class=l-en><b>GATE: PASS</b> (content). The one remaining <code>GATE: FAIL</code> line is only about the <code>→</code> glyph</span></td><td><span class=l-ko><b>6</b> (스킬 상한 3)</span><span class=l-en><b>6</b> (skill cap 3)</span></td><td><span class=l-ko>1차 <b>B6</b>(4² 병목을 8²·16² 보다 넓게)·<b>C2</b> 와 손실 분기·우도 방향 사실 오류, 2차 사실 오류 5건, 3~5차마다 새 사실 오류(합산 축·bpd 부호·Fourier 분할)를 검출하였다</span><span class=l-en>round 1 flagged <b>B6</b> (the 4² bottleneck drawn wider than 8²/16²), <b>C2</b>, plus factual errors in the loss branch and likelihood direction; round 2 flagged 5 factual errors; rounds 3–5 each flagged a new factual error (sum axis, bpd sign, Fourier split)</span></td></tr></table>
+<div class=note><span class=l-ko>기계 검사 셋이 전부 <code>ok</code>·<code>flags: []</code> 인 그림을 <b>독립 시각 게이트가 다섯 번 떨어뜨렸다</b>(1~5라운드). 심사자에게는 렌더 PNG 와 확대 크롭, 루브릭만 주고 보고서·의도는 주지 않는다. 스킬 상한은 셋이지만 4·5라운드가 매번 새 사실 오류를 잡아서 여섯 라운드까지 갔다.</span><span class=l-en>A figure that passed all three machine checks with <code>ok</code>/<code>flags: []</code> was <b>rejected five times by the independent visual gate</b> (rounds 1–5). The reviewer is given only the rendered PNG, zoomed crops, and the rubric — no report, no intent. The skill's cap is three rounds, but rounds 4 and 5 each flagged a new factual error, so it went to six rounds.</span></div>
 
-<h2>게이트 ④ 반려 후 변경 사항</h2>
-<p class=sub>1라운드에서 떨어진 이유는 <b>B6</b>(4² 병목을 8²·16² 보다 <b>넓게</b> 그려 시각적 중요도가 해상도와 반대)·<b>C2</b>(도형이 공간 차원을 더 담지 못함), 그리고 손실이 <b>잘못된 분기</b>를 그렸고 패널 (b) 우도가 <b>prior 에서</b> 시작한 두 사실 오류였다. 바뀐 자리는 <b>패널 (c)</b> 로, 스코어 망 전체가 재구성됐다.</p>
+<h2><span class=l-ko>게이트 ④ 반려 후 변경 사항</span><span class=l-en>What changed after the gate ④ rejection</span></h2>
+<p class=sub><span class=l-ko>1라운드에서 떨어진 이유는 <b>B6</b>(4² 병목을 8²·16² 보다 <b>넓게</b> 그려 시각적 중요도가 해상도와 반대)·<b>C2</b>(도형이 공간 차원을 더 담지 못함), 그리고 손실이 <b>잘못된 분기</b>를 그렸고 패널 (b) 우도가 <b>prior 에서</b> 시작한 두 사실 오류였다. 바뀐 자리는 <b>패널 (c)</b> 로, 스코어 망 전체가 재구성됐다.</span><span class=l-en>Round 1 failed for <b>B6</b> (the 4² bottleneck drawn <b>wider</b> than 8²/16², putting visual weight opposite to resolution), <b>C2</b> (the shape doesn't carry the spatial dimension further), and two factual errors: the loss drew the <b>wrong branch</b>, and panel (b)'s likelihood started from the <b>prior</b>. The changed spot is <b>panel (c)</b>, where the entire score network was rebuilt.</span></p>
 <div class=side>
-<figure><img src="legend-before.png" alt="before"><figcaption>1라운드 — 블록이 <b>4² 병목을 8²·16² 보다 넓게</b> 그려 큰 것이 중요해 보인다. 블록 안에 <code>× 4</code>/<code>× 5</code>, 채널은 <code>128</code>/<code>256</code> 숫자만, <code>× 4, Res-attn-Res, × 5</code> 축약, Fourier <code>log σ(t) → 512</code> 한 단계.</figcaption></figure>
-<figure><img src="legend-after.png" alt="after"><figcaption>6라운드 — 블록이 <code>32²→16²→8²→4²</code> 로 <b>단조 축소</b>하고, 밑에 <code>128 ch, 4 blocks</code> 처럼 <b>글자로 풀어</b> 씀(스와치 없는 범례 줄 대신). Fourier 는 <code>log σ(t) → 256, MLP → 512</code> 두 단계로 갈라졌다.</figcaption></figure>
+<figure><img src="legend-before.png" alt="before"><figcaption><span class=l-ko>1라운드 — 블록이 <b>4² 병목을 8²·16² 보다 넓게</b> 그려 큰 것이 중요해 보인다. 블록 안에 <code>× 4</code>/<code>× 5</code>, 채널은 <code>128</code>/<code>256</code> 숫자만, <code>× 4, Res-attn-Res, × 5</code> 축약, Fourier <code>log σ(t) → 512</code> 한 단계.</span><span class=l-en>round 1 — The blocks were drawn with the <b>4² bottleneck wider than 8²/16²</b>, making the bigger one look more important. Inside the blocks, just the numbers <code>× 4</code>/<code>× 5</code> and channels <code>128</code>/<code>256</code>, abbreviated as <code>× 4, Res-attn-Res, × 5</code>, with Fourier as a single <code>log σ(t) → 512</code> step.</span></figcaption></figure>
+<figure><img src="legend-after.png" alt="after"><figcaption><span class=l-ko>6라운드 — 블록이 <code>32²→16²→8²→4²</code> 로 <b>단조 축소</b>하고, 밑에 <code>128 ch, 4 blocks</code> 처럼 <b>글자로 풀어</b> 씀(스와치 없는 범례 줄 대신). Fourier 는 <code>log σ(t) → 256, MLP → 512</code> 두 단계로 갈라졌다.</span><span class=l-en>round 6 — The blocks now <b>monotonically shrink</b> as <code>32²→16²→8²→4²</code>, with the counts <b>spelled out in text</b> below, e.g. <code>128 ch, 4 blocks</code> (instead of a legend line without a swatch). Fourier was split into two steps, <code>log σ(t) → 256, MLP → 512</code>.</span></figcaption></figure>
 </div>
 <div class=side style="margin-top:16px">
-<figure><img src="round1.png" alt="round1"><figcaption>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</figcaption></figure>
-<figure><img src="ours.png" alt="final"><figcaption>6라운드 전체 (<span class=pass>GATE: PASS</span>)</figcaption></figure>
+<figure><img src="round1.png" alt="round1"><figcaption><span class=l-ko>1라운드 전체 (<span class=fail>GATE: FAIL</span>)</span><span class=l-en>round 1, whole figure (<span class=fail>GATE: FAIL</span>)</span></figcaption></figure>
+<figure><img src="ours.png" alt="final"><figcaption><span class=l-ko>6라운드 전체 (<span class=pass>GATE: PASS</span>)</span><span class=l-en>round 6, whole figure (<span class=pass>GATE: PASS</span>)</span></figcaption></figure>
 </div>
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</span><span class=l-en>The output is draw.io XML, not an image. It zooms and pans, and it can be downloaded and edited.</span></p>
 
 
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — Score-Based Generative Modeling through SDEs (arXiv:2011.13456) Figure 2</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>무엇을 그렸나</td><td>가로 한 줄: Data → Forward SDE → Prior → Reverse SDE → Data, SDE/ODE 두 궤적을 <code>p_t(x)</code> 히트맵 위에</td><td>(a) 훈련 / (b) 샘플링+bits/dim / (c) NCSN++ <b>3패널</b></td><td>정답지는 SDE <b>궤적 개념도</b>이고, 산출물은 코드 기준 <b>구현 상세</b>다</td></tr><tr><td>스코어 망</td><td>없음 (히트맵과 궤적만)</td><td>NCSN++ U자형 <code>32²→16²→8²→4²</code> 단조 축소 + 채널·블록 수</td><td>정답지에 <b>아예 없는 것</b>을 코드에서 펼쳤다 (M-P3 자체 패널)</td></tr><tr><td>전방 SDE</td><td><q>Forward SDE</q> 화살표 하나</td><td><code>dx = f dt + g dw</code>, VE/VP/sub-VP <b>세 계수</b> (<code>sde_lib.py</code>)</td><td>정답지는 종류 하나이고, 산출물은 코드의 세 갈래를 계수까지 담았다</td></tr><tr><td>훈련 손실</td><td>없음</td><td><code>0.5 || std sθ + z ||², C×H×W 합산</code></td><td>게이트가 잡은 자리다. <code>g²</code> 가중 분기를 그렸다가 <code>likelihood_weighting=False</code> 무가중 분기로 정정하고 <code>0.5</code> 도 추가하였다</td></tr><tr><td>역방향 / 샘플링</td><td><q>Reverse SDE</q> + Probability Flow ODE 궤적 (범례)</td><td>corrector → predictor <code>×1000</code> 루프 + PF-ODE 샘플러</td><td>둘 다 PF-ODE 를 담았지만 산출물은 <b>PC 루프 N=1000</b> 을 도형으로 담았다</td></tr><tr><td>우도 / bits-dim</td><td>없음 (<code>p_0</code>/<code>p_t</code>/<code>p_T</code> 라벨만)</td><td>data → ODE 정방향 → <code>bpd</code> (offset·negated log-likelihood estimate)</td><td>게이트 3·4라운드가 잡은 자리다. prior 시작을 <b>data 시작</b>으로, <q>exact likelihood</q> 를 <b>offset·negated bpd 추정</b>으로 바꿨다</td></tr><tr><td>시간 조건</td><td>없음</td><td>Gaussian Fourier <code>log σ(t) → 256</code>, MLP <code>→ 512</code></td><td>게이트 5라운드가 <q>→ 512</q> 한 단계로 합친 것을 <b>projection + MLP 두 단계</b>로 나눴다</td></tr><tr><td>수치 / ε</td><td>없음</td><td><code>ε = 1e-5 for VE</code>, RK45 <code>rtol = atol = 1e-5</code></td><td>게이트 2라운드가 <code>sampling.py</code> 기본인자 <code>1e-3</code> 을 <code>run_lib</code> 의 VE 값 <code>1e-5</code> 로 정정하였다</td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — Score-Based Generative Modeling through SDEs (arXiv:2011.13456) Figure 2</figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>무엇을 그렸나</span><span class=l-en>What was drawn</span></td><td><span class=l-ko>가로 한 줄: Data → Forward SDE → Prior → Reverse SDE → Data, SDE/ODE 두 궤적을 <code>p_t(x)</code> 히트맵 위에</span><span class=l-en>One horizontal row: Data → Forward SDE → Prior → Reverse SDE → Data, two SDE/ODE trajectories over a <code>p_t(x)</code> heatmap</span></td><td><span class=l-ko>(a) 훈련 / (b) 샘플링+bits/dim / (c) NCSN++ <b>3패널</b></span><span class=l-en>(a) training / (b) sampling+bits/dim / (c) NCSN++ <b>3 panels</b></span></td><td><span class=l-ko>정답지는 SDE <b>궤적 개념도</b>이고, 산출물은 코드 기준 <b>구현 상세</b>다</span><span class=l-en>The answer key is a <b>conceptual diagram of the SDE trajectory</b>, and our figure is <b>implementation detail</b> from the code</span></td></tr><tr><td><span class=l-ko>스코어 망</span><span class=l-en>Score network</span></td><td><span class=l-ko>없음 (히트맵과 궤적만)</span><span class=l-en>None (only the heatmap and trajectories)</span></td><td><span class=l-ko>NCSN++ U자형 <code>32²→16²→8²→4²</code> 단조 축소 + 채널·블록 수</span><span class=l-en>NCSN++ U-shaped <code>32²→16²→8²→4²</code> monotonic downsampling + channel/block counts</span></td><td><span class=l-ko>정답지에 <b>아예 없는 것</b>을 코드에서 펼쳤다 (M-P3 자체 패널)</span><span class=l-en>Something <b>entirely absent from the answer key</b> was unfolded from the code (M-P3 as its own panel)</span></td></tr><tr><td><span class=l-ko>전방 SDE</span><span class=l-en>Forward SDE</span></td><td><span class=l-ko><q>Forward SDE</q> 화살표 하나</span><span class=l-en>One <q>Forward SDE</q> arrow</span></td><td><span class=l-ko><code>dx = f dt + g dw</code>, VE/VP/sub-VP <b>세 계수</b> (<code>sde_lib.py</code>)</span><span class=l-en><code>dx = f dt + g dw</code>, VE/VP/sub-VP <b>three coefficient sets</b> (<code>sde_lib.py</code>)</span></td><td><span class=l-ko>정답지는 종류 하나이고, 산출물은 코드의 세 갈래를 계수까지 담았다</span><span class=l-en>The answer key has one variant, and our figure carries the code's three branches down to the coefficients</span></td></tr><tr><td><span class=l-ko>훈련 손실</span><span class=l-en>Training loss</span></td><td><span class=l-ko>없음</span><span class=l-en>None</span></td><td><span class=l-ko><code>0.5 || std sθ + z ||², C×H×W 합산</code></span><span class=l-en><code>0.5 || std sθ + z ||², C×H×W</code> sum</span></td><td><span class=l-ko>게이트가 잡은 자리다. <code>g²</code> 가중 분기를 그렸다가 <code>likelihood_weighting=False</code> 무가중 분기로 정정하고 <code>0.5</code> 도 추가하였다</span><span class=l-en>This is where the gate caught an issue. Had drawn the <code>g²</code>-weighted branch, corrected it to the unweighted branch per <code>likelihood_weighting=False</code>, and also added the <code>0.5</code></span></td></tr><tr><td><span class=l-ko>역방향 / 샘플링</span><span class=l-en>Reverse / sampling</span></td><td><span class=l-ko><q>Reverse SDE</q> + Probability Flow ODE 궤적 (범례)</span><span class=l-en><q>Reverse SDE</q> + Probability Flow ODE trajectory (legend)</span></td><td><span class=l-ko>corrector → predictor <code>×1000</code> 루프 + PF-ODE 샘플러</span><span class=l-en>corrector → predictor <code>×1000</code> loop + PF-ODE sampler</span></td><td><span class=l-ko>둘 다 PF-ODE 를 담았지만 산출물은 <b>PC 루프 N=1000</b> 을 도형으로 담았다</span><span class=l-en>Both carry the PF-ODE, but our figure also renders the <b>PC loop N=1000</b> as a shape</span></td></tr><tr><td><span class=l-ko>우도 / bits-dim</span><span class=l-en>Likelihood / bits-dim</span></td><td><span class=l-ko>없음 (<code>p_0</code>/<code>p_t</code>/<code>p_T</code> 라벨만)</span><span class=l-en>None (only <code>p_0</code>/<code>p_t</code>/<code>p_T</code> labels)</span></td><td><span class=l-ko>data → ODE 정방향 → <code>bpd</code> (offset·negated log-likelihood estimate)</span><span class=l-en>data → forward ODE → <code>bpd</code> (offset, negated log-likelihood estimate)</span></td><td><span class=l-ko>게이트 3·4라운드가 잡은 자리다. prior 시작을 <b>data 시작</b>으로, <q>exact likelihood</q> 를 <b>offset·negated bpd 추정</b>으로 바꿨다</span><span class=l-en>This is where gate rounds 3 and 4 caught issues. Changed the starting point from prior to <b>data</b>, and changed <q>exact likelihood</q> to an <b>offset, negated bpd estimate</b></span></td></tr><tr><td><span class=l-ko>시간 조건</span><span class=l-en>Time conditioning</span></td><td><span class=l-ko>없음</span><span class=l-en>None</span></td><td>Gaussian Fourier <code>log σ(t) → 256</code>, MLP <code>→ 512</code></td><td><span class=l-ko>게이트 5라운드가 <q>→ 512</q> 한 단계로 합친 것을 <b>projection + MLP 두 단계</b>로 나눴다</span><span class=l-en>Gate round 5 split what had been merged into one <q>→ 512</q> step into <b>two steps, projection + MLP</b></span></td></tr><tr><td><span class=l-ko>수치 / ε</span><span class=l-en>Numerics / ε</span></td><td><span class=l-ko>없음</span><span class=l-en>None</span></td><td><code>ε = 1e-5 for VE</code>, RK45 <code>rtol = atol = 1e-5</code></td><td><span class=l-ko>게이트 2라운드가 <code>sampling.py</code> 기본인자 <code>1e-3</code> 을 <code>run_lib</code> 의 VE 값 <code>1e-5</code> 로 정정하였다</span><span class=l-en>Gate round 2 corrected the <code>sampling.py</code> default argument <code>1e-3</code> to the VE value <code>1e-5</code> used by <code>run_lib</code></span></td></tr></table>
 
-<footer>method-figure · T1M-5 scoresde · 산출물 경로 <code>out/demo/scoresde/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T1M-5 scoresde · 산출물 경로 <code>out/demo/scoresde/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T1M-5 scoresde · output path <code>out/demo/scoresde/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건. 세 세대(<code>NCSNpp</code>/<code>DDPM</code>/<code>NCSNv2</code>)가 한 트리에 있어 <b>어느 것을 그릴지부터</b>가 판단이고, 저자 그림 <code>assets/schematic.jpg</code> 를 <b>안 여는지</b>가 관전 포인트다. <q>The SHA checks out, confirming this is the right target directory.</q>"], ["shots/02-evidence.png", "재료 수집", "<q>the repo's many nn.Module definitions push it toward T1-M rather than T1-G by the classification criterion.</q> <code>losses.py</code>·<code>sampling.py</code>·<code>likelihood.py</code>·<code>ncsnpp.py</code> 를 직접 따라가며 판별과 재료를 동시에 세운다."], ["shots/03-decide.png", "위상을 정한다", "<q>...placing the time rollout on the outer axis and the network detail as an inner inset.</q> 바깥은 M-P5 시간 롤아웃, 안쪽은 M-P3 U자형 스코어 망. 관통 예시는 <code>ve/cifar10_ncsnpp_continuous</code> 한 설정이고 <code>3 × 32 × 32</code> 가 세 패널을 관통한다."], ["shots/05-machine-gates.png", "기계 검사 다음은 자기 눈", "<code>check_layout</code>·<code>check_render</code> 가 통과한 뒤에도 <q>cross-referencing the labels against the source code — verifying the noise scale, step counts, and scale parameters all match their defaults in the config and sampler files.</q> 기계가 <code>ok</code> 라고 해도 라벨을 코드 심볼과 다시 맞춘다."], ["shots/06-gate4-fail.png", "게이트 ④ 2라운드 FAIL", "<b>코드 대조 사실 오류 다섯 건</b>: <q>The figure labels denoising at ε = 1e-3, but the VE CIFAR-10 config uses VE SDE and run_lib.py sets sampling_eps = 1e-5.</q> 이어 <q>exact likelihoods</q> 과장, 16²-only 어텐션(병목 어텐션 누락), <code>Res-attn-Res ×5</code> 축약, 손실의 <code>0.5</code> 누락."], ["shots/07-gate4-pass.png", "게이트 ④ 6라운드 PASS", "<q>A1..A6 PASS, B1..B6 PASS, C1..C5 PASS. Factual errors against code: none found.</q> 남은 <code>GATE: FAIL</code> 한 줄은 <code>→</code> 글리프뿐인데, 스킬이 <code>→</code>·<code>×</code> 를 명시적 예외로 두므로 <b>고치지 않고 이유를 <code>report.md</code> 에 적었다</b>."], ["shots/08-figure.png", "무엇을 왜 그렸나", "<q>judged T1-M ... outer topology M-P5 (time rollout), inner M-P3 (U-shaped score net) unfolded as its own panel.</q> (a) forward SDE <code>dx = f dt + g dw</code> + DSM 손실, (b) corrector→predictor ×1000 + PF-ODE + bits/dim 레인, (c) NCSN++ <code>32²→16²→8²→4²</code> 단조 축소."], ["shots/09-checks.png", "판별과 검사 요약", "게이트 넷을 요약하지 않고 <b>숫자 그대로</b>: ① render PASS, ② <code>edges 37, labelled 0, ok</code>, ③ <code>flags: []</code>, ④ A/B/C 전부 PASS·<b>6라운드(스킬 상한 3)</b>. <q>Gate rounds 1–5 found 9 real defects — including three factual ones (loss branch, ε=1e-5 for VE, likelihood direction) — all fixed and cited in the report.</q>"]];
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건. 세 세대(<code>NCSNpp</code>/<code>DDPM</code>/<code>NCSNv2</code>)가 한 트리에 있어 <b>어느 것을 그릴지부터</b>가 판단이고, 저자 그림 <code>assets/schematic.jpg</code> 를 <b>안 여는지</b>가 관전 포인트다. <q>The SHA checks out, confirming this is the right target directory.</q>", "Prompt", "Repository absolute path + output path + blind conditions. With three generations (<code>NCSNpp</code>/<code>DDPM</code>/<code>NCSNv2</code>) in one tree, <b>which one to draw</b> is itself a judgment call, and whether the author's figure <code>assets/schematic.jpg</code> <b>stays unopened</b> is the thing to watch. <q>The SHA checks out, confirming this is the right target directory.</q>"], ["shots/02-evidence.png", "재료 수집", "<q>the repo's many nn.Module definitions push it toward T1-M rather than T1-G by the classification criterion.</q> <code>losses.py</code>·<code>sampling.py</code>·<code>likelihood.py</code>·<code>ncsnpp.py</code> 를 직접 따라가며 판별과 재료를 동시에 세운다.", "Gathering material", "<q>the repo's many nn.Module definitions push it toward T1-M rather than T1-G by the classification criterion.</q> Traces <code>losses.py</code>·<code>sampling.py</code>·<code>likelihood.py</code>·<code>ncsnpp.py</code> directly, building the classification and the material at the same time."], ["shots/03-decide.png", "위상을 정한다", "<q>...placing the time rollout on the outer axis and the network detail as an inner inset.</q> 바깥은 M-P5 시간 롤아웃, 안쪽은 M-P3 U자형 스코어 망. 관통 예시는 <code>ve/cifar10_ncsnpp_continuous</code> 한 설정이고 <code>3 × 32 × 32</code> 가 세 패널을 관통한다.", "Deciding the topology", "<q>...placing the time rollout on the outer axis and the network detail as an inner inset.</q> Outer is the M-P5 time rollout, inner is the M-P3 U-shaped score network. The through-line example is a single config, <code>ve/cifar10_ncsnpp_continuous</code>, and <code>3 × 32 × 32</code> runs through all three panels."], ["shots/05-machine-gates.png", "기계 검사 다음은 자기 눈", "<code>check_layout</code>·<code>check_render</code> 가 통과한 뒤에도 <q>cross-referencing the labels against the source code — verifying the noise scale, step counts, and scale parameters all match their defaults in the config and sampler files.</q> 기계가 <code>ok</code> 라고 해도 라벨을 코드 심볼과 다시 맞춘다.", "After machine checks, its own eyes", "Even after <code>check_layout</code> and <code>check_render</code> pass, <q>cross-referencing the labels against the source code — verifying the noise scale, step counts, and scale parameters all match their defaults in the config and sampler files.</q> Even when the machine says <code>ok</code>, it re-matches the labels against the code symbols."], ["shots/06-gate4-fail.png", "게이트 ④ 2라운드 FAIL", "<b>코드 대조 사실 오류 다섯 건</b>: <q>The figure labels denoising at ε = 1e-3, but the VE CIFAR-10 config uses VE SDE and run_lib.py sets sampling_eps = 1e-5.</q> 이어 <q>exact likelihoods</q> 과장, 16²-only 어텐션(병목 어텐션 누락), <code>Res-attn-Res ×5</code> 축약, 손실의 <code>0.5</code> 누락.", "Gate ④ round 2 FAIL", "<b>Five factual errors against the code</b>: <q>The figure labels denoising at ε = 1e-3, but the VE CIFAR-10 config uses VE SDE and run_lib.py sets sampling_eps = 1e-5.</q> Followed by an overstated <q>exact likelihoods</q> claim, 16²-only attention (missing bottleneck attention), the <code>Res-attn-Res ×5</code> abbreviation, and a missing <code>0.5</code> in the loss."], ["shots/07-gate4-pass.png", "게이트 ④ 6라운드 PASS", "<q>A1..A6 PASS, B1..B6 PASS, C1..C5 PASS. Factual errors against code: none found.</q> 남은 <code>GATE: FAIL</code> 한 줄은 <code>→</code> 글리프뿐인데, 스킬이 <code>→</code>·<code>×</code> 를 명시적 예외로 두므로 <b>고치지 않고 이유를 <code>report.md</code> 에 적었다</b>.", "Gate ④ round 6 PASS", "<q>A1..A6 PASS, B1..B6 PASS, C1..C5 PASS. Factual errors against code: none found.</q> The one remaining <code>GATE: FAIL</code> line is only about the <code>→</code> glyph, and since the skill lists <code>→</code>/<code>×</code> as an explicit exception, <b>it was left unfixed with the reason recorded in <code>report.md</code></b>."], ["shots/08-figure.png", "무엇을 왜 그렸나", "<q>judged T1-M ... outer topology M-P5 (time rollout), inner M-P3 (U-shaped score net) unfolded as its own panel.</q> (a) forward SDE <code>dx = f dt + g dw</code> + DSM 손실, (b) corrector→predictor ×1000 + PF-ODE + bits/dim 레인, (c) NCSN++ <code>32²→16²→8²→4²</code> 단조 축소.", "What was drawn and why", "<q>judged T1-M ... outer topology M-P5 (time rollout), inner M-P3 (U-shaped score net) unfolded as its own panel.</q> (a) forward SDE <code>dx = f dt + g dw</code> + DSM loss, (b) corrector→predictor ×1000 + PF-ODE + bits/dim lane, (c) NCSN++ <code>32²→16²→8²→4²</code> monotonic downsampling."], ["shots/09-checks.png", "판별과 검사 요약", "게이트 넷을 요약하지 않고 <b>숫자 그대로</b>: ① render PASS, ② <code>edges 37, labelled 0, ok</code>, ③ <code>flags: []</code>, ④ A/B/C 전부 PASS·<b>6라운드(스킬 상한 3)</b>. <q>Gate rounds 1–5 found 9 real defects — including three factual ones (loss branch, ε=1e-5 for VE, likelihood direction) — all fixed and cited in the report.</q>", "Classification and checks summary", "Not a summary of the four gates but <b>the raw numbers</b>: ① render PASS, ② <code>edges 37, labelled 0, ok</code>, ③ <code>flags: []</code>, ④ A/B/C all PASS, <b>6 rounds (skill cap 3)</b>. <q>Gate rounds 1–5 found 9 real defects — including three factual ones (loss branch, ε=1e-5 for VE, likelihood direction) — all fixed and cited in the report.</q>"]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

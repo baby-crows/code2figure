@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>containerd — 흐름이 아니라 층 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>containerd — 흐름이 아니라 층 — method-figure</title>
+<meta name=t-ko content="containerd — 흐름이 아니라 층 — method-figure">
+<meta name=t-en content="containerd — Layers, Not a Flow — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T2-4 · T2</p>
-<h1>containerd — 흐름이 아니라 층</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/containerd/containerd">containerd/containerd</a></div><div><b>커밋</b><i>commit not determined · version/version.go = 2.4.0-beta</i></div><div><b>규모</b>6613 files, 54.6 MB</div><div><b>유형</b>T2 · 실행 흐름(T2)으로 판정하였으나 구조는 <b>순차 파이프라인이 아닌 플러그인 층</b>이다. client·daemon·shim 세 프로세스 존과 on-disk 디렉터리 2개로 나뉘며, 번호 <code>1–10</code> 은 코드 호출 순서를 나타내고 존은 <b>위치·역할</b> 기준으로 묶인다.</div><div><b>정답지</b>containerd 자체 문서 — <code>docs/historical/design/architecture.md</code> (architecture.png / data-flow.png 참조) 저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</div><div><b>실행 시간</b>약 48분 (20:18 → 21:06) · 프레임 137장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T2-4 · T2</p>
+<h1><span class=l-ko>containerd — 흐름이 아니라 층</span><span class=l-en>containerd — Layers, Not a Flow</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/containerd/containerd">containerd/containerd</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><i>commit not determined · version/version.go = 2.4.0-beta</i></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b>6613 files, 54.6 MB</div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T2 · <span class=l-ko>실행 흐름(T2)으로 판정하였으나 구조는 <b>순차 파이프라인이 아닌 플러그인 층</b>이다. client·daemon·shim 세 프로세스 존과 on-disk 디렉터리 2개로 나뉘며, 번호 <code>1–10</code> 은 코드 호출 순서를 나타내고 존은 <b>위치·역할</b> 기준으로 묶인다.</span><span class=l-en>Classified as execution flow (T2), but the structure is a <b>plugin layer, not a sequential pipeline</b>. It is divided into three process zones — client, daemon, shim — and two on-disk directories; numbers <code>1–10</code> denote the code's call order, and zones are grouped by <b>location/role</b>.</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b><span class=l-ko>containerd 자체 문서 — <code>docs/historical/design/architecture.md</code> (architecture.png / data-flow.png 참조) 저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</span><span class=l-en>containerd&rsquo;s own docs — <code>docs/historical/design/architecture.md</code> (which references architecture.png / data-flow.png) The repository's own architecture diagram (top: GRPC·Metrics; middle: Storage·Metadata plugin services; bottom: Runtimes + dashed OS)</span></div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 48분 (20:18 → 21:06) · 프레임 137장</span><span class=l-en>about 48 min (20:18 → 21:06) · 137 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>정답지(<code>containerd_fig1.png</code>)는 실행이 <b>끝난 뒤에만</b> 열었다. 실행 중에는 저장소 안의 문서 산문만 읽었고 architecture.png 같은 렌더 이미지는 체크아웃에 없었다.</li><li>커밋을 확정하지 못하였고 그 사실을 캡션에 기록하였다. 대상 폴더에 <code>.git</code> 이 없어 <code>rev-parse --show-toplevel</code> 이 상위 paper-trail 저장소를 가리켰다. 리포트 기록: <q>Commit: not determined, and that is in the caption.</q> 트리에 실제로 있는 <code>version/version.go#L27</code> 의 <code>2.4.0-beta+unknown</code> 만 캡션에 넣었다.</li><li>오염 검사를 통과하였다: <q>Contamination check passed — the figure is about containerd</q>. <code>version/version.go</code> = <code>2.4.0-beta+unknown</code>, <code>cmd/containerd</code>·<code>cmd/ctr</code>·<code>cmd/containerd-shim-runc-v2</code> 존재를 확인하였다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>정답지(<code>containerd_fig1.png</code>)는 실행이 <b>끝난 뒤에만</b> 열었다. 실행 중에는 저장소 안의 문서 산문만 읽었고 architecture.png 같은 렌더 이미지는 체크아웃에 없었다.</span><span class=l-en>The answer key (<code>containerd_fig1.png</code>) was opened only <b>after</b> the run finished. During the run, only the repository's own doc prose was read; a rendered image like architecture.png was not in the checkout.</span></li><li><span class=l-ko>커밋을 확정하지 못하였고 그 사실을 캡션에 기록하였다. 대상 폴더에 <code>.git</code> 이 없어 <code>rev-parse --show-toplevel</code> 이 상위 paper-trail 저장소를 가리켰다. 리포트 기록: <q>Commit: not determined, and that is in the caption.</q> 트리에 실제로 있는 <code>version/version.go#L27</code> 의 <code>2.4.0-beta+unknown</code> 만 캡션에 넣었다.</span><span class=l-en>The commit could not be pinned down, and that fact was recorded in the caption. The target folder has no <code>.git</code>, so <code>rev-parse --show-toplevel</code> pointed to the parent paper-trail repository. Report note: <q>Commit: not determined, and that is in the caption.</q> Only <code>2.4.0-beta+unknown</code> from <code>version/version.go#L27</code>, which is actually present in the tree, was put in the caption.</span></li><li><span class=l-ko>오염 검사를 통과하였다: <q>Contamination check passed — the figure is about containerd</q>. <code>version/version.go</code> = <code>2.4.0-beta+unknown</code>, <code>cmd/containerd</code>·<code>cmd/ctr</code>·<code>cmd/containerd-shim-runc-v2</code> 존재를 확인하였다.</span><span class=l-en>Contamination check passed: <q>Contamination check passed — the figure is about containerd</q>. It confirmed <code>version/version.go</code> = <code>2.4.0-beta+unknown</code> and the presence of <code>cmd/containerd</code>, <code>cmd/ctr</code>, <code>cmd/containerd-shim-runc-v2</code>.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\sandbox\containerd
 
@@ -169,10 +198,29 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 137장 중 8장을 선별하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\sandbox\containerd
+
+Read this repository and produce an architecture figure showing how this project works.
+
+Follow these rules:
+- Read only from this repository&#x27;s code and docs. Do not look up this project&#x27;s official documentation site or
+  architecture figures drawn by the authors on the web. The repository decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\containerd\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (the raw material extracted by evidence.py),
+  render.png (a PNG render of the final figure),
+  render-r1.png (the render right before the independent visual gate first passed it).
+  If the gate passes on the first try, you don&#x27;t need to produce render-r1.png.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 137장 중 8장을 선별하였다.</span><span class=l-en>8 of 137 captured frames were selected.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -180,57 +228,63 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>PASS</td><td>1</td><td>XML 파싱 + 뷰어 기동 (전용 포트 <code>8913</code>, 페이지 <code>containerd_arch_k4.html</code>)</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code> (엣지 18, 라벨 0)</td><td>4</td><td>1라운드 <b>16건</b>: 캡션 넘침 + <code>daemon start</code>·<code>redis1</code>·<code>redis2</code>·번호 배지 1–10 이 화살표에 안 물림 + 화살표 z-order. 4라운드에 <code>ok</code></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code> (texts 90·shapes 35·edges 20)</td><td>3</td><td>1라운드 <b>11건</b>: 번호 배지 10개가 상자 경계에 걸침(<code>onborder</code>) + 화살표 교차 1건. 배지를 상자 안 접두어로 바꾸고 교차 화살표를 삭제하였다</td></tr><tr><td>③-b 육안 자기점검</td><td>변경 3건</td><td>1</td><td>검사기가 검출하지 못한 항목을 육안으로 확인하였다: 회색 저장 화살표가 <code>/var/lib/containerd</code> 존 제목 글자를 관통. <b>도형 관통은 어떤 검사기도 검출하지 못하였다</b>. 그 외 metadata 상자(7)의 화살표 누락, 범례 견본 2개 수정</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>1</td><td>A 6항목·B 6항목·C 5항목 전부 PASS. <code>C1</code>: <q>zones group by process/location, <b>not a second sequence</b></q>. 층 구조를 흐름으로 표현하지 않았음을 확인하였고, 따라서 <code>render-r1.png</code> 는 만들지 않았다</td></tr></table>
-<div class=note>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① render</span></td><td>PASS</td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동 (전용 포트 <code>8913</code>, 페이지 <code>containerd_arch_k4.html</code>)</span><span class=l-en>XML parse + viewer launch (dedicated port <code>8913</code>, page <code>containerd_arch_k4.html</code>)</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><span class=l-ko><code>ok</code> (엣지 18, 라벨 0)</span><span class=l-en><code>ok</code> (18 edges, 0 labels)</span></td><td>4</td><td><span class=l-ko>1라운드 <b>16건</b>: 캡션 넘침 + <code>daemon start</code>·<code>redis1</code>·<code>redis2</code>·번호 배지 1–10 이 화살표에 안 물림 + 화살표 z-order. 4라운드에 <code>ok</code></span><span class=l-en>Round 1: <b>16 issues</b>: caption overflow + <code>daemon start</code>·<code>redis1</code>·<code>redis2</code>·number badges 1–10 not attached to arrows + arrow z-order. <code>ok</code> on round 4</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><span class=l-ko><code>flags: []</code> (texts 90·shapes 35·edges 20)</span><span class=l-en><code>flags: []</code> (90 texts · 35 shapes · 20 edges)</span></td><td>3</td><td><span class=l-ko>1라운드 <b>11건</b>: 번호 배지 10개가 상자 경계에 걸침(<code>onborder</code>) + 화살표 교차 1건. 배지를 상자 안 접두어로 바꾸고 교차 화살표를 삭제하였다</span><span class=l-en>Round 1: <b>11 issues</b>: 10 number badges straddling box boundaries (<code>onborder</code>) + 1 arrow crossing. Changed badges to in-box prefixes and removed the crossing arrow</span></td></tr><tr><td><span class=l-ko>③-b 육안 자기점검</span><span class=l-en>③-b visual self-check</span></td><td><span class=l-ko>변경 3건</span><span class=l-en>3 changes</span></td><td>1</td><td><span class=l-ko>검사기가 검출하지 못한 항목을 육안으로 확인하였다: 회색 저장 화살표가 <code>/var/lib/containerd</code> 존 제목 글자를 관통. <b>도형 관통은 어떤 검사기도 검출하지 못하였다</b>. 그 외 metadata 상자(7)의 화살표 누락, 범례 견본 2개 수정</span><span class=l-en>Visually confirmed items the checkers missed: a grey storage arrow cut through the <code>/var/lib/containerd</code> zone title text. <b>No checker detects a shape passing through another shape</b>. Also fixed a missing arrow into the metadata box (7) and 2 legend samples</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ independent visual gate</span></td><td><b>GATE: PASS</b></td><td>1</td><td><span class=l-ko>A 6항목·B 6항목·C 5항목 전부 PASS. <code>C1</code>: <q>zones group by process/location, <b>not a second sequence</b></q>. 층 구조를 흐름으로 표현하지 않았음을 확인하였고, 따라서 <code>render-r1.png</code> 는 만들지 않았다</span><span class=l-en>All items passed: A (6 items), B (6 items), C (5 items). <code>C1</code>: <q>zones group by process/location, <b>not a second sequence</b></q>. It confirmed the layer structure was not represented as a flow, so <code>render-r1.png</code> was never produced</span></td></tr></table>
+<div class=note><span class=l-ko>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</span><span class=l-en>The reviewer is given the rendered PNG and the raw checker output only — <b>no report, no stated intent, no step-by-step breakdown.</b> Growing the self-check list to 44 items did not improve the pass rate, so what was separated was the party doing the judging, not the checklist.</span></div>
 
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</span><span class=l-en>The output is draw.io XML, not an image. It zooms and pans, and it can be downloaded and edited.</span></p>
 
 
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — containerd 자체 문서 — <code>docs/historical/design/architecture.md</code> (architecture.png / data-flow.png 참조) 저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>전체 골격</td><td><b>층 다이어그램</b>: 위 GRPC·Metrics, 가운데 플러그인 서비스 한 줄(Storage·Metadata), 아래 Runtimes + 점선 OS</td><td>번호 <code>1–10</code> 의 <b>pull→run 실행 흐름</b> + client·daemon·shim 프로세스 존, 아래 on-disk 디렉터리 2개</td><td>같은 시스템에 대한 두 가지 타당한 시점이다. 프롬프트가 '어떻게 동작하는가'를 물어 실행 흐름을 선택하였다</td></tr><tr><td>정렬 축</td><td>위아래 <b>층</b>으로 적층, 순서 없음</td><td>번호는 코드 호출 순서, 상자는 <b>프로세스 존</b>으로 묶임</td><td>번호를 유일한 순서로 두고 존은 위치로 묶어 <b>층 구조를 존으로 보존</b>하였다. 심사자 판정은 <q>not a second sequence</q> 이다</td></tr><tr><td>플러그인 층</td><td>Content·Snapshot·Diff(Storage) / Images·Containers(Metadata) 서비스 열</td><td>daemon 존 안 <code>io.containerd.content.v1</code>·<code>.snapshotter.v1</code>·<code>.metadata.v1</code> 박스(5·6·7)</td><td>정답지의 Storage/Metadata 열을 daemon 존 안 <b>같은 플러그인 id</b> 로 옮겨 층 정보를 보존하였다</td></tr><tr><td>런타임·OS</td><td>아래 Runtimes 박스 + 점선 OS, Tasks→Runtimes 점선</td><td><b>shim 존</b> + <code>runc [external]</code> 점선 육각형, <q>container process child of the shim, not of the daemon</q></td><td>정답지의 하단 런타임 층을 shim 존으로 표현하였다. runc 는 점선 외부 도형으로 경계를 표시하였다</td></tr><tr><td>클라이언트</td><td><b>없음</b>. GRPC 가 진입점</td><td><b>client 존</b>(2·3·4), <q>pull runs here, not in the daemon</q>, registry 는 client 에만 연결</td><td>정답지가 그리지 않은 클라이언트 역할을 실행 흐름 관점에서 <b>드러냈다</b></td></tr><tr><td>저장·스냅샷 공유</td><td>Storage 층에 Content·Snapshot (cylinder 아이콘)</td><td><code>/var/lib/containerd</code> 존에 <code>blobs/sha256/</code> + <code>redis1</code>/<code>redis2</code> 가 같은 6개 커밋 스냅샷을 가리킴</td><td><q>sharing drawn, not asserted</q>. 공유를 글자 대신 화살표로 그렸다</td></tr><tr><td>표기·범례</td><td>회색 상자 층, 점선=외부(OS), cylinder=DB</td><td>실선 둥근사각=repo 바이너리, 점선=외부, 원통/원=호스트 디렉터리 (범례 박스)</td><td>두 그림 모두 점선=외부 규칙을 따른다. 스킬은 <code>⊕⊗</code> 특수기호를 금지하므로 도형과 번호만 사용하였다</td></tr><tr><td>종횡비</td><td>가로로 넓은 층 그림 (약 2:1)</td><td><code>1160 × 960</code>, 1.21:1</td><td>가독성 바닥값(본문 14px = 폭의 1.21%)이 폭을 1160 으로 제한하였다</td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — <span class=l-ko>containerd 자체 문서 — <code>docs/historical/design/architecture.md</code> (architecture.png / data-flow.png 참조) 저장소 자신의 아키텍처 다이어그램 (상단 GRPC·Metrics, 가운데 Storage·Metadata 플러그인 서비스, 하단 Runtimes + 점선 OS)</span><span class=l-en>containerd&rsquo;s own docs — <code>docs/historical/design/architecture.md</code> (which references architecture.png / data-flow.png) The repository's own architecture diagram (top: GRPC·Metrics; middle: Storage·Metadata plugin services; bottom: Runtimes + dashed OS)</span></figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>전체 골격</span><span class=l-en>Overall skeleton</span></td><td><span class=l-ko><b>층 다이어그램</b>: 위 GRPC·Metrics, 가운데 플러그인 서비스 한 줄(Storage·Metadata), 아래 Runtimes + 점선 OS</span><span class=l-en><b>Layer diagram</b>: GRPC·Metrics on top, a single row of plugin services (Storage·Metadata) in the middle, Runtimes + dashed OS at the bottom</span></td><td><span class=l-ko>번호 <code>1–10</code> 의 <b>pull→run 실행 흐름</b> + client·daemon·shim 프로세스 존, 아래 on-disk 디렉터리 2개</span><span class=l-en>A numbered <code>1–10</code> <b>pull→run execution flow</b> + client·daemon·shim process zones, with two on-disk directories at the bottom</span></td><td><span class=l-ko>같은 시스템에 대한 두 가지 타당한 시점이다. 프롬프트가 '어떻게 동작하는가'를 물어 실행 흐름을 선택하였다</span><span class=l-en>Two equally valid viewpoints of the same system. The prompt asked 'how does it work,' which selected the execution flow</span></td></tr><tr><td><span class=l-ko>정렬 축</span><span class=l-en>Ordering axis</span></td><td><span class=l-ko>위아래 <b>층</b>으로 적층, 순서 없음</span><span class=l-en>Stacked top to bottom as <b>layers</b>, no ordering</span></td><td><span class=l-ko>번호는 코드 호출 순서, 상자는 <b>프로세스 존</b>으로 묶임</span><span class=l-en>Numbers are the code's call order; boxes are grouped by <b>process zone</b></span></td><td><span class=l-ko>번호를 유일한 순서로 두고 존은 위치로 묶어 <b>층 구조를 존으로 보존</b>하였다. 심사자 판정은 <q>not a second sequence</q> 이다</span><span class=l-en>Numbers were kept as the sole ordering device and zones grouped by location, <b>preserving the layer structure as zones</b>. The reviewer's verdict was <q>not a second sequence</q></span></td></tr><tr><td><span class=l-ko>플러그인 층</span><span class=l-en>Plugin layer</span></td><td><span class=l-ko>Content·Snapshot·Diff(Storage) / Images·Containers(Metadata) 서비스 열</span><span class=l-en>Content·Snapshot·Diff (Storage) / Images·Containers (Metadata) service rows</span></td><td><span class=l-ko>daemon 존 안 <code>io.containerd.content.v1</code>·<code>.snapshotter.v1</code>·<code>.metadata.v1</code> 박스(5·6·7)</span><span class=l-en><code>io.containerd.content.v1</code>·<code>.snapshotter.v1</code>·<code>.metadata.v1</code> boxes (5·6·7) inside the daemon zone</span></td><td><span class=l-ko>정답지의 Storage/Metadata 열을 daemon 존 안 <b>같은 플러그인 id</b> 로 옮겨 층 정보를 보존하였다</span><span class=l-en>The answer key's Storage/Metadata rows were moved into the daemon zone under the <b>same plugin IDs</b>, preserving layer information</span></td></tr><tr><td><span class=l-ko>런타임·OS</span><span class=l-en>Runtime / OS</span></td><td><span class=l-ko>아래 Runtimes 박스 + 점선 OS, Tasks→Runtimes 점선</span><span class=l-en>Runtimes box at the bottom + dashed OS, dashed Tasks→Runtimes</span></td><td><span class=l-ko><b>shim 존</b> + <code>runc [external]</code> 점선 육각형, <q>container process child of the shim, not of the daemon</q></span><span class=l-en>A <b>shim zone</b> + dashed <code>runc [external]</code> hexagon, <q>container process child of the shim, not of the daemon</q></span></td><td><span class=l-ko>정답지의 하단 런타임 층을 shim 존으로 표현하였다. runc 는 점선 외부 도형으로 경계를 표시하였다</span><span class=l-en>The answer key's bottom runtime layer is represented as a shim zone. runc is marked with a dashed external shape to show the boundary</span></td></tr><tr><td><span class=l-ko>클라이언트</span><span class=l-en>Client</span></td><td><span class=l-ko><b>없음</b>. GRPC 가 진입점</span><span class=l-en><b>None</b>. GRPC is the entry point</span></td><td><span class=l-ko><b>client 존</b>(2·3·4), <q>pull runs here, not in the daemon</q>, registry 는 client 에만 연결</span><span class=l-en>A <b>client zone</b> (2·3·4), <q>pull runs here, not in the daemon</q>, registry connects only to the client</span></td><td><span class=l-ko>정답지가 그리지 않은 클라이언트 역할을 실행 흐름 관점에서 <b>드러냈다</b></span><span class=l-en>The client role, undrawn in the answer key, is <b>surfaced</b> from the execution-flow viewpoint</span></td></tr><tr><td><span class=l-ko>저장·스냅샷 공유</span><span class=l-en>Storage/snapshot sharing</span></td><td><span class=l-ko>Storage 층에 Content·Snapshot (cylinder 아이콘)</span><span class=l-en>Content·Snapshot (cylinder icons) in the Storage layer</span></td><td><span class=l-ko><code>/var/lib/containerd</code> 존에 <code>blobs/sha256/</code> + <code>redis1</code>/<code>redis2</code> 가 같은 6개 커밋 스냅샷을 가리킴</span><span class=l-en>In the <code>/var/lib/containerd</code> zone, <code>blobs/sha256/</code> + <code>redis1</code>/<code>redis2</code> point to the same 6 committed snapshots</span></td><td><span class=l-ko><q>sharing drawn, not asserted</q>. 공유를 글자 대신 화살표로 그렸다</span><span class=l-en><q>sharing drawn, not asserted</q>. Sharing is drawn with an arrow instead of text</span></td></tr><tr><td><span class=l-ko>표기·범례</span><span class=l-en>Notation / legend</span></td><td><span class=l-ko>회색 상자 층, 점선=외부(OS), cylinder=DB</span><span class=l-en>Grey box layers, dashed = external (OS), cylinder = DB</span></td><td><span class=l-ko>실선 둥근사각=repo 바이너리, 점선=외부, 원통/원=호스트 디렉터리 (범례 박스)</span><span class=l-en>Solid rounded rectangle = repo binary, dashed = external, cylinder/circle = host directory (legend box)</span></td><td><span class=l-ko>두 그림 모두 점선=외부 규칙을 따른다. 스킬은 <code>⊕⊗</code> 특수기호를 금지하므로 도형과 번호만 사용하였다</span><span class=l-en>Both figures follow the dashed = external convention. The skill bans special symbols like <code>⊕⊗</code>, so only shapes and numbers were used</span></td></tr><tr><td><span class=l-ko>종횡비</span><span class=l-en>Aspect ratio</span></td><td><span class=l-ko>가로로 넓은 층 그림 (약 2:1)</span><span class=l-en>A wide layer diagram (about 2:1)</span></td><td><code>1160 × 960</code>, 1.21:1</td><td><span class=l-ko>가독성 바닥값(본문 14px = 폭의 1.21%)이 폭을 1160 으로 제한하였다</span><span class=l-en>The readability floor (body text 14px = 1.21% of width) capped the width at 1160</span></td></tr></table>
 
-<footer>method-figure · T2-4 containerd · 산출물 경로 <code>out/demo/containerd/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T2-4 containerd · 산출물 경로 <code>out/demo/containerd/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T2-4 containerd · output path <code>out/demo/containerd/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "같은 <code>/method-figure</code> 프롬프트이며 대상만 containerd 이다. 이 저장소는 순차 흐름이 아니라 <b>층 구조</b>여서, 스킬이 파이프라인 형태를 강제하는지 확인하는 케이스이다."], ["shots/02-evidence.png", "재료 수집", "<q>I've launched a deep code-trace agent on the containerd tree. While it runs, I'll read the repo's docs and design claims myself.</q> 코드 추적 에이전트를 실행하는 동시에 <code>cmd/containerd/main.go</code> 와 <code>docs/PLUGINS.md</code> 를 직접 읽어 플러그인 구조의 근거를 수집한다."], ["shots/03-decide.png", "층으로 읽었다", "<q>the entire system is organized as a dependency-ordered plugin graph where plugin IDs literally correspond to their on-disk directory names.</q> 한 줄 요약은 <code>server.go#L386</code> 의 플러그인 그래프에서 출발하며, <q>the daemon never actually launches containers itself, that's the shim's job</q> 를 근거로 구조를 <b>흐름이 아닌 층</b>으로 잡는다."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>remove the crossing edge, add the daemon-start edge and the snapshot-parent arrows.</q> 그 뒤 <q>Gate 2 passes. Moving to gate 1/3</q> 를 거쳐 <code>check_layout.py</code> 가 검출한 미연결 도형과 <code>check_render.js</code> 의 교차 화살표를 수정하고, 전용 포트 <code>8913</code> 으로 렌더 검사를 실행한다."], ["shots/06-selfcheck.png", "검사기가 검출하지 못한 것을 육안으로 확인", "<q>the grey arrow into the content store cylinder crosses over the \"d\" in the \"/var/lib/containerd\" label … the checker didn't flag it.</q> 회색 저장 화살표가 디스크 존 <b>제목 글자를 관통</b>하였다. 존 제목을 아래 띠로 내려 화살표가 빈 공간으로 들어오도록 수정하였다."], ["shots/07-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A 6항목·B 6항목·C 5항목 전부 PASS. <q>C1 PASS single ordering device (numbers); zones group by process/location, <b>not a second sequence</b></q>. 번호가 유일한 순서 장치이고 존은 위치 기준으로 묶였다는 판정이다. 심사자에게는 PNG·확대·검사 원문만 전달하였다."], ["shots/09-checks.png", "검사 요약과 리포트 작성", "같은 GATE 채점표가 한 화면에 온다. 심사자의 <b>차단 없음</b> 판정(<q>no blocking items — optional polish only</q>)을 확인하고 <q>Now the report.</q> 로 넘어가 <code>report.md</code> 를 쓰기 시작한다."], ["shots/10-summary.png", "무엇을 그렸나", "<q>What the figure says. T2 (execution flow), 10 steps in the code's call order, three process zones plus the two on-disk directories.</q> 게이트는 <q>① render 1 round · ② check_layout.py ok, 4 rounds · ③ check_render.js flags: [], 3 rounds · ④ independent judge GATE: PASS, round 1</q> 이며, 따라서 <code>render-r1.png</code> 는 만들지 않았다."]];
+const shots=[["shots/01-prompt.png", "프롬프트", "같은 <code>/method-figure</code> 프롬프트이며 대상만 containerd 이다. 이 저장소는 순차 흐름이 아니라 <b>층 구조</b>여서, 스킬이 파이프라인 형태를 강제하는지 확인하는 케이스이다.", "Prompt", "The same <code>/method-figure</code> prompt, targeting containerd only. This repository is a <b>layer structure</b> rather than a sequential flow, so this case checks whether the skill forces a pipeline shape."], ["shots/02-evidence.png", "재료 수집", "<q>I've launched a deep code-trace agent on the containerd tree. While it runs, I'll read the repo's docs and design claims myself.</q> 코드 추적 에이전트를 실행하는 동시에 <code>cmd/containerd/main.go</code> 와 <code>docs/PLUGINS.md</code> 를 직접 읽어 플러그인 구조의 근거를 수집한다.", "Gathering material", "<q>I've launched a deep code-trace agent on the containerd tree. While it runs, I'll read the repo's docs and design claims myself.</q> While running the code-trace agent, it directly reads <code>cmd/containerd/main.go</code> and <code>docs/PLUGINS.md</code> to gather evidence for the plugin structure."], ["shots/03-decide.png", "층으로 읽었다", "<q>the entire system is organized as a dependency-ordered plugin graph where plugin IDs literally correspond to their on-disk directory names.</q> 한 줄 요약은 <code>server.go#L386</code> 의 플러그인 그래프에서 출발하며, <q>the daemon never actually launches containers itself, that's the shim's job</q> 를 근거로 구조를 <b>흐름이 아닌 층</b>으로 잡는다.", "Read as layers", "<q>the entire system is organized as a dependency-ordered plugin graph where plugin IDs literally correspond to their on-disk directory names.</q> The one-line summary starts from the plugin graph at <code>server.go#L386</code>, and on the basis of <q>the daemon never actually launches containers itself, that's the shim's job</q>, it settles the structure as <b>layers, not a flow</b>."], ["shots/05-machine-gates.png", "기계 게이트 통과", "<q>remove the crossing edge, add the daemon-start edge and the snapshot-parent arrows.</q> 그 뒤 <q>Gate 2 passes. Moving to gate 1/3</q> 를 거쳐 <code>check_layout.py</code> 가 검출한 미연결 도형과 <code>check_render.js</code> 의 교차 화살표를 수정하고, 전용 포트 <code>8913</code> 으로 렌더 검사를 실행한다.", "Machine gates passed", "<q>remove the crossing edge, add the daemon-start edge and the snapshot-parent arrows.</q> Then, through <q>Gate 2 passes. Moving to gate 1/3</q>, it fixes the unattached shapes flagged by <code>check_layout.py</code> and the crossing arrow from <code>check_render.js</code>, and runs the render check on dedicated port <code>8913</code>."], ["shots/06-selfcheck.png", "검사기가 검출하지 못한 것을 육안으로 확인", "<q>the grey arrow into the content store cylinder crosses over the \"d\" in the \"/var/lib/containerd\" label … the checker didn't flag it.</q> 회색 저장 화살표가 디스크 존 <b>제목 글자를 관통</b>하였다. 존 제목을 아래 띠로 내려 화살표가 빈 공간으로 들어오도록 수정하였다.", "Visually confirming what the checkers missed", "<q>the grey arrow into the content store cylinder crosses over the \"d\" in the \"/var/lib/containerd\" label … the checker didn't flag it.</q> The grey storage arrow <b>cut through the title text</b> of the disk zone. It fixed this by moving the zone title down to a band below so the arrow enters empty space."], ["shots/07-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A 6항목·B 6항목·C 5항목 전부 PASS. <q>C1 PASS single ordering device (numbers); zones group by process/location, <b>not a second sequence</b></q>. 번호가 유일한 순서 장치이고 존은 위치 기준으로 묶였다는 판정이다. 심사자에게는 PNG·확대·검사 원문만 전달하였다.", "Gate ④ round 1 PASS", "All items passed: A (6 items), B (6 items), C (5 items). <q>C1 PASS single ordering device (numbers); zones group by process/location, <b>not a second sequence</b></q>. The verdict is that the numbers are the sole ordering device and the zones are grouped by location. Only the PNG, a zoomed view, and the raw check output were given to the reviewer."], ["shots/09-checks.png", "검사 요약과 리포트 작성", "같은 GATE 채점표가 한 화면에 온다. 심사자의 <b>차단 없음</b> 판정(<q>no blocking items — optional polish only</q>)을 확인하고 <q>Now the report.</q> 로 넘어가 <code>report.md</code> 를 쓰기 시작한다.", "Check summary and report writing", "The same GATE scorecard appears on one screen. After confirming the reviewer's verdict of <b>no blocking items</b> (<q>no blocking items — optional polish only</q>), it moves on with <q>Now the report.</q> and begins writing <code>report.md</code>."], ["shots/10-summary.png", "무엇을 그렸나", "<q>What the figure says. T2 (execution flow), 10 steps in the code's call order, three process zones plus the two on-disk directories.</q> 게이트는 <q>① render 1 round · ② check_layout.py ok, 4 rounds · ③ check_render.js flags: [], 3 rounds · ④ independent judge GATE: PASS, round 1</q> 이며, 따라서 <code>render-r1.png</code> 는 만들지 않았다.", "What was drawn", "<q>What the figure says. T2 (execution flow), 10 steps in the code's call order, three process zones plus the two on-disk directories.</q> The gates were <q>① render 1 round · ② check_layout.py ok, 4 rounds · ③ check_render.js flags: [], 3 rounds · ④ independent judge GATE: PASS, round 1</q>, so <code>render-r1.png</code> was never produced."]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

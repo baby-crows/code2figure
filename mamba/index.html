@@ -1,8 +1,15 @@
 <!doctype html><html lang=ko><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Mamba-3 — 상태공간 시퀀스 블록 — method-figure 데모</title><script>(function(){try{var t=localStorage.getItem('c2f-theme');
+<title>Mamba-3 — 상태공간 시퀀스 블록 — method-figure</title>
+<meta name=t-ko content="Mamba-3 — 상태공간 시퀀스 블록 — method-figure">
+<meta name=t-en content="Mamba-3 — State-Space Sequence Block — method-figure">
+<script>(function(){try{var t=localStorage.getItem('c2f-theme');
 if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
-document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><style>
+document.documentElement.setAttribute('data-theme',t);}catch(e){}
+var l;try{l=localStorage.getItem('c2f-lang');}catch(e){}
+if(l!=='ko'&&l!=='en')l=(navigator.language||'').toLowerCase().startsWith('ko')?'ko':'en';
+document.documentElement.setAttribute('data-lang',l);
+document.documentElement.setAttribute('lang',l);})();</script><style>
 :root{
   --bg:#141414; --surface:#1F1F1F; --surface2:#242424; --stage:#0F0F0F;
   --border:#303030; --border2:#3D3D3D;
@@ -95,8 +102,17 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #theme .moon{display:none}
 [data-theme=light] #theme .moon{display:block}
 [data-theme=light] #theme .sun{display:none}
+#lang{position:fixed;top:16px;right:104px;z-index:45;display:flex;align-items:center;
+  gap:2px;padding:6px 6px;border:1px solid var(--border2);border-radius:999px;
+  background:var(--surface);box-shadow:var(--shadow)}
+#lang span{padding:3px 10px;border-radius:999px;cursor:pointer;color:var(--fg3);
+  font:600 12.5px/1.35 'Segoe UI',system-ui,sans-serif}
+#lang span:hover{color:var(--fg)}
+[data-lang=ko] #lang .k,[data-lang=en] #lang .e{background:var(--accent-line);color:#fff}
+[data-lang=ko] .l-en{display:none}
+[data-lang=en] .l-ko{display:none}
 @media(max-width:820px){.side{grid-template-columns:1fr}}
-@media print{#theme,#qna,#qna-open{display:none}}
+@media print{#theme,#lang,#qna,#qna-open{display:none}}
 
 #qna-open{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;
   align-items:center;gap:8px;padding:11px 16px;border:1px solid var(--accent-line);
@@ -123,33 +139,46 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);
 #qna .fail{padding:16px;font-size:13px;color:var(--warn);line-height:1.6}
 body.qna-on{overflow-x:hidden}
 @media(min-width:1500px){body.qna-on #qna-open{right:410px}
-  body.qna-on #theme{right:408px}}
+  body.qna-on #theme{right:408px}
+  body.qna-on #lang{right:494px}}
 @media(max-width:600px){#qna{width:100%}}
 </style></head><body>
 <button id=theme type=button aria-label="색 테마 전환">
 <svg class=sun viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1.5a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0v-1.3a.6.6 0 0 1 .6-.6zm0-11a.6.6 0 0 1 .6.6v1.3a.6.6 0 1 1-1.2 0V2.1A.6.6 0 0 1 8 1.5zM14.5 8a.6.6 0 0 1-.6.6h-1.3a.6.6 0 1 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm-11 0a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1 0-1.2h1.3a.6.6 0 0 1 .6.6zm9.1 4.6a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm-7.78-7.78a.6.6 0 0 1-.85 0l-.92-.92a.6.6 0 0 1 .85-.85l.92.92a.6.6 0 0 1 0 .85zm7.78-1.77a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 1 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0zM4.77 10.83a.6.6 0 0 1 0 .85l-.92.92a.6.6 0 0 1-.85-.85l.92-.92a.6.6 0 0 1 .85 0z"/></svg>
 <svg class=moon viewBox="0 0 16 16"><path d="M6.2 2.1a.6.6 0 0 1 .1.7 4.9 4.9 0 0 0 6.6 6.6.6.6 0 0 1 .8.8A6.1 6.1 0 1 1 5.5 2a.6.6 0 0 1 .7.1z"/></svg>
-<span>테마</span></button>
+<span><span class=l-ko>테마</span><span class=l-en>Theme</span></span></button>
 <script>(function(){var b=document.getElementById('theme');
 b.addEventListener('click',function(){
 var r=document.documentElement,t=r.getAttribute('data-theme')==='light'?'dark':'light';
 r.setAttribute('data-theme',t);try{localStorage.setItem('c2f-theme',t);}catch(e){}
-document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script>
+document.dispatchEvent(new CustomEvent('c2f-theme',{detail:t}));});})();</script><div id=lang role=group aria-label="Language">
+<span class=k role=button tabindex=0>KO</span><span class=e role=button tabindex=0>EN</span></div>
+<script>(function(){var r=document.documentElement,w=document.getElementById('lang');
+function title(l){var m=document.querySelector('meta[name=t-'+l+']');
+if(m&&m.content)document.title=m.content;}
+function set(l){r.setAttribute('data-lang',l);r.setAttribute('lang',l);
+try{localStorage.setItem('c2f-lang',l);}catch(e){}title(l);
+document.dispatchEvent(new CustomEvent('c2f-lang',{detail:l}));}
+w.addEventListener('click',function(e){var t=e.target.closest('span');if(!t)return;
+set(t.classList.contains('k')?'ko':'en');});
+w.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;
+var t=e.target.closest('span');if(!t)return;e.preventDefault();
+set(t.classList.contains('k')?'ko':'en');});
+title(r.getAttribute('data-lang'));})();</script>
 <div class=wrap>
 <header>
-<p class=sub><a href="../index.html">← 전체 목록</a> · T1M-4 · T1-M</p>
-<h1>Mamba-3 — 상태공간 시퀀스 블록</h1>
-<p class=sub>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고,
-정답지는 실행 종료 후 대조 목적으로만 열었다.</p>
-<div class=meta><div><b>저장소</b><a href="https://github.com/state-spaces/mamba">state-spaces/mamba</a></div><div><b>커밋</b><code>e9594ce</code></div><div><b>규모</b>107 files, 3.4 MB</div><div><b>유형</b>T1-M · M-P1 직렬 + 가운데 M-P5 시간 롤아웃</div><div><b>정답지</b>Mamba (arXiv:2312.00752) Figure 3</div><div><b>실행 시간</b>약 29분 (15:31 → 16:00) · 프레임 79장</div></div>
+<p class=sub><a href="../index.html"><span class=l-ko>← 전체 목록</span><span class=l-en>← All cases</span></a> · T1M-4 · T1-M</p>
+<h1><span class=l-ko>Mamba-3 — 상태공간 시퀀스 블록</span><span class=l-en>Mamba-3 — State-Space Sequence Block</span></h1>
+<p class=sub><span class=l-ko>스킬 개발에 사용하지 않은 저장소이다. 저장소 코드만 입력으로 사용하였고, 정답지는 실행 종료 후 대조 목적으로만 열었다.</span><span class=l-en>A repository not used while developing the skill. The repository code was the only input; the answer key was opened after the run, for comparison only.</span></p>
+<div class=meta><div><b><span class=l-ko>저장소</span><span class=l-en>Repository</span></b><a href="https://github.com/state-spaces/mamba">state-spaces/mamba</a></div><div><b><span class=l-ko>커밋</span><span class=l-en>Commit</span></b><code>e9594ce</code></div><div><b><span class=l-ko>규모</span><span class=l-en>Size</span></b>107 files, 3.4 MB</div><div><b><span class=l-ko>유형</span><span class=l-en>Type</span></b>T1-M · <span class=l-ko>M-P1 직렬 + 가운데 M-P5 시간 롤아웃</span><span class=l-en>M-P1 serial + M-P5 time rollout in the middle</span></div><div><b><span class=l-ko>정답지</span><span class=l-en>Answer key</span></b>Mamba (arXiv:2312.00752) Figure 3</div><div><b><span class=l-ko>실행 시간</span><span class=l-en>Run time</span></b><span class=l-ko>약 29분 (15:31 → 16:00) · 프레임 79장</span><span class=l-en>about 29 min (15:31 → 16:00) · 79 frames</span></div></div>
 </header>
 
-<h2>블라인드 조건</h2>
-<ul><li>저장소에 <b>세 세대의 코드가 함께 있다</b>: Mamba, Mamba-2, Mamba-3. 어느 것을 그릴지는 코드가 정하게 뒀다.</li><li>README 가 링크한 <code>assets/selection.png</code>·<code>assets/ssd_algorithm.png</code>·<code>assets/mamba3.png</code> 는 <b>열지 않았다</b>. 리포트 기록: <q>the paper, the author figures, and the images that README.md links were not opened.</q></li><li><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는 것을 먼저 확인한 뒤 캡션에 <code>e9594ce</code> 를 넣었다.</li><li>결과적으로 <b>정답지와 다른 세대를 그렸다</b>. 정답지는 Mamba-1 논문의 Figure 3(H3 ⊗ Gated MLP → Mamba)이고, 산출물은 <code>mamba3.py</code> 의 믹서 블록이다. 리포트에 그 선택과 이유를 적었다.</li></ul>
+<h2><span class=l-ko>블라인드 조건</span><span class=l-en>Blind conditions</span></h2>
+<ul><li><span class=l-ko>저장소에 <b>세 세대의 코드가 함께 있다</b>: Mamba, Mamba-2, Mamba-3. 어느 것을 그릴지는 코드가 정하게 뒀다.</span><span class=l-en>The repository <b>contains code from three generations together</b>: Mamba, Mamba-2, Mamba-3. Which one to draw was left for the code to decide.</span></li><li><span class=l-ko>README 가 링크한 <code>assets/selection.png</code>·<code>assets/ssd_algorithm.png</code>·<code>assets/mamba3.png</code> 는 <b>열지 않았다</b>. 리포트 기록: <q>the paper, the author figures, and the images that README.md links were not opened.</q></span><span class=l-en><code>assets/selection.png</code>, <code>assets/ssd_algorithm.png</code>, and <code>assets/mamba3.png</code>, all linked by the README, were <b>never opened</b>. Report log: <q>the paper, the author figures, and the images that README.md links were not opened.</q></span></li><li><span class=l-ko><code>rev-parse --show-toplevel</code> 이 대상 폴더와 일치하는 것을 먼저 확인한 뒤 캡션에 <code>e9594ce</code> 를 넣었다.</span><span class=l-en>First confirmed that <code>rev-parse --show-toplevel</code> matches the target folder, then put <code>e9594ce</code> in the caption.</span></li><li><span class=l-ko>결과적으로 <b>정답지와 다른 세대를 그렸다</b>. 정답지는 Mamba-1 논문의 Figure 3(H3 ⊗ Gated MLP → Mamba)이고, 산출물은 <code>mamba3.py</code> 의 믹서 블록이다. 리포트에 그 선택과 이유를 적었다.</span><span class=l-en>As a result, <b>a different generation from the answer key was drawn</b>. The answer key is Figure 3 of the Mamba-1 paper (H3 ⊗ Gated MLP → Mamba), while the output is the mixer block from <code>mamba3.py</code>. The report records that choice and the reason for it.</span></li></ul>
 
-<h2>프롬프트</h2>
-<p class=sub>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</p>
-<pre class=prompt><button class=copy>복사</button><span>/method-figure
+<h2><span class=l-ko>프롬프트</span><span class=l-en>Prompt</span></h2>
+<p class=sub><span class=l-ko>Scout 신규 세션에 아래 내용만 입력하였다. 무엇을 그릴지는 지정하지 않았다.</span><span class=l-en>This was the only input to a fresh Scout session. What to draw was never specified. The run was driven by the Korean original; the English below is a rendering of it.</span></p>
+<pre class=prompt><button class=copy><span class=l-ko>복사</span><span class=l-en>Copy</span></button><span class="pt l-ko">/method-figure
 
 C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\mamba
 
@@ -168,10 +197,29 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   게이트가 한 번에 통과하면 render-r1.png 는 만들지 않아도 된다.
 - report.md 에는 돌린 검사의 stdout 을 그대로 붙이고, 게이트마다 통과/실패와
   몇 라운드 만에 통과했는지 적는다. 스킬에서 모호했거나 따를 수 없었던 것도
-  적는다.</span></pre>
+  적는다.</span><span class="pt l-en">/method-figure
 
-<h2>실행 경과</h2>
-<p class=sub>캡처 프레임 79장 중 7장을 선별하였다. 좌우 방향키로 이동한다.</p>
+C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\demo\repos\mamba
+
+Read this repository and produce the methodology figure that belongs in the paper&#x27;s Figure 3 slot.
+
+Follow these rules:
+- Read only from this repository&#x27;s code. Do not look up the method&#x27;s paper, the authors&#x27; figures, or external images
+  linked from the repo README. The code decides what to draw.
+- Write all outputs to this folder:
+  C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\out\demo\mamba\run\
+  figure.drawio, fig.html, report.md,
+  evidence.json (the raw material extracted by evidence.py),
+  render.png (a PNG render of the final figure),
+  render-r1.png (the render right before the independent visual gate first passed it).
+  If the gate passes on the first try, you don&#x27;t need to produce render-r1.png.
+- In report.md, paste the stdout of the checks you ran verbatim, and note pass/fail for each gate and
+  how many rounds it took to pass. Also note anything in the skill that was ambiguous or that you
+  couldn&#x27;t follow.</span></pre>
+
+<h2><span class=l-ko>실행 경과</span><span class=l-en>The run</span></h2>
+<p class=sub><span class=l-ko>캡처 프레임 79장 중 7장을 선별하였다.</span><span class=l-en>7 of 79 captured frames were selected.</span>
+<span class=l-ko>좌우 방향키로 이동한다.</span><span class=l-en>Use the left and right arrow keys to move.</span></p>
 <div class=nav><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button></div>
 <div class=stage>
   <div class=bar><span class=pill id=spos></span><h3 id=stitle></h3></div>
@@ -179,57 +227,63 @@ C:\Users\youngseolee\OneDrive - Microsoft\Desktop\work\code\paper-trail\eval\dem
   <div class=cap id=scap></div>
 </div>
 
-<h2>게이트 4종 결과</h2>
-<table><tr><th>게이트</th><th>결과</th><th>라운드</th><th>검출 내용</th></tr><tr><td>① 렌더</td><td>통과</td><td>1</td><td>XML 파싱 + 뷰어 기동 (전용 포트 8907, 파일명 <code>mamba3_blk_q7.html</code>)</td></tr><tr><td>② <code>check_layout.py</code></td><td><code>ok</code> (엣지 24, 라벨 0)</td><td>2</td><td>1라운드에 <b>미검증 커밋 1건</b>과 <b>화살표가 도형 위에 칠해지는 레이어 1건</b>. 범례 그룹의 선 견본이 스와치보다 뒤에 선언돼 있었다</td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>1</td><td>texts 68 · shapes 27 · edges 26. 첫 시도에 비어 있었다</td></tr><tr><td>③-a 라벨 대조</td><td>오타 0건</td><td>1</td><td>XML 라벨을 전부 뽑아 코드 심볼과 1:1 로 대조하였다. <code>nheads = 80</code>, <code>d_state = 128</code>, <code>d_inner = 5120</code> 이 그림·범례·캡션에서 같은 값이다</td></tr><tr><td>④ 독립 시각 게이트</td><td><b>GATE: PASS</b></td><td>1 / 3</td><td>A 6항목·B 6항목·C 5항목 전부 PASS, <q>Things to fix: Empty.</q></td></tr></table>
-<div class=note>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</div>
+<h2><span class=l-ko>게이트 4종 결과</span><span class=l-en>Results at the four gates</span></h2>
+<table><tr><th><span class=l-ko>게이트</span><span class=l-en>Gate</span></th><th><span class=l-ko>결과</span><span class=l-en>Result</span></th>
+<th><span class=l-ko>라운드</span><span class=l-en>Round</span></th><th><span class=l-ko>검출 내용</span><span class=l-en>What it found</span></th></tr><tr><td><span class=l-ko>① 렌더</span><span class=l-en>① Render</span></td><td><span class=l-ko>통과</span><span class=l-en>pass</span></td><td>1</td><td><span class=l-ko>XML 파싱 + 뷰어 기동 (전용 포트 8907, 파일명 <code>mamba3_blk_q7.html</code>)</span><span class=l-en>XML parse + viewer launch (dedicated port 8907, filename <code>mamba3_blk_q7.html</code>)</span></td></tr><tr><td>② <code>check_layout.py</code></td><td><span class=l-ko><code>ok</code> (엣지 24, 라벨 0)</span><span class=l-en><code>ok</code> (24 edges, 0 labels)</span></td><td>2</td><td><span class=l-ko>1라운드에 <b>미검증 커밋 1건</b>과 <b>화살표가 도형 위에 칠해지는 레이어 1건</b>. 범례 그룹의 선 견본이 스와치보다 뒤에 선언돼 있었다</span><span class=l-en>Round 1: <b>1 unverified commit</b> and <b>1 layer where an arrow is painted over a shape</b>. The legend group's line swatch was declared after the color swatch</span></td></tr><tr><td>③ <code>check_render.js</code></td><td><code>flags: []</code></td><td>1</td><td><span class=l-ko>texts 68 · shapes 27 · edges 26. 첫 시도에 비어 있었다</span><span class=l-en>texts 68 · shapes 27 · edges 26. Empty on the first attempt</span></td></tr><tr><td><span class=l-ko>③-a 라벨 대조</span><span class=l-en>③-a label cross-check</span></td><td><span class=l-ko>오타 0건</span><span class=l-en>0 typos</span></td><td>1</td><td><span class=l-ko>XML 라벨을 전부 뽑아 코드 심볼과 1:1 로 대조하였다. <code>nheads = 80</code>, <code>d_state = 128</code>, <code>d_inner = 5120</code> 이 그림·범례·캡션에서 같은 값이다</span><span class=l-en>All XML labels were extracted and cross-checked 1:1 against code symbols. <code>nheads = 80</code>, <code>d_state = 128</code>, <code>d_inner = 5120</code> match across the figure, legend, and caption</span></td></tr><tr><td><span class=l-ko>④ 독립 시각 게이트</span><span class=l-en>④ independent visual gate</span></td><td><b>GATE: PASS</b></td><td>1 / 3</td><td><span class=l-ko>A 6항목·B 6항목·C 5항목 전부 PASS, <q>Things to fix: Empty.</q></span><span class=l-en>A (6 items), B (6 items), C (5 items) all PASS, <q>Things to fix: Empty.</q></span></td></tr></table>
+<div class=note><span class=l-ko>심사자에게는 렌더 PNG 와 검사 원문만 제공하고 <b>보고서·의도·단계 분해는 제공하지 않는다.</b> 자체 점검 항목을 44개까지 확대해도 통과율이 개선되지 않아, 점검 항목이 아니라 판정 주체를 분리하는 방식으로 변경하였다.</span><span class=l-en>The reviewer is given the rendered PNG and the raw checker output only — <b>no report, no stated intent, no step-by-step breakdown.</b> Growing the self-check list to 44 items did not improve the pass rate, so what was separated was the party doing the judging, not the checklist.</span></div>
 
 
-<h2>최종 산출물</h2>
-<p class=sub>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</p>
+<h2><span class=l-ko>최종 산출물</span><span class=l-en>Final output</span></h2>
+<p class=sub><span class=l-ko>산출물은 이미지가 아니라 draw.io XML 이다. 확대·이동이 가능하며 내려받아 수정할 수 있다.</span><span class=l-en>The output is draw.io XML, not an image. It zooms and pans, and it can be downloaded and edited.</span></p>
 
 
 <iframe src="run/fig.html" title="figure"></iframe>
 <p class=sub><a href="run/figure.drawio">figure.drawio</a> ·
 <a href="run/report.md">report.md</a> ·
-<a href="run/fig.html">뷰어 새 창</a></p>
+<a href="run/fig.html"><span class=l-ko>뷰어 새 창</span><span class=l-en>Viewer in a new tab</span></a></p>
 
-<h2>정답지 대조</h2>
-<div class=side><figure><img src="ours.png" alt="ours"><figcaption>스킬 산출물 (저장소 코드만 입력)</figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption>정답지 — Mamba (arXiv:2312.00752) Figure 3</figcaption></figure></div>
-<table><tr><th>항목</th><th>정답지</th><th>산출물</th><th>비고</th></tr><tr><td>무엇을 그렸나</td><td>Mamba-1 블록의 <b>계보</b>: H3 ⊗ Gated MLP → Mamba 3패널</td><td>Mamba-3 믹서 블록 <b>하나</b>의 내부</td><td>정답지가 다른 세대다. 저장소에 세 세대가 다 있고 <b>코드가 골랐다</b></td></tr><tr><td>박스 안 내용</td><td><code>SSM</code>, <code>Conv</code>, 사다리꼴 (숫자 없음)</td><td><code>2560 → 10768</code>, <code>d_state 128</code>, <code>nheads 80</code>, <code>64 × 128</code></td><td>T1-M 은 텐서와 설정값을 넣는다. 전부 <code>config_mamba.py</code> 기본값에서 역산된다</td></tr><tr><td>입력 분기</td><td>선형 투영 두 갈래가 갈라짐</td><td>한 번의 bias-free 투영 → <b>여덟 조각</b> <code>z, x, B, C, Δ, A, λ, θ</code></td><td><code>torch.split</code> 폭 순서를 그대로 옮겼다 (<code>mamba3.py#L106,L177-L186</code>)</td></tr><tr><td>비선형 표기</td><td>원 안에 <code>⊗</code> 글리프</td><td>원을 쓰지 않고 <b>수식으로</b>: <code>w · x B^T</code></td><td>세 입력이 곱으로 합쳐지므로 <code>+</code> 원은 틀린 진술이 된다. 관례를 어긴 자리와 이유를 리포트에 적었다</td></tr><tr><td>무엇이 새로운가</td><td>표시 없음 (세 블록 나란히 두는 것이 비교다)</td><td><b>따뜻한 색 = <code>mamba3.py</code> 에 있고 <code>mamba2.py</code> 에 없는 것</b></td><td>색이 <b>검증 가능한 주장</b>이 됐다. 독자가 두 파일을 열어 확인할 수 있다</td></tr><tr><td>반복</td><td><q>repeat the Mamba block homogenously</q> (캡션 문장)</td><td>겹친 판 + <code>× R state copies</code></td><td>MIMO rank 를 도형으로 표현하였다. 근거는 <code>mimo_rank</code>·<code>mimo_x/z/o</code></td></tr><tr><td>안 그린 것</td><td>없음</td><td>청킹(<code>chunk_size = 64</code>)을 <b>안 그렸다</b></td><td>알고리즘 주장이지 블록 구조 주장이 아니라고 판단하고, <b>그 판단을 리포트에 적었다</b></td></tr><tr><td>종횡비</td><td>가로 (3패널 나란히)</td><td>820 × 1192 세로, 아래→위로 읽힘</td><td>관례 D: 폭보다 높으면 아래→위. Transformer·DINO·MoCo 와 방향이 같다</td></tr></table>
+<h2><span class=l-ko>정답지 대조</span><span class=l-en>Against the answer key</span></h2>
+<div class=side><figure><img src="ours.png" alt="ours"><figcaption><span class=l-ko>스킬 산출물 (저장소 코드만 입력)</span><span class=l-en>Skill output (repository code was the only input)</span></figcaption></figure><figure><img src="key.png" alt="answer key"><figcaption><span class=l-ko>정답지</span><span class=l-en>Answer key</span> — Mamba (arXiv:2312.00752) Figure 3</figcaption></figure></div>
+<table><tr><th><span class=l-ko>항목</span><span class=l-en>Element</span></th><th><span class=l-ko>정답지</span><span class=l-en>Answer key</span></th>
+<th><span class=l-ko>산출물</span><span class=l-en>Our figure</span></th><th><span class=l-ko>비고</span><span class=l-en>Note</span></th></tr><tr><td><span class=l-ko>무엇을 그렸나</span><span class=l-en>What was drawn</span></td><td><span class=l-ko>Mamba-1 블록의 <b>계보</b>: H3 ⊗ Gated MLP → Mamba 3패널</span><span class=l-en><b>lineage</b> of the Mamba-1 block: H3 ⊗ Gated MLP → Mamba, 3 panels</span></td><td><span class=l-ko>Mamba-3 믹서 블록 <b>하나</b>의 내부</span><span class=l-en>the inside of a <b>single</b> Mamba-3 mixer block</span></td><td><span class=l-ko>정답지가 다른 세대다. 저장소에 세 세대가 다 있고 <b>코드가 골랐다</b></span><span class=l-en>The answer key is a different generation. All three generations exist in the repository, and <b>the code chose</b></span></td></tr><tr><td><span class=l-ko>박스 안 내용</span><span class=l-en>Box contents</span></td><td><span class=l-ko><code>SSM</code>, <code>Conv</code>, 사다리꼴 (숫자 없음)</span><span class=l-en><code>SSM</code>, <code>Conv</code>, trapezoid (no numbers)</span></td><td><code>2560 → 10768</code>, <code>d_state 128</code>, <code>nheads 80</code>, <code>64 × 128</code></td><td><span class=l-ko>T1-M 은 텐서와 설정값을 넣는다. 전부 <code>config_mamba.py</code> 기본값에서 역산된다</span><span class=l-en>T1-M puts in tensors and config values. All back-derived from <code>config_mamba.py</code> defaults</span></td></tr><tr><td><span class=l-ko>입력 분기</span><span class=l-en>Input branching</span></td><td><span class=l-ko>선형 투영 두 갈래가 갈라짐</span><span class=l-en>two linear-projection branches splitting</span></td><td><span class=l-ko>한 번의 bias-free 투영 → <b>여덟 조각</b> <code>z, x, B, C, Δ, A, λ, θ</code></span><span class=l-en>one bias-free projection → <b>eight pieces</b>: <code>z, x, B, C, Δ, A, λ, θ</code></span></td><td><span class=l-ko><code>torch.split</code> 폭 순서를 그대로 옮겼다 (<code>mamba3.py#L106,L177-L186</code>)</span><span class=l-en>The <code>torch.split</code> width order was carried over as-is (<code>mamba3.py#L106,L177-L186</code>)</span></td></tr><tr><td><span class=l-ko>비선형 표기</span><span class=l-en>Nonlinearity notation</span></td><td><span class=l-ko>원 안에 <code>⊗</code> 글리프</span><span class=l-en><code>⊗</code> glyph in a circle</span></td><td><span class=l-ko>원을 쓰지 않고 <b>수식으로</b>: <code>w · x B^T</code></span><span class=l-en>no circle, expressed <b>as a formula</b>: <code>w · x B^T</code></span></td><td><span class=l-ko>세 입력이 곱으로 합쳐지므로 <code>+</code> 원은 틀린 진술이 된다. 관례를 어긴 자리와 이유를 리포트에 적었다</span><span class=l-en>Since the three inputs combine <b>multiplicatively</b>, a <code>+</code> circle would be a false statement. Where and why the convention was broken is recorded in the report</span></td></tr><tr><td><span class=l-ko>무엇이 새로운가</span><span class=l-en>What is new</span></td><td><span class=l-ko>표시 없음 (세 블록 나란히 두는 것이 비교다)</span><span class=l-en>no markup (comparison is drawn by placing the three blocks side by side)</span></td><td><span class=l-ko><b>따뜻한 색 = <code>mamba3.py</code> 에 있고 <code>mamba2.py</code> 에 없는 것</b></span><span class=l-en><b>warm color = present in <code>mamba3.py</code> and absent from <code>mamba2.py</code></b></span></td><td><span class=l-ko>색이 <b>검증 가능한 주장</b>이 됐다. 독자가 두 파일을 열어 확인할 수 있다</span><span class=l-en>Color becomes a <b>verifiable claim</b>. The reader can open both files and check</span></td></tr><tr><td><span class=l-ko>반복</span><span class=l-en>Repetition</span></td><td><span class=l-ko><q>repeat the Mamba block homogenously</q> (캡션 문장)</span><span class=l-en><q>repeat the Mamba block homogenously</q> (caption sentence)</span></td><td><span class=l-ko>겹친 판 + <code>× R state copies</code></span><span class=l-en>overlapping plates + <code>× R state copies</code></span></td><td><span class=l-ko>MIMO rank 를 도형으로 표현하였다. 근거는 <code>mimo_rank</code>·<code>mimo_x/z/o</code></span><span class=l-en>MIMO rank is expressed as a shape. Grounded in <code>mimo_rank</code> and <code>mimo_x/z/o</code></span></td></tr><tr><td><span class=l-ko>안 그린 것</span><span class=l-en>What was not drawn</span></td><td><span class=l-ko>없음</span><span class=l-en>none</span></td><td><span class=l-ko>청킹(<code>chunk_size = 64</code>)을 <b>안 그렸다</b></span><span class=l-en>chunking (<code>chunk_size = 64</code>) was <b>not drawn</b></span></td><td><span class=l-ko>알고리즘 주장이지 블록 구조 주장이 아니라고 판단하고, <b>그 판단을 리포트에 적었다</b></span><span class=l-en>Judged to be an algorithmic claim rather than a block-structure claim, and <b>that judgment was recorded in the report</b></span></td></tr><tr><td><span class=l-ko>종횡비</span><span class=l-en>Aspect ratio</span></td><td><span class=l-ko>가로 (3패널 나란히)</span><span class=l-en>horizontal (3 panels side by side)</span></td><td><span class=l-ko>820 × 1192 세로, 아래→위로 읽힘</span><span class=l-en>820 × 1192 vertical, read bottom-to-top</span></td><td><span class=l-ko>관례 D: 폭보다 높으면 아래→위. Transformer·DINO·MoCo 와 방향이 같다</span><span class=l-en>Convention D: taller than wide reads bottom-to-top. Same direction as Transformer, DINO, MoCo</span></td></tr></table>
 
-<footer>method-figure · T1M-4 mamba · 산출물 경로 <code>out/demo/mamba/</code>.
-정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</footer>
+<footer><span class=l-ko>method-figure · T1M-4 mamba · 산출물 경로 <code>out/demo/mamba/</code>. 정답지는 제3자 저작물이므로 로컬 대조 용도로만 보관하며 재배포하지 않는다.</span><span class=l-en>method-figure · T1M-4 mamba · output path <code>out/demo/mamba/</code>. The answer key is a third-party work, kept locally for comparison only and not redistributed.</span></footer>
 </div>
 <script>
-const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건. <q>이 저장소의 코드에서만 읽는다 … 무엇을 그릴지는 코드가 정한다.</q> 세 세대가 한 트리에 들어 있는 저장소라 <b>어느 것을 그릴지부터</b>가 판단이다."], ["shots/02-evidence.png", "무엇이 새로운가부터 찾는다", "<q>I'm identifying the key differences from Mamba-2: rotary-style rotation on B/C, trapezoidal discretization gating, multi-input multi-output rank-R state updates instead of rank-1, heavy-tail activation for data-dependent A, and RMSNorm on B/C.</q> 무엇을 그릴지에 앞서 <b>이 파일의 기여가 무엇인지</b>를 먼저 세운다."], ["shots/03-decide.png", "색이 무엇을 주장할지 정한다", "<q>I'm also considering whether to color-code boxes to distinguish Mamba-3's new additions (rotation, trapezoidal discretization, heavy-tailed A, MIMO, B/C normalization) from what's inherited from Mamba-2, so I want to check <code>mamba2.py</code> directly.</q> 따뜻한 색 = <code>mamba3.py</code> 에 있고 <code>mamba2.py</code> 에 없는 것. <b>독자가 두 파일로 검증할 수 있는 주장</b>이 된다."], ["shots/04-machine-gates.png", "기계 검사 다음은 자체 육안 점검", "<q>I'll instead focus my effort on double-checking the ③-a spelling and re-rendering that piece before moving on to run the gate check.</q> <code>check_render.js</code> 가 <code>flags: []</code> 로 통과한 뒤에도 라벨 철자를 코드 심볼과 다시 맞춘다."], ["shots/05-gate4-submit.png", "심사자에게 넘기는 것", "확대 3장(<code>zoom-top</code>·<code>zoom-mid</code>·<code>zoom-bot</code>)과 <code>render.png</code>, 그리고 루브릭 <code>visual-gate.md</code> 만 읽어서 별도 에이전트에 넘긴다. <b>보고서도 의도도 넘기지 않는다.</b>"], ["shots/06-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A·B·C 17항목 전부 PASS, <q>Things to fix: Empty.</q> 그런데 스스로 이렇게 적는다: <q>The judge's report is terse and lacks coordinates, which makes me a little cautious, but since it's the independent gate and it passed on the first round, I'll accept it and record the verbatim output <b>while noting how thin the detail is</b>.</q>"], ["shots/07-figure.png", "무엇을 왜 그렸나", "<q>T1-M (the repo defines <code>class Mamba3(nn.Module)</code> with its own <code>forward()</code>; zero API clients), topology M-P1 serial with an M-P5 time rollout in the middle. Only repo code was read — the paper and <code>assets/*.png</code> were never opened.</q> 게이트 넷의 결과를 요약하지 않고 <b>숫자 그대로</b> 적는다."]];
+const shots=[["shots/01-prompt.png", "프롬프트", "저장소 절대경로 + 산출물 경로 + 블라인드 조건. <q>이 저장소의 코드에서만 읽는다 … 무엇을 그릴지는 코드가 정한다.</q> 세 세대가 한 트리에 들어 있는 저장소라 <b>어느 것을 그릴지부터</b>가 판단이다.", "Prompt", "Repository absolute path + output path + blind conditions. <q>Read only from this repository's code … the code decides what to draw.</q> Since three generations sit in one tree, <b>which one to draw</b> is itself the first judgment call."], ["shots/02-evidence.png", "무엇이 새로운가부터 찾는다", "<q>I'm identifying the key differences from Mamba-2: rotary-style rotation on B/C, trapezoidal discretization gating, multi-input multi-output rank-R state updates instead of rank-1, heavy-tail activation for data-dependent A, and RMSNorm on B/C.</q> 무엇을 그릴지에 앞서 <b>이 파일의 기여가 무엇인지</b>를 먼저 세운다.", "Starting from what is new", "<q>I'm identifying the key differences from Mamba-2: rotary-style rotation on B/C, trapezoidal discretization gating, multi-input multi-output rank-R state updates instead of rank-1, heavy-tail activation for data-dependent A, and RMSNorm on B/C.</q> Before deciding what to draw, it first establishes <b>what this file's contribution is</b>."], ["shots/03-decide.png", "색이 무엇을 주장할지 정한다", "<q>I'm also considering whether to color-code boxes to distinguish Mamba-3's new additions (rotation, trapezoidal discretization, heavy-tailed A, MIMO, B/C normalization) from what's inherited from Mamba-2, so I want to check <code>mamba2.py</code> directly.</q> 따뜻한 색 = <code>mamba3.py</code> 에 있고 <code>mamba2.py</code> 에 없는 것. <b>독자가 두 파일로 검증할 수 있는 주장</b>이 된다.", "Deciding what color should assert", "<q>I'm also considering whether to color-code boxes to distinguish Mamba-3's new additions (rotation, trapezoidal discretization, heavy-tailed A, MIMO, B/C normalization) from what's inherited from Mamba-2, so I want to check <code>mamba2.py</code> directly.</q> Warm color = present in <code>mamba3.py</code> and absent from <code>mamba2.py</code>. This becomes <b>a claim the reader can verify against the two files</b>."], ["shots/04-machine-gates.png", "기계 검사 다음은 자체 육안 점검", "<q>I'll instead focus my effort on double-checking the ③-a spelling and re-rendering that piece before moving on to run the gate check.</q> <code>check_render.js</code> 가 <code>flags: []</code> 로 통과한 뒤에도 라벨 철자를 코드 심볼과 다시 맞춘다.", "After the machine checks comes the self visual check", "<q>I'll instead focus my effort on double-checking the ③-a spelling and re-rendering that piece before moving on to run the gate check.</q> Even after <code>check_render.js</code> passed with <code>flags: []</code>, label spelling is matched against code symbols again."], ["shots/05-gate4-submit.png", "심사자에게 넘기는 것", "확대 3장(<code>zoom-top</code>·<code>zoom-mid</code>·<code>zoom-bot</code>)과 <code>render.png</code>, 그리고 루브릭 <code>visual-gate.md</code> 만 읽어서 별도 에이전트에 넘긴다. <b>보고서도 의도도 넘기지 않는다.</b>", "What gets handed to the reviewer", "3 zoom crops (<code>zoom-top</code>·<code>zoom-mid</code>·<code>zoom-bot</code>) and <code>render.png</code>, plus only the <code>visual-gate.md</code> rubric, handed to a separate agent. <b>Neither the report nor the intent is passed along.</b>"], ["shots/06-gate4-pass.png", "게이트 ④ 1라운드 PASS", "A·B·C 17항목 전부 PASS, <q>Things to fix: Empty.</q> 그런데 스스로 이렇게 적는다: <q>The judge's report is terse and lacks coordinates, which makes me a little cautious, but since it's the independent gate and it passed on the first round, I'll accept it and record the verbatim output <b>while noting how thin the detail is</b>.</q>", "Gate ④ round 1 PASS", "17 items across A·B·C all PASS, <q>Things to fix: Empty.</q> Yet the run itself notes: <q>The judge's report is terse and lacks coordinates, which makes me a little cautious, but since it's the independent gate and it passed on the first round, I'll accept it and record the verbatim output <b>while noting how thin the detail is</b>.</q>"], ["shots/07-figure.png", "무엇을 왜 그렸나", "<q>T1-M (the repo defines <code>class Mamba3(nn.Module)</code> with its own <code>forward()</code>; zero API clients), topology M-P1 serial with an M-P5 time rollout in the middle. Only repo code was read — the paper and <code>assets/*.png</code> were never opened.</q> 게이트 넷의 결과를 요약하지 않고 <b>숫자 그대로</b> 적는다.", "What was drawn and why", "<q>T1-M (the repo defines <code>class Mamba3(nn.Module)</code> with its own <code>forward()</code>; zero API clients), topology M-P1 serial with an M-P5 time rollout in the middle. Only repo code was read — the paper and <code>assets/*.png</code> were never opened.</q> Instead of summarizing the four gates' results, it states them <b>as raw numbers</b>."]];
 let i=0;
 const img=document.getElementById('shot'),ttl=document.getElementById('stitle'),
       cap=document.getElementById('scap'),pos=document.getElementById('spos'),
       btns=[...document.querySelectorAll('.nav button')];
+function en(){return document.documentElement.getAttribute('data-lang')==='en';}
 function go(n){
   i=(n+shots.length)%shots.length;
-  img.src=shots[i][0];img.alt=shots[i][1];
-  ttl.textContent=shots[i][1];cap.innerHTML=shots[i][2];
+  const s=shots[i],o=en()?3:1;
+  img.src=s[0];img.alt=s[o];
+  ttl.textContent=s[o];cap.innerHTML=s[o+1];
   pos.textContent=(i+1)+' / '+shots.length;
   btns.forEach((b,k)=>b.setAttribute('aria-current',k===i));
-  btns[i].scrollIntoView({block:'nearest',inline:'nearest'});
 }
-btns.forEach((b,k)=>b.onclick=()=>go(k));
+btns.forEach((b,k)=>b.onclick=()=>{go(k);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});});
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight')go(i+1);
-  if(e.key==='ArrowLeft')go(i-1);
+  if(e.key==='ArrowRight'){go(i+1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
+  if(e.key==='ArrowLeft'){go(i-1);btns[i].scrollIntoView({block:'nearest',inline:'nearest'});}
 });
 go(0);
+// the caption text lives in js, so the css language swap cannot reach it
+document.addEventListener('c2f-lang',()=>go(i));
 document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-  navigator.clipboard.writeText(b.nextElementSibling.textContent.trim());
-  const t=b.textContent;b.textContent='복사됨';setTimeout(()=>b.textContent=t,1200);
+  const src=b.parentElement.querySelector(en()?'.pt.l-en':'.pt.l-ko')||b.nextElementSibling;
+  navigator.clipboard.writeText(src.textContent.trim());
+  const t=b.innerHTML;b.textContent=en()?'Copied':'복사됨';
+  setTimeout(()=>b.innerHTML=t,1200);
 });
 </script>
-<button id=qna-open type=button aria-controls=qna><span class=dot></span>Code2Figure 도우미</button>
+<button id=qna-open type=button aria-controls=qna><span class=dot></span><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></button>
 <aside id=qna aria-hidden=true aria-label="Code2Figure 도우미">
-  <div class=head><div><b>Code2Figure 도우미</b><span>스킬 동작 원리를 물어보세요</span></div>
-    <button type=button aria-label="닫기">&times;</button></div>
-  <div class=note>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</div>
+  <div class=head><div><b><span class=l-ko>Code2Figure 도우미</span><span class=l-en>Code2Figure assistant</span></b><span><span class=l-ko>스킬 동작 원리를 물어보세요</span><span class=l-en>Ask how the skill works</span></span></div>
+    <button type=button aria-label="Close">&times;</button></div>
+  <div class=note><span class=l-ko>이 스킬이 코드에서 어떻게 도면을 만드는지 물어보세요.</span><span class=l-en>Ask how this skill turns code into a figure.</span></div>
   <div class=box></div>
 </aside>
 <script src="../chat.js"></script>

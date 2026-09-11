@@ -87,7 +87,7 @@
         });
         render();
       } catch (e) {
-        fail('채팅을 시작하지 못했습니다: ' + e.message);
+        fail('채팅을 시작하지 못했습니다 / could not start chat: ' + e.message);
       }
     };
     document.head.appendChild(s);
